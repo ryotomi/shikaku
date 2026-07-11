@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>権利関係まとめ — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height:100vh; display:flex; align-items:center; justify-content:center; color:#8a8a8a; font-family:"Hiragino Sans",sans-serif; font-size:0.95rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .related-card { background: var(--color-white); border: 1px solid var(--color-border); border-top: 3px solid var(--color-primary); padding: 1rem 1.2rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.15s; }
+    .related-card:hover { box-shadow: 0 2px 8px rgba(43,75,110,0.1); color: inherit; }
+    .related-card-title { font-family: var(--font-accent); font-size: 0.95rem; color: var(--color-primary); }
+    .related-card-arrow { font-size: 0.8rem; color: var(--color-accent); margin-top: 0.4rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey:"AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:"dev-smoke-308500.firebaseapp.com",
+      projectId:"dev-smoke-308500",
+      storageBucket:"dev-smoke-308500.firebasestorage.app",
+      messagingSenderId:"787519016500",
+      appId:"1:787519016500:web:decc4d4a20145659f44461",
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">宅地建物取引士（宅建）権利関係</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="index.html">宅建</a></li>
+          <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+          <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+          <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- 科目概要 -->
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">宅建</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>権利関係</span>
+          </div>
+          <h2 class="section-title">権利関係とは</h2>
+          <p class="lead">民法を中心に、借地借家法・区分所有法・不動産登記法を含む科目（50問中14問）。民法の難易度が高く差がつきやすい。</p>
+          <div class="notice"><strong>民法は2020年改正後の内容</strong>（契約不適合責任・意思表示の改正等）から出題されます。</div>
+        </div>
+      </section>
+
+      <!-- 物権変動と対抗要件 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">物権変動と対抗要件</h2>
+          <div class="notice">不動産の物権変動は<strong>登記が対抗要件</strong>。「登記なくして対抗できない第三者」は、正当な利益を有する第三者に限る。</div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>区分</th><th>相手方</th></tr></thead>
+              <tbody>
+                <tr><td>登記なしで対抗できる相手</td><td>不法占拠者・不法行為者・詐欺・強迫による取消し前の第三者等</td></tr>
+                <tr><td>登記なしで対抗できない相手</td><td>二重譲渡の先の買主・差押債権者・仮差押債権者</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">二重譲渡の場合、<strong>先に登記した方が優先。</strong>「悪意」でも先に登記すれば優先（背信的悪意者を除く）。</div>
+        </div>
+      </section>
+
+      <!-- 抵当権 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">抵当権</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>性質</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>付従性</td><td>被担保債権が消滅すると抵当権も消滅</td></tr>
+                <tr><td>随伴性</td><td>被担保債権が移転すると抵当権も移転</td></tr>
+                <tr><td>不可分性</td><td>債権全額の弁済まで目的物全体に効力</td></tr>
+                <tr><td>物上代位性</td><td>目的物の売却・賃料・保険金等に及ぶ（<strong>払渡し前に差押えが必要</strong>）</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>法定地上権の成立要件：</strong>①抵当権設定時に土地と建物が存在、②同一所有者、③競売後に所有者が別人になった場合。</div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>抵当権の順位</td><td>登記の先後（先順位が優先）</td></tr>
+                <tr><td>順位の譲渡</td><td>後順位者に優先順位を譲渡可能</td></tr>
+                <tr><td>抵当権消滅請求</td><td>第三取得者が鑑定価格等で買い取ることを申し出る制度</td></tr>
+                <tr><td>代価弁済</td><td>第三取得者が所有者に支払った代価を抵当権者に弁済</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 借地権 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">借地権の種類</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>種類</th><th>存続期間</th><th>更新</th><th>形式</th><th>終了時</th></tr></thead>
+              <tbody>
+                <tr><td>普通借地権</td><td>30年以上（自動更新あり）</td><td>あり</td><td>書面不要</td><td>建物買取請求可</td></tr>
+                <tr><td>一般定期借地権</td><td>50年以上</td><td>なし</td><td>書面必要</td><td>建物買取請求不可</td></tr>
+                <tr><td>建物譲渡特約付借地権</td><td>30年以上</td><td>なし</td><td>書面不要</td><td>建物を地主が買取</td></tr>
+                <tr><td>事業用定期借地権</td><td>10年以上50年未満</td><td>なし</td><td><strong>公正証書必要</strong></td><td>事業用のみ</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>普通借地権の更新後期間：1回目20年・2回目以降10年。</strong>正当事由なく地主は更新拒絶不可。</div>
+        </div>
+      </section>
+
+      <!-- 借家権 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">借家権（建物賃貸借）</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>普通借家権</th><th>定期建物賃貸借</th></tr></thead>
+              <tbody>
+                <tr><td>更新</td><td>あり（正当事由主義）</td><td>なし</td></tr>
+                <tr><td>書面要件</td><td>不要</td><td><strong>公正証書等の書面必要</strong></td></tr>
+                <tr><td>事前説明</td><td>不要</td><td><strong>別紙による書面説明が必要</strong>（口頭不可）</td></tr>
+                <tr><td>解約予告</td><td>貸主6か月前・借主1か月前</td><td>原則中途解約不可（特約あれば可）</td></tr>
+                <tr><td>中途解約特則</td><td>なし</td><td>居住用200㎡未満なら1か月前予告で解約可</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">定期建物賃貸借は<strong>「書面」「書面による事前説明（別紙）」の2つが必要。</strong>事前説明は賃貸借契約書と別の書面で行う。</div>
+        </div>
+      </section>
+
+      <!-- 区分所有法 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">区分所有法</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>決議の種類</th><th>要件</th><th>主な事項</th></tr></thead>
+              <tbody>
+                <tr><td>普通決議</td><td>区分所有者数と議決権の各<strong>過半数</strong></td><td>管理者の選任等</td></tr>
+                <tr><td>特別決議（3/4）</td><td>区分所有者数と議決権の各<strong>3/4以上</strong></td><td>規約の設定・変更・廃止、共用部分の変更</td></tr>
+                <tr><td>建替え決議</td><td>区分所有者数と議決権の各<strong>4/5以上</strong></td><td>建物の建替え</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">「<strong>管理組合</strong>」は区分所有者全員が強制加入。「<strong>管理者</strong>」は管理組合が選任する（区分所有者でなくてもよい）。</div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>共用部分の持分</td><td>専有部分の床面積割合に応じる（規約で別段の定め可）</td></tr>
+                <tr><td>敷地利用権</td><td>専有部分と分離して処分不可（規約で別段の定めない限り）</td></tr>
+                <tr><td>管理費等</td><td>滞納した場合、<strong>特定承継人（新区分所有者）も支払義務あり</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 不動産登記 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">不動産登記</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>公示力</td><td>あり</td></tr>
+                <tr><td>公信力</td><td><strong>なし</strong>（登記を信じて取引しても保護されない場合あり）</td></tr>
+                <tr><td>登記事項証明書</td><td>何人でも手数料を納付して交付請求可能</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>登記の種類</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>表題登記</td><td>不動産の物理的状況（所在・地番・地目・地積・構造等）</td></tr>
+                <tr><td>所有権保存登記</td><td>最初の所有権の登記（甲区）</td></tr>
+                <tr><td>所有権移転登記</td><td>売買・相続等による所有権の変更（甲区）</td></tr>
+                <tr><td>抵当権設定登記</td><td>抵当権の登記（乙区）</td></tr>
+                <tr><td>仮登記</td><td>本登記の順位を保全する。<strong>対抗力はなし</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 関連ページ -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">他の科目まとめ</h2>
+          <div class="related-grid">
+            <a class="related-card" href="gyoho.html">
+              <div class="related-card-title">宅建業法</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="horei.html">
+              <div class="related-card-title">法令上の制限</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="zei.html">
+              <div class="related-card-title">税・その他</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 宅地建物取引士（宅建）</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（RETIO）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

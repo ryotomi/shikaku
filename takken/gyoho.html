@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宅建業法まとめ — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height:100vh; display:flex; align-items:center; justify-content:center; color:#8a8a8a; font-family:"Hiragino Sans",sans-serif; font-size:0.95rem; }
+    ol.method-list { padding-left: 1.4rem; display: flex; flex-direction: column; gap: 0.4rem; margin: 0.8rem 0; }
+    ol.method-list li { font-size: 0.92rem; color: var(--color-text); line-height: 1.8; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .related-card { background: var(--color-white); border: 1px solid var(--color-border); border-top: 3px solid var(--color-primary); padding: 1rem 1.2rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.15s; }
+    .related-card:hover { box-shadow: 0 2px 8px rgba(43,75,110,0.1); color: inherit; }
+    .related-card-title { font-family: var(--font-accent); font-size: 0.95rem; color: var(--color-primary); }
+    .related-card-arrow { font-size: 0.8rem; color: var(--color-accent); margin-top: 0.4rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey:"AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:"dev-smoke-308500.firebaseapp.com",
+      projectId:"dev-smoke-308500",
+      storageBucket:"dev-smoke-308500.firebasestorage.app",
+      messagingSenderId:"787519016500",
+      appId:"1:787519016500:web:decc4d4a20145659f44461",
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">宅地建物取引士（宅建）宅建業法</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="index.html">宅建</a></li>
+          <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+          <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+          <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- 科目概要 -->
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">宅建</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>宅建業法</span>
+          </div>
+          <h2 class="section-title">宅建業法とは</h2>
+          <p class="lead">宅建試験で最も出題数が多い科目（50問中20問）。免許・宅建士・媒介契約・35条/37条書面・クーリングオフ・保全措置・報酬等が頻出。</p>
+          <div class="notice"><strong>宅建業法は毎年20問出題される最重要科目です。</strong>基本的な制度と数字（日数・割合・金額）を確実に覚えましょう。</div>
+        </div>
+      </section>
+
+      <!-- 免許制度 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">免許制度</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>国土交通大臣免許</th><th>都道府県知事免許</th></tr></thead>
+              <tbody>
+                <tr><td>対象</td><td>2以上の都道府県に事務所</td><td>1つの都道府県内のみ事務所</td></tr>
+                <tr><td>有効期間</td><td colspan="2">5年（更新申請は満了日90日前〜30日前）</td></tr>
+                <tr><td>更新申請</td><td colspan="2">5年ごとに更新が必要</td></tr>
+                <tr><td>免許換え</td><td colspan="2">事務所が増えた場合に変更が必要</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">免許換えは、知事→大臣（他府県に事務所増設）、大臣→知事（一府県のみに集約）などで必要。<strong>免許換えの申請は新たな免許権者に対して行う。</strong></div>
+        </div>
+      </section>
+
+      <!-- 宅地建物取引士 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">宅地建物取引士</h2>
+          <div class="notice" style="margin-bottom:1.2rem;"><strong>事務所ごとに「業務に従事する者5名に1名以上」</strong>の割合で専任の宅建士を置かなければならない。</div>
+          <h3 style="font-size:1rem; color:var(--color-primary); margin-bottom:0.8rem; font-weight:500;">取引士の独占業務</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>業務</th><th>書類名</th><th>記名者</th><th>タイミング</th></tr></thead>
+              <tbody>
+                <tr><td>重要事項説明</td><td>35条書面</td><td>宅建士（記名）</td><td>契約前</td></tr>
+                <tr><td>35条書面の交付</td><td>35条書面</td><td>宅建士（記名）</td><td>契約前</td></tr>
+                <tr><td>37条書面の交付</td><td>37条書面</td><td>宅建士（記名）</td><td>契約成立後遅滞なく</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">重要事項説明は<strong>「取引士証を提示して」</strong>行う必要がある。37条書面は売主・買主・賃貸人・賃借人の全員に交付。</div>
+        </div>
+      </section>
+
+      <!-- 媒介契約 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">媒介契約の種類と義務</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>一般媒介</th><th>専任媒介</th><th>専属専任媒介</th></tr></thead>
+              <tbody>
+                <tr><td>他業者への依頼</td><td>可</td><td>不可</td><td>不可</td></tr>
+                <tr><td>自己発見取引</td><td>可</td><td>可</td><td>不可</td></tr>
+                <tr><td>レインズ登録</td><td>義務なし</td><td>7日以内</td><td>5日以内</td></tr>
+                <tr><td>業務報告義務</td><td>義務なし</td><td>2週間に1回以上</td><td>1週間に1回以上</td></tr>
+                <tr><td>有効期間上限</td><td>なし</td><td>3か月</td><td>3か月</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">レインズの登録日数は<strong>「専任＝7日、専属専任＝5日」</strong>。数字が小さい方が制限が強い専属専任と覚える。</div>
+        </div>
+      </section>
+
+      <!-- 35条書面 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">重要事項説明（35条書面）</h2>
+          <div class="notice">宅建士が<strong>宅建士証を提示</strong>して、<strong>契約締結前</strong>に書面で説明する義務。IT重説も可能（相手方の承諾が必要）。</div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>説明者</td><td>宅地建物取引士（記名押印、説明は口頭）</td></tr>
+                <tr><td>タイミング</td><td>契約締結前</td></tr>
+                <tr><td>相手方</td><td>買主または借主（売主・貸主には不要）</td></tr>
+                <tr><td>書面</td><td>35条書面（重説書）</td></tr>
+                <tr><td>IT重説</td><td>テレビ電話等で可（一定の要件あり）</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- クーリングオフ -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">クーリングオフ</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>要件</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>売主</td><td>宅建業者（自ら売主の場合のみ）</td></tr>
+                <tr><td>申込み場所</td><td>事務所等以外（現地・喫茶店・自宅等）</td></tr>
+                <tr><td>解除期間</td><td>書面を受領した日または書面で申込みをした日のいずれか早い日から<strong>8日以内</strong></td></tr>
+                <tr><td>解除方法</td><td>書面（電磁的記録含む）。<strong>発信時に効力発生</strong></td></tr>
+                <tr><td>解除の効果</td><td>損害賠償・違約金の請求不可。受領した代金等は速やかに返還</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">自ら申し出て「事務所等」以外で申込みした場合でも、<strong>実質的に業者の求めによるものはクーリングオフ適用あり。</strong></div>
+        </div>
+      </section>
+
+      <!-- 手付金保全 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">手付金等の保全措置</h2>
+          <div class="notice">宅建業者が自ら売主の場合、<strong>一定額を超える手付金等を受け取る前</strong>に保全措置が必要。</div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>物件の種類</th><th>保全措置が必要な場合</th></tr></thead>
+              <tbody>
+                <tr><td>未完成物件</td><td>代金の<strong>5%超</strong> または <strong>1,000万円超</strong></td></tr>
+                <tr><td>完成物件</td><td>代金の<strong>10%超</strong> または <strong>1,000万円超</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.9rem; color:var(--color-text-light); margin-top:1rem; margin-bottom:0.4rem;">保全方法</p>
+          <ol class="method-list">
+            <li>銀行等の保証（連帯保証）</li>
+            <li>保険事業者の保証保険</li>
+            <li>指定保管機関による保管（完成物件のみ）</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 報酬 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">報酬の限度額（売買）</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>売買代金</th><th>税抜上限額</th></tr></thead>
+              <tbody>
+                <tr><td>200万円以下</td><td>代金×5%</td></tr>
+                <tr><td>200万円超400万円以下</td><td>代金×4%＋2万円</td></tr>
+                <tr><td>400万円超</td><td>代金×3%＋6万円</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">消費税込みでは<strong>「×3.3%＋66,000円（400万超の場合）」</strong>。賃貸の場合は借賃の1か月分（居住用は原則0.5か月ずつ）が上限。</div>
+        </div>
+      </section>
+
+      <!-- 営業保証金 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">営業保証金と保証協会（弁済業務保証金）</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>営業保証金</th><th>保証協会</th></tr></thead>
+              <tbody>
+                <tr><td>主たる事務所</td><td><strong>1,000万円</strong></td><td><strong>60万円</strong></td></tr>
+                <tr><td>従たる事務所（1か所ごと）</td><td>500万円</td><td>30万円</td></tr>
+                <tr><td>供託先</td><td>法務局等</td><td>保証協会を通じて供託</td></tr>
+                <tr><td>還付後の補充</td><td colspan="2">通知から2週間以内</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 関連ページ -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">他の科目まとめ</h2>
+          <div class="related-grid">
+            <a class="related-card" href="kenri.html">
+              <div class="related-card-title">権利関係</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="horei.html">
+              <div class="related-card-title">法令上の制限</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="zei.html">
+              <div class="related-card-title">税・その他</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 宅地建物取引士（宅建）</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（RETIO）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

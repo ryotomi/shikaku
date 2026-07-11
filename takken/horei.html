@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>法令上の制限まとめ — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height:100vh; display:flex; align-items:center; justify-content:center; color:#8a8a8a; font-family:"Hiragino Sans",sans-serif; font-size:0.95rem; }
+    .yoto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin: 0.8rem 0; }
+    .yoto-group-title { font-size: 0.78rem; font-weight: 500; color: var(--color-text-muted); letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+    .yoto-list { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+    .yoto-list li { font-size: 0.85rem; color: var(--color-text); padding: 0.2rem 0.6rem; background: var(--color-white); border: 1px solid var(--color-border); border-left: 3px solid var(--color-primary); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .related-card { background: var(--color-white); border: 1px solid var(--color-border); border-top: 3px solid var(--color-primary); padding: 1rem 1.2rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.15s; }
+    .related-card:hover { box-shadow: 0 2px 8px rgba(43,75,110,0.1); color: inherit; }
+    .related-card-title { font-family: var(--font-accent); font-size: 0.95rem; color: var(--color-primary); }
+    .related-card-arrow { font-size: 0.8rem; color: var(--color-accent); margin-top: 0.4rem; }
+    @media (max-width: 560px) { .yoto-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey:"AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:"dev-smoke-308500.firebaseapp.com",
+      projectId:"dev-smoke-308500",
+      storageBucket:"dev-smoke-308500.firebasestorage.app",
+      messagingSenderId:"787519016500",
+      appId:"1:787519016500:web:decc4d4a20145659f44461",
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">宅地建物取引士（宅建）法令上の制限</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="index.html">宅建</a></li>
+          <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+          <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+          <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- 科目概要 -->
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">宅建</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>法令上の制限</span>
+          </div>
+          <h2 class="section-title">法令上の制限とは</h2>
+          <p class="lead">都市計画法・建築基準法・農地法・国土利用計画法・土地区画整理法等を含む科目（50問中8問）。制度と数字・例外を整理して覚えることが重要。</p>
+        </div>
+      </section>
+
+      <!-- 都市計画法 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">都市計画法</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>区域</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>都市計画区域</td><td>市街地整備・開発・保全が必要な区域（都道府県が指定）</td></tr>
+                <tr><td>準都市計画区域</td><td>都市計画区域外で土地利用規制が必要な区域</td></tr>
+                <tr><td>市街化区域</td><td>既成市街地または優先的に市街化を図る区域（<strong>用途地域を必ず定める</strong>）</td></tr>
+                <tr><td>市街化調整区域</td><td>市街化を抑制すべき区域（原則として開発不可）</td></tr>
+                <tr><td>非線引き区域</td><td>市街化区域・調整区域の区別がない都市計画区域</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">用途地域は<strong>市街化区域には必ず定める。</strong>市街化調整区域・非線引き区域は定めることができる（義務なし）。</div>
+
+          <h3 style="font-size:0.95rem; color:var(--color-primary); margin:1.4rem 0 0.8rem; font-weight:500;">用途地域 13種類</h3>
+          <div class="yoto-grid">
+            <div>
+              <div class="yoto-group-title">住居系（8種）</div>
+              <ul class="yoto-list">
+                <li>第一種低層住居専用地域</li>
+                <li>第二種低層住居専用地域</li>
+                <li>第一種中高層住居専用地域</li>
+                <li>第二種中高層住居専用地域</li>
+                <li>第一種住居地域</li>
+                <li>第二種住居地域</li>
+                <li>準住居地域</li>
+                <li>田園住居地域</li>
+              </ul>
+            </div>
+            <div>
+              <div class="yoto-group-title">商業系（2種）</div>
+              <ul class="yoto-list" style="margin-bottom:0.8rem;">
+                <li>近隣商業地域</li>
+                <li>商業地域</li>
+              </ul>
+              <div class="yoto-group-title">工業系（3種）</div>
+              <ul class="yoto-list">
+                <li>準工業地域</li>
+                <li>工業地域</li>
+                <li>工業専用地域</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 開発許可 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">開発許可</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>区域</th><th>許可が必要な規模</th></tr></thead>
+              <tbody>
+                <tr><td>市街化区域</td><td><strong>1,000㎡以上</strong>（三大都市圏の一部は500㎡以上）</td></tr>
+                <tr><td>市街化調整区域</td><td><strong>規模に関係なく原則必要</strong></td></tr>
+                <tr><td>非線引き区域</td><td>3,000㎡以上</td></tr>
+                <tr><td>準都市計画区域</td><td>3,000㎡以上</td></tr>
+                <tr><td>都市計画区域外</td><td>10,000㎡以上</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>開発許可が不要な主な例外：</strong>①公益上必要な建築物（学校・病院等）②農林漁業用建築物③市街化区域内の農家住宅④非常災害のための応急措置⑤都市計画事業として行うもの</div>
+        </div>
+      </section>
+
+      <!-- 建築基準法 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">建築基準法（建ぺい率・容積率）</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>建ぺい率</td><td>建築面積÷敷地面積×100（%）</td></tr>
+                <tr><td>建ぺい率緩和①</td><td>防火地域内の耐火建築物 <strong>＋10%</strong></td></tr>
+                <tr><td>建ぺい率緩和②</td><td>特定行政庁が指定する角地 <strong>＋10%</strong></td></tr>
+                <tr><td>建ぺい率緩和③</td><td>両方に該当する場合 <strong>＋20%</strong></td></tr>
+                <tr><td>容積率</td><td>延べ面積÷敷地面積×100（%）</td></tr>
+                <tr><td>容積率（前面道路）</td><td>前面道路幅員×法定乗数（住居系<strong>4/10</strong>・その他<strong>6/10</strong>）</td></tr>
+                <tr><td>容積率の決定</td><td><strong>指定容積率と前面道路基準の低い方</strong>が適用</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>建ぺい率80%指定の防火地域内の耐火建築物は建ぺい率制限なし</strong>（緩和により100%）。</div>
+        </div>
+      </section>
+
+      <!-- 農地法 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">農地法（3条・4条・5条）</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>条項</th><th>行為</th><th>許可権者</th><th>例外</th></tr></thead>
+              <tbody>
+                <tr><td><strong>3条</strong></td><td>農地を農地のまま権利移動（売買・賃貸等）</td><td>農業委員会</td><td>農地法施行規則の例外あり</td></tr>
+                <tr><td><strong>4条</strong></td><td>農地を農地以外に転用（自己転用）</td><td>都道府県知事等（4ha超は農林水産大臣）</td><td>自己の農業用施設は許可不要</td></tr>
+                <tr><td><strong>5条</strong></td><td>農地を転用目的で権利移動（転用＋売買等）</td><td>都道府県知事等（4ha超は農林水産大臣）</td><td>なし（原則全て必要）</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>許可が不要な主な場合（3〜5条共通）：</strong>相続・包括遺贈・法人の合併。<br><strong>市街化区域内の農地の転用は届出のみで許可不要</strong>（4条・5条）。</div>
+        </div>
+      </section>
+
+      <!-- 国土利用計画法 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">国土利用計画法（事後届出制）</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>区域</th><th>届出が必要な面積</th></tr></thead>
+              <tbody>
+                <tr><td>市街化区域</td><td><strong>2,000㎡以上</strong></td></tr>
+                <tr><td>市街化調整区域・非線引き区域</td><td><strong>5,000㎡以上</strong></td></tr>
+                <tr><td>都市計画区域外</td><td><strong>10,000㎡以上</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">届出先は<strong>都道府県知事</strong>。届出期限は<strong>契約締結後2週間以内。</strong>届出不要の例：国・地方公共団体等との取引・農地法の許可を受けた取引等。</div>
+        </div>
+      </section>
+
+      <!-- 関連ページ -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">他の科目まとめ</h2>
+          <div class="related-grid">
+            <a class="related-card" href="gyoho.html">
+              <div class="related-card-title">宅建業法</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="kenri.html">
+              <div class="related-card-title">権利関係</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="zei.html">
+              <div class="related-card-title">税・その他</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 宅地建物取引士（宅建）</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（RETIO）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

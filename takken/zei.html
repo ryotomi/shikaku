@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>税・その他まとめ — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height:100vh; display:flex; align-items:center; justify-content:center; color:#8a8a8a; font-family:"Hiragino Sans",sans-serif; font-size:0.95rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .related-card { background: var(--color-white); border: 1px solid var(--color-border); border-top: 3px solid var(--color-primary); padding: 1rem 1.2rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.15s; }
+    .related-card:hover { box-shadow: 0 2px 8px rgba(43,75,110,0.1); color: inherit; }
+    .related-card-title { font-family: var(--font-accent); font-size: 0.95rem; color: var(--color-primary); }
+    .related-card-arrow { font-size: 0.8rem; color: var(--color-accent); margin-top: 0.4rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey:"AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:"dev-smoke-308500.firebaseapp.com",
+      projectId:"dev-smoke-308500",
+      storageBucket:"dev-smoke-308500.firebasestorage.app",
+      messagingSenderId:"787519016500",
+      appId:"1:787519016500:web:decc4d4a20145659f44461",
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">宅地建物取引士（宅建）税・その他</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="index.html">宅建</a></li>
+          <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+          <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+          <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- 科目概要 -->
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">宅建</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>税・その他</span>
+          </div>
+          <h2 class="section-title">税・その他とは</h2>
+          <p class="lead">不動産取得税・固定資産税・印紙税・登録免許税・所得税（譲渡所得）・地価公示・不動産鑑定評価を含む科目（50問中8問）。税種ごとの課税主体・税率・特例を整理することが重要。</p>
+        </div>
+      </section>
+
+      <!-- 不動産取得税 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">不動産取得税</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>課税主体</td><td><strong>都道府県</strong></td></tr>
+                <tr><td>課税対象</td><td>不動産の取得（有償・無償問わず）</td></tr>
+                <tr><td>税率</td><td>原則4%（住宅・住宅用土地は<strong>特例3%</strong>）</td></tr>
+                <tr><td>非課税</td><td><strong>相続・包括遺贈・法人合併</strong>による取得</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>住宅の特例：</strong>新築標準的な住宅（床面積50㎡以上240㎡以下）は課税標準から<strong>1,200万円</strong>（認定長期優良住宅は1,300万円）が控除される。</div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>住宅用土地の特例</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>特例①（A）</td><td>土地の課税標準を<strong>1/2</strong>に軽減</td></tr>
+                <tr><td>特例②（B）</td><td>住宅の床面積の2倍（200㎡限度）×3%を控除（軽減額の多い方）</td></tr>
+                <tr><td>適用要件</td><td>住宅取得後1年以内の土地取得（または土地取得後1年以内の住宅取得）</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 固定資産税 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">固定資産税</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>課税主体</td><td><strong>市町村</strong>（東京23区は都）</td></tr>
+                <tr><td>賦課基準日</td><td><strong>毎年1月1日</strong>の所有者</td></tr>
+                <tr><td>税率</td><td>標準税率<strong>1.4%</strong></td></tr>
+                <tr><td>評価替え</td><td>3年ごと（評価証明書は毎年発行）</td></tr>
+                <tr><td>免税点</td><td>土地30万円・家屋20万円・償却資産150万円未満は非課税</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>住宅用地の軽減</th><th>軽減率</th></tr></thead>
+              <tbody>
+                <tr><td>小規模住宅用地（200㎡以下の部分）</td><td>課税標準 → <strong>1/6</strong></td></tr>
+                <tr><td>一般住宅用地（200㎡超の部分）</td><td>課税標準 → <strong>1/3</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>新築住宅の特例：</strong>新築から3年間（3階建以上の耐火建築物は5年間）、120㎡までの部分について固定資産税額が<strong>1/2</strong>に。</div>
+        </div>
+      </section>
+
+      <!-- 印紙税 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">印紙税</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>課税文書</th><th>主な例</th></tr></thead>
+              <tbody>
+                <tr><td>不動産売買契約書</td><td>記載金額に応じて200円〜60万円</td></tr>
+                <tr><td>金銭消費貸借契約書</td><td>記載金額に応じて200円〜60万円</td></tr>
+                <tr><td>不動産賃貸借契約書</td><td>月額記載のみなら<strong>非課税</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>電子契約書（電磁的記録）は印紙税の課税文書に該当しないため非課税。</strong>記載金額がない場合や記載金額が1万円未満の場合は200円。</div>
+        </div>
+      </section>
+
+      <!-- 登録免許税 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">登録免許税</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>登記の種類</th><th>税率</th><th>住宅特例</th></tr></thead>
+              <tbody>
+                <tr><td>所有権保存登記</td><td>0.4%</td><td><strong>0.15%</strong>（認定長期優良住宅0.1%）</td></tr>
+                <tr><td>所有権移転（売買）</td><td>2%</td><td><strong>0.3%</strong>（認定長期優良住宅0.1%）</td></tr>
+                <tr><td>所有権移転（相続・合併）</td><td>0.4%</td><td>特例なし</td></tr>
+                <tr><td>所有権移転（贈与・交換）</td><td>2%</td><td>特例なし</td></tr>
+                <tr><td>抵当権設定</td><td>0.4%</td><td><strong>0.1%</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;"><strong>住宅特例の適用要件（共通）：</strong>①自己居住用②床面積50㎡以上③建築後20年以内（木造）または25年以内（耐火）等。</div>
+        </div>
+      </section>
+
+      <!-- 譲渡所得 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">不動産の譲渡所得税</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>長期譲渡</th><th>短期譲渡</th></tr></thead>
+              <tbody>
+                <tr><td>所有期間</td><td>譲渡した年の1月1日時点で<strong>5年超</strong></td><td><strong>5年以下</strong></td></tr>
+                <tr><td>税率（所得税＋住民税）</td><td><strong>20.315%</strong></td><td><strong>39.63%</strong></td></tr>
+                <tr><td>取得費不明の場合</td><td colspan="2">売却金額の<strong>5%</strong>を取得費とみなす</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table class="data-table">
+              <thead><tr><th>主な特例</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>3,000万円特別控除</td><td>居住用財産の譲渡（配偶者・直系血族への売却は不可）</td></tr>
+                <tr><td>10年超の軽減税率</td><td>所有10年超の居住用財産、6,000万円以下は<strong>14.21%</strong></td></tr>
+                <tr><td>買換え特例（居住用）</td><td>所有10年超・居住期間10年以上の居住用財産</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1rem;">所有期間は「取得した日〜<strong>譲渡した年の1月1日</strong>」で計算する。<strong>相続による取得は被相続人の取得日を引き継ぐ。</strong></div>
+        </div>
+      </section>
+
+      <!-- 地価公示・鑑定評価 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">地価公示・地価調査・不動産鑑定評価</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>項目</th><th>地価公示</th><th>都道府県地価調査</th></tr></thead>
+              <tbody>
+                <tr><td>所管</td><td>国土交通省</td><td>都道府県</td></tr>
+                <tr><td>基準日</td><td><strong>毎年1月1日</strong></td><td><strong>毎年7月1日</strong></td></tr>
+                <tr><td>公表時期</td><td>毎年3月下旬</td><td>毎年9月下旬</td></tr>
+                <tr><td>目的</td><td>一般の土地取引の指標等</td><td>地価公示の補完</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="font-size:0.95rem; color:var(--color-primary); margin:1.4rem 0 0.8rem; font-weight:500;">不動産鑑定評価の3手法</h3>
+          <div class="flow">
+            <div class="flow-step">
+              <div class="flow-num">1</div>
+              <div class="flow-body">
+                <strong>取引事例比較法</strong>
+                <p>多数の取引事例を収集・選択し、比較して価格を算定する方法</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">2</div>
+              <div class="flow-body">
+                <strong>原価法</strong>
+                <p>対象不動産を再調達するのに必要な原価（再調達原価）から減価修正して価格を算定</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">3</div>
+              <div class="flow-body">
+                <strong>収益還元法</strong>
+                <p>対象不動産が将来生み出す収益を現在価値に還元して価格を算定（DCF法も収益還元法の一種）</p>
+              </div>
+            </div>
+          </div>
+          <div class="notice" style="margin-top:1rem;">不動産鑑定評価では、原則として<strong>3手法すべてを適用</strong>して試算価格を求め、各手法の特性・精度・説得力を考慮して鑑定評価額を決定する。</div>
+        </div>
+      </section>
+
+      <!-- 関連ページ -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">他の科目まとめ</h2>
+          <div class="related-grid">
+            <a class="related-card" href="gyoho.html">
+              <div class="related-card-title">宅建業法</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="kenri.html">
+              <div class="related-card-title">権利関係</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+            <a class="related-card" href="horei.html">
+              <div class="related-card-title">法令上の制限</div>
+              <div class="related-card-arrow">開く →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 宅地建物取引士（宅建）</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（RETIO）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>
