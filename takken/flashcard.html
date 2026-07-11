@@ -20,7 +20,32 @@
       font-size: 0.95rem;
     }
 
-    /* フィルターチップ */
+    /* ===== タブ ===== */
+    .mode-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 1.8rem;
+    }
+    .tab-btn {
+      padding: 0.6rem 1.4rem;
+      border: none;
+      background: none;
+      font-family: var(--font-primary);
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-btn:hover { color: var(--color-primary); }
+    .tab-btn.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* ===== フィルターチップ（共通）===== */
     .filter-row {
       display: flex;
       flex-wrap: wrap;
@@ -43,14 +68,13 @@
     .chip:hover { border-color: var(--color-primary-light); color: var(--color-primary); }
     .chip.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
 
-    /* 進捗 */
+    /* ===== フラッシュカード ===== */
     .progress-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
     .progress-text { font-size: 0.88rem; color: var(--color-text-muted); }
     .progress-bar-wrap { flex: 1; min-width: 120px; height: 4px; background: var(--color-bg-dark); border-radius: 2px; }
     .progress-bar-fill { height: 100%; background: var(--color-primary); border-radius: 2px; transition: width 0.3s; }
     .known-count { font-size: 0.82rem; color: var(--color-accent); font-weight: 500; }
 
-    /* カード */
     .card-area { perspective: 1200px; margin: 0.5rem 0 1.5rem; }
     .flip-card {
       position: relative;
@@ -81,7 +105,6 @@
     .card-definition { font-size: 0.95rem; color: var(--color-text); line-height: 1.9; text-align: center; }
     .card-term-small { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 1rem; }
 
-    /* ナビ */
     .card-nav { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 1rem; }
     .nav-btn {
       padding: 0.55rem 1.2rem;
@@ -100,7 +123,6 @@
     .nav-btn.btn-primary { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
     .nav-btn.btn-primary:hover:not(:disabled) { background: var(--color-primary-light); border-color: var(--color-primary-light); }
 
-    /* アクション */
     .action-row { display: flex; align-items: center; gap: 0.8rem; margin-top: 0.4rem; flex-wrap: wrap; }
     .btn-known {
       padding: 0.45rem 1rem;
@@ -130,7 +152,6 @@
     .btn-sub.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
     .btn-sub.ml-auto { margin-left: auto; }
 
-    /* 完了 */
     .done-card {
       background: var(--color-white);
       border: 1px solid var(--color-border);
@@ -146,10 +167,89 @@
     .done-title { font-family: var(--font-accent); font-size: 1.3rem; color: var(--color-primary); }
     .done-sub { font-size: 0.9rem; color: var(--color-text-light); }
 
+    /* ===== 用語集 ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      font-family: var(--font-primary);
+      font-size: 0.9rem;
+      color: var(--color-text);
+      background: var(--color-white);
+      margin-bottom: 0.8rem;
+      box-sizing: border-box;
+    }
+    .glossary-search:focus { outline: none; border-color: var(--color-primary); }
+
+    .glossary-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+    }
+    .glossary-known-summary { color: var(--color-accent); font-weight: 500; }
+
+    .glossary-list { display: flex; flex-direction: column; }
+    .glossary-item {
+      padding: 1rem 0.2rem 1rem 1rem;
+      border-bottom: 1px solid var(--color-border);
+      border-left: 3px solid transparent;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      transition: border-left-color 0.15s;
+    }
+    .glossary-item.is-known { border-left-color: #2f7d5b; background: rgba(47,125,91,0.03); }
+
+    .glossary-body { flex: 1; min-width: 0; }
+    .glossary-header { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.35rem; flex-wrap: wrap; }
+    .glossary-subject-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      padding: 0.12em 0.55em;
+      border-radius: 999px;
+      font-weight: 500;
+      color: white;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .glossary-term {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      line-height: 1.4;
+    }
+    .glossary-definition {
+      font-size: 0.875rem;
+      line-height: 1.85;
+      color: var(--color-text-light);
+    }
+
+    .glossary-known-btn {
+      flex-shrink: 0;
+      padding: 0.3rem 0.65rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all 0.12s;
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .glossary-known-btn:hover { border-color: #2f7d5b; color: #2f7d5b; }
+    .glossary-known-btn.is-known { border-color: #2f7d5b; color: #2f7d5b; background: rgba(47,125,91,0.08); }
+
     @media (max-width: 600px) {
       .card-face { padding: 1.5rem; }
       .card-term { font-size: 1.25rem; }
       .card-definition { font-size: 0.9rem; }
+      .glossary-item { padding-left: 0.6rem; }
     }
   </style>
 </head>
@@ -210,11 +310,26 @@
           </div>
 
           <h2 class="section-title">単語帳</h2>
-          <p class="lead">宅建の重要用語 65語。カードをタップして定義を確認し、習得済みにチェックを付けながら進めましょう。</p>
+          <p class="lead">宅建の重要用語集。フラッシュカードで暗記するか、用語集で一覧確認できます。</p>
 
-          <div id="flashcard-app">
-            <p style="color:var(--color-text-muted);font-size:0.9rem;">読み込み中...</p>
+          <!-- タブ -->
+          <div class="mode-tabs">
+            <button class="tab-btn active" data-mode="flashcard">フラッシュカード</button>
+            <button class="tab-btn" data-mode="glossary">用語集</button>
           </div>
+
+          <!-- フラッシュカードビュー -->
+          <div id="flashcard-view">
+            <div id="flashcard-app">
+              <p style="color:var(--color-text-muted);font-size:0.9rem;">読み込み中...</p>
+            </div>
+          </div>
+
+          <!-- 用語集ビュー -->
+          <div id="glossary-view" hidden>
+            <div id="glossary-app"></div>
+          </div>
+
         </div>
       </section>
     </main>
@@ -230,6 +345,12 @@
   <script>
     const STORAGE_KEY = 'shikaku-takken-known';
     const SUBJECTS = ['全て', '宅建業法', '権利関係', '法令上の制限', '税・その他'];
+    const SUBJ_COLORS = {
+      '宅建業法':    '#E8A020',
+      '権利関係':    '#4A90D9',
+      '法令上の制限': '#5BAD6F',
+      '税・その他':  '#C0564B',
+    };
 
     let allCards = [];
     let deck = [];
@@ -237,7 +358,14 @@
     let knownIds = new Set();
     let activeSubject = '全て';
     let unknownOnly = false;
+    let activeMode = 'flashcard';
+    let glossarySearch = '';
 
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
     function loadKnown() {
       try { knownIds = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')); }
       catch(e) { knownIds = new Set(); }
@@ -260,6 +388,7 @@
       currentIndex = 0;
     }
 
+    /* ===== フラッシュカード ===== */
     function renderChips() {
       return '<span class="filter-label">科目：</span>' +
         SUBJECTS.map(s =>
@@ -281,7 +410,7 @@
             <div class="done-title">${unknownOnly ? '未習得カードはありません' : 'カードがありません'}</div>
             <div class="done-sub">${unknownOnly ? '「未習得のみ」を解除するか、別の科目を選んでください。' : '科目フィルターを変更してください。'}</div>
           </div>`;
-        bind();
+        bindCard();
         return;
       }
 
@@ -300,13 +429,13 @@
         <div class="card-area">
           <div class="flip-card" id="flip-card">
             <div class="card-face card-front">
-              <div class="card-subject-tag">${card.subject}</div>
-              <div class="card-term">${card.term}</div>
+              <div class="card-subject-tag">${escHtml(card.subject)}</div>
+              <div class="card-term">${escHtml(card.term)}</div>
               <div class="card-hint">タップして定義を確認</div>
             </div>
             <div class="card-face card-back">
-              <div class="card-term-small">${card.term}</div>
-              <div class="card-definition">${card.definition}</div>
+              <div class="card-term-small">${escHtml(card.term)}</div>
+              <div class="card-definition">${escHtml(card.definition)}</div>
             </div>
           </div>
         </div>
@@ -319,18 +448,17 @@
           <button class="btn-sub${unknownOnly ? ' active' : ''}" id="btn-unknown-only">未習得のみ</button>
           <button class="btn-sub ml-auto" id="btn-shuffle">シャッフル</button>
         </div>`;
-      bind();
+      bindCard();
     }
 
-    function bind() {
-      document.querySelectorAll('.chip').forEach(btn => {
+    function bindCard() {
+      document.querySelectorAll('#flashcard-app .chip').forEach(btn => {
         btn.addEventListener('click', () => { activeSubject = btn.dataset.subject; buildDeck(); renderApp(); });
       });
       const uo = document.getElementById('btn-unknown-only');
       if (uo) uo.addEventListener('click', () => { unknownOnly = !unknownOnly; buildDeck(); renderApp(); });
       const sh = document.getElementById('btn-shuffle');
       if (sh) sh.addEventListener('click', () => { deck = shuffle(deck); currentIndex = 0; renderApp(); });
-
       const fc = document.getElementById('flip-card');
       if (fc) fc.addEventListener('click', () => fc.classList.toggle('is-flipped'));
       const prev = document.getElementById('btn-prev');
@@ -347,8 +475,99 @@
       });
     }
 
+    /* ===== 用語集 ===== */
+    function renderGlossary() {
+      const app = document.getElementById('glossary-app');
+      if (!app) return;
+
+      let cards = activeSubject === '全て' ? allCards : allCards.filter(c => c.subject === activeSubject);
+      if (glossarySearch.trim()) {
+        const q = glossarySearch.trim().toLowerCase();
+        cards = cards.filter(c =>
+          c.term.toLowerCase().includes(q) || c.definition.toLowerCase().includes(q)
+        );
+      }
+
+      const knownInFiltered = cards.filter(c => knownIds.has(c.id)).length;
+
+      app.innerHTML = `
+        <div class="filter-row">
+          <span class="filter-label">科目：</span>
+          ${SUBJECTS.map(s =>
+            `<button class="chip${s === activeSubject ? ' active' : ''}" data-subject="${s}">${s}</button>`
+          ).join('')}
+        </div>
+        <input type="search" id="glossary-search" class="glossary-search"
+               placeholder="用語・定義で絞り込む…" value="${escHtml(glossarySearch)}" />
+        <div class="glossary-meta">
+          <span>${cards.length} 語</span>
+          <span class="glossary-known-summary">習得済み ${knownInFiltered} / ${cards.length}</span>
+        </div>
+        <div class="glossary-list">
+          ${cards.map(card => {
+            const isKnown = knownIds.has(card.id);
+            const color = SUBJ_COLORS[card.subject] || '#888';
+            return `
+              <div class="glossary-item${isKnown ? ' is-known' : ''}">
+                <div class="glossary-body">
+                  <div class="glossary-header">
+                    <span class="glossary-subject-badge" style="background:${color}">${escHtml(card.subject)}</span>
+                    <span class="glossary-term">${escHtml(card.term)}</span>
+                  </div>
+                  <div class="glossary-definition">${escHtml(card.definition)}</div>
+                </div>
+                <button class="glossary-known-btn${isKnown ? ' is-known' : ''}" data-id="${card.id}">
+                  ${isKnown ? '✓ 習得済み' : '習得済み'}
+                </button>
+              </div>`;
+          }).join('')}
+        </div>`;
+
+      app.querySelectorAll('.chip').forEach(btn => {
+        btn.addEventListener('click', () => { activeSubject = btn.dataset.subject; renderGlossary(); });
+      });
+
+      const searchInput = document.getElementById('glossary-search');
+      searchInput.addEventListener('input', e => {
+        glossarySearch = e.target.value;
+        const pos = e.target.selectionStart;
+        renderGlossary();
+        const newInput = document.getElementById('glossary-search');
+        if (newInput) { newInput.focus(); try { newInput.setSelectionRange(pos, pos); } catch(_) {} }
+      });
+
+      app.querySelectorAll('.glossary-known-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = parseInt(btn.dataset.id, 10);
+          if (knownIds.has(id)) knownIds.delete(id); else knownIds.add(id);
+          saveKnown();
+          renderGlossary();
+        });
+      });
+    }
+
+    /* ===== タブ切り替え ===== */
+    function initTabs() {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mode = btn.dataset.mode;
+          if (mode === activeMode) return;
+          activeMode = mode;
+          document.querySelectorAll('.tab-btn').forEach(b =>
+            b.classList.toggle('active', b.dataset.mode === mode)
+          );
+          document.getElementById('flashcard-view').hidden = (mode !== 'flashcard');
+          document.getElementById('glossary-view').hidden  = (mode !== 'glossary');
+          if (mode === 'glossary') renderGlossary();
+          else { buildDeck(); renderApp(); }
+        });
+      });
+    }
+
+    /* ===== 初期化 ===== */
     async function init() {
       loadKnown();
+      initTabs();
       try {
         const res = await fetch('data/flashcards.json');
         const data = await res.json();
