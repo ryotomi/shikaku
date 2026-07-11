@@ -20,171 +20,304 @@
       font-size: 0.95rem;
     }
 
-    /* コントロール */
-    .ctrl-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-    .ctrl-label {
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
-      white-space: nowrap;
+    :root {
+      --c-kenri:   #4A90D9;
+      --c-gyoho:   #E8A020;
+      --c-horei:   #5BAD6F;
+      --c-zei:     #C0564B;
+      --c-correct: #5BAD6F;
+      --c-wrong:   #C0564B;
     }
 
-    /* 問題カード */
-    .quiz-card {
+    .qz-page { min-height: calc(100vh - 180px); }
+
+    /* === セレクター === */
+    .qz-selector { padding: 2.5rem 0 3rem; }
+    .qz-title {
+      font-family: var(--font-accent);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--color-primary);
+      margin-bottom: 0.3rem;
+    }
+    .qz-sub { font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 2rem; }
+
+    .filter-section { margin-bottom: 1.5rem; }
+    .filter-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .filter-buttons { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .filter-btn {
+      padding: 0.38rem 0.95rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-white);
+      color: var(--color-text-light);
+      font-size: 0.83rem;
+      cursor: pointer;
+      transition: all 0.14s;
+      font-family: var(--font-primary);
+    }
+    .filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .filter-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: white; }
+    .filter-btn.active.subj-kenri { background: var(--c-kenri); border-color: var(--c-kenri); }
+    .filter-btn.active.subj-gyoho { background: var(--c-gyoho); border-color: var(--c-gyoho); }
+    .filter-btn.active.subj-horei { background: var(--c-horei); border-color: var(--c-horei); }
+    .filter-btn.active.subj-zei   { background: var(--c-zei);   border-color: var(--c-zei); }
+
+    .count-buttons { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+    .count-btn {
+      padding: 0.38rem 1rem;
+      border-radius: 6px;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-white);
+      color: var(--color-text-light);
+      font-size: 0.83rem;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      transition: all 0.14s;
+    }
+    .count-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .count-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: white; }
+
+    .toggle-row { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .toggle-item { display: flex; align-items: center; gap: 0.5rem; }
+    .toggle-switch { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-track {
+      position: absolute; inset: 0;
+      background: var(--color-bg-dark); border-radius: 999px; cursor: pointer;
+      transition: background 0.18s;
+    }
+    .toggle-track::after {
+      content: ""; position: absolute;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: white; top: 3px; left: 3px;
+      transition: transform 0.18s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .toggle-switch input:checked + .toggle-track { background: var(--color-primary); }
+    .toggle-switch input:checked + .toggle-track::after { transform: translateX(18px); }
+    .toggle-label { font-size: 0.88rem; color: var(--color-text-light); }
+
+    .stat-summary {
       background: var(--color-white);
       border: 1px solid var(--color-border);
-      padding: 1.8rem 2rem;
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 2rem;
     }
-    .quiz-meta {
-      display: flex;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
+    .stat-summary-title {
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--color-text-muted); letter-spacing: 0.06em; margin-bottom: 0.8rem;
     }
-    .quiz-progress {
-      font-size: 0.82rem;
-      color: var(--color-text-muted);
-      margin-left: auto;
+    .stat-bars { display: flex; flex-direction: column; gap: 0.55rem; }
+    .stat-bar-row { display: grid; grid-template-columns: 7rem 1fr 3.5rem; align-items: center; gap: 0.6rem; font-size: 0.82rem; }
+    .stat-bar-label { color: var(--color-text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat-bar-track { height: 8px; background: var(--color-bg-dark); border-radius: 4px; overflow: hidden; }
+    .stat-bar-fill { height: 100%; border-radius: 4px; background: var(--color-primary); transition: width 0.4s; }
+    .stat-bar-pct { color: var(--color-text-muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+    .deck-info { display: flex; align-items: baseline; gap: 0.45rem; margin-bottom: 1.4rem; }
+    .deck-count { font-size: 2rem; font-weight: 700; color: var(--color-primary); font-variant-numeric: tabular-nums; }
+    .deck-unit { font-size: 0.9rem; color: var(--color-text-muted); }
+
+    .btn-start {
+      display: block; width: 100%; max-width: 300px;
+      padding: 1rem 2rem;
+      background: var(--color-primary); color: white;
+      border: none; border-radius: 8px;
+      font-size: 1rem; font-family: var(--font-primary); font-weight: 500;
+      letter-spacing: 0.04em; cursor: pointer;
+      transition: background 0.14s, transform 0.1s;
     }
-    .quiz-question {
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--color-text);
+    .btn-start:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+    .btn-start:disabled { background: var(--color-bg-dark); color: var(--color-text-muted); cursor: not-allowed; transform: none; }
+
+    /* === 問題画面 === */
+    .qz-quiz { padding: 0; }
+
+    .quiz-topbar {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0.65rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .btn-back-quiz {
+      background: none; border: none;
+      color: var(--color-text-muted); font-size: 0.83rem;
+      cursor: pointer; font-family: var(--font-primary); padding: 0.25rem 0;
+    }
+    .btn-back-quiz:hover { color: var(--color-primary); }
+    .quiz-prog-text { font-size: 0.88rem; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+    .quiz-prog-text strong { color: var(--color-primary); }
+
+    .quiz-bar-wrap { height: 4px; background: var(--color-bg-dark); }
+    .quiz-bar-fill { height: 100%; background: var(--color-primary); transition: width 0.3s; }
+
+    .quiz-body { padding: 1.6rem 1.5rem 3rem; max-width: 720px; margin: 0 auto; }
+
+    .q-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .subj-badge {
+      display: inline-block; font-size: 0.7rem; padding: 0.18em 0.7em;
+      border-radius: 999px; font-weight: 500; letter-spacing: 0.04em; color: white;
+    }
+    .subj-badge.kenri { background: var(--c-kenri); }
+    .subj-badge.gyoho { background: var(--c-gyoho); }
+    .subj-badge.horei { background: var(--c-horei); }
+    .subj-badge.zei   { background: var(--c-zei); }
+    .q-topic { font-size: 0.82rem; color: var(--color-text-muted); }
+    .q-diff  { font-size: 0.72rem; padding: 0.1em 0.5em; border-radius: 4px; background: var(--color-bg-alt); color: var(--color-text-muted); }
+
+    .q-text {
+      font-size: 0.97rem; line-height: 1.9; color: var(--color-text);
       margin-bottom: 1.4rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
     }
 
-    /* 選択肢 */
-    .choices { display: flex; flex-direction: column; gap: 0.55rem; }
+    .q-choices { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.2rem; }
     .choice-btn {
-      width: 100%;
-      text-align: left;
-      padding: 0.75rem 1rem;
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
+      width: 100%; text-align: left;
+      padding: 0.85rem 1.1rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-white);
+      font-size: 0.9rem; line-height: 1.65;
       font-family: var(--font-primary);
-      font-size: 0.93rem;
       color: var(--color-text);
       cursor: pointer;
-      line-height: 1.7;
-      transition: background 0.12s, border-color 0.12s;
+      transition: border-color 0.14s, background 0.14s;
+      position: relative;
     }
     .choice-btn:hover:not(:disabled) {
-      background: var(--color-bg-alt);
-      border-color: var(--color-primary-light);
+      border-color: var(--color-primary);
+      background: rgba(43,75,110,0.04);
     }
     .choice-btn:disabled { cursor: default; }
-    .choice-btn.correct {
-      background: #e6f0ea;
-      border-color: #2f7d5b;
-      color: #1a5c40;
-      font-weight: 500;
+    .choice-btn.is-correct {
+      border-color: var(--c-correct); background: rgba(91,173,111,0.08);
+      color: #2d6a40; font-weight: 500;
     }
-    .choice-btn.wrong {
-      background: #f3e4e1;
-      border-color: #a83a2c;
-      color: #7a2820;
+    .choice-btn.is-correct::after {
+      content: "✓ 正解";
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.75rem; font-weight: 600; color: var(--c-correct);
     }
-    .choice-btn.reveal {
-      background: #e6f0ea;
-      border-color: #2f7d5b;
-      color: #1a5c40;
+    .choice-btn.is-wrong {
+      border-color: var(--c-wrong); background: rgba(192,76,56,0.07); color: #8b2a1e;
+    }
+    .choice-btn.is-wrong::after {
+      content: "✗ 不正解";
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.75rem; font-weight: 600; color: var(--c-wrong);
+    }
+    .choice-btn.is-correct-hint { border-color: var(--c-correct); background: rgba(91,173,111,0.05); }
+    .choice-btn.is-correct-hint::after {
+      content: "← 正解";
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.75rem; font-weight: 500; color: var(--c-correct);
     }
 
-    /* 解説 */
-    .explanation {
-      margin-top: 1.2rem;
-      padding: 1rem 1.2rem;
+    .q-explanation {
       background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
       border-left: 4px solid var(--color-primary);
-      font-size: 0.9rem;
-      line-height: 1.9;
-      color: var(--color-text-light);
-      display: none;
+      border-radius: 0 8px 8px 0;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
     }
-    .explanation.show { display: block; }
-    .explanation .law-ref {
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
+    .explanation-title {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+      color: var(--color-primary); margin-bottom: 0.55rem;
     }
-    .result-label {
-      display: inline-block;
-      font-size: 0.88rem;
-      font-weight: 700;
-      padding: 0.2em 0.7em;
-      border-radius: 3px;
-      margin-bottom: 0.5rem;
+    .explanation-body { font-size: 0.88rem; line-height: 1.85; color: var(--color-text); }
+    .explanation-law {
+      display: inline-block; margin-top: 0.6rem;
+      font-size: 0.75rem; color: var(--color-text-muted);
+      background: var(--color-bg-dark); border-radius: 4px; padding: 0.1em 0.5em;
     }
-    .result-label.ok  { background: #e6f0ea; color: #1a5c40; }
-    .result-label.ng  { background: #f3e4e1; color: #7a2820; }
 
-    /* ナビゲーション */
-    .quiz-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1.2rem;
-      gap: 1rem;
+    .quiz-actions { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; }
+    .btn-flag {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: none; border: 1.5px solid var(--color-border);
+      border-radius: 6px; padding: 0.55rem 0.9rem;
+      font-size: 0.82rem; font-family: var(--font-primary);
+      color: var(--color-text-muted); cursor: pointer; transition: all 0.14s;
     }
-    .btn {
-      padding: 0.6rem 1.4rem;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      background: var(--color-white);
-      font-family: var(--font-primary);
-      font-size: 0.9rem;
-      color: var(--color-text);
-      cursor: pointer;
-      transition: background 0.12s;
-    }
-    .btn:hover { background: var(--color-bg-alt); }
-    .btn-primary {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: var(--color-white);
-    }
-    .btn-primary:hover { background: var(--color-primary-light); border-color: var(--color-primary-light); }
-    .btn:disabled { opacity: 0.4; cursor: default; }
+    .btn-flag:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .btn-flag.flagged { border-color: var(--color-accent); background: rgba(192,76,56,0.08); color: var(--color-accent); }
 
-    /* スコアボード */
-    .score-board {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
+    .btn-next {
+      flex: 1; max-width: 220px;
+      padding: 0.75rem 1.4rem;
+      background: var(--color-primary); color: white;
+      border: none; border-radius: 8px;
+      font-size: 0.92rem; font-family: var(--font-primary); font-weight: 500;
+      cursor: pointer; transition: background 0.14s;
     }
-    .score-big {
-      font-family: var(--font-accent);
-      font-size: 3.5rem;
-      font-weight: 500;
-      color: var(--color-primary);
-      line-height: 1.2;
-    }
-    .score-label { font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.3rem; }
-    .score-breakdown {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1.2rem 0;
-      font-size: 0.9rem;
-    }
-    .score-ok  { color: #2f7d5b; font-weight: 500; }
-    .score-ng  { color: #a83a2c; font-weight: 500; }
+    .btn-next:hover { background: var(--color-primary-dark); }
 
-    /* ローディング */
-    .state-msg { padding: 3rem 1rem; text-align: center; color: var(--color-text-muted); font-size: 0.95rem; }
+    /* === 結果画面 === */
+    .qz-results { padding: 2.5rem 0 3rem; }
+    .results-title {
+      font-family: var(--font-accent); font-size: 1.5rem;
+      font-weight: 400; color: var(--color-primary); margin-bottom: 0.3rem;
+    }
+    .score-display { margin: 1.2rem 0 2rem; }
+    .score-num {
+      font-size: 3rem; font-weight: 700; color: var(--color-primary);
+      font-variant-numeric: tabular-nums; line-height: 1;
+    }
+    .score-denom { font-size: 1.4rem; color: var(--color-text-muted); }
+    .score-pct { font-size: 1rem; color: var(--color-text-muted); margin-top: 0.3rem; }
+    .score-bar-wrap { height: 10px; background: var(--color-bg-dark); border-radius: 5px; overflow: hidden; margin-top: 0.8rem; max-width: 400px; }
+    .score-bar-fill { height: 100%; border-radius: 5px; }
 
-    @media (max-width: 600px) {
-      .quiz-card { padding: 1.2rem 1rem; }
-      .quiz-nav { flex-direction: column; }
-      .btn { width: 100%; text-align: center; }
+    .subject-results { margin-bottom: 2rem; }
+    .subject-results-title { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: 0.8rem; }
+
+    .wrong-list-section { margin-bottom: 2.5rem; }
+    .wrong-list-title { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: 0.8rem; }
+    .wrong-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .wrong-item {
+      background: var(--color-white); border: 1px solid var(--color-border);
+      border-left: 3px solid var(--c-wrong); border-radius: 0 6px 6px 0;
+      padding: 0.7rem 1rem; font-size: 0.85rem; color: var(--color-text); line-height: 1.6;
+    }
+    .wrong-item-topic { font-size: 0.72rem; color: var(--color-text-muted); margin-bottom: 0.2rem; }
+
+    .result-actions { display: flex; flex-direction: column; gap: 0.65rem; max-width: 300px; }
+    .btn-result {
+      padding: 0.82rem 1.4rem; border-radius: 8px;
+      font-size: 0.9rem; font-family: var(--font-primary); font-weight: 500;
+      cursor: pointer; transition: all 0.14s; text-align: center;
+      border: 1.5px solid transparent;
+    }
+    .btn-result-primary   { background: var(--color-accent); color: white; border-color: var(--color-accent); }
+    .btn-result-primary:hover   { background: var(--color-accent-light); }
+    .btn-result-secondary { background: var(--color-white); color: var(--color-primary); border-color: var(--color-primary); }
+    .btn-result-secondary:hover { background: var(--color-bg-alt); }
+    .btn-result-ghost     { background: none; color: var(--color-text-muted); border-color: var(--color-border); }
+    .btn-result-ghost:hover { color: var(--color-primary); border-color: var(--color-primary); }
+    .btn-result:disabled  { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+
+    @media (max-width: 560px) {
+      .quiz-body { padding: 1.1rem 1rem 3rem; }
+      .q-text { font-size: 0.92rem; }
+      .choice-btn { font-size: 0.85rem; padding: 0.75rem 0.9rem; }
+      .choice-btn.is-correct::after,
+      .choice-btn.is-wrong::after,
+      .choice-btn.is-correct-hint::after { display: none; }
+      .stat-bar-row { grid-template-columns: 5.5rem 1fr 3rem; }
     }
   </style>
 </head>
@@ -211,85 +344,192 @@
   </script>
 
   <div id="page-content">
-  <header class="site-header">
-    <div class="container">
-      <div class="site-name">資格まとめ</div>
-      <div class="site-role">宅地建物取引士（宅建）学習ノート</div>
-    </div>
-  </header>
-
-  <nav class="site-nav">
-    <div class="container">
-      <ul class="nav-list">
-        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
-        <li><a class="nav-link" href="index.html">宅建</a></li>
-        <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
-        <li><a class="nav-link current" href="practice.html">過去問演習</a></li>
-        <li><a class="nav-link" href="#">単語帳</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-    <section class="section">
+    <header class="site-header">
       <div class="container">
-        <h2 class="section-title">過去問演習</h2>
-
-        <!-- コントロール -->
-        <div class="ctrl-row">
-          <span class="ctrl-label">科目：</span>
-          <div class="filter-chips" id="subjectFilter" style="margin:0">
-            <button class="filter-chip current" data-subject="all">全科目</button>
-            <button class="filter-chip" data-subject="宅建業法">宅建業法</button>
-            <button class="filter-chip" data-subject="権利関係">権利関係</button>
-            <button class="filter-chip" data-subject="法令上の制限">法令上の制限</button>
-            <button class="filter-chip" data-subject="税・その他">税・その他</button>
-          </div>
-        </div>
-        <div class="ctrl-row">
-          <span class="ctrl-label">出題順：</span>
-          <div class="filter-chips" id="modeFilter" style="margin:0">
-            <button class="filter-chip current" data-mode="random">ランダム</button>
-            <button class="filter-chip" data-mode="sequential">順番に</button>
-          </div>
-          <span class="ctrl-label" id="totalCount" style="margin-left:auto"></span>
-          <button class="btn btn-primary" id="startBtn">演習スタート</button>
-        </div>
-
-        <!-- 問題エリア -->
-        <div id="quizArea">
-          <p class="state-msg">科目を選んで「演習スタート」を押してください。</p>
-        </div>
-
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">宅地建物取引士（宅建）学習ノート</div>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div>資格まとめ — 宅地建物取引士（宅建）学習ノート</div>
-      <div class="disclaimer">問題文はAI生成によるオリジナルです。最新法令・正確な出題傾向は公式資料でご確認ください。</div>
-    </div>
-  </footer>
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="index.html">宅建</a></li>
+          <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+          <li><a class="nav-link current" href="practice.html">過去問演習</a></li>
+          <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="qz-page">
+
+      <!-- ===== セレクター ===== -->
+      <div id="view-selector" class="qz-selector">
+        <div class="container">
+
+          <h1 class="qz-title">過去問演習</h1>
+          <p class="qz-sub">科目・出題数を選んで演習を開始してください</p>
+
+          <div class="filter-section">
+            <div class="filter-label">科目</div>
+            <div class="filter-buttons" id="subject-filters">
+              <button class="filter-btn active" data-subject="all">すべて</button>
+              <button class="filter-btn subj-kenri" data-subject="権利関係">権利関係</button>
+              <button class="filter-btn subj-gyoho" data-subject="宅建業法">宅建業法</button>
+              <button class="filter-btn subj-horei" data-subject="法令上の制限">法令上の制限</button>
+              <button class="filter-btn subj-zei"   data-subject="税・その他">税・その他</button>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <div class="filter-label">出題数</div>
+            <div class="count-buttons" id="count-buttons">
+              <button class="count-btn" data-count="5">5問</button>
+              <button class="count-btn" data-count="10">10問</button>
+              <button class="count-btn" data-count="20">20問</button>
+              <button class="count-btn active" data-count="all">全て</button>
+            </div>
+          </div>
+
+          <div class="toggle-row">
+            <div class="toggle-item">
+              <label class="toggle-switch">
+                <input type="checkbox" id="shuffle-toggle" checked />
+                <span class="toggle-track"></span>
+              </label>
+              <span class="toggle-label">シャッフル</span>
+            </div>
+            <div class="toggle-item">
+              <label class="toggle-switch">
+                <input type="checkbox" id="flagged-toggle" />
+                <span class="toggle-track"></span>
+              </label>
+              <span class="toggle-label">苦手のみ</span>
+            </div>
+          </div>
+
+          <div class="stat-summary">
+            <div class="stat-summary-title">学習履歴（正答率）</div>
+            <div class="stat-bars" id="stat-bars">
+              <div style="color:var(--color-text-muted);font-size:0.85rem">読み込み中...</div>
+            </div>
+          </div>
+
+          <div class="deck-info">
+            <span class="deck-count" id="deck-count">—</span>
+            <span class="deck-unit">問が選択されています</span>
+          </div>
+          <button class="btn-start" id="btn-start" disabled>演習を開始する</button>
+
+        </div>
+      </div>
+
+      <!-- ===== 問題画面 ===== -->
+      <div id="view-quiz" class="qz-quiz" hidden>
+
+        <div class="quiz-topbar">
+          <button class="btn-back-quiz" id="btn-back">← 設定に戻る</button>
+          <div class="quiz-prog-text">
+            <strong id="q-current">1</strong> / <span id="q-total">10</span> 問
+          </div>
+        </div>
+        <div class="quiz-bar-wrap">
+          <div class="quiz-bar-fill" id="quiz-bar-fill" style="width:0%"></div>
+        </div>
+
+        <div class="quiz-body">
+          <div class="q-meta">
+            <span class="subj-badge" id="q-subj-badge"></span>
+            <span class="q-topic" id="q-topic"></span>
+            <span class="q-diff"  id="q-diff"></span>
+          </div>
+          <div class="q-text" id="q-text"></div>
+          <div class="q-choices" id="q-choices"></div>
+          <div class="q-explanation" id="q-explanation" hidden>
+            <div class="explanation-title">解説</div>
+            <div class="explanation-body" id="explanation-body"></div>
+            <span class="explanation-law" id="explanation-law"></span>
+          </div>
+          <div class="quiz-actions">
+            <button class="btn-flag" id="btn-flag">
+              <span>⚑</span>
+              <span class="flag-text">苦手に登録</span>
+            </button>
+            <button class="btn-next" id="btn-next" hidden>次の問題 →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 結果画面 ===== -->
+      <div id="view-results" class="qz-results" hidden>
+        <div class="container">
+
+          <h2 class="results-title">演習結果</h2>
+
+          <div class="score-display">
+            <div>
+              <span class="score-num" id="res-correct">0</span>
+              <span class="score-denom"> / <span id="res-total">0</span> 問正解</span>
+            </div>
+            <div class="score-pct" id="res-pct"></div>
+            <div class="score-bar-wrap">
+              <div class="score-bar-fill" id="res-bar" style="width:0%"></div>
+            </div>
+          </div>
+
+          <div class="subject-results">
+            <div class="subject-results-title">科目別正答率</div>
+            <div class="stat-bars" id="res-subject-bars"></div>
+          </div>
+
+          <div class="wrong-list-section" id="wrong-list-section">
+            <div class="wrong-list-title">間違えた問題</div>
+            <div class="wrong-list" id="wrong-list"></div>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn-result btn-result-primary"   id="btn-retry-wrong">間違えた問題を再挑戦</button>
+            <button class="btn-result btn-result-secondary" id="btn-retry-all">もう一度（同じ設定）</button>
+            <button class="btn-result btn-result-ghost"     id="btn-to-selector">設定に戻る</button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 宅地建物取引士（宅建）学習ノート</div>
+        <div class="disclaimer">問題文はAI生成によるオリジナルです。最新法令・正確な出題傾向は公式資料でご確認ください。</div>
+      </div>
+    </footer>
   </div><!-- /#page-content -->
 
   <script>
   (() => {
-    // ── データ読み込み ──────────────────────────────────────
     const DATA_FILES = {
-      '宅建業法':    'data/gyoho.json',
-      '権利関係':    'data/kenri.json',
-      '法令上の制限':'data/horei.json',
-      '税・その他':  'data/zei.json',
+      '宅建業法':     'data/gyoho.json',
+      '権利関係':     'data/kenri.json',
+      '法令上の制限': 'data/horei.json',
+      '税・その他':   'data/zei.json',
+    };
+    const SUBJ_CLASS = {
+      '権利関係':    'kenri',
+      '宅建業法':    'gyoho',
+      '法令上の制限': 'horei',
+      '税・その他':  'zei',
+    };
+    const SUBJ_COLOR = {
+      '権利関係':    'var(--c-kenri)',
+      '宅建業法':    'var(--c-gyoho)',
+      '法令上の制限': 'var(--c-horei)',
+      '税・その他':  'var(--c-zei)',
     };
 
-    let allQuestions = [];   // 読込済み全問
-    let queue        = [];   // 演習キュー
-    let current      = 0;   // 現在のインデックス
-    let answered     = false;
-    let score        = { ok: 0, ng: 0 };
-    let currentSubject = 'all';
-    let currentMode    = 'random';
+    let QUESTIONS = [];
 
     async function loadAll() {
       const results = await Promise.all(
@@ -297,162 +537,286 @@
           fetch(f).then(r => r.json()).catch(() => ({ questions: [] }))
         )
       );
-      allQuestions = results.flatMap(d => d.questions || []);
-      updateCount();
+      QUESTIONS = results.flatMap(d => d.questions || []);
+      updateSelectorUI();
     }
 
-    function updateCount() {
-      const filtered = filterQuestions();
-      document.getElementById('totalCount').textContent = `${filtered.length}問`;
+    // ===== 状態 =====
+    const state = {
+      selectedSubject: 'all',
+      selectedCount:   'all',
+      shuffle:         true,
+      flaggedOnly:     false,
+      deck:            [],
+      index:           0,
+      answered:        false,
+      session:         [],
+      lastDeck:        [],
+    };
+
+    // ===== localStorage =====
+    const LS_HISTORY = 'takken_quiz_history';
+    const LS_FLAGGED = 'takken_quiz_flagged';
+
+    const getHistory = () => JSON.parse(localStorage.getItem(LS_HISTORY) || '{}');
+    const saveHistory = h => localStorage.setItem(LS_HISTORY, JSON.stringify(h));
+    const getFlagged  = () => new Set(JSON.parse(localStorage.getItem(LS_FLAGGED) || '[]'));
+    const saveFlagged = s => localStorage.setItem(LS_FLAGGED, JSON.stringify([...s]));
+
+    function recordResult(id, correct) {
+      const h = getHistory();
+      if (!h[id]) h[id] = { correct: 0, total: 0 };
+      h[id].total++;
+      if (correct) h[id].correct++;
+      saveHistory(h);
     }
 
-    function filterQuestions() {
-      if (currentSubject === 'all') return allQuestions;
-      return allQuestions.filter(q => q.subject === currentSubject);
+    function toggleFlag(id) {
+      const f = getFlagged();
+      if (f.has(id)) f.delete(id); else f.add(id);
+      saveFlagged(f);
+      return f.has(id);
     }
 
-    function shuffle(arr) {
-      const a = [...arr];
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
+    // ===== デッキ構築 =====
+    function buildDeck() {
+      const flagged = getFlagged();
+      let pool = QUESTIONS.filter(q => {
+        if (state.selectedSubject !== 'all' && q.subject !== state.selectedSubject) return false;
+        if (state.flaggedOnly && !flagged.has(q.id)) return false;
+        return true;
+      });
+      if (state.shuffle) pool = pool.slice().sort(() => Math.random() - 0.5);
+      if (state.selectedCount !== 'all') pool = pool.slice(0, parseInt(state.selectedCount, 10));
+      return pool;
     }
 
-    // ── 演習開始 ────────────────────────────────────────────
-    function startQuiz() {
-      const base = filterQuestions();
-      if (base.length === 0) {
-        document.getElementById('quizArea').innerHTML =
-          '<p class="state-msg">問題データが見つかりません。</p>';
-        return;
-      }
-      queue   = currentMode === 'random' ? shuffle(base) : [...base];
-      current = 0;
-      score   = { ok: 0, ng: 0 };
+    // ===== 統計バー =====
+    function buildStatBars(containerId) {
+      const h = getHistory();
+      const container = document.getElementById(containerId);
+      if (!container || QUESTIONS.length === 0) return;
+      const subjects = ['権利関係', '宅建業法', '法令上の制限', '税・その他'];
+      container.innerHTML = subjects.map(subj => {
+        const qs = QUESTIONS.filter(q => q.subject === subj);
+        let c = 0, t = 0;
+        qs.forEach(q => { if (h[q.id]) { c += h[q.id].correct; t += h[q.id].total; } });
+        const pct = t > 0 ? Math.round(c / t * 100) : null;
+        return `
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">${subj}</span>
+            <div class="stat-bar-track">
+              <div class="stat-bar-fill" style="width:${pct ?? 0}%;background:${SUBJ_COLOR[subj]}"></div>
+            </div>
+            <span class="stat-bar-pct">${pct !== null ? pct + '%' : '—'}</span>
+          </div>`;
+      }).join('');
+    }
+
+    // ===== セレクター =====
+    function updateSelectorUI() {
+      const deck = buildDeck();
+      document.getElementById('deck-count').textContent = deck.length;
+      document.getElementById('btn-start').disabled = deck.length === 0;
+      buildStatBars('stat-bars');
+    }
+
+    // ===== 画面切り替え =====
+    function showView(name) {
+      ['selector', 'quiz', 'results'].forEach(v => {
+        document.getElementById('view-' + v).hidden = (v !== name);
+      });
+    }
+
+    // ===== 演習開始 =====
+    function startQuiz(deck) {
+      state.deck = deck;
+      state.lastDeck = deck;
+      state.index = 0;
+      state.session = [];
+      showView('quiz');
       renderQuestion();
     }
 
-    // ── 問題描画 ────────────────────────────────────────────
+    // ===== 問題描画 =====
     function renderQuestion() {
-      answered = false;
-      if (current >= queue.length) { renderScore(); return; }
+      const q = state.deck[state.index];
+      state.answered = false;
 
-      const q   = queue[current];
-      const idx = current + 1;
-      const tot = queue.length;
+      const pct = (state.index / state.deck.length * 100).toFixed(1);
+      document.getElementById('quiz-bar-fill').style.width = pct + '%';
+      document.getElementById('q-current').textContent = state.index + 1;
+      document.getElementById('q-total').textContent = state.deck.length;
 
-      const diffColor = { '基本': 'badge-primary', '標準': 'badge-primary', '応用': 'badge-accent' };
-      const dClass = diffColor[q.difficulty] || 'badge-primary';
+      const badge = document.getElementById('q-subj-badge');
+      badge.textContent = q.subject;
+      badge.className = 'subj-badge ' + (SUBJ_CLASS[q.subject] || '');
+      document.getElementById('q-topic').textContent = q.topic;
+      document.getElementById('q-diff').textContent  = q.difficulty || '';
+      document.getElementById('q-text').textContent  = q.question;
 
-      document.getElementById('quizArea').innerHTML = `
-        <div class="quiz-card">
-          <div class="quiz-meta">
-            <span class="badge ${dClass}">${q.subject}</span>
-            <span class="badge badge-primary">${q.topic}</span>
-            <span class="badge ${dClass}">${q.difficulty}</span>
-            <span class="quiz-progress">${idx} / ${tot} 問</span>
-          </div>
-          <p class="quiz-question">${escHtml(q.question)}</p>
-          <div class="choices" id="choices">
-            ${q.choices.map((c, i) => `
-              <button class="choice-btn" data-idx="${i + 1}">${escHtml(c)}</button>
-            `).join('')}
-          </div>
-          <div class="explanation" id="explanation"></div>
-          <div class="quiz-nav">
-            <button class="btn" id="prevBtn" ${current === 0 ? 'disabled' : ''}>← 前の問題</button>
-            <button class="btn btn-primary" id="nextBtn" disabled>次の問題 →</button>
-          </div>
-        </div>
-      `;
+      const choicesEl = document.getElementById('q-choices');
+      choicesEl.innerHTML = q.choices.map((c, i) =>
+        `<button class="choice-btn" data-index="${i + 1}">${escHtml(c)}</button>`
+      ).join('');
+      choicesEl.querySelectorAll('.choice-btn').forEach(btn =>
+        btn.addEventListener('click', () => onChoiceClick(btn, q))
+      );
 
-      // 選択肢クリック
-      document.querySelectorAll('.choice-btn').forEach(btn => {
-        btn.addEventListener('click', () => handleAnswer(q, parseInt(btn.dataset.idx)));
-      });
-
-      document.getElementById('prevBtn').addEventListener('click', () => { current--; renderQuestion(); });
-      document.getElementById('nextBtn').addEventListener('click', () => { current++; renderQuestion(); });
+      document.getElementById('q-explanation').hidden = true;
+      document.getElementById('btn-next').hidden = true;
+      updateFlagBtn(getFlagged().has(q.id));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ── 回答処理 ────────────────────────────────────────────
-    function handleAnswer(q, chosen) {
-      if (answered) return;
-      answered = true;
-
-      const isCorrect = chosen === q.answer;
-      if (isCorrect) score.ok++; else score.ng++;
-
-      // ボタンのスタイル変更
-      document.querySelectorAll('.choice-btn').forEach(btn => {
-        btn.disabled = true;
-        const idx = parseInt(btn.dataset.idx);
-        if (idx === q.answer) btn.classList.add('correct');
-        else if (idx === chosen && !isCorrect) btn.classList.add('wrong');
-      });
-
-      // 解説表示
-      const exEl = document.getElementById('explanation');
-      exEl.innerHTML = `
-        <div class="result-label ${isCorrect ? 'ok' : 'ng'}">${isCorrect ? '✓ 正解' : '✗ 不正解'}</div>
-        <div>${escHtml(q.explanation)}</div>
-        ${q.law ? `<div class="law-ref">根拠：${escHtml(q.law)}</div>` : ''}
-      `;
-      exEl.classList.add('show');
-
-      document.getElementById('nextBtn').disabled = false;
-    }
-
-    // ── スコア表示 ──────────────────────────────────────────
-    function renderScore() {
-      const total = score.ok + score.ng;
-      const pct   = total ? Math.round(score.ok / total * 100) : 0;
-      document.getElementById('quizArea').innerHTML = `
-        <div class="score-board">
-          <div class="score-big">${pct}<span style="font-size:1.5rem;color:var(--color-text-muted)">%</span></div>
-          <div class="score-label">${total}問中 ${score.ok}問正解</div>
-          <div class="score-breakdown">
-            <span class="score-ok">✓ 正解 ${score.ok}問</span>
-            <span class="score-ng">✗ 不正解 ${score.ng}問</span>
-          </div>
-          <button class="btn btn-primary" id="retryBtn" style="margin-top:0.5rem">もう一度やり直す</button>
-        </div>
-      `;
-      document.getElementById('retryBtn').addEventListener('click', startQuiz);
-    }
-
-    // ── ユーティリティ ──────────────────────────────────────
     function escHtml(str) {
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
-    // ── イベント登録 ────────────────────────────────────────
-    document.getElementById('subjectFilter').addEventListener('click', e => {
-      const btn = e.target.closest('[data-subject]');
+    // ===== 選択肢クリック =====
+    function onChoiceClick(btn, q) {
+      if (state.answered) return;
+      state.answered = true;
+
+      const selected = parseInt(btn.dataset.index, 10);
+      const correct  = selected === q.answer;
+
+      document.querySelectorAll('.choice-btn').forEach(b => {
+        b.disabled = true;
+        const idx = parseInt(b.dataset.index, 10);
+        if (idx === q.answer && idx === selected) b.classList.add('is-correct');
+        else if (idx === selected)                 b.classList.add('is-wrong');
+        else if (idx === q.answer)                 b.classList.add('is-correct-hint');
+      });
+
+      document.getElementById('explanation-body').textContent = q.explanation;
+      const lawEl = document.getElementById('explanation-law');
+      lawEl.textContent = q.law || '';
+      lawEl.hidden = !q.law;
+      document.getElementById('q-explanation').hidden = false;
+
+      const nextBtn = document.getElementById('btn-next');
+      nextBtn.hidden = false;
+      nextBtn.textContent = state.index + 1 < state.deck.length ? '次の問題 →' : '結果を見る';
+
+      recordResult(q.id, correct);
+      state.session.push({ id: q.id, subject: q.subject, topic: q.topic, question: q.question, correct });
+    }
+
+    // ===== 苦手フラグ =====
+    function updateFlagBtn(flagged) {
+      const btn = document.getElementById('btn-flag');
+      btn.classList.toggle('flagged', flagged);
+      btn.querySelector('.flag-text').textContent = flagged ? '苦手登録済み' : '苦手に登録';
+    }
+
+    // ===== 結果画面 =====
+    function showResults() {
+      const correct = state.session.filter(r => r.correct).length;
+      const total   = state.session.length;
+      const pct     = total > 0 ? Math.round(correct / total * 100) : 0;
+
+      document.getElementById('res-correct').textContent = correct;
+      document.getElementById('res-total').textContent   = total;
+      document.getElementById('res-pct').textContent     = `正答率 ${pct}%`;
+      const bar = document.getElementById('res-bar');
+      bar.style.width      = pct + '%';
+      bar.style.background = pct >= 70 ? 'var(--c-correct)' : pct >= 50 ? 'var(--c-gyoho)' : 'var(--c-wrong)';
+
+      const subjects = [...new Set(state.session.map(r => r.subject))];
+      document.getElementById('res-subject-bars').innerHTML = subjects.map(subj => {
+        const rows = state.session.filter(r => r.subject === subj);
+        const c = rows.filter(r => r.correct).length;
+        const t = rows.length;
+        return `
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">${subj}</span>
+            <div class="stat-bar-track">
+              <div class="stat-bar-fill" style="width:${Math.round(c/t*100)}%;background:${SUBJ_COLOR[subj]}"></div>
+            </div>
+            <span class="stat-bar-pct">${c}/${t}</span>
+          </div>`;
+      }).join('');
+
+      const wrongs = state.session.filter(r => !r.correct);
+      const wrongSection = document.getElementById('wrong-list-section');
+      wrongSection.hidden = wrongs.length === 0;
+      if (wrongs.length > 0) {
+        document.getElementById('wrong-list').innerHTML = wrongs.map(r => `
+          <div class="wrong-item">
+            <div class="wrong-item-topic">${escHtml(r.subject)} › ${escHtml(r.topic)}</div>
+            ${escHtml(r.question)}
+          </div>`).join('');
+      }
+
+      document.getElementById('btn-retry-wrong').disabled = wrongs.length === 0;
+      showView('results');
+      buildStatBars('stat-bars');
+    }
+
+    // ===== イベント登録 =====
+    document.getElementById('subject-filters').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
       if (!btn) return;
-      currentSubject = btn.dataset.subject;
-      document.querySelectorAll('#subjectFilter .filter-chip').forEach(b => b.classList.remove('current'));
-      btn.classList.add('current');
-      updateCount();
+      document.querySelectorAll('#subject-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.selectedSubject = btn.dataset.subject;
+      updateSelectorUI();
     });
 
-    document.getElementById('modeFilter').addEventListener('click', e => {
-      const btn = e.target.closest('[data-mode]');
+    document.getElementById('count-buttons').addEventListener('click', e => {
+      const btn = e.target.closest('.count-btn');
       if (!btn) return;
-      currentMode = btn.dataset.mode;
-      document.querySelectorAll('#modeFilter .filter-chip').forEach(b => b.classList.remove('current'));
-      btn.classList.add('current');
+      document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.selectedCount = btn.dataset.count;
+      updateSelectorUI();
     });
 
-    document.getElementById('startBtn').addEventListener('click', startQuiz);
+    document.getElementById('shuffle-toggle').addEventListener('change', e => {
+      state.shuffle = e.target.checked;
+      updateSelectorUI();
+    });
 
-    // ── 初期化 ──────────────────────────────────────────────
+    document.getElementById('flagged-toggle').addEventListener('change', e => {
+      state.flaggedOnly = e.target.checked;
+      updateSelectorUI();
+    });
+
+    document.getElementById('btn-start').addEventListener('click', () => {
+      const deck = buildDeck();
+      if (deck.length === 0) return;
+      startQuiz(deck);
+    });
+
+    document.getElementById('btn-back').addEventListener('click', () => {
+      showView('selector');
+      updateSelectorUI();
+    });
+
+    document.getElementById('btn-flag').addEventListener('click', () => {
+      updateFlagBtn(toggleFlag(state.deck[state.index].id));
+    });
+
+    document.getElementById('btn-next').addEventListener('click', () => {
+      state.index++;
+      if (state.index >= state.deck.length) showResults();
+      else renderQuestion();
+    });
+
+    document.getElementById('btn-retry-wrong').addEventListener('click', () => {
+      const wrongIds = new Set(state.session.filter(r => !r.correct).map(r => r.id));
+      startQuiz(state.deck.filter(q => wrongIds.has(q.id)));
+    });
+
+    document.getElementById('btn-retry-all').addEventListener('click', () => startQuiz(state.lastDeck));
+
+    document.getElementById('btn-to-selector').addEventListener('click', () => {
+      showView('selector');
+      updateSelectorUI();
+    });
+
+    // ===== 初期化 =====
     loadAll();
   })();
   </script>
