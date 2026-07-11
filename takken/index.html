@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宅地建物取引士（宅建）— 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">宅地建物取引士（宅建）</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link current" href="index.html">宅建</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>宅地建物取引士（宅建）</span>
+          </div>
+
+          <h2 class="section-title">宅地建物取引士（宅建）</h2>
+          <p class="lead">
+            不動産取引の専門家資格。試験は毎年10月第3日曜日に実施され、合格率は約15〜17%。
+            以下のコンテンツで体系的に学習できます。
+          </p>
+
+          <div class="content-grid">
+
+            <a class="content-card" href="docs/overview.html">
+              <div class="content-card-title">試験概要</div>
+              <div class="content-card-desc">受験資格・試験スケジュール・出題科目・合格率・登録手続きをまとめたリファレンスページ。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="practice.html">
+              <div class="content-card-title">過去問演習</div>
+              <div class="content-card-desc">全35問（宅建業法・権利関係・法令上の制限・税その他）。科目別フィルター・ランダム出題・解説付き。</div>
+              <div class="content-card-arrow">演習する →</div>
+            </a>
+
+            <div class="content-card wip">
+              <div class="content-card-title">単語帳</div>
+              <div class="content-card-desc">重要用語をフラッシュカード形式で暗記。科目別・頻出度別に絞り込み可能。</div>
+              <div class="content-card-arrow">準備中</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">科目別まとめ</h2>
+          <p class="lead">各科目の重要ポイントをまとめたリファレンスページです。</p>
+
+          <div class="content-grid">
+
+            <div class="content-card wip">
+              <div class="content-card-title">宅建業法</div>
+              <div class="content-card-desc">免許・専任宅建士・重説・37条書面・クーリングオフ・報酬 等（20問）</div>
+              <div class="content-card-arrow">準備中</div>
+            </div>
+
+            <div class="content-card wip">
+              <div class="content-card-title">権利関係</div>
+              <div class="content-card-desc">民法・借地借家法・区分所有法・不動産登記法（14問）</div>
+              <div class="content-card-arrow">準備中</div>
+            </div>
+
+            <div class="content-card wip">
+              <div class="content-card-title">法令上の制限</div>
+              <div class="content-card-desc">都市計画法・建築基準法・農地法・土地区画整理法 等（8問）</div>
+              <div class="content-card-arrow">準備中</div>
+            </div>
+
+            <div class="content-card wip">
+              <div class="content-card-title">税・その他</div>
+              <div class="content-card-desc">不動産取得税・固定資産税・印紙税・地価公示・鑑定評価（8問）</div>
+              <div class="content-card-arrow">準備中</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 宅地建物取引士（宅建）</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（RETIO）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

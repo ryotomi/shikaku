@@ -207,6 +207,156 @@ a:hover { color: var(--color-accent-light); }
 }
 .exclusive-list li strong { color: var(--color-accent); }
 
+/* ユーザーチップ（ヘッダー右上） */
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.user-chip img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.user-chip span {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.85);
+}
+.user-chip button {
+  font-size: 0.75rem;
+  padding: 0.2em 0.7em;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.user-chip button:hover { background: rgba(255,255,255,0.15); }
+
+/* 資格カードグリッド */
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.subject-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 1.4rem 1.5rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.subject-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 2px 10px rgba(43,75,110,0.1);
+  color: inherit;
+}
+.subject-card.wip {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+.subject-card-name {
+  font-family: var(--font-accent);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+.subject-card-sub {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+.subject-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+.subject-card-meta span {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg-alt);
+  padding: 0.15em 0.6em;
+  border-radius: 2px;
+}
+.subject-card-arrow {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* コンテンツカードグリッド */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+.content-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-primary);
+  padding: 1.3rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: box-shadow 0.15s, border-top-color 0.15s;
+}
+.content-card:hover {
+  box-shadow: 0 2px 10px rgba(43,75,110,0.1);
+  border-top-color: var(--color-accent);
+  color: inherit;
+}
+.content-card.wip {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.content-card-title {
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+.content-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+.content-card-arrow {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--color-accent);
+}
+
+/* パンくずリスト */
+.breadcrumb {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--color-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: var(--color-border); }
+
 /* Footer */
 .site-footer {
   background-color: var(--color-primary-dark);

@@ -1,75 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ホーム</title>
+  <title>資格まとめ — 学習トップ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
+    #page-content { display: none; }
+    #auth-loading {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f5f5f5;
-      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      padding: 48px 40px;
-      width: 400px;
-      text-align: center;
-    }
-
-    img.avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: 1.3rem;
-      color: #333;
-      margin-bottom: 6px;
-    }
-
-    p.email {
-      color: #777;
-      font-size: 0.9rem;
-      margin-bottom: 32px;
-    }
-
-    button#logout-btn {
-      padding: 10px 24px;
-      border: none;
-      border-radius: 8px;
-      background: #ea4335;
-      color: #fff;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
       font-size: 0.95rem;
-      cursor: pointer;
-      transition: opacity 0.15s;
     }
-
-    button#logout-btn:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img id="avatar" class="avatar" src="" alt="アバター" />
-    <h1 id="name">読み込み中...</h1>
-    <p class="email" id="email"></p>
-    <button id="logout-btn">ログアウト</button>
-  </div>
+  <div id="auth-loading">読み込み中...</div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getAuth, signOut, onAuthStateChanged }
-      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
@@ -80,23 +37,88 @@
       appId:             "1:787519016500:web:decc4d4a20145659f44461",
     };
 
-    const app  = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    const auth = getAuth(initializeApp(firebaseConfig));
 
     onAuthStateChanged(auth, user => {
-      if (!user) {
-        location.href = "login.html";
-        return;
-      }
-      document.getElementById("avatar").src = user.photoURL || "";
-      document.getElementById("name").textContent  = `こんにちは、${user.displayName} さん`;
-      document.getElementById("email").textContent = user.email;
-    });
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) { location.href = "login.html"; return; }
 
-    document.getElementById("logout-btn").addEventListener("click", async () => {
-      await signOut(auth);
-      location.href = "login.html";
+      document.getElementById("page-content").style.display = "";
+      document.getElementById("user-avatar").src = user.photoURL || "";
+      document.getElementById("user-name").textContent = user.displayName || user.email;
+      document.getElementById("logout-btn").addEventListener("click", async () => {
+        await signOut(auth);
+        location.href = "login.html";
+      });
     });
   </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">国家資格・検定の個人学習ノート</div>
+        <div class="user-chip">
+          <img id="user-avatar" src="" alt="" />
+          <span id="user-name"></span>
+          <button id="logout-btn">ログアウト</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link current" href="index.html">ホーム</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">学習する資格を選ぶ</h2>
+          <p class="lead">各資格のページでは、試験概要・過去問演習・単語帳などのコンテンツが利用できます。</p>
+
+          <div class="subject-grid">
+
+            <a class="subject-card" href="takken/index.html">
+              <div><span class="badge badge-accent">不動産</span></div>
+              <div class="subject-card-name">宅地建物取引士（宅建）</div>
+              <div class="subject-card-sub">不動産取引の専門家として国が認定する国家資格。毎年約20万人が受験する登竜門。</div>
+              <div class="subject-card-meta">
+                <span>試験日: 2026/10/18</span>
+                <span>問題数: 35問</span>
+                <span>合格率: 約17%</span>
+              </div>
+              <div class="subject-card-arrow">学習を始める →</div>
+            </a>
+
+            <div class="subject-card wip">
+              <div><span class="badge badge-primary">不動産</span></div>
+              <div class="subject-card-name">管理業務主任者</div>
+              <div class="subject-card-sub">マンション管理会社が管理受託契約時に必要とする国家資格。</div>
+              <div class="subject-card-meta"><span>準備中</span></div>
+            </div>
+
+            <div class="subject-card wip">
+              <div><span class="badge badge-primary">不動産</span></div>
+              <div class="subject-card-name">マンション管理士</div>
+              <div class="subject-card-sub">マンション管理組合のコンサルティングを行う国家資格。</div>
+              <div class="subject-card-meta"><span>準備中</span></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 個人学習用サイト</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は各資格の公式機関でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
 </body>
 </html>
