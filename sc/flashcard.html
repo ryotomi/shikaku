@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>単語帳 — 情報安全確保支援士</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    /* ===== タブ ===== */
+    .mode-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 1.8rem;
+    }
+    .tab-btn {
+      padding: 0.6rem 1.4rem;
+      border: none;
+      background: none;
+      font-family: var(--font-primary);
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-btn:hover { color: var(--color-primary); }
+    .tab-btn.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* ===== フィルターチップ（共通）===== */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+      align-items: center;
+    }
+    .filter-label { font-size: 0.8rem; color: var(--color-text-muted); white-space: nowrap; }
+    .chip {
+      padding: 0.3em 0.9em;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      background: var(--color-white);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .chip:hover { border-color: var(--color-primary-light); color: var(--color-primary); }
+    .chip.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
+
+    /* ===== フラッシュカード ===== */
+    .progress-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .progress-text { font-size: 0.88rem; color: var(--color-text-muted); }
+    .progress-bar-wrap { flex: 1; min-width: 120px; height: 4px; background: var(--color-bg-dark); border-radius: 2px; }
+    .progress-bar-fill { height: 100%; background: var(--color-primary); border-radius: 2px; transition: width 0.3s; }
+    .known-count { font-size: 0.82rem; color: var(--color-accent); font-weight: 500; }
+
+    .card-area { perspective: 1200px; margin: 0.5rem 0 1.5rem; }
+    .flip-card {
+      position: relative;
+      min-height: 220px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .flip-card.is-flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute;
+      inset: 0;
+      min-height: 220px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2.5rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+    }
+    .card-face.card-back { transform: rotateY(180deg); background: var(--color-bg-alt); }
+    .card-subject-tag { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.8rem; letter-spacing: 0.05em; }
+    .card-term { font-family: var(--font-accent); font-size: 1.5rem; font-weight: 500; color: var(--color-primary); text-align: center; line-height: 1.5; }
+    .card-hint { margin-top: 1.2rem; font-size: 0.78rem; color: var(--color-text-muted); }
+    .card-definition { font-size: 0.95rem; color: var(--color-text); line-height: 1.9; text-align: center; }
+    .card-term-small { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 1rem; }
+
+    .card-nav { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 1rem; }
+    .nav-btn {
+      padding: 0.55rem 1.2rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 0.88rem;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: background 0.12s;
+      white-space: nowrap;
+    }
+    .nav-btn:hover:not(:disabled) { background: var(--color-bg-alt); }
+    .nav-btn:disabled { opacity: 0.35; cursor: default; }
+    .nav-btn.btn-primary { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
+    .nav-btn.btn-primary:hover:not(:disabled) { background: var(--color-primary-light); border-color: var(--color-primary-light); }
+
+    .action-row { display: flex; align-items: center; gap: 0.8rem; margin-top: 0.4rem; flex-wrap: wrap; }
+    .btn-known {
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+    .btn-known:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .btn-known.is-known { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-white); }
+    .btn-sub {
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 0.82rem;
+      color: var(--color-text-light);
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+    .btn-sub:hover { background: var(--color-bg-alt); }
+    .btn-sub.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
+    .btn-sub.ml-auto { margin-left: auto; }
+
+    .done-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .done-title { font-family: var(--font-accent); font-size: 1.3rem; color: var(--color-primary); }
+    .done-sub { font-size: 0.9rem; color: var(--color-text-light); }
+
+    /* ===== 用語集 ===== */
+    .glossary-search {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      font-family: var(--font-primary);
+      font-size: 0.9rem;
+      color: var(--color-text);
+      background: var(--color-white);
+      margin-bottom: 0.8rem;
+      box-sizing: border-box;
+    }
+    .glossary-search:focus { outline: none; border-color: var(--color-primary); }
+
+    .glossary-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+    }
+    .glossary-known-summary { color: var(--color-accent); font-weight: 500; }
+
+    .glossary-list { display: flex; flex-direction: column; }
+    .glossary-item {
+      padding: 1rem 0.2rem 1rem 1rem;
+      border-bottom: 1px solid var(--color-border);
+      border-left: 3px solid transparent;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      transition: border-left-color 0.15s;
+    }
+    .glossary-item.is-known { border-left-color: #2f7d5b; background: rgba(47,125,91,0.03); }
+
+    .glossary-body { flex: 1; min-width: 0; }
+    .glossary-header { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.35rem; flex-wrap: wrap; }
+    .glossary-subject-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      padding: 0.12em 0.55em;
+      border-radius: 999px;
+      font-weight: 500;
+      color: white;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .glossary-term {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      line-height: 1.4;
+    }
+    .glossary-definition {
+      font-size: 0.875rem;
+      line-height: 1.85;
+      color: var(--color-text-light);
+    }
+
+    .glossary-known-btn {
+      flex-shrink: 0;
+      padding: 0.3rem 0.65rem;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      background: var(--color-white);
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all 0.12s;
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .glossary-known-btn:hover { border-color: #2f7d5b; color: #2f7d5b; }
+    .glossary-known-btn.is-known { border-color: #2f7d5b; color: #2f7d5b; background: rgba(47,125,91,0.08); }
+
+    @media (max-width: 600px) {
+      .card-face { padding: 1.5rem; }
+      .card-term { font-size: 1.25rem; }
+      .card-definition { font-size: 0.9rem; }
+      .glossary-item { padding-left: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else {
+        document.getElementById("page-content").style.display = "block";
+        init();
+      }
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">情報安全確保支援士 単語帳</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="index.html">SC</a></li>
+          <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+          <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+          <li><a class="nav-link current" href="flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">SC</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>単語帳</span>
+          </div>
+
+          <h2 class="section-title">単語帳</h2>
+          <p class="lead">情報セキュリティの重要用語集。フラッシュカードで暗記するか、用語集で一覧確認できます。</p>
+
+          <!-- タブ -->
+          <div class="mode-tabs">
+            <button class="tab-btn active" data-mode="flashcard">フラッシュカード</button>
+            <button class="tab-btn" data-mode="glossary">用語集</button>
+          </div>
+
+          <!-- フラッシュカードビュー -->
+          <div id="flashcard-view">
+            <div id="flashcard-app">
+              <p style="color:var(--color-text-muted);font-size:0.9rem;">読み込み中...</p>
+            </div>
+          </div>
+
+          <!-- 用語集ビュー -->
+          <div id="glossary-view" hidden>
+            <div id="glossary-app"></div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 情報処理安全確保支援士試験</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報はIPA公式サイトでご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+
+  <script>
+    const STORAGE_KEY = 'shikaku-sc-known';
+    const SUBJECTS = ['全て', 'セキュリティ基礎', '暗号・認証', '脅威・攻撃', 'セキュリティ管理', '法規・標準'];
+    const SUBJ_COLORS = {
+      'セキュリティ基礎': '#2E86AB',
+      '暗号・認証':       '#38A169',
+      '脅威・攻撃':       '#C0564B',
+      'セキュリティ管理': '#D97706',
+      '法規・標準':       '#718096',
+    };
+
+    let allCards = [];
+    let deck = [];
+    let currentIndex = 0;
+    let knownIds = new Set();
+    let activeSubject = '全て';
+    let unknownOnly = false;
+    let activeMode = 'flashcard';
+    let glossarySearch = '';
+
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function loadKnown() {
+      try { knownIds = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')); }
+      catch(e) { knownIds = new Set(); }
+    }
+    function saveKnown() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...knownIds]));
+    }
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function buildDeck() {
+      let cards = activeSubject === '全て' ? allCards : allCards.filter(c => c.subject === activeSubject);
+      if (unknownOnly) cards = cards.filter(c => !knownIds.has(c.id));
+      deck = cards;
+      currentIndex = 0;
+    }
+
+    /* ===== フラッシュカード ===== */
+    function renderChips() {
+      return '<span class="filter-label">科目：</span>' +
+        SUBJECTS.map(s =>
+          `<button class="chip${s === activeSubject ? ' active' : ''}" data-subject="${s}">${s}</button>`
+        ).join('');
+    }
+
+    function renderApp() {
+      const app = document.getElementById('flashcard-app');
+
+      if (!deck.length) {
+        app.innerHTML = `
+          <div class="filter-row">${renderChips()}</div>
+          <div class="action-row" style="margin-bottom:1rem;">
+            <button class="btn-sub${unknownOnly ? ' active' : ''}" id="btn-unknown-only">未習得のみ</button>
+            <button class="btn-sub ml-auto" id="btn-shuffle">シャッフル</button>
+          </div>
+          <div class="done-card">
+            <div class="done-title">${unknownOnly ? '未習得カードはありません' : 'カードがありません'}</div>
+            <div class="done-sub">${unknownOnly ? '「未習得のみ」を解除するか、別の科目を選んでください。' : '科目フィルターを変更してください。'}</div>
+          </div>`;
+        bindCard();
+        return;
+      }
+
+      const card = deck[currentIndex];
+      const isKnown = knownIds.has(card.id);
+      const knownInDeck = deck.filter(c => knownIds.has(c.id)).length;
+      const pct = ((currentIndex + 1) / deck.length * 100).toFixed(1);
+
+      app.innerHTML = `
+        <div class="filter-row">${renderChips()}</div>
+        <div class="progress-row">
+          <span class="progress-text">${currentIndex + 1} / ${deck.length} 枚</span>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+          <span class="known-count">習得済み ${knownInDeck} / ${deck.length}</span>
+        </div>
+        <div class="card-area">
+          <div class="flip-card" id="flip-card">
+            <div class="card-face card-front">
+              <div class="card-subject-tag">${escHtml(card.subject)}</div>
+              <div class="card-term">${escHtml(card.term)}</div>
+              <div class="card-hint">タップして定義を確認</div>
+            </div>
+            <div class="card-face card-back">
+              <div class="card-term-small">${escHtml(card.term)}</div>
+              <div class="card-definition">${escHtml(card.definition)}</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-nav">
+          <button class="nav-btn" id="btn-prev"${currentIndex === 0 ? ' disabled' : ''}>← 前へ</button>
+          <button class="btn-known${isKnown ? ' is-known' : ''}" id="btn-known">${isKnown ? '✓ 習得済み' : '習得済みにする'}</button>
+          <button class="nav-btn btn-primary" id="btn-next"${currentIndex === deck.length - 1 ? ' disabled' : ''}>次へ →</button>
+        </div>
+        <div class="action-row">
+          <button class="btn-sub${unknownOnly ? ' active' : ''}" id="btn-unknown-only">未習得のみ</button>
+          <button class="btn-sub ml-auto" id="btn-shuffle">シャッフル</button>
+        </div>`;
+      bindCard();
+    }
+
+    function bindCard() {
+      document.querySelectorAll('#flashcard-app .chip').forEach(btn => {
+        btn.addEventListener('click', () => { activeSubject = btn.dataset.subject; buildDeck(); renderApp(); });
+      });
+      const uo = document.getElementById('btn-unknown-only');
+      if (uo) uo.addEventListener('click', () => { unknownOnly = !unknownOnly; buildDeck(); renderApp(); });
+      const sh = document.getElementById('btn-shuffle');
+      if (sh) sh.addEventListener('click', () => { deck = shuffle(deck); currentIndex = 0; renderApp(); });
+      const fc = document.getElementById('flip-card');
+      if (fc) fc.addEventListener('click', () => fc.classList.toggle('is-flipped'));
+      const prev = document.getElementById('btn-prev');
+      if (prev) prev.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; renderApp(); } });
+      const next = document.getElementById('btn-next');
+      if (next) next.addEventListener('click', () => { if (currentIndex < deck.length - 1) { currentIndex++; renderApp(); } });
+      const bk = document.getElementById('btn-known');
+      if (bk) bk.addEventListener('click', () => {
+        const id = deck[currentIndex].id;
+        if (knownIds.has(id)) knownIds.delete(id); else knownIds.add(id);
+        saveKnown();
+        if (unknownOnly) buildDeck();
+        renderApp();
+      });
+    }
+
+    /* ===== 用語集 ===== */
+    function renderGlossary() {
+      const app = document.getElementById('glossary-app');
+      if (!app) return;
+
+      let cards = activeSubject === '全て' ? allCards : allCards.filter(c => c.subject === activeSubject);
+      if (glossarySearch.trim()) {
+        const q = glossarySearch.trim().toLowerCase();
+        cards = cards.filter(c =>
+          c.term.toLowerCase().includes(q) || c.definition.toLowerCase().includes(q)
+        );
+      }
+
+      const knownInFiltered = cards.filter(c => knownIds.has(c.id)).length;
+
+      app.innerHTML = `
+        <div class="filter-row">
+          <span class="filter-label">科目：</span>
+          ${SUBJECTS.map(s =>
+            `<button class="chip${s === activeSubject ? ' active' : ''}" data-subject="${s}">${s}</button>`
+          ).join('')}
+        </div>
+        <input type="search" id="glossary-search" class="glossary-search"
+               placeholder="用語・定義で絞り込む…" value="${escHtml(glossarySearch)}" />
+        <div class="glossary-meta">
+          <span>${cards.length} 語</span>
+          <span class="glossary-known-summary">習得済み ${knownInFiltered} / ${cards.length}</span>
+        </div>
+        <div class="glossary-list">
+          ${cards.map(card => {
+            const isKnown = knownIds.has(card.id);
+            const color = SUBJ_COLORS[card.subject] || '#888';
+            return `
+              <div class="glossary-item${isKnown ? ' is-known' : ''}">
+                <div class="glossary-body">
+                  <div class="glossary-header">
+                    <span class="glossary-subject-badge" style="background:${color}">${escHtml(card.subject)}</span>
+                    <span class="glossary-term">${escHtml(card.term)}</span>
+                  </div>
+                  <div class="glossary-definition">${escHtml(card.definition)}</div>
+                </div>
+                <button class="glossary-known-btn${isKnown ? ' is-known' : ''}" data-id="${card.id}">
+                  ${isKnown ? '✓ 習得済み' : '習得済み'}
+                </button>
+              </div>`;
+          }).join('')}
+        </div>`;
+
+      app.querySelectorAll('.chip').forEach(btn => {
+        btn.addEventListener('click', () => { activeSubject = btn.dataset.subject; renderGlossary(); });
+      });
+
+      const searchInput = document.getElementById('glossary-search');
+      searchInput.addEventListener('input', e => {
+        glossarySearch = e.target.value;
+        const pos = e.target.selectionStart;
+        renderGlossary();
+        const newInput = document.getElementById('glossary-search');
+        if (newInput) { newInput.focus(); try { newInput.setSelectionRange(pos, pos); } catch(_) {} }
+      });
+
+      app.querySelectorAll('.glossary-known-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = parseInt(btn.dataset.id, 10);
+          if (knownIds.has(id)) knownIds.delete(id); else knownIds.add(id);
+          saveKnown();
+          renderGlossary();
+        });
+      });
+    }
+
+    /* ===== タブ切り替え ===== */
+    function initTabs() {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mode = btn.dataset.mode;
+          if (mode === activeMode) return;
+          activeMode = mode;
+          document.querySelectorAll('.tab-btn').forEach(b =>
+            b.classList.toggle('active', b.dataset.mode === mode)
+          );
+          document.getElementById('flashcard-view').hidden = (mode !== 'flashcard');
+          document.getElementById('glossary-view').hidden  = (mode !== 'glossary');
+          if (mode === 'glossary') renderGlossary();
+          else { buildDeck(); renderApp(); }
+        });
+      });
+    }
+
+    /* ===== 初期化 ===== */
+    async function init() {
+      loadKnown();
+      initTabs();
+      try {
+        const res = await fetch('data/flashcards.json');
+        const data = await res.json();
+        allCards = data.cards;
+        buildDeck();
+        renderApp();
+      } catch(e) {
+        document.getElementById('flashcard-app').innerHTML =
+          '<p style="color:var(--color-accent)">データの読み込みに失敗しました。</p>';
+      }
+    }
+  </script>
+</body>
+</html>

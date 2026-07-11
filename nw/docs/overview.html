@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ネットワークスペシャリスト試験の概要。受験資格・試験日程・試験形式・出題科目・合格率をまとめた参考ページ。" />
+  <title>ネットワークスペシャリスト試験 概要 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) {
+        location.href = "/shikaku/login.html";
+      } else {
+        document.getElementById("page-content").style.display = "block";
+      }
+    });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">ネットワークスペシャリスト 学習ノート</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="../index.html">NW</a></li>
+        <li><a class="nav-link current" href="overview.html">試験概要</a></li>
+        <li><a class="nav-link" href="../practice.html">過去問演習</a></li>
+        <li><a class="nav-link" href="../flashcard.html">単語帳</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 基本情報 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験の基本情報</h2>
+        <p class="lead">
+          ネットワークスペシャリスト試験は、IPAが実施する高度情報処理技術者試験の一区分です。
+          ネットワークの設計・構築・運用管理に関する高度な知識・技能を認定します。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">正式名称</td>
+                <td>ネットワークスペシャリスト試験</td>
+              </tr>
+              <tr>
+                <td class="highlight">通称</td>
+                <td>NW試験、ネスペ</td>
+              </tr>
+              <tr>
+                <td class="highlight">実施機関</td>
+                <td>IPA（独立行政法人情報処理推進機構）</td>
+              </tr>
+              <tr>
+                <td class="highlight">根拠法令</td>
+                <td>情報処理の促進に関する法律</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験資格</td>
+                <td><strong>制限なし</strong>。年齢・学歴・国籍に関わらず誰でも受験できる。</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験料</td>
+                <td>7,500円（税込）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- スケジュール -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">2027年度スケジュール</h2>
+        <div class="notice">
+          <strong>ネットワークスペシャリスト試験は春期のみの実施（4月第3日曜日）。</strong>
+          2026年春期試験は終了済みです。次回は2027年度です。
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>イベント</th><th>日程（予定）</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>受験申込</td>
+                <td>2027年1月中旬 〜 2月上旬（予定）</td>
+              </tr>
+              <tr>
+                <td class="highlight">試験日</td>
+                <td class="highlight">2027年4月18日（日）予定</td>
+              </tr>
+              <tr>
+                <td>合格発表</td>
+                <td>2027年6月下旬（予定）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 試験形式 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験形式</h2>
+        <p class="lead">
+          午前I・午前II・午後I・午後IIの4区分で構成されます。すべての区分で60点以上が合格基準です。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>区分</th>
+                <th>時間</th>
+                <th>問題数</th>
+                <th>出題形式</th>
+                <th>解答数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">午前I</td>
+                <td>50分</td>
+                <td>30問</td>
+                <td>四肢択一式</td>
+                <td>30問全問</td>
+              </tr>
+              <tr>
+                <td class="highlight">午前II</td>
+                <td>40分</td>
+                <td>25問</td>
+                <td>四肢択一式</td>
+                <td>25問全問</td>
+              </tr>
+              <tr>
+                <td class="highlight">午後I</td>
+                <td>90分</td>
+                <td>3問</td>
+                <td>記述式</td>
+                <td>2問選択必答</td>
+              </tr>
+              <tr>
+                <td class="highlight">午後II</td>
+                <td>120分</td>
+                <td>2問</td>
+                <td>記述式</td>
+                <td>1問選択必答</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1.2rem">
+          午前I合格者は翌年度以降2年間、午前II合格者は翌年度以降2年間免除の<strong>科目合格制度</strong>があります。
+          また、高度試験・情報処理安全確保支援士試験の午前I合格者も免除対象です。
+        </div>
+      </div>
+    </section>
+
+    <!-- 出題科目 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">出題科目</h2>
+        <p class="lead">
+          午前Iはテクノロジ系・マネジメント系・ストラテジ系の幅広い知識が問われます。
+          午前II以降はネットワーク専門分野に特化した問題が出題されます。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>区分</th>
+                <th>出題範囲</th>
+                <th>備考</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">午前I</td>
+                <td>テクノロジ系・マネジメント系・ストラテジ系（全範囲）</td>
+                <td>他の高度試験と共通問題</td>
+              </tr>
+              <tr>
+                <td class="highlight">午前II</td>
+                <td>ネットワーク技術全般（OSI・TCP/IP・セキュリティ・プロトコル等）</td>
+                <td>NW専門知識</td>
+              </tr>
+              <tr>
+                <td class="highlight">午後I</td>
+                <td>ネットワーク設計・構築・運用に関する応用問題（事例形式）</td>
+                <td>長文読解・記述式</td>
+              </tr>
+              <tr>
+                <td class="highlight">午後II</td>
+                <td>ネットワークの大規模設計・移行・障害対応等の高度問題</td>
+                <td>長文・論述に近い記述式</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>主要出題テーマ</th>
+                <th>具体的な内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">ネットワーク基礎</td>
+                <td>OSI参照モデル、イーサネット、VLAN、スパニングツリー、無線LAN（802.11）、CSMA/CD</td>
+              </tr>
+              <tr>
+                <td class="highlight">TCP/IP</td>
+                <td>IPアドレス・サブネット、ルーティング（OSPF/BGP/RIP）、TCP/UDP、DNS、DHCP、NAT/NAPT、ARP</td>
+              </tr>
+              <tr>
+                <td class="highlight">セキュリティ</td>
+                <td>IPsec（AH/ESP/IKE）、TLS/SSL、ファイアウォール、IDS/IPS、DMZ、VPN、WAF、RADIUS</td>
+              </tr>
+              <tr>
+                <td class="highlight">設計・構築・運用</td>
+                <td>VRRP/HSRP、QoS、SNMP、SLA、ロードバランサ、リンクアグリゲーション、SDN/NFV</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 合格基準 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格基準と合格率</h2>
+        <p class="lead">
+          各試験区分で100点満点中60点以上を取ることが合格基準です。
+          1つでも60点未満の区分があると不合格となります。
+        </p>
+
+        <div class="notice">
+          <strong>合格基準：各区分 60点以上 / 100点満点</strong><br>
+          午前I・午前II・午後I・午後IIすべての区分で60点以上が必要です。
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>年度</th>
+                <th class="num">応募者数</th>
+                <th class="num">受験者数</th>
+                <th class="num">合格者数</th>
+                <th class="num">合格率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023年度（令和5年度）</td>
+                <td class="num">17,241人</td>
+                <td class="num">13,494人</td>
+                <td class="num">1,842人</td>
+                <td class="num highlight">13.6%</td>
+              </tr>
+              <tr>
+                <td>2022年度（令和4年度）</td>
+                <td class="num">17,321人</td>
+                <td class="num">13,555人</td>
+                <td class="num">2,322人</td>
+                <td class="num highlight">17.1%</td>
+              </tr>
+              <tr>
+                <td>2021年度（令和3年度）</td>
+                <td class="num">16,340人</td>
+                <td class="num">12,705人</td>
+                <td class="num">2,196人</td>
+                <td class="num highlight">17.3%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr><th>科目合格制度</th><th>内容</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">午前I免除</td>
+                <td>午前I合格者は翌年度以降2年間免除。他の高度試験・情報処理安全確保支援士試験の午前I合格者も対象。</td>
+              </tr>
+              <tr>
+                <td class="highlight">午前II免除</td>
+                <td>午前II合格者は翌年度以降2年間免除（ネットワークスペシャリスト試験の午前IIのみ対象）。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 参考リンク -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">参考リンク</h2>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+          <li><a href="https://www.ipa.go.jp/shiken/kubun/nw.html" target="_blank" rel="noopener">IPA — ネットワークスペシャリスト試験（公式）</a></li>
+          <li><a href="https://www.ipa.go.jp/shiken/syllabus/nw.html" target="_blank" rel="noopener">IPA — ネットワークスペシャリスト試験 シラバス</a></li>
+          <li><a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/nw.html" target="_blank" rel="noopener">IPA — 過去問題（ネットワークスペシャリスト）</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — ネットワークスペシャリスト</div>
+      <div class="disclaimer">個人学習用の参考まとめサイトです。最新情報は必ず公式機関（IPA）でご確認ください。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+
+</body>
+</html>

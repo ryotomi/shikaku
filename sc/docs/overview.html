@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="情報処理安全確保支援士試験（SC）の概要。受験資格・試験日程・試験形式・出題範囲・合格率・RISS登録手続きをまとめた参考ページ。" />
+  <title>SC試験 概要 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) {
+        location.href = "/shikaku/login.html";
+      } else {
+        document.getElementById("page-content").style.display = "block";
+      }
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">情報安全確保支援士 学習ノート</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="../index.html">SC</a></li>
+          <li><a class="nav-link current" href="overview.html">試験概要</a></li>
+          <li><a class="nav-link" href="../practice.html">過去問演習</a></li>
+          <li><a class="nav-link" href="../flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- 基本情報 -->
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="../index.html">情報処理安全確保支援士</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>試験概要</span>
+          </div>
+
+          <h2 class="section-title">試験の基本情報</h2>
+          <p class="lead">
+            情報処理安全確保支援士試験（SC試験）は、サイバーセキュリティの専門家を国家資格として認定するための試験です。
+            合格者はRISS（登録情報セキュリティスペシャリスト）として登録でき、セキュリティの専門家として活躍できます。
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td class="highlight" style="width:36%">正式名称</td>
+                  <td>情報処理安全確保支援士試験</td>
+                </tr>
+                <tr>
+                  <td class="highlight">通称</td>
+                  <td>SC試験 / 支援士</td>
+                </tr>
+                <tr>
+                  <td class="highlight">合格後の資格名</td>
+                  <td>登録情報セキュリティスペシャリスト（RISS）</td>
+                </tr>
+                <tr>
+                  <td class="highlight">実施機関</td>
+                  <td>IPA（独立行政法人情報処理推進機構）</td>
+                </tr>
+                <tr>
+                  <td class="highlight">根拠法令</td>
+                  <td>情報処理の促進に関する法律（情報処理促進法）</td>
+                </tr>
+                <tr>
+                  <td class="highlight">受験資格</td>
+                  <td><strong>制限なし</strong>。年齢・学歴・国籍・実務経験に関わらず誰でも受験できる。</td>
+                </tr>
+                <tr>
+                  <td class="highlight">受験料</td>
+                  <td>7,500円（税込）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- スケジュール -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">2026年度秋期スケジュール</h2>
+          <div class="notice">
+            <strong>次回試験：2026年10月18日（日）</strong><br>
+            春期（2026年4月19日）は終了済みです。次の受験機会は秋期となります。申込受付は例年7〜8月頃に開始されます。
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>イベント</th><th>日程</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>受験申込受付</td>
+                  <td>2026年7〜8月頃（IPA公式サイトで確認）</td>
+                </tr>
+                <tr>
+                  <td class="highlight">試験日</td>
+                  <td class="highlight">2026年10月18日（日）</td>
+                </tr>
+                <tr>
+                  <td>合格発表</td>
+                  <td>2026年12月下旬頃（IPA公式サイトで発表）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 試験形式 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">試験形式</h2>
+          <p class="lead">
+            SC試験は午前I・午前II・午後の3区分で構成されます。すべての区分で60点以上を取得することが合格条件です。
+            午前Iは応用情報技術者試験と共通の出題範囲で、一度合格すると翌年度以降2年間免除されます。
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>区分</th>
+                  <th>試験時間</th>
+                  <th>問題数</th>
+                  <th>形式</th>
+                  <th>合格基準</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="highlight">午前I</td>
+                  <td>50分</td>
+                  <td>30問</td>
+                  <td>四肢択一式（マークシート）</td>
+                  <td>60点以上 / 100点</td>
+                </tr>
+                <tr>
+                  <td class="highlight">午前II</td>
+                  <td>40分</td>
+                  <td>25問</td>
+                  <td>四肢択一式（マークシート）</td>
+                  <td>60点以上 / 100点</td>
+                </tr>
+                <tr>
+                  <td class="highlight">午後</td>
+                  <td>150分</td>
+                  <td>3問（必須）</td>
+                  <td>記述式（長文読解・論述）</td>
+                  <td>60点以上 / 100点</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice" style="margin-top:1.2rem">
+            <strong>午前I免除制度：</strong>
+            午前Iで基準点以上を取得した場合、翌年度以降2年間は午前Iが免除されます。
+            応用情報技術者試験または高度試験の午前Iに合格した場合も同様に免除対象となります。
+          </div>
+        </div>
+      </section>
+
+      <!-- 出題範囲 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">出題範囲（午前II・午後）</h2>
+          <p class="lead">
+            午前IIと午後はいずれもセキュリティ専門の出題範囲で構成されます。
+            午後は実際のインシデント対応や設計・運用シナリオを題材にした長文問題が中心です。
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>科目</th>
+                  <th class="num">問題数（目安）</th>
+                  <th>主な出題内容</th>
+                  <th>学習優先度</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="highlight">セキュリティ基礎</td>
+                  <td class="num">8問</td>
+                  <td>CIA・リスク管理・アクセス制御・多層防御・ゼロトラスト</td>
+                  <td><span class="badge badge-accent">最重要</span></td>
+                </tr>
+                <tr>
+                  <td class="highlight">暗号・認証</td>
+                  <td class="num">8問</td>
+                  <td>共通鍵/公開鍵暗号・ハッシュ・PKI・TLS・多要素認証</td>
+                  <td><span class="badge badge-accent">最重要</span></td>
+                </tr>
+                <tr>
+                  <td class="highlight">脅威・攻撃</td>
+                  <td class="num">8問</td>
+                  <td>SQLインジェクション・XSS・DDoS・APT・マルウェア</td>
+                  <td><span class="badge badge-primary">高</span></td>
+                </tr>
+                <tr>
+                  <td class="highlight">セキュリティ管理</td>
+                  <td class="num">8問</td>
+                  <td>ISMS・CSIRT・脆弱性管理・インシデント対応・SIEM</td>
+                  <td><span class="badge badge-primary">高</span></td>
+                </tr>
+                <tr>
+                  <td class="highlight">法規・標準</td>
+                  <td class="num">8問</td>
+                  <td>個人情報保護法・不正アクセス禁止法・GDPR・PCI DSS・NIST CSF</td>
+                  <td><span class="badge badge-primary">中</span></td>
+                </tr>
+                <tr style="background: var(--color-bg-alt)">
+                  <td class="highlight">合計</td>
+                  <td class="num highlight">40問</td>
+                  <td colspan="2"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 合格基準・合格率 -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">合格基準と合格率</h2>
+          <p class="lead">
+            各区分で60点以上を取得する必要があります。1区分でも基準を下回ると不合格となります（部分合格なし）。
+            合格率は20〜25%程度で推移しており、高度情報処理技術者試験の中では比較的合格しやすい部類に入ります。
+          </p>
+
+          <div class="notice">
+            <strong>合格基準：各区分60点以上（午前I・午前II・午後すべて）</strong><br>
+            1区分でも60点を下回ると不合格。午前は択一式のため正答率60%（午前I: 18/30、午前II: 15/25）が目安。
+          </div>
+
+          <div class="table-wrap" style="margin-top:1.2rem">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>年度・期</th>
+                  <th class="num">受験者数</th>
+                  <th class="num">合格者数</th>
+                  <th class="num">合格率</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2024年春期（令和6年春）</td>
+                  <td class="num">10,872人</td>
+                  <td class="num">2,338人</td>
+                  <td class="num highlight">21.5%</td>
+                </tr>
+                <tr>
+                  <td>2023年秋期（令和5年秋）</td>
+                  <td class="num">11,025人</td>
+                  <td class="num">2,503人</td>
+                  <td class="num highlight">22.7%</td>
+                </tr>
+                <tr>
+                  <td>2023年春期（令和5年春）</td>
+                  <td class="num">10,596人</td>
+                  <td class="num">2,490人</td>
+                  <td class="num highlight">23.5%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- RISS登録について -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">資格登録について（RISS）</h2>
+          <p class="lead">
+            試験合格だけでは「登録情報セキュリティスペシャリスト（RISS）」として活動できません。
+            IPAへの登録申請と3年ごとの更新が必要です。登録・更新には別途費用と要件があります。
+          </p>
+
+          <div class="flow">
+            <div class="flow-step">
+              <div class="flow-num">1</div>
+              <div class="flow-body">
+                <strong>試験合格</strong>
+                <p>合格の有効期限はなし。合格後すぐに登録申請する必要はないが、登録しないとRISS名称は使用できない。</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">2</div>
+              <div class="flow-body">
+                <strong>RISS登録申請（IPAへ）</strong>
+                <p>IPAへ必要書類を提出して登録申請。登録料が必要（詳細はIPA公式サイトを確認）。登録後、登録証が発行される。</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">3</div>
+              <div class="flow-body">
+                <strong>RISS登録完了・活動開始</strong>
+                <p>登録完了後、「登録情報セキュリティスペシャリスト（RISS）」として名称を使用して活動できる。</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">4</div>
+              <div class="flow-body">
+                <strong>3年ごとの更新（継続的学習）</strong>
+                <p>登録有効期間は3年間。更新には一定の継続的学習要件（オンライン講習・集合講習の受講）と更新料が必要。</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num">✓</div>
+              <div class="flow-body">
+                <strong>RISS資格の維持</strong>
+                <p>更新要件を満たし続けることで、セキュリティ専門家としての信頼性を継続的に担保できる。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice" style="margin-top:1.2rem">
+            <strong>注意：</strong>
+            RISS登録・更新の要件・費用は変更される場合があります。必ずIPA公式サイトで最新情報をご確認ください。
+          </div>
+        </div>
+      </section>
+
+      <!-- 参考リンク -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">参考リンク</h2>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+            <li><a href="https://www.ipa.go.jp/shiken/kubun/sc.html" target="_blank" rel="noopener">IPA — 情報処理安全確保支援士試験（公式）</a></li>
+            <li><a href="https://www.ipa.go.jp/shiken/schedule/index.html" target="_blank" rel="noopener">IPA — 試験スケジュール</a></li>
+            <li><a href="https://www.ipa.go.jp/riss/index.html" target="_blank" rel="noopener">IPA — 登録情報セキュリティスペシャリスト（RISS）制度</a></li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 情報処理安全確保支援士試験</div>
+        <div class="disclaimer">個人学習用の参考まとめサイトです。最新情報は必ずIPA公式サイト（ipa.go.jp）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

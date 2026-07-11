@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>過去問演習 — 情報安全確保支援士</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    :root {
+      --c-basic:   #2E86AB;
+      --c-crypto:  #38A169;
+      --c-threats: #C0564B;
+      --c-mgmt:    #D97706;
+      --c-law:     #718096;
+      --c-correct: #5BAD6F;
+      --c-wrong:   #C0564B;
+    }
+
+    .qz-page { min-height: calc(100vh - 180px); }
+
+    /* === セレクター === */
+    .qz-selector { padding: 2.5rem 0 3rem; }
+    .qz-title {
+      font-family: var(--font-accent);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--color-primary);
+      margin-bottom: 0.3rem;
+    }
+    .qz-sub { font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 2rem; }
+
+    .filter-section { margin-bottom: 1.5rem; }
+    .filter-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .filter-buttons { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .filter-btn {
+      padding: 0.38rem 0.95rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-white);
+      color: var(--color-text-light);
+      font-size: 0.83rem;
+      cursor: pointer;
+      transition: all 0.14s;
+      font-family: var(--font-primary);
+    }
+    .filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .filter-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: white; }
+    .filter-btn.active.subj-basic   { background: var(--c-basic);   border-color: var(--c-basic);   }
+    .filter-btn.active.subj-crypto  { background: var(--c-crypto);  border-color: var(--c-crypto);  }
+    .filter-btn.active.subj-threats { background: var(--c-threats); border-color: var(--c-threats); }
+    .filter-btn.active.subj-mgmt    { background: var(--c-mgmt);    border-color: var(--c-mgmt);    }
+    .filter-btn.active.subj-law     { background: var(--c-law);     border-color: var(--c-law);     }
+
+    .count-buttons { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+    .count-btn {
+      padding: 0.38rem 1rem;
+      border-radius: 6px;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-white);
+      color: var(--color-text-light);
+      font-size: 0.83rem;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      transition: all 0.14s;
+    }
+    .count-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .count-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: white; }
+
+    .toggle-row { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .toggle-item { display: flex; align-items: center; gap: 0.5rem; }
+    .toggle-switch { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-track {
+      position: absolute; inset: 0;
+      background: var(--color-bg-dark); border-radius: 999px; cursor: pointer;
+      transition: background 0.18s;
+    }
+    .toggle-track::after {
+      content: ""; position: absolute;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: white; top: 3px; left: 3px;
+      transition: transform 0.18s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .toggle-switch input:checked + .toggle-track { background: var(--color-primary); }
+    .toggle-switch input:checked + .toggle-track::after { transform: translateX(18px); }
+    .toggle-label { font-size: 0.88rem; color: var(--color-text-light); }
+
+    .stat-summary {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 2rem;
+    }
+    .stat-summary-title {
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--color-text-muted); letter-spacing: 0.06em; margin-bottom: 0.8rem;
+    }
+    .stat-bars { display: flex; flex-direction: column; gap: 0.55rem; }
+    .stat-bar-row { display: grid; grid-template-columns: 7rem 1fr 3.5rem; align-items: center; gap: 0.6rem; font-size: 0.82rem; }
+    .stat-bar-label { color: var(--color-text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat-bar-track { height: 8px; background: var(--color-bg-dark); border-radius: 4px; overflow: hidden; }
+    .stat-bar-fill { height: 100%; border-radius: 4px; background: var(--color-primary); transition: width 0.4s; }
+    .stat-bar-pct { color: var(--color-text-muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+    .deck-info { display: flex; align-items: baseline; gap: 0.45rem; margin-bottom: 1.4rem; }
+    .deck-count { font-size: 2rem; font-weight: 700; color: var(--color-primary); font-variant-numeric: tabular-nums; }
+    .deck-unit { font-size: 0.9rem; color: var(--color-text-muted); }
+
+    .btn-start {
+      display: block; width: 100%; max-width: 300px;
+      padding: 1rem 2rem;
+      background: var(--color-primary); color: white;
+      border: none; border-radius: 8px;
+      font-size: 1rem; font-family: var(--font-primary); font-weight: 500;
+      letter-spacing: 0.04em; cursor: pointer;
+      transition: background 0.14s, transform 0.1s;
+    }
+    .btn-start:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+    .btn-start:disabled { background: var(--color-bg-dark); color: var(--color-text-muted); cursor: not-allowed; transform: none; }
+
+    /* === 問題画面 === */
+    .qz-quiz { padding: 0; }
+
+    .quiz-topbar {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0.65rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .btn-back-quiz {
+      background: none; border: none;
+      color: var(--color-text-muted); font-size: 0.83rem;
+      cursor: pointer; font-family: var(--font-primary); padding: 0.25rem 0;
+    }
+    .btn-back-quiz:hover { color: var(--color-primary); }
+    .quiz-prog-text { font-size: 0.88rem; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+    .quiz-prog-text strong { color: var(--color-primary); }
+
+    .quiz-bar-wrap { height: 4px; background: var(--color-bg-dark); }
+    .quiz-bar-fill { height: 100%; background: var(--color-primary); transition: width 0.3s; }
+
+    .quiz-body { padding: 1.6rem 1.5rem 3rem; max-width: 720px; margin: 0 auto; }
+
+    .q-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .subj-badge {
+      display: inline-block; font-size: 0.7rem; padding: 0.18em 0.7em;
+      border-radius: 999px; font-weight: 500; letter-spacing: 0.04em; color: white;
+    }
+    .subj-badge.basic   { background: var(--c-basic);   }
+    .subj-badge.crypto  { background: var(--c-crypto);  }
+    .subj-badge.threats { background: var(--c-threats); }
+    .subj-badge.mgmt    { background: var(--c-mgmt);    }
+    .subj-badge.law     { background: var(--c-law);     }
+    .q-topic { font-size: 0.82rem; color: var(--color-text-muted); }
+    .q-diff  { font-size: 0.72rem; padding: 0.1em 0.5em; border-radius: 4px; background: var(--color-bg-alt); color: var(--color-text-muted); }
+
+    .q-text {
+      font-size: 0.97rem; line-height: 1.9; color: var(--color-text);
+      margin-bottom: 1.4rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .q-choices { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.2rem; }
+    .choice-btn {
+      width: 100%; text-align: left;
+      padding: 0.85rem 1.1rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: 8px;
+      background: var(--color-white);
+      font-size: 0.9rem; line-height: 1.65;
+      font-family: var(--font-primary);
+      color: var(--color-text);
+      cursor: pointer;
+      transition: border-color 0.14s, background 0.14s;
+      position: relative;
+    }
+    .choice-btn:hover:not(:disabled) {
+      border-color: var(--color-primary);
+      background: rgba(43,75,110,0.04);
+    }
+    .choice-btn:disabled { cursor: default; }
+    .choice-btn.is-correct {
+      border-color: var(--c-correct); background: rgba(91,173,111,0.08);
+      color: #2d6a40; font-weight: 500;
+    }
+    .choice-btn.is-correct::after {
+      content: "✓ 正解";
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.75rem; font-weight: 600; color: var(--c-correct);
+    }
+    .choice-btn.is-wrong {
+      border-color: var(--c-wrong); background: rgba(192,76,56,0.07); color: #8b2a1e;
+    }
+    .choice-btn.is-wrong::after {
+      content: "✗ 不正解";
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.75rem; font-weight: 600; color: var(--c-wrong);
+    }
+    .choice-btn.is-correct-hint { border-color: var(--c-correct); background: rgba(91,173,111,0.05); }
+    .choice-btn.is-correct-hint::after {
+      content: "← 正解";
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.75rem; font-weight: 500; color: var(--c-correct);
+    }
+
+    .q-explanation {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-primary);
+      border-radius: 0 8px 8px 0;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .explanation-title {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+      color: var(--color-primary); margin-bottom: 0.55rem;
+    }
+    .explanation-body { font-size: 0.88rem; line-height: 1.85; color: var(--color-text); }
+    .explanation-law {
+      display: inline-block; margin-top: 0.6rem;
+      font-size: 0.75rem; color: var(--color-text-muted);
+      background: var(--color-bg-dark); border-radius: 4px; padding: 0.1em 0.5em;
+    }
+
+    .quiz-actions { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; }
+    .btn-flag {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: none; border: 1.5px solid var(--color-border);
+      border-radius: 6px; padding: 0.55rem 0.9rem;
+      font-size: 0.82rem; font-family: var(--font-primary);
+      color: var(--color-text-muted); cursor: pointer; transition: all 0.14s;
+    }
+    .btn-flag:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .btn-flag.flagged { border-color: var(--color-accent); background: rgba(192,76,56,0.08); color: var(--color-accent); }
+
+    .btn-next {
+      flex: 1; max-width: 220px;
+      padding: 0.75rem 1.4rem;
+      background: var(--color-primary); color: white;
+      border: none; border-radius: 8px;
+      font-size: 0.92rem; font-family: var(--font-primary); font-weight: 500;
+      cursor: pointer; transition: background 0.14s;
+    }
+    .btn-next:hover { background: var(--color-primary-dark); }
+
+    /* === 結果画面 === */
+    .qz-results { padding: 2.5rem 0 3rem; }
+    .results-title {
+      font-family: var(--font-accent); font-size: 1.5rem;
+      font-weight: 400; color: var(--color-primary); margin-bottom: 0.3rem;
+    }
+    .score-display { margin: 1.2rem 0 2rem; }
+    .score-num {
+      font-size: 3rem; font-weight: 700; color: var(--color-primary);
+      font-variant-numeric: tabular-nums; line-height: 1;
+    }
+    .score-denom { font-size: 1.4rem; color: var(--color-text-muted); }
+    .score-pct { font-size: 1rem; color: var(--color-text-muted); margin-top: 0.3rem; }
+    .score-bar-wrap { height: 10px; background: var(--color-bg-dark); border-radius: 5px; overflow: hidden; margin-top: 0.8rem; max-width: 400px; }
+    .score-bar-fill { height: 100%; border-radius: 5px; }
+
+    .subject-results { margin-bottom: 2rem; }
+    .subject-results-title { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: 0.8rem; }
+
+    .wrong-list-section { margin-bottom: 2.5rem; }
+    .wrong-list-title { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; color: var(--color-text-muted); margin-bottom: 0.8rem; }
+    .wrong-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .wrong-item {
+      background: var(--color-white); border: 1px solid var(--color-border);
+      border-left: 3px solid var(--c-wrong); border-radius: 0 6px 6px 0;
+      padding: 0.7rem 1rem; font-size: 0.85rem; color: var(--color-text); line-height: 1.6;
+    }
+    .wrong-item-topic { font-size: 0.72rem; color: var(--color-text-muted); margin-bottom: 0.2rem; }
+
+    .result-actions { display: flex; flex-direction: column; gap: 0.65rem; max-width: 300px; }
+    .btn-result {
+      padding: 0.82rem 1.4rem; border-radius: 8px;
+      font-size: 0.9rem; font-family: var(--font-primary); font-weight: 500;
+      cursor: pointer; transition: all 0.14s; text-align: center;
+      border: 1.5px solid transparent;
+    }
+    .btn-result-primary   { background: var(--color-accent); color: white; border-color: var(--color-accent); }
+    .btn-result-primary:hover   { background: var(--color-accent-light); }
+    .btn-result-secondary { background: var(--color-white); color: var(--color-primary); border-color: var(--color-primary); }
+    .btn-result-secondary:hover { background: var(--color-bg-alt); }
+    .btn-result-ghost     { background: none; color: var(--color-text-muted); border-color: var(--color-border); }
+    .btn-result-ghost:hover { color: var(--color-primary); border-color: var(--color-primary); }
+    .btn-result:disabled  { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+
+    @media (max-width: 560px) {
+      .quiz-body { padding: 1.1rem 1rem 3rem; }
+      .q-text { font-size: 0.92rem; }
+      .choice-btn { font-size: 0.85rem; padding: 0.75rem 0.9rem; }
+      .choice-btn.is-correct::after,
+      .choice-btn.is-wrong::after,
+      .choice-btn.is-correct-hint::after { display: none; }
+      .stat-bar-row { grid-template-columns: 5.5rem 1fr 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">情報安全確保支援士 学習ノート</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link" href="index.html">SC</a></li>
+          <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+          <li><a class="nav-link current" href="practice.html">過去問演習</a></li>
+          <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="qz-page">
+
+      <!-- ===== セレクター ===== -->
+      <div id="view-selector" class="qz-selector">
+        <div class="container">
+
+          <h1 class="qz-title">過去問演習</h1>
+          <p class="qz-sub">科目・出題数を選んで演習を開始してください</p>
+
+          <div class="filter-section">
+            <div class="filter-label">科目</div>
+            <div class="filter-buttons" id="subject-filters">
+              <button class="filter-btn active" data-subject="all">すべて</button>
+              <button class="filter-btn subj-basic"   data-subject="セキュリティ基礎">セキュリティ基礎</button>
+              <button class="filter-btn subj-crypto"  data-subject="暗号・認証">暗号・認証</button>
+              <button class="filter-btn subj-threats" data-subject="脅威・攻撃">脅威・攻撃</button>
+              <button class="filter-btn subj-mgmt"    data-subject="セキュリティ管理">セキュリティ管理</button>
+              <button class="filter-btn subj-law"     data-subject="法規・標準">法規・標準</button>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <div class="filter-label">出題数</div>
+            <div class="count-buttons" id="count-buttons">
+              <button class="count-btn" data-count="5">5問</button>
+              <button class="count-btn" data-count="10">10問</button>
+              <button class="count-btn" data-count="20">20問</button>
+              <button class="count-btn active" data-count="all">全て</button>
+            </div>
+          </div>
+
+          <div class="toggle-row">
+            <div class="toggle-item">
+              <label class="toggle-switch">
+                <input type="checkbox" id="shuffle-toggle" checked />
+                <span class="toggle-track"></span>
+              </label>
+              <span class="toggle-label">シャッフル</span>
+            </div>
+            <div class="toggle-item">
+              <label class="toggle-switch">
+                <input type="checkbox" id="flagged-toggle" />
+                <span class="toggle-track"></span>
+              </label>
+              <span class="toggle-label">苦手のみ</span>
+            </div>
+          </div>
+
+          <div class="stat-summary">
+            <div class="stat-summary-title">学習履歴（正答率）</div>
+            <div class="stat-bars" id="stat-bars">
+              <div style="color:var(--color-text-muted);font-size:0.85rem">読み込み中...</div>
+            </div>
+          </div>
+
+          <div class="deck-info">
+            <span class="deck-count" id="deck-count">—</span>
+            <span class="deck-unit">問が選択されています</span>
+          </div>
+          <button class="btn-start" id="btn-start" disabled>演習を開始する</button>
+
+        </div>
+      </div>
+
+      <!-- ===== 問題画面 ===== -->
+      <div id="view-quiz" class="qz-quiz" hidden>
+
+        <div class="quiz-topbar">
+          <button class="btn-back-quiz" id="btn-back">← 設定に戻る</button>
+          <div class="quiz-prog-text">
+            <strong id="q-current">1</strong> / <span id="q-total">10</span> 問
+          </div>
+        </div>
+        <div class="quiz-bar-wrap">
+          <div class="quiz-bar-fill" id="quiz-bar-fill" style="width:0%"></div>
+        </div>
+
+        <div class="quiz-body">
+          <div class="q-meta">
+            <span class="subj-badge" id="q-subj-badge"></span>
+            <span class="q-topic" id="q-topic"></span>
+            <span class="q-diff"  id="q-diff"></span>
+          </div>
+          <div class="q-text" id="q-text"></div>
+          <div class="q-choices" id="q-choices"></div>
+          <div class="q-explanation" id="q-explanation" hidden>
+            <div class="explanation-title">解説</div>
+            <div class="explanation-body" id="explanation-body"></div>
+            <span class="explanation-law" id="explanation-law"></span>
+          </div>
+          <div class="quiz-actions">
+            <button class="btn-flag" id="btn-flag">
+              <span>⚑</span>
+              <span class="flag-text">苦手に登録</span>
+            </button>
+            <button class="btn-next" id="btn-next" hidden>次の問題 →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 結果画面 ===== -->
+      <div id="view-results" class="qz-results" hidden>
+        <div class="container">
+
+          <h2 class="results-title">演習結果</h2>
+
+          <div class="score-display">
+            <div>
+              <span class="score-num" id="res-correct">0</span>
+              <span class="score-denom"> / <span id="res-total">0</span> 問正解</span>
+            </div>
+            <div class="score-pct" id="res-pct"></div>
+            <div class="score-bar-wrap">
+              <div class="score-bar-fill" id="res-bar" style="width:0%"></div>
+            </div>
+          </div>
+
+          <div class="subject-results">
+            <div class="subject-results-title">科目別正答率</div>
+            <div class="stat-bars" id="res-subject-bars"></div>
+          </div>
+
+          <div class="wrong-list-section" id="wrong-list-section">
+            <div class="wrong-list-title">間違えた問題</div>
+            <div class="wrong-list" id="wrong-list"></div>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn-result btn-result-primary"   id="btn-retry-wrong">間違えた問題を再挑戦</button>
+            <button class="btn-result btn-result-secondary" id="btn-retry-all">もう一度（同じ設定）</button>
+            <button class="btn-result btn-result-ghost"     id="btn-to-selector">設定に戻る</button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 情報処理安全確保支援士試験</div>
+        <div class="disclaimer">問題文はAI生成によるオリジナルです。最新の試験情報はIPAの公式サイトでご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+
+  <script>
+  (() => {
+    const DATA_FILES = {
+      'セキュリティ基礎': 'data/questions_basic.json',
+      '暗号・認証':       'data/questions_crypto.json',
+      '脅威・攻撃':       'data/questions_threats.json',
+      'セキュリティ管理': 'data/questions_mgmt.json',
+      '法規・標準':       'data/questions_law.json',
+    };
+    const SUBJ_CLASS = {
+      'セキュリティ基礎': 'basic',
+      '暗号・認証':       'crypto',
+      '脅威・攻撃':       'threats',
+      'セキュリティ管理': 'mgmt',
+      '法規・標準':       'law',
+    };
+    const SUBJ_COLOR = {
+      'セキュリティ基礎': 'var(--c-basic)',
+      '暗号・認証':       'var(--c-crypto)',
+      '脅威・攻撃':       'var(--c-threats)',
+      'セキュリティ管理': 'var(--c-mgmt)',
+      '法規・標準':       'var(--c-law)',
+    };
+
+    let QUESTIONS = [];
+
+    async function loadAll() {
+      const results = await Promise.all(
+        Object.values(DATA_FILES).map(f =>
+          fetch(f).then(r => r.json()).catch(() => ({ questions: [] }))
+        )
+      );
+      QUESTIONS = results.flatMap(d => d.questions || []);
+      updateSelectorUI();
+    }
+
+    // ===== 状態 =====
+    const state = {
+      selectedSubject: 'all',
+      selectedCount:   'all',
+      shuffle:         true,
+      flaggedOnly:     false,
+      deck:            [],
+      index:           0,
+      answered:        false,
+      session:         [],
+      lastDeck:        [],
+    };
+
+    // ===== localStorage =====
+    const LS_HISTORY = 'sc_quiz_history';
+    const LS_FLAGGED = 'sc_quiz_flagged';
+
+    const getHistory = () => JSON.parse(localStorage.getItem(LS_HISTORY) || '{}');
+    const saveHistory = h => localStorage.setItem(LS_HISTORY, JSON.stringify(h));
+    const getFlagged  = () => new Set(JSON.parse(localStorage.getItem(LS_FLAGGED) || '[]'));
+    const saveFlagged = s => localStorage.setItem(LS_FLAGGED, JSON.stringify([...s]));
+
+    function recordResult(id, correct) {
+      const h = getHistory();
+      if (!h[id]) h[id] = { correct: 0, total: 0 };
+      h[id].total++;
+      if (correct) h[id].correct++;
+      saveHistory(h);
+    }
+
+    function toggleFlag(id) {
+      const f = getFlagged();
+      if (f.has(id)) f.delete(id); else f.add(id);
+      saveFlagged(f);
+      return f.has(id);
+    }
+
+    // ===== デッキ構築 =====
+    function buildDeck() {
+      const flagged = getFlagged();
+      let pool = QUESTIONS.filter(q => {
+        if (state.selectedSubject !== 'all' && q.subject !== state.selectedSubject) return false;
+        if (state.flaggedOnly && !flagged.has(q.id)) return false;
+        return true;
+      });
+      if (state.shuffle) pool = pool.slice().sort(() => Math.random() - 0.5);
+      if (state.selectedCount !== 'all') pool = pool.slice(0, parseInt(state.selectedCount, 10));
+      return pool;
+    }
+
+    // ===== 統計バー =====
+    function buildStatBars(containerId) {
+      const h = getHistory();
+      const container = document.getElementById(containerId);
+      if (!container || QUESTIONS.length === 0) return;
+      const subjects = ['セキュリティ基礎', '暗号・認証', '脅威・攻撃', 'セキュリティ管理', '法規・標準'];
+      container.innerHTML = subjects.map(subj => {
+        const qs = QUESTIONS.filter(q => q.subject === subj);
+        let c = 0, t = 0;
+        qs.forEach(q => { if (h[q.id]) { c += h[q.id].correct; t += h[q.id].total; } });
+        const pct = t > 0 ? Math.round(c / t * 100) : null;
+        return `
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">${subj}</span>
+            <div class="stat-bar-track">
+              <div class="stat-bar-fill" style="width:${pct ?? 0}%;background:${SUBJ_COLOR[subj]}"></div>
+            </div>
+            <span class="stat-bar-pct">${pct !== null ? pct + '%' : '—'}</span>
+          </div>`;
+      }).join('');
+    }
+
+    // ===== セレクター =====
+    function updateSelectorUI() {
+      const deck = buildDeck();
+      document.getElementById('deck-count').textContent = deck.length;
+      document.getElementById('btn-start').disabled = deck.length === 0;
+      buildStatBars('stat-bars');
+    }
+
+    // ===== 画面切り替え =====
+    function showView(name) {
+      ['selector', 'quiz', 'results'].forEach(v => {
+        document.getElementById('view-' + v).hidden = (v !== name);
+      });
+    }
+
+    // ===== 演習開始 =====
+    function startQuiz(deck) {
+      state.deck = deck;
+      state.lastDeck = deck;
+      state.index = 0;
+      state.session = [];
+      showView('quiz');
+      renderQuestion();
+    }
+
+    // ===== 問題描画 =====
+    function renderQuestion() {
+      const q = state.deck[state.index];
+      state.answered = false;
+
+      const pct = (state.index / state.deck.length * 100).toFixed(1);
+      document.getElementById('quiz-bar-fill').style.width = pct + '%';
+      document.getElementById('q-current').textContent = state.index + 1;
+      document.getElementById('q-total').textContent = state.deck.length;
+
+      const badge = document.getElementById('q-subj-badge');
+      badge.textContent = q.subject;
+      badge.className = 'subj-badge ' + (SUBJ_CLASS[q.subject] || '');
+      document.getElementById('q-topic').textContent = q.topic;
+      document.getElementById('q-diff').textContent  = q.difficulty || '';
+      document.getElementById('q-text').textContent  = q.question;
+
+      const choicesEl = document.getElementById('q-choices');
+      choicesEl.innerHTML = q.choices.map((c, i) =>
+        `<button class="choice-btn" data-index="${i + 1}">${escHtml(c)}</button>`
+      ).join('');
+      choicesEl.querySelectorAll('.choice-btn').forEach(btn =>
+        btn.addEventListener('click', () => onChoiceClick(btn, q))
+      );
+
+      document.getElementById('q-explanation').hidden = true;
+      document.getElementById('btn-next').hidden = true;
+      updateFlagBtn(getFlagged().has(q.id));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function escHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // ===== 選択肢クリック =====
+    function onChoiceClick(btn, q) {
+      if (state.answered) return;
+      state.answered = true;
+
+      const selected = parseInt(btn.dataset.index, 10);
+      const correct  = selected === q.answer;
+
+      document.querySelectorAll('.choice-btn').forEach(b => {
+        b.disabled = true;
+        const idx = parseInt(b.dataset.index, 10);
+        if (idx === q.answer && idx === selected) b.classList.add('is-correct');
+        else if (idx === selected)                 b.classList.add('is-wrong');
+        else if (idx === q.answer)                 b.classList.add('is-correct-hint');
+      });
+
+      document.getElementById('explanation-body').textContent = q.explanation;
+      const lawEl = document.getElementById('explanation-law');
+      lawEl.textContent = q.law || '';
+      lawEl.hidden = !q.law;
+      document.getElementById('q-explanation').hidden = false;
+
+      const nextBtn = document.getElementById('btn-next');
+      nextBtn.hidden = false;
+      nextBtn.textContent = state.index + 1 < state.deck.length ? '次の問題 →' : '結果を見る';
+
+      recordResult(q.id, correct);
+      state.session.push({ id: q.id, subject: q.subject, topic: q.topic, question: q.question, correct });
+    }
+
+    // ===== 苦手フラグ =====
+    function updateFlagBtn(flagged) {
+      const btn = document.getElementById('btn-flag');
+      btn.classList.toggle('flagged', flagged);
+      btn.querySelector('.flag-text').textContent = flagged ? '苦手登録済み' : '苦手に登録';
+    }
+
+    // ===== 結果画面 =====
+    function showResults() {
+      const correct = state.session.filter(r => r.correct).length;
+      const total   = state.session.length;
+      const pct     = total > 0 ? Math.round(correct / total * 100) : 0;
+
+      document.getElementById('res-correct').textContent = correct;
+      document.getElementById('res-total').textContent   = total;
+      document.getElementById('res-pct').textContent     = `正答率 ${pct}%`;
+      const bar = document.getElementById('res-bar');
+      bar.style.width      = pct + '%';
+      bar.style.background = pct >= 70 ? 'var(--c-correct)' : pct >= 50 ? 'var(--c-mgmt)' : 'var(--c-wrong)';
+
+      const subjects = [...new Set(state.session.map(r => r.subject))];
+      document.getElementById('res-subject-bars').innerHTML = subjects.map(subj => {
+        const rows = state.session.filter(r => r.subject === subj);
+        const c = rows.filter(r => r.correct).length;
+        const t = rows.length;
+        return `
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">${subj}</span>
+            <div class="stat-bar-track">
+              <div class="stat-bar-fill" style="width:${Math.round(c/t*100)}%;background:${SUBJ_COLOR[subj]}"></div>
+            </div>
+            <span class="stat-bar-pct">${c}/${t}</span>
+          </div>`;
+      }).join('');
+
+      const wrongs = state.session.filter(r => !r.correct);
+      const wrongSection = document.getElementById('wrong-list-section');
+      wrongSection.hidden = wrongs.length === 0;
+      if (wrongs.length > 0) {
+        document.getElementById('wrong-list').innerHTML = wrongs.map(r => `
+          <div class="wrong-item">
+            <div class="wrong-item-topic">${escHtml(r.subject)} › ${escHtml(r.topic)}</div>
+            ${escHtml(r.question)}
+          </div>`).join('');
+      }
+
+      document.getElementById('btn-retry-wrong').disabled = wrongs.length === 0;
+      showView('results');
+      buildStatBars('stat-bars');
+    }
+
+    // ===== イベント登録 =====
+    document.getElementById('subject-filters').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('#subject-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.selectedSubject = btn.dataset.subject;
+      updateSelectorUI();
+    });
+
+    document.getElementById('count-buttons').addEventListener('click', e => {
+      const btn = e.target.closest('.count-btn');
+      if (!btn) return;
+      document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.selectedCount = btn.dataset.count;
+      updateSelectorUI();
+    });
+
+    document.getElementById('shuffle-toggle').addEventListener('change', e => {
+      state.shuffle = e.target.checked;
+      updateSelectorUI();
+    });
+
+    document.getElementById('flagged-toggle').addEventListener('change', e => {
+      state.flaggedOnly = e.target.checked;
+      updateSelectorUI();
+    });
+
+    document.getElementById('btn-start').addEventListener('click', () => {
+      const deck = buildDeck();
+      if (deck.length === 0) return;
+      startQuiz(deck);
+    });
+
+    document.getElementById('btn-back').addEventListener('click', () => {
+      showView('selector');
+      updateSelectorUI();
+    });
+
+    document.getElementById('btn-flag').addEventListener('click', () => {
+      updateFlagBtn(toggleFlag(state.deck[state.index].id));
+    });
+
+    document.getElementById('btn-next').addEventListener('click', () => {
+      state.index++;
+      if (state.index >= state.deck.length) showResults();
+      else renderQuestion();
+    });
+
+    document.getElementById('btn-retry-wrong').addEventListener('click', () => {
+      const wrongIds = new Set(state.session.filter(r => !r.correct).map(r => r.id));
+      startQuiz(state.deck.filter(q => wrongIds.has(q.id)));
+    });
+
+    document.getElementById('btn-retry-all').addEventListener('click', () => startQuiz(state.lastDeck));
+
+    document.getElementById('btn-to-selector').addEventListener('click', () => {
+      showView('selector');
+      updateSelectorUI();
+    });
+
+    // ===== 初期化 =====
+    loadAll();
+  })();
+  </script>
+</body>
+</html>
