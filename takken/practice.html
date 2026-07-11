@@ -206,7 +206,7 @@
     onAuthStateChanged(auth, user => {
       document.getElementById("auth-loading").style.display = "none";
       if (!user) location.href = "/shikaku/login.html";
-      else document.getElementById("page-content").style.display = "";
+      else document.getElementById("page-content").style.display = "block";
     });
   </script>
 

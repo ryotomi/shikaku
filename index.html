@@ -43,7 +43,7 @@
       document.getElementById("auth-loading").style.display = "none";
       if (!user) { location.href = "login.html"; return; }
 
-      document.getElementById("page-content").style.display = "";
+      document.getElementById("page-content").style.display = "block";
       document.getElementById("user-avatar").src = user.photoURL || "";
       document.getElementById("user-name").textContent = user.displayName || user.email;
       document.getElementById("logout-btn").addEventListener("click", async () => {

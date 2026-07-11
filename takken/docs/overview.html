@@ -11,9 +11,19 @@
   <link rel="stylesheet" href="../../css/style.css" />
   <style>
     #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
+  <div id="auth-loading">読み込み中...</div>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -30,10 +40,11 @@
     const auth = getAuth(initializeApp(firebaseConfig));
 
     onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
       if (!user) {
         location.href = "/shikaku/login.html";
       } else {
-        document.getElementById("page-content").style.display = "";
+        document.getElementById("page-content").style.display = "block";
       }
     });
   </script>
