@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ログイン</title>
+  <title>ホーム</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,67 +21,54 @@
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
       padding: 48px 40px;
-      width: 360px;
+      width: 400px;
       text-align: center;
     }
 
-    h1 {
-      font-size: 1.4rem;
-      color: #333;
-      margin-bottom: 8px;
+    img.avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin-bottom: 16px;
     }
 
-    p.sub {
+    h1 {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    p.email {
       color: #777;
       font-size: 0.9rem;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
-    button#login-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 12px 20px;
-      border: 1px solid #ddd;
+    button#logout-btn {
+      padding: 10px 24px;
+      border: none;
       border-radius: 8px;
-      background: #fff;
-      font-size: 1rem;
-      color: #333;
+      background: #ea4335;
+      color: #fff;
+      font-size: 0.95rem;
       cursor: pointer;
-      transition: background 0.15s;
+      transition: opacity 0.15s;
     }
 
-    button#login-btn:hover { background: #f0f0f0; }
-
-    button#login-btn img {
-      width: 20px;
-      height: 20px;
-    }
-
-    #error {
-      margin-top: 16px;
-      color: #c00;
-      font-size: 0.85rem;
-      display: none;
-    }
+    button#logout-btn:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>ログイン</h1>
-    <p class="sub">Googleアカウントでサインインしてください</p>
-    <button id="login-btn">
-      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
-      Googleでログイン
-    </button>
-    <p id="error"></p>
+    <img id="avatar" class="avatar" src="" alt="アバター" />
+    <h1 id="name">読み込み中...</h1>
+    <p class="email" id="email"></p>
+    <button id="logout-btn">ログアウト</button>
   </div>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged }
+    import { getAuth, signOut, onAuthStateChanged }
       from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
     const firebaseConfig = {
@@ -93,24 +80,22 @@
       appId:             "1:787519016500:web:decc4d4a20145659f44461",
     };
 
-    const app      = initializeApp(firebaseConfig);
-    const auth     = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    const app  = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-    // すでにログイン済みならホームへ
     onAuthStateChanged(auth, user => {
-      if (user) location.href = "home.html";
+      if (!user) {
+        location.href = "login.html";
+        return;
+      }
+      document.getElementById("avatar").src = user.photoURL || "";
+      document.getElementById("name").textContent  = `こんにちは、${user.displayName} さん`;
+      document.getElementById("email").textContent = user.email;
     });
 
-    document.getElementById("login-btn").addEventListener("click", async () => {
-      try {
-        await signInWithPopup(auth, provider);
-        // onAuthStateChanged がリダイレクトを処理する
-      } catch (err) {
-        const el = document.getElementById("error");
-        el.textContent = "ログインに失敗しました: " + err.message;
-        el.style.display = "block";
-      }
+    document.getElementById("logout-btn").addEventListener("click", async () => {
+      await signOut(auth);
+      location.href = "login.html";
     });
   </script>
 </body>
