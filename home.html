@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホーム</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      padding: 48px 40px;
+      width: 400px;
+      text-align: center;
+    }
+
+    img.avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    p.email {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+
+    button#logout-btn {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      background: #ea4335;
+      color: #fff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    button#logout-btn:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img id="avatar" class="avatar" src="" alt="アバター" />
+    <h1 id="name">読み込み中...</h1>
+    <p class="email" id="email"></p>
+    <button id="logout-btn">ログアウト</button>
+  </div>
+
+  <script type="module">
+    // TODO: index.html と同じ Firebase 設定値に置き換えてください
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "TODO_API_KEY",
+      authDomain:        "TODO_PROJECT_ID.firebaseapp.com",
+      projectId:         "TODO_PROJECT_ID",
+      storageBucket:     "TODO_PROJECT_ID.appspot.com",
+      messagingSenderId: "TODO_MESSAGING_SENDER_ID",
+      appId:             "TODO_APP_ID",
+    };
+
+    const app  = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, user => {
+      if (!user) {
+        location.href = "index.html";
+        return;
+      }
+      document.getElementById("avatar").src = user.photoURL || "";
+      document.getElementById("name").textContent  = `こんにちは、${user.displayName} さん`;
+      document.getElementById("email").textContent = user.email;
+    });
+
+    document.getElementById("logout-btn").addEventListener("click", async () => {
+      await signOut(auth);
+      location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
