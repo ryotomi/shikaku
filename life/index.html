@@ -105,6 +105,7 @@
     .s-angry .ig-meter i, .s-angry .ig-state { color: var(--color-accent); } .s-angry .ig-meter i { background: var(--color-accent); }
 
     .day-note { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.4rem; }
+    .sync-status { display: block; font-size: 0.78rem; color: var(--color-text-muted); margin: 0.4rem 0; }
     .reset-link { font-size: 0.75rem; color: var(--color-text-muted); background: none; border: none; cursor: pointer; text-decoration: underline; }
   </style>
 </head>
@@ -114,6 +115,8 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, doc, onSnapshot, setDoc, arrayUnion, arrayRemove }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
@@ -123,7 +126,9 @@
       messagingSenderId: "787519016500",
       appId:             "1:787519016500:web:decc4d4a20145659f44461",
     };
-    const auth = getAuth(initializeApp(firebaseConfig));
+    const app  = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db   = getFirestore(app, "rinzo-db");   // 名前付きデータベース rinzo-db
 
     onAuthStateChanged(auth, user => {
       document.getElementById("auth-loading").style.display = "none";
@@ -176,7 +181,18 @@
         catch (e) { return { version: 1, log: [] }; }
       };
       const save = s => localStorage.setItem(STORE_KEY, JSON.stringify(s));
+      const genId = () => (self.crypto && crypto.randomUUID ? crypto.randomUUID() : Date.now() + "-" + Math.floor(Math.random() * 1e9));
+      const docRef = doc(db, "lifeStates", uid);
+      const MIG_KEY = STORE_KEY + "_migrated_v1";
+      // クラウド書き込み（失敗してもローカルには保存済みなので無害）
+      const cloudWrite = payload => {
+        setDoc(docRef, payload, { merge: true }).catch(err => {
+          console.warn("[life] Firestore書き込み失敗（ローカルには保存済み）:", err.code || err);
+        });
+      };
+
       let state = load();
+      state.log.forEach(e => { if (!e.id) e.id = genId(); }); // 旧データ（ID無し）に付与
 
       // ---- 集計 ----
       const compute = () => {
@@ -342,24 +358,51 @@
         const row = e.target.closest(".task-row"); if (!row) return;
         const tid = row.dataset.task, mid = row.dataset.ministry;
         if (e.target.classList.contains("btn-add")) {
-          state.log.push({ d: todayStr(), t: tid, m: mid });
+          const entry = { id: genId(), d: todayStr(), t: tid, m: mid };
+          state.log.push(entry);
           save(state); render();
+          cloudWrite({ version: 1, log: arrayUnion(entry) });
         } else if (e.target.classList.contains("btn-sub")) {
           // 今日の同タスクの最後の1件を取消
+          let removed = null;
           for (let i = state.log.length - 1; i >= 0; i--) {
-            if (state.log[i].d === todayStr() && state.log[i].t === tid) { state.log.splice(i, 1); break; }
+            if (state.log[i].d === todayStr() && state.log[i].t === tid) { removed = state.log.splice(i, 1)[0]; break; }
           }
           save(state); render();
+          if (removed) cloudWrite({ log: arrayRemove(removed) });
         }
       });
 
       document.getElementById("reset-btn").addEventListener("click", () => {
-        if (confirm("記録をすべて消去して最初からやり直しますか？")) {
+        if (confirm("記録をすべて消去して最初からやり直しますか？（クラウドの記録も削除されます）")) {
           state = { version: 1, log: [] }; save(state); render();
+          cloudWrite({ version: 1, log: [] });
         }
       });
 
-      render();
+      // --- リアルタイム同期（rinzo-db / lifeStates/{uid}） ---
+      const statusEl = document.getElementById("sync-status");
+      render(); // まずローカルデータで即描画（オフラインでも表示）
+      onSnapshot(docRef, snap => {
+        const cloudLog = snap.exists() && Array.isArray(snap.data().log) ? snap.data().log : [];
+        // 初回のみ：ローカルにしか無い記録をクラウドへ移行
+        if (!localStorage.getItem(MIG_KEY)) {
+          localStorage.setItem(MIG_KEY, "1");
+          const cloudIds = new Set(cloudLog.map(e => e.id));
+          const toPush = state.log.filter(e => e.id && !cloudIds.has(e.id));
+          if (toPush.length) {
+            cloudWrite({ version: 1, log: arrayUnion(...toPush) });
+            state.log = cloudLog.concat(toPush); save(state); render();
+            if (statusEl) statusEl.textContent = "☁ 同期中（ローカル " + toPush.length + " 件を移行しました）";
+            return; // 続くスナップショットで確定
+          }
+        }
+        state.log = cloudLog; save(state); render();
+        if (statusEl) statusEl.textContent = "☁ クラウド同期中 — 別ブラウザ・端末と共有されます";
+      }, err => {
+        if (statusEl) statusEl.textContent = "⚠ ローカル保存のみ（クラウド未接続：" + (err.code || "error") + "）";
+        console.warn("[life] Firestore未接続。ローカルのみで動作:", err.code || err);
+      });
     }
   </script>
 
@@ -415,7 +458,8 @@
           <p class="lead">直近2週の各領域への投資で満足度が決まります。<strong>享楽派</strong>を無視すると燃え尽き（反乱）のリスク。バランスよく満たしましょう。</p>
           <div id="igs" class="ig-grid"></div>
           <div class="notice" style="margin-top:1.4rem">
-            <strong>データについて</strong>：記録はこのブラウザ内（localStorage・ログインユーザー単位）に保存されます。
+            <strong>データについて</strong>：記録はクラウド（Firestore / rinzo-db）にログインユーザー単位で保存され、別ブラウザ・端末でも共有されます。オフライン時はこの端末に一時保存し、再接続時に同期します。
+            <span id="sync-status" class="sync-status"></span>
             <button id="reset-btn" class="reset-link">すべてリセット</button>
           </div>
         </div>
