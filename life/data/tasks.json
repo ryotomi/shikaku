@@ -1,5 +1,5 @@
 {
-  "_comment": "人生経営シミュレーション タスク定義。効果は [ステータスキー, AP] の配列。README.md のルールに準拠。",
+  "_comment": "人生経営シミュレーション タスク定義。効果は [ステータスキー, AP] の配列。desc=各タスクの説明。README.md のルールに準拠。",
   "stats": {
     "tech":        { "name": "技術力",   "icon": "🔬" },
     "body":        { "name": "体力",     "icon": "💪" },
@@ -22,53 +22,80 @@
     {
       "key": "production", "name": "生産", "icon": "🏭", "sub": "心身の能力向上",
       "tasks": [
-        { "id": "study",    "name": "学習（資格外）", "freq": "毎日", "effects": [["tech", 5], ["authority", 1]] },
-        { "id": "strength", "name": "筋トレ",         "freq": "週3〜", "effects": [["body", 5]] },
-        { "id": "cardio",   "name": "有酸素・活動",   "freq": "毎日", "effects": [["body", 1], ["life", 1]] },
-        { "id": "sleep",    "name": "睡眠・回復",     "freq": "毎日", "effects": [["authority", 3], ["body", 3]] },
-        { "id": "diet",     "name": "食事管理",       "freq": "毎日", "effects": [["body", 3], ["money", 1]] },
-        { "id": "input",    "name": "インプット",     "freq": "毎日", "effects": [["tech", 3]] }
+        { "id": "study",    "name": "学習（資格外）", "freq": "毎日", "effects": [["tech", 5], ["authority", 1]],
+          "desc": "資格試験に直結しない知識・スキルの体系的な学習。技術書の通読・写経、語学、簿記/投資など。手を動かして身につけた1コマを1回として記録。資格勉強はここではなく各資格ページで（二重計上しない）。" },
+        { "id": "strength", "name": "筋トレ", "freq": "週3〜", "effects": [["body", 5]],
+          "desc": "負荷をかけた筋力トレーニング。ジム・自重・チューブなど1セッションを1回。部位を毎回変えるより、週内の総ボリュームを積むことを重視。" },
+        { "id": "cardio",   "name": "有酸素・活動", "freq": "毎日", "effects": [["body", 1], ["life", 1]],
+          "desc": "ウォーキング・ランニング・自転車などの有酸素運動、または日常の活動量アップ（階段・徒歩通勤）。軽い負荷でも継続が体力の土台になる。" },
+        { "id": "sleep",    "name": "睡眠・回復", "freq": "毎日", "effects": [["authority", 3], ["body", 3]],
+          "desc": "目標睡眠時間（7時間目安）を確保できた、または就寝時刻を守れた日。回復は全省庁の行動力（権威）の源泉。削ると翌日の生産性が落ちる。" },
+        { "id": "diet",     "name": "食事管理", "freq": "毎日", "effects": [["body", 3], ["money", 1]],
+          "desc": "自炊・タンパク質確保・過食/飲酒の抑制など、狙って整えた食事。健康と同時に外食費の節約にもつながる。" },
+        { "id": "input",    "name": "インプット", "freq": "毎日", "effects": [["tech", 3]],
+          "desc": "読書や良質な記事・動画・ポッドキャストの消化。学習ほど体系的でない知的インプット全般。浅く広く知見を増やす行動。" }
       ]
     },
     {
       "key": "politics", "name": "政治", "icon": "🏛️", "sub": "生活維持のタスク",
       "tasks": [
-        { "id": "clean",     "name": "掃除・整理",       "freq": "週次",   "effects": [["life", 3], ["authority", 1]] },
-        { "id": "laundry",   "name": "洗濯・衣類管理",   "freq": "週次",   "effects": [["life", 1]] },
-        { "id": "cook",      "name": "炊事",             "freq": "毎日",   "effects": [["life", 3], ["body", 1]] },
-        { "id": "moneymgmt", "name": "金銭管理",         "freq": "週/月次", "effects": [["money", 3], ["authority", 1]] },
-        { "id": "admin",     "name": "事務手続き",       "freq": "随時",   "effects": [["life", 1], ["authority", 3]] },
-        { "id": "automate",  "name": "環境整備・自動化", "freq": "単発",   "effects": [["authority", 5]] }
+        { "id": "clean",     "name": "掃除・整理", "freq": "週次", "effects": [["life", 3], ["authority", 1]],
+          "desc": "部屋の片付け、水回り・床の掃除、モノの整理。生活空間の秩序を保つ行動で、乱れると他の作業効率も落ちる。" },
+        { "id": "laundry",   "name": "洗濯・衣類管理", "freq": "週次", "effects": [["life", 1]],
+          "desc": "洗濯・乾燥・たたむ・アイロン・衣替えなど、衣類まわりの維持。地味だが生活水準の底を支える。" },
+        { "id": "cook",      "name": "炊事", "freq": "毎日", "effects": [["life", 3], ["body", 1]],
+          "desc": "献立・買い出し・調理・作り置き・片付けまでの一連。外食続きを断ち、生活水準と健康の両方に効く。" },
+        { "id": "moneymgmt", "name": "金銭管理", "freq": "週/月次", "effects": [["money", 3], ["authority", 1]],
+          "desc": "家計簿づけ、固定費の見直し、資産・支払いの管理。生活の財務基盤を整え、無駄を減らして資金を守る。" },
+        { "id": "admin",     "name": "事務手続き", "freq": "随時", "effects": [["life", 1], ["authority", 3]],
+          "desc": "支払い・行政/契約手続き・予約・通院など、先延ばししがちな雑務の消化。溜めると権威（可処分の実行力）を圧迫する。" },
+        { "id": "automate",  "name": "環境整備・自動化", "freq": "単発", "effects": [["authority", 5]],
+          "desc": "定位置化、サブスク・家電・仕組み化など、以後の手間を恒久的に減らす一度きりの投資（＝法令制定）。効果は長く残る。" }
       ]
     },
     {
       "key": "diplomacy", "name": "外交", "icon": "🕊️", "sub": "キャリアにつながる対外活動",
       "tasks": [
-        { "id": "event",     "name": "勉強会・イベント参加", "freq": "月次", "effects": [["influence", 3], ["tech", 1]] },
-        { "id": "community", "name": "コミュニティ運営",     "freq": "随時", "effects": [["prestige", 5], ["influence", 3]] },
-        { "id": "output",    "name": "情報発信",             "freq": "週/月次", "effects": [["prestige", 3], ["influence", 3]] },
-        { "id": "sidejob",   "name": "副業・案件（種まき）", "freq": "随時", "effects": [["money", 1], ["tech", 3], ["prestige", 1]] },
-        { "id": "circle",    "name": "サークル・課外活動",   "freq": "随時", "effects": [["influence", 1], ["life", 1]] },
-        { "id": "network",   "name": "人脈メンテ",           "freq": "月次", "effects": [["influence", 3]] }
+        { "id": "event",     "name": "勉強会・イベント参加", "freq": "月次", "effects": [["influence", 3], ["tech", 1]],
+          "desc": "社外の勉強会・カンファレンス・ミートアップへの参加。新しい知見と人脈の入口。カレンダーで予定を管理し、参加済みにすると自動加算される。" },
+        { "id": "community", "name": "コミュニティ運営", "freq": "随時", "effects": [["prestige", 5], ["influence", 3]],
+          "desc": "主催・登壇・モデレート・幹事など、コミュニティを動かす側の関与。参加より一段重く、威信が大きく伸びる。" },
+        { "id": "output",    "name": "情報発信", "freq": "週/月次", "effects": [["prestige", 3], ["influence", 3]],
+          "desc": "ブログ・登壇資料・SNS・OSS・技術記事などの公開アウトプット。自分の名前と実力を外に残す活動。" },
+        { "id": "sidejob",   "name": "副業・案件（種まき）", "freq": "随時", "effects": [["money", 1], ["tech", 3], ["prestige", 1]],
+          "desc": "小規模な受託や個人開発の公開など、キャリアの種まき。すぐ大きな資金にはならないが、実績と信用を積む段階。" },
+        { "id": "circle",    "name": "サークル・課外活動", "freq": "随時", "effects": [["influence", 1], ["life", 1]],
+          "desc": "仕事に直結しない趣味サークルや社外の横のつながり。ゆるい関係資本で、思わぬ縁の源になる。" },
+        { "id": "network",   "name": "人脈メンテ", "freq": "月次", "effects": [["influence", 3]],
+          "desc": "元同僚・知人との定期連絡、1on1、近況共有。新規開拓ではなく既存の関係を維持する行動。いざという時のリファラルにつながる。" }
       ]
     },
     {
       "key": "military", "name": "軍事", "icon": "⚔️", "sub": "交渉・条件獲得",
       "tasks": [
-        { "id": "resume",    "name": "装備更新（経歴書整備）", "freq": "事前", "effects": [["negotiation", 3]] },
-        { "id": "recon",     "name": "偵察（相場リサーチ）",   "freq": "事前", "effects": [["negotiation", 1]] },
-        { "id": "rehearse",  "name": "演習（面接練習）",       "freq": "事前", "effects": [["negotiation", 3]] },
-        { "id": "apply",     "name": "開戦（応募・提案）",     "freq": "随時", "effects": [["negotiation", 1]] },
-        { "id": "negotiate", "name": "交渉（会戦）",           "freq": "随時", "effects": [["money", 5], ["negotiation", 5]] },
-        { "id": "settle",    "name": "講和（合意・締結）",     "freq": "決着時", "effects": [["money", 5], ["prestige", 3]] }
+        { "id": "resume",    "name": "装備更新（経歴書整備）", "freq": "事前", "effects": [["negotiation", 3]],
+          "desc": "職務経歴書・レジュメ・ポートフォリオの作成/更新。交渉の“装備”を整える準備行動。開戦前に済ませておくほど有利。" },
+        { "id": "recon",     "name": "偵察（相場リサーチ）", "freq": "事前", "effects": [["negotiation", 1]],
+          "desc": "求人・単価・年収相場のリサーチと、自分の市場価値の把握。情報がないまま開戦すると足元を見られる。" },
+        { "id": "rehearse",  "name": "演習（面接練習）", "freq": "事前", "effects": [["negotiation", 3]],
+          "desc": "面接練習・模擬交渉・想定問答の準備。本番の成功率と獲得条件を底上げする訓練。" },
+        { "id": "apply",     "name": "開戦（応募・提案）", "freq": "随時", "effects": [["negotiation", 1]],
+          "desc": "転職応募・案件提案・見積提示など、交渉プロセスの開始。ここから“戦争”が動き出す。" },
+        { "id": "negotiate", "name": "交渉（会戦）", "freq": "随時", "effects": [["money", 5], ["negotiation", 5]],
+          "desc": "面接本番・条件交渉・単価交渉など、実際に条件を詰める場。威信・影響力が高いほど有利な条件を引き出せる。" },
+        { "id": "settle",    "name": "講和（合意・締結）", "freq": "決着時", "effects": [["money", 5], ["prestige", 3]],
+          "desc": "オファー承諾・契約締結など、獲得条件の確定。蓄えた国力を資金と地位に回収する決着フェーズ。" }
       ]
     },
     {
       "key": "leisure", "name": "休養", "icon": "🎮", "sub": "享楽派の満足（燃え尽き対策）",
       "tasks": [
-        { "id": "rest",    "name": "休養・オフ", "freq": "随時", "effects": [["life", 1]] },
-        { "id": "play",    "name": "娯楽・趣味", "freq": "随時", "effects": [] },
-        { "id": "recharge","name": "外出・気分転換", "freq": "随時", "effects": [["life", 1]] }
+        { "id": "rest",     "name": "休養・オフ", "freq": "随時", "effects": [["life", 1]],
+          "desc": "意図的な休養日、しっかり休む・昼寝・何もしない時間。享楽派を満たし燃え尽き（反乱）を防ぐ“投資”。" },
+        { "id": "play",     "name": "娯楽・趣味", "freq": "随時", "effects": [],
+          "desc": "ゲーム・映画・趣味など純粋な楽しみ。ステータスには乗らないが、士気（享楽派の満足度）に効く。" },
+        { "id": "recharge", "name": "外出・気分転換", "freq": "随時", "effects": [["life", 1]],
+          "desc": "散歩・旅行・外食・友人との遊びなど、気分をリセットする外出。心身のリフレッシュで翌週の勢いを保つ。" }
       ]
     }
   ],

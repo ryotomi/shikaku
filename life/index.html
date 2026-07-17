@@ -104,6 +104,59 @@
     .s-mid   .ig-meter i, .s-mid   .ig-state { color: #b7791f; } .s-mid   .ig-meter i { background: #b7791f; }
     .s-angry .ig-meter i, .s-angry .ig-state { color: var(--color-accent); } .s-angry .ig-meter i { background: var(--color-accent); }
 
+    /* --- タスク説明の展開 --- */
+    .task-main { cursor: pointer; }
+    .task-name { font-size: 0.88rem; }
+    .task-info { color: var(--color-text-muted); font-size: 0.72rem; }
+    .task-desc {
+      font-size: 0.78rem; color: var(--color-text-light); line-height: 1.6;
+      margin-top: 0.35rem; background: var(--color-bg-alt); padding: 0.45rem 0.6rem; border-radius: 3px;
+    }
+
+    /* --- 外交カレンダー --- */
+    .cal-head { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 0.5rem 0 1rem; }
+    .cal-month { font-family: var(--font-accent); font-size: 1.2rem; color: var(--color-primary); min-width: 8rem; text-align: center; }
+    .cal-nav { width: 32px; height: 32px; border: 1px solid var(--color-border); background: var(--color-white); border-radius: 50%; cursor: pointer; color: var(--color-primary); }
+    .cal-nav:hover { background: var(--color-bg-alt); }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--color-border); border: 1px solid var(--color-border); }
+    .cal-wd { background: var(--color-bg-alt); text-align: center; font-size: 0.75rem; padding: 0.3rem 0; color: var(--color-text-light); }
+    .cal-wd.sun { color: var(--color-accent); }
+    .cal-wd.sat { color: #2b6cb0; }
+    .cal-cell { background: var(--color-white); min-height: 64px; padding: 0.25rem; }
+    .cal-cell.empty { background: var(--color-bg); }
+    .cal-cell.today { background: #fff7f0; box-shadow: inset 0 0 0 2px var(--color-accent); }
+    .cal-cell[data-date] { cursor: pointer; }
+    .cal-daynum { font-size: 0.72rem; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+    .cal-ev { background: rgba(43,75,110,0.1); color: var(--color-primary); border-radius: 3px; padding: 0.05rem 0.3rem; margin-top: 2px; font-size: 0.68rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cal-ev.done { background: rgba(47,133,90,0.16); color: #2f855a; }
+    @media (max-width: 600px) { .cal-cell { min-height: 46px; } .cal-ev { font-size: 0.58rem; } }
+
+    .ev-form { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.2rem 0; align-items: center; }
+    .ev-form input, .ev-form select { padding: 0.4rem 0.6rem; border: 1px solid var(--color-border); border-radius: 4px; font-family: inherit; font-size: 0.85rem; background: var(--color-white); color: var(--color-text); }
+    .ev-form input[name="title"] { flex: 1; min-width: 160px; }
+    .ev-form button { padding: 0.42rem 1rem; background: var(--color-primary); color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
+    .ev-form button:hover { background: var(--color-primary-light); }
+
+    .agenda { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 0.5rem; }
+    @media (max-width: 640px) { .agenda { grid-template-columns: 1fr; } }
+    .agenda-h { font-size: 0.9rem; color: var(--color-primary); font-weight: 500; margin-bottom: 0.5rem; }
+    .agenda-empty { font-size: 0.82rem; color: var(--color-text-muted); }
+    .agenda-item { display: flex; gap: 0.6rem; background: var(--color-white); border: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); padding: 0.6rem 0.8rem; margin-bottom: 0.5rem; }
+    .agenda-item.done { border-left-color: #2f855a; }
+    .agenda-date { font-size: 0.78rem; color: var(--color-text-muted); white-space: nowrap; font-variant-numeric: tabular-nums; min-width: 4.4rem; }
+    .agenda-body { flex: 1; min-width: 0; }
+    .agenda-title { font-size: 0.88rem; }
+    .agenda-type { font-size: 0.72rem; color: var(--color-primary); background: var(--color-bg-alt); padding: 0.05em 0.55em; border-radius: 999px; margin-left: 0.3rem; white-space: nowrap; }
+    .agenda-note { font-size: 0.76rem; color: var(--color-text-light); margin-top: 0.15rem; }
+    .agenda-eff { font-size: 0.74rem; color: var(--color-text-muted); margin-top: 0.2rem; }
+    .agenda-item.done .agenda-eff { color: #2f855a; }
+    .agenda-actions { display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-end; }
+    .btn-attend { font-size: 0.72rem; padding: 0.22em 0.6em; border: 1px solid var(--color-border); background: var(--color-bg); border-radius: 4px; cursor: pointer; color: var(--color-primary); white-space: nowrap; }
+    .btn-attend:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .agenda-item.done .btn-attend { border-color: #2f855a; color: #2f855a; }
+    .btn-evdel { font-size: 0.8rem; padding: 0.1em 0.4em; border: none; background: none; cursor: pointer; opacity: 0.5; }
+    .btn-evdel:hover { opacity: 1; }
+
     .day-note { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.4rem; }
     .sync-status { display: block; font-size: 0.78rem; color: var(--color-text-muted); margin: 0.4rem 0; }
     .reset-link { font-size: 0.75rem; color: var(--color-text-muted); background: none; border: none; cursor: pointer; text-decoration: underline; }
@@ -172,13 +225,14 @@
         return;
       }
 
-      // taskId -> {ministryKey, effects} のマップ
+      // taskId -> {ministryKey, effects, name, desc} のマップ
       const taskMap = {};
-      TASKS.ministries.forEach(m => m.tasks.forEach(t => { taskMap[t.id] = { m: m.key, effects: t.effects }; }));
+      TASKS.ministries.forEach(m => m.tasks.forEach(t => { taskMap[t.id] = { m: m.key, effects: t.effects, name: t.name, desc: t.desc || "" }; }));
+      const diploTasks = (TASKS.ministries.find(m => m.key === "diplomacy") || { tasks: [] }).tasks;
 
       const load = () => {
-        try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { version: 1, log: [] }; }
-        catch (e) { return { version: 1, log: [] }; }
+        try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { version: 1, log: [], events: [] }; }
+        catch (e) { return { version: 1, log: [], events: [] }; }
       };
       const save = s => localStorage.setItem(STORE_KEY, JSON.stringify(s));
       const genId = () => (self.crypto && crypto.randomUUID ? crypto.randomUUID() : Date.now() + "-" + Math.floor(Math.random() * 1e9));
@@ -192,7 +246,20 @@
       };
 
       let state = load();
-      state.log.forEach(e => { if (!e.id) e.id = genId(); }); // 旧データ（ID無し）に付与
+      if (!Array.isArray(state.log)) state.log = [];
+      if (!Array.isArray(state.events)) state.events = [];
+      state.log.forEach(e => { if (!e.id) e.id = genId(); });    // 旧データ（ID無し）に付与
+      state.events.forEach(e => { if (!e.id) e.id = genId(); });
+
+      // 表示用ヘルパー
+      const WD = ["日", "月", "火", "水", "木", "金", "土"];
+      const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const fmtDate = ymd => { const [y, m, d] = ymd.split("-").map(Number); return `${m}/${d}(${WD[new Date(y, m - 1, d).getDay()]})`; };
+      const effLabel = tid => (taskMap[tid] ? taskMap[tid].effects.map(([s, ap]) => `${TASKS.stats[s].icon}+${ap}`).join(" ") : "");
+
+      // カレンダー表示月（初期＝今月）
+      const _now = new Date();
+      let calY = _now.getFullYear(), calM = _now.getMonth();
 
       // ---- 集計 ----
       const compute = () => {
@@ -326,9 +393,10 @@
               return `<div class="task-row" data-task="${t.id}" data-ministry="${m.key}">
                 <button class="btn-sub" ${cnt ? '' : 'disabled'} title="今日の記録を1件取消">−</button>
                 <span class="task-count ${cnt ? '' : 'zero'}">${cnt}</span>
-                <div class="task-main">
-                  <div class="task-name">${t.name}</div>
+                <div class="task-main" title="クリックで説明を表示">
+                  <div class="task-name">${t.name} <span class="task-info">ⓘ</span></div>
                   <div class="task-meta"><span class="task-effects">${eff}</span>　·　${t.freq}</div>
+                  <div class="task-desc" hidden>${esc(t.desc)}</div>
                 </div>
                 <button class="btn-add" title="今日やった（+1）">＋</button>
               </div>`;
@@ -350,8 +418,118 @@
           </div>`;
         }).join("");
 
-        document.getElementById("day-note").textContent = `本日 ${todayStr()} の記録。＋/− で今日の行動を増減できます（自動保存）。`;
+        document.getElementById("day-note").textContent = `本日 ${todayStr()} の記録。＋/− で今日の行動を増減できます（自動保存）。タスク名クリックで説明表示。`;
+
+        renderCalendar();
       };
+
+      // ---- 外交カレンダー ----
+      const renderCalendar = () => {
+        const p = n => String(n).padStart(2, "0");
+        const ymd = (y, m, d) => `${y}-${p(m + 1)}-${p(d)}`;
+        const today = todayStr();
+        const startWd = new Date(calY, calM, 1).getDay();
+        const daysInMonth = new Date(calY, calM + 1, 0).getDate();
+
+        const byDate = {};
+        state.events.forEach(ev => { (byDate[ev.date] = byDate[ev.date] || []).push(ev); });
+
+        let cells = "";
+        for (let i = 0; i < startWd; i++) cells += `<div class="cal-cell empty"></div>`;
+        for (let d = 1; d <= daysInMonth; d++) {
+          const date = ymd(calY, calM, d);
+          const evHtml = (byDate[date] || []).map(ev =>
+            `<div class="cal-ev ${ev.attended ? 'done' : ''}" title="${esc(ev.title)}">${ev.attended ? '✓' : '●'} ${esc(ev.title)}</div>`).join("");
+          cells += `<div class="cal-cell ${date === today ? 'today' : ''}" data-date="${date}"><div class="cal-daynum">${d}</div>${evHtml}</div>`;
+        }
+
+        const sorted = state.events.slice().sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+        const upcoming = sorted.filter(ev => ev.date >= today);
+        const past = sorted.filter(ev => ev.date < today).reverse();
+        const item = ev => {
+          const tname = taskMap[ev.type] ? taskMap[ev.type].name : ev.type;
+          const eff = effLabel(ev.type);
+          return `<div class="agenda-item ${ev.attended ? 'done' : ''}">
+            <div class="agenda-date">${fmtDate(ev.date)}</div>
+            <div class="agenda-body">
+              <div class="agenda-title">${esc(ev.title)}<span class="agenda-type">${esc(tname)}</span></div>
+              ${ev.note ? `<div class="agenda-note">${esc(ev.note)}</div>` : ''}
+              <div class="agenda-eff">${ev.attended ? '✓ 参加済み → ' + eff : '予定 · ' + eff}</div>
+            </div>
+            <div class="agenda-actions">
+              <button class="btn-attend" data-ev="${ev.id}">${ev.attended ? '参加を取消' : '参加済みにする'}</button>
+              <button class="btn-evdel" data-ev="${ev.id}" title="削除">🗑</button>
+            </div>
+          </div>`;
+        };
+
+        document.getElementById("calendar").innerHTML = `
+          <div class="cal-head">
+            <button class="cal-nav" data-nav="-1" aria-label="前の月">◀</button>
+            <span class="cal-month">${calY}年 ${calM + 1}月</span>
+            <button class="cal-nav" data-nav="1" aria-label="次の月">▶</button>
+          </div>
+          <div class="cal-grid">
+            ${WD.map((w, i) => `<div class="cal-wd ${i === 0 ? 'sun' : ''} ${i === 6 ? 'sat' : ''}">${w}</div>`).join("")}
+            ${cells}
+          </div>
+          <form id="ev-form" class="ev-form">
+            <input type="date" name="date" value="${today}" required />
+            <input type="text" name="title" placeholder="イベント名（例: 技術勉強会）" required />
+            <select name="type">${diploTasks.map(t => `<option value="${t.id}">${t.name}</option>`).join("")}</select>
+            <input type="text" name="note" placeholder="メモ（任意）" />
+            <button type="submit">＋ 予定を追加</button>
+          </form>
+          <div class="agenda">
+            <div><h3 class="agenda-h">▼ 今後の予定（${upcoming.length}）</h3>${upcoming.map(item).join("") || '<p class="agenda-empty">予定はありません。上のフォームから追加できます。</p>'}</div>
+            <div><h3 class="agenda-h">▼ 過去（${past.length}）</h3>${past.map(item).join("") || '<p class="agenda-empty">まだありません。</p>'}</div>
+          </div>`;
+      };
+
+      const toggleAttend = evId => {
+        const ev = state.events.find(x => x.id === evId); if (!ev) return;
+        if (!ev.attended) {
+          const le = { id: genId(), d: ev.date, t: ev.type, m: "diplomacy", src: "event" };
+          ev.attended = true; ev.logId = le.id; state.log.push(le);
+          save(state); render();
+          cloudWrite({ version: 1, events: state.events, log: arrayUnion(le) });
+        } else {
+          const le = state.log.find(x => x.id === ev.logId);
+          const oldId = ev.logId; ev.attended = false; delete ev.logId;
+          if (le) state.log = state.log.filter(x => x.id !== oldId);
+          save(state); render();
+          cloudWrite(le ? { version: 1, events: state.events, log: arrayRemove(le) } : { version: 1, events: state.events });
+        }
+      };
+
+      const deleteEvent = evId => {
+        const ev = state.events.find(x => x.id === evId); if (!ev) return;
+        if (!confirm(`予定「${ev.title}」を削除しますか？`)) return;
+        let le = null;
+        if (ev.attended && ev.logId) { le = state.log.find(x => x.id === ev.logId); state.log = state.log.filter(x => x.id !== ev.logId); }
+        state.events = state.events.filter(x => x.id !== evId);
+        save(state); render();
+        cloudWrite(le ? { version: 1, events: state.events, log: arrayRemove(le) } : { version: 1, events: state.events });
+      };
+
+      const calEl = document.getElementById("calendar");
+      calEl.addEventListener("click", e => {
+        const nav = e.target.closest(".cal-nav");
+        if (nav) { calM += Number(nav.dataset.nav); if (calM < 0) { calM = 11; calY--; } if (calM > 11) { calM = 0; calY++; } renderCalendar(); return; }
+        const attend = e.target.closest(".btn-attend"); if (attend) { toggleAttend(attend.dataset.ev); return; }
+        const del = e.target.closest(".btn-evdel"); if (del) { deleteEvent(del.dataset.ev); return; }
+        const cell = e.target.closest(".cal-cell[data-date]");
+        if (cell) { const inp = calEl.querySelector('#ev-form [name="date"]'); if (inp) inp.value = cell.dataset.date; return; }
+      });
+      calEl.addEventListener("submit", e => {
+        e.preventDefault();
+        const f = e.target.elements;
+        const ev = { id: genId(), date: f.date.value, title: f.title.value.trim(), type: f.type.value, note: f.note.value.trim(), attended: false };
+        if (!ev.title || !ev.date) return;
+        state.events.push(ev);
+        save(state); render();
+        cloudWrite({ version: 1, events: state.events });
+      });
 
       // ---- 操作 ----
       document.getElementById("ministries").addEventListener("click", e => {
@@ -370,13 +548,17 @@
           }
           save(state); render();
           if (removed) cloudWrite({ log: arrayRemove(removed) });
+        } else if (e.target.closest(".task-main")) {
+          // 説明の展開/折りたたみ（再描画で消えないよう属性で保持）
+          const desc = row.querySelector(".task-desc");
+          if (desc) desc.hidden = !desc.hidden;
         }
       });
 
       document.getElementById("reset-btn").addEventListener("click", () => {
-        if (confirm("記録をすべて消去して最初からやり直しますか？（クラウドの記録も削除されます）")) {
-          state = { version: 1, log: [] }; save(state); render();
-          cloudWrite({ version: 1, log: [] });
+        if (confirm("記録をすべて消去して最初からやり直しますか？（外交イベントを含むクラウドの記録も削除されます）")) {
+          state = { version: 1, log: [], events: [] }; save(state); render();
+          cloudWrite({ version: 1, log: [], events: [] });
         }
       });
 
@@ -384,20 +566,27 @@
       const statusEl = document.getElementById("sync-status");
       render(); // まずローカルデータで即描画（オフラインでも表示）
       onSnapshot(docRef, snap => {
-        const cloudLog = snap.exists() && Array.isArray(snap.data().log) ? snap.data().log : [];
-        // 初回のみ：ローカルにしか無い記録をクラウドへ移行
+        const data = snap.exists() ? snap.data() : {};
+        const cloudLog = Array.isArray(data.log) ? data.log : [];
+        const cloudEvents = Array.isArray(data.events) ? data.events : [];
+        // 初回のみ：ローカルにしか無い記録／イベントをクラウドへ移行
         if (!localStorage.getItem(MIG_KEY)) {
           localStorage.setItem(MIG_KEY, "1");
-          const cloudIds = new Set(cloudLog.map(e => e.id));
-          const toPush = state.log.filter(e => e.id && !cloudIds.has(e.id));
-          if (toPush.length) {
-            cloudWrite({ version: 1, log: arrayUnion(...toPush) });
-            state.log = cloudLog.concat(toPush); save(state); render();
-            if (statusEl) statusEl.textContent = "☁ 同期中（ローカル " + toPush.length + " 件を移行しました）";
+          const cloudLogIds = new Set(cloudLog.map(e => e.id));
+          const cloudEvIds = new Set(cloudEvents.map(e => e.id));
+          const pushLog = state.log.filter(e => e.id && !cloudLogIds.has(e.id));
+          const pushEv = state.events.filter(e => e.id && !cloudEvIds.has(e.id));
+          if (pushLog.length || pushEv.length) {
+            const mergedEvents = cloudEvents.concat(pushEv);
+            const payload = { version: 1, events: mergedEvents };
+            if (pushLog.length) payload.log = arrayUnion(...pushLog);
+            cloudWrite(payload);
+            state.log = cloudLog.concat(pushLog); state.events = mergedEvents; save(state); render();
+            if (statusEl) statusEl.textContent = "☁ 同期中（ローカル " + (pushLog.length + pushEv.length) + " 件を移行しました）";
             return; // 続くスナップショットで確定
           }
         }
-        state.log = cloudLog; save(state); render();
+        state.log = cloudLog; state.events = cloudEvents; save(state); render();
         if (statusEl) statusEl.textContent = "☁ クラウド同期中 — 別ブラウザ・端末と共有されます";
       }, err => {
         if (statusEl) statusEl.textContent = "⚠ ローカル保存のみ（クラウド未接続：" + (err.code || "error") + "）";
@@ -449,6 +638,14 @@
           <p class="lead">やった行動の <strong>＋</strong> を押すと、対応するステータスに AP が加算されます。積み上げるほどレベルと段位が上がります。</p>
           <div id="ministries" class="ministry-grid"></div>
           <div id="day-note" class="day-note"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">🕊️ 外交カレンダー</h2>
+          <p class="lead">勉強会・登壇・交流会などの<strong>実際のイベント</strong>を登録します。日付・種別を選んで追加し、当日以降に<strong>「参加済みにする」</strong>を押すと、対応する外交タスクの AP が自動加算され、威信・影響力・社交派の満足度に反映されます。カレンダーの日付をクリックすると追加フォームの日付が切り替わります。</p>
+          <div id="calendar"></div>
         </div>
       </section>
 
