@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人生経営 — Life as Victoria 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem;
+    }
+
+    /* --- 国力サマリー --- */
+    .overview { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 1.6rem; align-items: start; }
+    @media (max-width: 720px) { .overview { grid-template-columns: 1fr; } }
+
+    .rank-panel {
+      background: var(--color-white); border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-primary); padding: 1.4rem 1.5rem; text-align: center;
+    }
+    .rank-name {
+      font-family: var(--font-accent); font-size: 1.7rem; font-weight: 500; color: var(--color-primary);
+      letter-spacing: 0.06em;
+    }
+    .rank-name .warn { color: var(--color-accent); font-size: 1.1rem; }
+    .rank-power { font-size: 0.85rem; color: var(--color-text-light); margin-top: 0.3rem; }
+    .rank-power b { color: var(--color-accent); font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+    .rank-next { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+    .rank-momentum {
+      margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--color-border);
+      font-size: 0.82rem; color: var(--color-text-light);
+    }
+    .rank-momentum b { color: var(--color-primary); font-variant-numeric: tabular-nums; }
+
+    .radar-wrap { display: flex; justify-content: center; }
+    .radar-wrap svg { width: 100%; max-width: 420px; height: auto; }
+    .radar-grid { fill: none; stroke: var(--color-border); stroke-width: 1; }
+    .radar-axis { stroke: var(--color-border); stroke-width: 1; }
+    .radar-area { fill: rgba(43,75,110,0.14); stroke: var(--color-primary); stroke-width: 2; }
+    .radar-dot  { fill: var(--color-accent); }
+    .radar-label { font-size: 13px; fill: var(--color-text-light); }
+    .radar-lv    { font-size: 11px; fill: var(--color-primary); font-weight: 700; }
+
+    /* --- ステータス一覧 --- */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.7rem; margin-top: 1.2rem; }
+    .stat-cell {
+      background: var(--color-white); border: 1px solid var(--color-border); padding: 0.7rem 0.9rem;
+      display: flex; flex-direction: column; gap: 0.15rem;
+    }
+    .stat-cell.decay { border-left: 3px solid var(--color-accent); }
+    .stat-top { display: flex; align-items: baseline; justify-content: space-between; }
+    .stat-name { font-size: 0.85rem; color: var(--color-text-light); }
+    .stat-lv { font-family: var(--font-accent); font-size: 1.35rem; color: var(--color-primary); font-weight: 500; }
+    .stat-lv small { font-size: 0.7rem; color: var(--color-text-muted); font-family: var(--font-primary); }
+    .stat-progress { height: 5px; background: var(--color-bg-alt); border-radius: 3px; overflow: hidden; margin-top: 0.25rem; }
+    .stat-progress i { display: block; height: 100%; background: var(--color-primary-light); }
+    .stat-ap { font-size: 0.72rem; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+
+    /* --- 省庁パネル --- */
+    .ministry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
+    .ministry {
+      background: var(--color-white); border: 1px solid var(--color-border); border-top: 3px solid var(--color-primary);
+      padding: 1.1rem 1.2rem 1rem; display: flex; flex-direction: column;
+    }
+    .ministry-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem; }
+    .ministry-icon { font-size: 1.4rem; }
+    .ministry-name { font-family: var(--font-accent); font-size: 1.15rem; color: var(--color-primary); font-weight: 500; }
+    .ministry-sub { font-size: 0.76rem; color: var(--color-text-muted); margin-bottom: 0.7rem; }
+    .task-row { display: flex; align-items: center; gap: 0.55rem; padding: 0.4rem 0; border-top: 1px solid var(--color-bg-alt); }
+    .task-row:first-of-type { border-top: none; }
+    .task-main { flex: 1; min-width: 0; }
+    .task-name { font-size: 0.88rem; }
+    .task-meta { font-size: 0.72rem; color: var(--color-text-muted); }
+    .task-effects { color: var(--color-text-light); }
+    .task-count {
+      min-width: 1.4rem; text-align: center; font-size: 0.8rem; font-variant-numeric: tabular-nums;
+      color: var(--color-accent); font-weight: 700;
+    }
+    .task-count.zero { color: var(--color-border); }
+    .btn-add, .btn-sub {
+      width: 26px; height: 26px; flex-shrink: 0; border: 1px solid var(--color-border);
+      background: var(--color-bg); border-radius: 50%; cursor: pointer; font-size: 1rem; line-height: 1;
+      color: var(--color-primary); transition: background 0.12s, border-color 0.12s;
+    }
+    .btn-add:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .btn-sub:hover { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+    .btn-sub:disabled { opacity: 0.3; cursor: default; }
+
+    /* --- 利益団体メーター --- */
+    .ig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.9rem; margin-top: 1.2rem; }
+    .ig-cell { background: var(--color-white); border: 1px solid var(--color-border); padding: 0.9rem 1rem; }
+    .ig-top { display: flex; align-items: center; gap: 0.4rem; }
+    .ig-name { font-size: 0.92rem; font-weight: 500; color: var(--color-primary); }
+    .ig-state { margin-left: auto; font-size: 0.75rem; font-weight: 700; }
+    .ig-wants { font-size: 0.75rem; color: var(--color-text-muted); margin: 0.3rem 0 0.5rem; }
+    .ig-meter { height: 8px; background: var(--color-bg-alt); border-radius: 4px; overflow: hidden; }
+    .ig-meter i { display: block; height: 100%; }
+    .s-happy .ig-meter i, .s-happy .ig-state { color: #2f855a; } .s-happy .ig-meter i { background: #2f855a; }
+    .s-mid   .ig-meter i, .s-mid   .ig-state { color: #b7791f; } .s-mid   .ig-meter i { background: #b7791f; }
+    .s-angry .ig-meter i, .s-angry .ig-state { color: var(--color-accent); } .s-angry .ig-meter i { background: var(--color-accent); }
+
+    .day-note { font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.4rem; }
+    .reset-link { font-size: 0.75rem; color: var(--color-text-muted); background: none; border: none; cursor: pointer; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) { location.href = "../login.html"; return; }
+
+      document.getElementById("page-content").style.display = "block";
+      document.getElementById("user-avatar").src = user.photoURL || "";
+      document.getElementById("user-name").textContent = user.displayName || user.email;
+      document.getElementById("logout-btn").addEventListener("click", async () => {
+        await signOut(auth);
+        location.href = "../login.html";
+      });
+
+      startDashboard(user.uid);
+    });
+
+    /* ===================== ダッシュボード本体 ===================== */
+    const AP_SMALL = 1, AP_MID = 3, AP_LARGE = 5; // 参考値（tasks.json 側で直接指定）
+
+    const todayStr = () => {
+      const d = new Date();
+      const p = n => String(n).padStart(2, "0");
+      return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+    };
+    const daysAgo = n => {
+      const d = new Date(); d.setDate(d.getDate() - n);
+      const p = x => String(x).padStart(2, "0");
+      return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+    };
+    const levelFromAP = ap => Math.floor(Math.sqrt(ap / 10));
+    const apForLevel  = lv => lv * lv * 10;
+
+    async function startDashboard(uid) {
+      const STORE_KEY = `shikaku_life_state_${uid}`;
+      let TASKS;
+      try {
+        TASKS = await (await fetch("data/tasks.json", { cache: "no-cache" })).json();
+      } catch (e) {
+        document.getElementById("dash").innerHTML =
+          '<p class="lead">タスク定義の読み込みに失敗しました。GitHub Pages 上で開いてください。</p>';
+        return;
+      }
+
+      // taskId -> {ministryKey, effects} のマップ
+      const taskMap = {};
+      TASKS.ministries.forEach(m => m.tasks.forEach(t => { taskMap[t.id] = { m: m.key, effects: t.effects }; }));
+
+      const load = () => {
+        try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { version: 1, log: [] }; }
+        catch (e) { return { version: 1, log: [] }; }
+      };
+      const save = s => localStorage.setItem(STORE_KEY, JSON.stringify(s));
+      let state = load();
+
+      // ---- 集計 ----
+      const compute = () => {
+        const statKeys = Object.keys(TASKS.stats);
+        const cumAP = Object.fromEntries(statKeys.map(k => [k, 0]));   // 累積AP
+        const weekAP = Object.fromEntries(statKeys.map(k => [k, 0]));  // 直近7日AP
+        const last7 = daysAgo(6), last14 = daysAgo(13), last28 = daysAgo(27);
+        let momentum28 = 0;
+        const igCount = Object.fromEntries(TASKS.interestGroups.map(g => [g.key, 0]));
+        const todayCount = {};
+
+        for (const e of state.log) {
+          const def = taskMap[e.t]; if (!def) continue;
+          for (const [stat, ap] of def.effects) {
+            cumAP[stat] += ap;
+            if (e.d >= last7) weekAP[stat] += ap;
+            if (e.d >= last28) momentum28 += ap;
+          }
+          // 利益団体：直近14日にその省庁へ投資した行動数
+          if (e.d >= last14) {
+            for (const g of TASKS.interestGroups) if (g.source.includes(def.m)) igCount[g.key]++;
+          }
+          if (e.d === todayStr()) todayCount[e.t] = (todayCount[e.t] || 0) + 1;
+        }
+
+        const levels = Object.fromEntries(statKeys.map(k => [k, levelFromAP(cumAP[k])]));
+        const totalPower = Object.values(levels).reduce((a, b) => a + b, 0);
+        return { statKeys, cumAP, weekAP, levels, totalPower, momentum28, igCount, todayCount };
+      };
+
+      // ---- ランク ----
+      const rankFor = power => {
+        const rs = TASKS.ranks;
+        let cur = rs[0], next = null;
+        for (let i = 0; i < rs.length; i++) {
+          if (power >= rs[i].min) { cur = rs[i]; next = rs[i + 1] || null; }
+        }
+        return { cur, next };
+      };
+
+      // ---- レーダーチャート(SVG) ----
+      const renderRadar = (levels) => {
+        const keys = Object.keys(TASKS.stats);
+        const n = keys.length, cx = 210, cy = 200, R = 140;
+        const maxLv = Math.max(4, ...keys.map(k => levels[k]));
+        const angle = i => (-90 + i * (360 / n)) * Math.PI / 180;
+        const pt = (i, r) => [cx + r * Math.cos(angle(i)), cy + r * Math.sin(angle(i))];
+
+        let svg = `<svg viewBox="0 0 420 400" role="img" aria-label="国力レーダーチャート">`;
+        // グリッド
+        for (const g of [0.25, 0.5, 0.75, 1]) {
+          const poly = keys.map((_, i) => pt(i, R * g).map(v => v.toFixed(1)).join(",")).join(" ");
+          svg += `<polygon class="radar-grid" points="${poly}" />`;
+        }
+        // 軸
+        keys.forEach((_, i) => {
+          const [x, y] = pt(i, R);
+          svg += `<line class="radar-axis" x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" />`;
+        });
+        // データ面
+        const dpoly = keys.map((k, i) => pt(i, R * (levels[k] / maxLv)).map(v => v.toFixed(1)).join(",")).join(" ");
+        svg += `<polygon class="radar-area" points="${dpoly}" />`;
+        keys.forEach((k, i) => {
+          const [dx, dy] = pt(i, R * (levels[k] / maxLv));
+          svg += `<circle class="radar-dot" cx="${dx.toFixed(1)}" cy="${dy.toFixed(1)}" r="3" />`;
+        });
+        // ラベル
+        keys.forEach((k, i) => {
+          const [lx, ly] = pt(i, R + 22);
+          const anchor = Math.abs(lx - cx) < 5 ? "middle" : (lx > cx ? "start" : "end");
+          svg += `<text class="radar-label" x="${lx.toFixed(1)}" y="${(ly - 4).toFixed(1)}" text-anchor="${anchor}">${TASKS.stats[k].icon}</text>`;
+          svg += `<text class="radar-lv" x="${lx.toFixed(1)}" y="${(ly + 11).toFixed(1)}" text-anchor="${anchor}">Lv${levels[k]}</text>`;
+        });
+        svg += `</svg>`;
+        return svg;
+      };
+
+      // ---- 描画 ----
+      const render = () => {
+        const c = compute();
+        const { cur, next } = rankFor(c.totalPower);
+
+        // 不安定判定：最弱ステータスが平均の半分未満
+        const avg = c.totalPower / c.statKeys.length;
+        const minLv = Math.min(...c.statKeys.map(k => c.levels[k]));
+        const unstable = c.totalPower > 0 && minLv < avg / 2;
+
+        // --- ランクパネル ---
+        const nextTxt = next
+          ? `次の段位「${next.name}」まで あと国力 ${next.min - c.totalPower}`
+          : `最高段位に到達`;
+        document.getElementById("rank-panel").innerHTML = `
+          <div class="rank-name">${cur.name}${unstable ? ' <span class="warn" title="最弱ステータスが低く不安定">⚠️</span>' : ''}</div>
+          <div class="rank-power">総合国力 <b>${c.totalPower}</b></div>
+          <div class="rank-next">${nextTxt}</div>
+          <div class="rank-momentum">直近4週の勢い（総AP）: <b>${c.momentum28}</b>　/　週平均 <b>${(c.momentum28 / 4).toFixed(1)}</b></div>
+          ${unstable ? '<div class="rank-next" style="color:var(--color-accent)">⚠️ 不安定：最も低い能力を底上げしましょう</div>' : ''}
+        `;
+
+        // --- レーダー ---
+        document.getElementById("radar").innerHTML = renderRadar(c.levels);
+
+        // --- ステータスセル ---
+        document.getElementById("stats").innerHTML = c.statKeys.map(k => {
+          const lv = c.levels[k], ap = c.cumAP[k];
+          const cur0 = apForLevel(lv), next0 = apForLevel(lv + 1);
+          const pct = next0 > cur0 ? Math.round((ap - cur0) / (next0 - cur0) * 100) : 0;
+          const decay = c.weekAP[k] === 0 && ap > 0; // 今週AP0＝減衰注意
+          const s = TASKS.stats[k];
+          return `<div class="stat-cell ${decay ? 'decay' : ''}">
+            <div class="stat-top">
+              <span class="stat-name">${s.icon} ${s.name}</span>
+              <span class="stat-lv">${lv}<small>Lv</small></span>
+            </div>
+            <div class="stat-progress"><i style="width:${pct}%"></i></div>
+            <div class="stat-ap">${ap} AP　${decay ? '⚠️今週0' : `次Lvまで ${next0 - ap}`}</div>
+          </div>`;
+        }).join("");
+
+        // --- 省庁パネル ---
+        document.getElementById("ministries").innerHTML = TASKS.ministries.map(m => `
+          <div class="ministry">
+            <div class="ministry-head"><span class="ministry-icon">${m.icon}</span>
+              <span class="ministry-name">${m.name}</span></div>
+            <div class="ministry-sub">${m.sub}</div>
+            ${m.tasks.map(t => {
+              const cnt = c.todayCount[t.id] || 0;
+              const eff = t.effects.length
+                ? t.effects.map(([s, ap]) => `${TASKS.stats[s].icon}+${ap}`).join(" ")
+                : "休養";
+              return `<div class="task-row" data-task="${t.id}" data-ministry="${m.key}">
+                <button class="btn-sub" ${cnt ? '' : 'disabled'} title="今日の記録を1件取消">−</button>
+                <span class="task-count ${cnt ? '' : 'zero'}">${cnt}</span>
+                <div class="task-main">
+                  <div class="task-name">${t.name}</div>
+                  <div class="task-meta"><span class="task-effects">${eff}</span>　·　${t.freq}</div>
+                </div>
+                <button class="btn-add" title="今日やった（+1）">＋</button>
+              </div>`;
+            }).join("")}
+          </div>`).join("");
+
+        // --- 利益団体 ---
+        document.getElementById("igs").innerHTML = TASKS.interestGroups.map(g => {
+          const cnt = c.igCount[g.key];
+          let cls, label, pct;
+          if (cnt === 0)      { cls = "s-angry"; label = "不満"; pct = 12; }
+          else if (cnt <= 2)  { cls = "s-mid";   label = "普通"; pct = 55; }
+          else                { cls = "s-happy"; label = "満足"; pct = 100; }
+          return `<div class="ig-cell ${cls}">
+            <div class="ig-top"><span>${g.icon}</span><span class="ig-name">${g.name}</span>
+              <span class="ig-state">${label}</span></div>
+            <div class="ig-wants">求めるもの: ${g.wants}</div>
+            <div class="ig-meter"><i style="width:${pct}%"></i></div>
+          </div>`;
+        }).join("");
+
+        document.getElementById("day-note").textContent = `本日 ${todayStr()} の記録。＋/− で今日の行動を増減できます（自動保存）。`;
+      };
+
+      // ---- 操作 ----
+      document.getElementById("ministries").addEventListener("click", e => {
+        const row = e.target.closest(".task-row"); if (!row) return;
+        const tid = row.dataset.task, mid = row.dataset.ministry;
+        if (e.target.classList.contains("btn-add")) {
+          state.log.push({ d: todayStr(), t: tid, m: mid });
+          save(state); render();
+        } else if (e.target.classList.contains("btn-sub")) {
+          // 今日の同タスクの最後の1件を取消
+          for (let i = state.log.length - 1; i >= 0; i--) {
+            if (state.log[i].d === todayStr() && state.log[i].t === tid) { state.log.splice(i, 1); break; }
+          }
+          save(state); render();
+        }
+      });
+
+      document.getElementById("reset-btn").addEventListener("click", () => {
+        if (confirm("記録をすべて消去して最初からやり直しますか？")) {
+          state = { version: 1, log: [] }; save(state); render();
+        }
+      });
+
+      render();
+    }
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">人生経営</div>
+        <div class="site-role">Life as Victoria 3 — 生活・キャリアの国家運営</div>
+        <div class="user-chip">
+          <img id="user-avatar" src="" alt="" />
+          <span id="user-name"></span>
+          <button id="logout-btn">ログアウト</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../index.html">資格まとめ</a></li>
+          <li><a class="nav-link current" href="index.html">人生経営</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="dash">
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="../index.html">ホーム</a><span class="breadcrumb-sep">›</span><span>人生経営</span>
+          </div>
+          <h2 class="section-title">国力サマリー</h2>
+          <div class="overview">
+            <div id="rank-panel" class="rank-panel"></div>
+            <div id="radar" class="radar-wrap"></div>
+          </div>
+          <div id="stats" class="stat-grid"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">4省庁 — 今日の行動を記録</h2>
+          <p class="lead">やった行動の <strong>＋</strong> を押すと、対応するステータスに AP が加算されます。積み上げるほどレベルと段位が上がります。</p>
+          <div id="ministries" class="ministry-grid"></div>
+          <div id="day-note" class="day-note"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">利益団体（心の中の勢力）</h2>
+          <p class="lead">直近2週の各領域への投資で満足度が決まります。<strong>享楽派</strong>を無視すると燃え尽き（反乱）のリスク。バランスよく満たしましょう。</p>
+          <div id="igs" class="ig-grid"></div>
+          <div class="notice" style="margin-top:1.4rem">
+            <strong>データについて</strong>：記録はこのブラウザ内（localStorage・ログインユーザー単位）に保存されます。
+            <button id="reset-btn" class="reset-link">すべてリセット</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>人生経営 — 個人用ゲーミフィケーション</div>
+        <div class="disclaimer">Victoria 3 の国家運営になぞらえた、生活・キャリア構築の習慣化ツール。ルールは README.md 参照。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

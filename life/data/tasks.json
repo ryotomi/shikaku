@@ -1,0 +1,82 @@
+{
+  "_comment": "人生経営シミュレーション タスク定義。効果は [ステータスキー, AP] の配列。README.md のルールに準拠。",
+  "stats": {
+    "tech":        { "name": "技術力",   "icon": "🔬" },
+    "body":        { "name": "体力",     "icon": "💪" },
+    "life":        { "name": "生活水準", "icon": "🏠" },
+    "money":       { "name": "資金",     "icon": "💰" },
+    "authority":   { "name": "権威",     "icon": "⚙️" },
+    "prestige":    { "name": "威信",     "icon": "🏛️" },
+    "influence":   { "name": "影響力",   "icon": "🤝" },
+    "negotiation": { "name": "交渉力",   "icon": "⚔️" }
+  },
+  "ranks": [
+    { "name": "未承認国家", "min": 0 },
+    { "name": "弱小国",     "min": 8 },
+    { "name": "地域国",     "min": 16 },
+    { "name": "主要国",     "min": 26 },
+    { "name": "列強",       "min": 40 },
+    { "name": "覇権国",     "min": 56 }
+  ],
+  "ministries": [
+    {
+      "key": "production", "name": "生産", "icon": "🏭", "sub": "心身の能力向上",
+      "tasks": [
+        { "id": "study",    "name": "学習（資格外）", "freq": "毎日", "effects": [["tech", 5], ["authority", 1]] },
+        { "id": "strength", "name": "筋トレ",         "freq": "週3〜", "effects": [["body", 5]] },
+        { "id": "cardio",   "name": "有酸素・活動",   "freq": "毎日", "effects": [["body", 1], ["life", 1]] },
+        { "id": "sleep",    "name": "睡眠・回復",     "freq": "毎日", "effects": [["authority", 3], ["body", 3]] },
+        { "id": "diet",     "name": "食事管理",       "freq": "毎日", "effects": [["body", 3], ["money", 1]] },
+        { "id": "input",    "name": "インプット",     "freq": "毎日", "effects": [["tech", 3]] }
+      ]
+    },
+    {
+      "key": "politics", "name": "政治", "icon": "🏛️", "sub": "生活維持のタスク",
+      "tasks": [
+        { "id": "clean",     "name": "掃除・整理",       "freq": "週次",   "effects": [["life", 3], ["authority", 1]] },
+        { "id": "laundry",   "name": "洗濯・衣類管理",   "freq": "週次",   "effects": [["life", 1]] },
+        { "id": "cook",      "name": "炊事",             "freq": "毎日",   "effects": [["life", 3], ["body", 1]] },
+        { "id": "moneymgmt", "name": "金銭管理",         "freq": "週/月次", "effects": [["money", 3], ["authority", 1]] },
+        { "id": "admin",     "name": "事務手続き",       "freq": "随時",   "effects": [["life", 1], ["authority", 3]] },
+        { "id": "automate",  "name": "環境整備・自動化", "freq": "単発",   "effects": [["authority", 5]] }
+      ]
+    },
+    {
+      "key": "diplomacy", "name": "外交", "icon": "🕊️", "sub": "キャリアにつながる対外活動",
+      "tasks": [
+        { "id": "event",     "name": "勉強会・イベント参加", "freq": "月次", "effects": [["influence", 3], ["tech", 1]] },
+        { "id": "community", "name": "コミュニティ運営",     "freq": "随時", "effects": [["prestige", 5], ["influence", 3]] },
+        { "id": "output",    "name": "情報発信",             "freq": "週/月次", "effects": [["prestige", 3], ["influence", 3]] },
+        { "id": "sidejob",   "name": "副業・案件（種まき）", "freq": "随時", "effects": [["money", 1], ["tech", 3], ["prestige", 1]] },
+        { "id": "circle",    "name": "サークル・課外活動",   "freq": "随時", "effects": [["influence", 1], ["life", 1]] },
+        { "id": "network",   "name": "人脈メンテ",           "freq": "月次", "effects": [["influence", 3]] }
+      ]
+    },
+    {
+      "key": "military", "name": "軍事", "icon": "⚔️", "sub": "交渉・条件獲得",
+      "tasks": [
+        { "id": "resume",    "name": "装備更新（経歴書整備）", "freq": "事前", "effects": [["negotiation", 3]] },
+        { "id": "recon",     "name": "偵察（相場リサーチ）",   "freq": "事前", "effects": [["negotiation", 1]] },
+        { "id": "rehearse",  "name": "演習（面接練習）",       "freq": "事前", "effects": [["negotiation", 3]] },
+        { "id": "apply",     "name": "開戦（応募・提案）",     "freq": "随時", "effects": [["negotiation", 1]] },
+        { "id": "negotiate", "name": "交渉（会戦）",           "freq": "随時", "effects": [["money", 5], ["negotiation", 5]] },
+        { "id": "settle",    "name": "講和（合意・締結）",     "freq": "決着時", "effects": [["money", 5], ["prestige", 3]] }
+      ]
+    },
+    {
+      "key": "leisure", "name": "休養", "icon": "🎮", "sub": "享楽派の満足（燃え尽き対策）",
+      "tasks": [
+        { "id": "rest",    "name": "休養・オフ", "freq": "随時", "effects": [["life", 1]] },
+        { "id": "play",    "name": "娯楽・趣味", "freq": "随時", "effects": [] },
+        { "id": "recharge","name": "外出・気分転換", "freq": "随時", "effects": [["life", 1]] }
+      ]
+    }
+  ],
+  "interestGroups": [
+    { "key": "kojo",   "name": "向上派",  "icon": "🔬", "wants": "生産（学習・成長）",        "source": ["production"] },
+    { "key": "jitsuri","name": "実利派",  "icon": "💰", "wants": "軍事・外交（収入・キャリア）", "source": ["military", "diplomacy"] },
+    { "key": "annei",  "name": "安寧派",  "icon": "🏠", "wants": "政治（生活の安定・休息）",  "source": ["politics"] },
+    { "key": "shako",  "name": "社交派",  "icon": "🤝", "wants": "外交（人脈・コミュニティ）", "source": ["diplomacy"] },
+    { "key": "kyoraku","name": "享楽派",  "icon": "🎮", "wants": "余暇・娯楽・休養",           "source": ["leisure"] }
+  ]
+}
