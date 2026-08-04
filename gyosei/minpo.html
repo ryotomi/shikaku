@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>民法 — 行政書士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">行政書士 民法</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">行政書士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>民法</span></div>
+        <h2 class="section-title">民法</h2>
+        <p class="lead">配点76点。記述式2問が出題される重要科目。総則・物権・担保物権・債権・親族相続から出題。</p>
+        <div class="notice"><strong>民法は択一9問＋記述2問。</strong>2020年施行の改正民法（債権法）を前提に学習する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">制限行為能力者</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>類型</th><th>対象</th><th>保護者</th><th>同意なき行為</th></tr></thead><tbody><tr><td>未成年者</td><td>18歳未満</td><td>法定代理人</td><td>取り消しうる</td></tr><tr><td>成年被後見人</td><td>事理弁識能力を欠く常況</td><td>成年後見人</td><td>日用品購入等を除き取り消しうる</td></tr><tr><td>被保佐人</td><td>著しく不十分</td><td>保佐人</td><td>重要な財産行為に同意要</td></tr><tr><td>被補助人</td><td>不十分</td><td>補助人</td><td>特定の行為に同意要</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">制限行為能力者が<strong>詐術</strong>を用いたときは取り消せない。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">意思表示の瑕疵</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>類型</th><th>効果</th><th>第三者保護</th></tr></thead><tbody><tr><td>心裡留保</td><td>原則有効（相手方が悪意・有過失なら無効）</td><td>善意の第三者に対抗不可</td></tr><tr><td>虚偽表示</td><td>無効</td><td>善意の第三者に対抗不可</td></tr><tr><td>錯誤</td><td>取消し（重要な錯誤）</td><td>善意無過失の第三者に対抗不可</td></tr><tr><td>詐欺</td><td>取消し</td><td>善意無過失の第三者に対抗不可</td></tr><tr><td>強迫</td><td>取消し</td><td>第三者にも対抗可</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">担保物権の性質</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>性質</th><th>内容</th></tr></thead><tbody><tr><td>附従性</td><td>被担保債権がなければ成立せず、消滅すれば消滅</td></tr><tr><td>随伴性</td><td>被担保債権の移転に伴って移転</td></tr><tr><td>不可分性</td><td>債権全部の弁済まで目的物全部に効力</td></tr><tr><td>物上代位性</td><td>目的物の売却・賃貸・滅失等で受ける金銭等に及ぶ</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">留置権・先取特権は法定担保物権、質権・抵当権は約定担保物権。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">法定相続分</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>相続人の組合せ</th><th>配偶者</th><th>他</th></tr></thead><tbody><tr><td>配偶者と子</td><td>1/2</td><td>子 1/2（人数で等分）</td></tr><tr><td>配偶者と直系尊属</td><td>2/3</td><td>直系尊属 1/3</td></tr><tr><td>配偶者と兄弟姉妹</td><td>3/4</td><td>兄弟姉妹 1/4</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">兄弟姉妹に<strong>遺留分はない</strong>。承認・放棄は自己のため相続開始を知った時から3か月以内。</div>
+      </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 行政書士 民法</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（行政書士試験研究センター）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

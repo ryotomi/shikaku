@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>基礎知識 — 行政書士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">行政書士 基礎知識</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">行政書士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>基礎知識</span></div>
+        <h2 class="section-title">基礎知識</h2>
+        <p class="lead">配点56点。旧「一般知識等」を令和6年度から改組。足切り（24点）回避が最優先。</p>
+        <div class="notice">文章理解と個人情報保護は得点源にしやすい。時事的な政治経済社会も対策する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">出題分野</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>分野</th><th>主な内容</th></tr></thead><tbody><tr><td>一般知識</td><td>政治・経済・社会</td></tr><tr><td>諸法令</td><td>行政書士法等、業務に関連する諸法令</td></tr><tr><td>情報通信・個人情報保護</td><td>IT用語・個人情報保護法・情報公開法</td></tr><tr><td>文章理解</td><td>長文読解（要旨把握・空欄補充・文章整序）</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;"><strong>基礎知識は択一14問・56点。24点（6問）未満は足切りで不合格。</strong></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">個人情報保護法の要点</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>利用目的の特定</td><td>できる限り特定。目的外利用は原則本人同意が必要</td></tr><tr><td>要配慮個人情報</td><td>人種・信条・病歴・犯罪歴等。取得に原則本人同意</td></tr><tr><td>第三者提供</td><td>原則本人の同意。オプトアウトは要配慮個人情報では不可</td></tr><tr><td>本人の権利</td><td>開示・訂正・利用停止の請求</td></tr><tr><td>個人情報保護委員会</td><td>独立性の高い三条委員会。行政機関等も監督</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">文章理解の技法</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>技法</th><th>要点</th></tr></thead><tbody><tr><td>要旨把握</td><td>筆者の最も伝えたい主張を読み取る</td></tr><tr><td>接続詞</td><td>逆接（しかし）・順接（だから）・換言（つまり）・例示（例えば）</td></tr><tr><td>文章整序</td><td>接続詞・指示語を手がかりに論理的順序へ並べ替える</td></tr></tbody></table></div>
+      </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 行政書士 基礎知識</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（行政書士試験研究センター）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

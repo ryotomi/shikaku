@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>行政書士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">行政書士</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link current" href="index.html">行政書士</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>行政書士</span>
+          </div>
+
+          <h2 class="section-title">行政書士</h2>
+          <p class="lead">
+            官公署提出書類の作成・提出代理などを担う法律系国家資格。試験は毎年11月に実施され、合格率は約10〜15%。
+            行政法・民法を中心に、以下のコンテンツで体系的に学習できます。
+          </p>
+
+          <div class="content-grid">
+
+            <a class="content-card" href="docs/overview.html">
+              <div class="content-card-title">試験概要</div>
+              <div class="content-card-desc">受験資格・試験スケジュール・出題科目と配点・合格基準・合格率・登録手続きをまとめたリファレンスページ。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="practice.html">
+              <div class="content-card-title">過去問演習</div>
+              <div class="content-card-desc">行政法・民法・憲法・商法会社法・基礎法学・基礎知識の5肢択一問題。科目別フィルター・ランダム出題・解説付き。</div>
+              <div class="content-card-arrow">演習する →</div>
+            </a>
+
+            <a class="content-card" href="flashcard.html">
+              <div class="content-card-title">単語帳</div>
+              <div class="content-card-desc">重要用語をフラッシュカード形式で暗記。科目別フィルター・シャッフル・習得済みマーク付き。</div>
+              <div class="content-card-arrow">暗記する →</div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">科目別まとめ</h2>
+          <p class="lead">各科目の重要ポイントをまとめたリファレンスページです。</p>
+
+          <div class="content-grid">
+
+            <a class="content-card" href="gyoseiho.html">
+              <div class="content-card-title">行政法</div>
+              <div class="content-card-desc">行政法総論・行政手続法・行政不服審査法・行政事件訴訟法・国家賠償法・地方自治法（最重要／112点）</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="minpo.html">
+              <div class="content-card-title">民法</div>
+              <div class="content-card-desc">総則・物権・担保物権・債権総論・債権各論・親族相続（記述式2問／76点）</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="kenpo.html">
+              <div class="content-card-title">憲法</div>
+              <div class="content-card-desc">人権総論・各種人権・統治機構・憲法訴訟（28点）</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="shoho.html">
+              <div class="content-card-title">商法・会社法</div>
+              <div class="content-card-desc">商法総則・商行為・会社の設立・機関・株式・持分会社（20点）</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="kisohogaku.html">
+              <div class="content-card-title">基礎法学</div>
+              <div class="content-card-desc">法の分類・法源・法解釈・裁判制度（8点）</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="chishiki.html">
+              <div class="content-card-title">基礎知識</div>
+              <div class="content-card-desc">政治経済社会・情報通信/個人情報保護・行政書士法等関連法令・文章理解（足切り24点／56点）</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 行政書士</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（行政書士試験研究センター）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

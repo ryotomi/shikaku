@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>行政法 — 行政書士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">行政書士 行政法</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">行政書士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>行政法</span></div>
+        <h2 class="section-title">行政法</h2>
+        <p class="lead">配点112点で最重要。行政法総論・行政手続法・行政不服審査法・行政事件訴訟法・国家賠償法・地方自治法から幅広く出題される。</p>
+        <div class="notice"><strong>行政法は択一19問＋多肢2問＋記述1問。</strong>手続の主体・期間・数字を正確に押さえることが得点の鍵。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">行政行為の効力</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>効力</th><th>内容</th></tr></thead><tbody><tr><td>公定力</td><td>違法でも権限ある機関が取り消すまで一応有効。無効な行政行為には及ばない</td></tr><tr><td>不可争力</td><td>出訴期間等の経過により私人側から争えなくなる</td></tr><tr><td>不可変更力</td><td>争訟裁断的行為について処分庁自ら取消し・変更できない</td></tr><tr><td>執行力</td><td>判決を得ずに自ら強制執行できる。行使には別途法律の根拠が必要</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">瑕疵が<strong>重大かつ明白</strong>なら無効、それ以外は取り消しうるにとどまる。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">行政手続法の要点</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>場面</th><th>主な規律</th></tr></thead><tbody><tr><td>申請に対する処分</td><td>審査基準（設定・公表は義務）／標準処理期間（設定は努力義務）／拒否時の理由提示</td></tr><tr><td>不利益処分</td><td>処分基準（努力義務）／理由の提示／聴聞（重い処分）・弁明の機会（それ以外）</td></tr><tr><td>行政指導</td><td>任意の協力が前提。不従を理由とする不利益取扱いの禁止／中止等の求め</td></tr><tr><td>命令等</td><td>意見公募手続（パブリックコメント、原則30日以上）</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">行政不服審査と行政事件訴訟</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>審査請求（行審法）</th><th>取消訴訟（行訴法）</th></tr></thead><tbody><tr><td>提起先</td><td>原則 最上級行政庁等</td><td>裁判所</td></tr><tr><td>期間</td><td>処分を知った翌日から3か月</td><td>処分を知った日から6か月</td></tr><tr><td>執行</td><td>執行不停止が原則</td><td>執行不停止が原則</td></tr><tr><td>判断機関</td><td>審理員・行政不服審査会等</td><td>裁判所</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">国家賠償（1条・2条）</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>1条（公権力の行使）</th><th>2条（営造物）</th></tr></thead><tbody><tr><td>要件</td><td>公務員の故意・過失＋違法</td><td>設置・管理の瑕疵</td></tr><tr><td>責任</td><td>過失責任</td><td>無過失責任</td></tr><tr><td>求償</td><td>故意・重過失のとき国等が求償</td><td>—</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">外国人が被害者の場合は<strong>相互保証</strong>があるときに限り適用（6条）。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">地方自治法（直接請求）</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>請求</th><th>必要署名</th><th>請求先</th></tr></thead><tbody><tr><td>条例の制定改廃</td><td>有権者の50分の1以上</td><td>長</td></tr><tr><td>事務の監査</td><td>有権者の50分の1以上</td><td>監査委員</td></tr><tr><td>議会の解散</td><td>原則3分の1以上</td><td>選挙管理委員会</td></tr><tr><td>解職（リコール）</td><td>原則3分の1以上</td><td>選挙管理委員会</td></tr></tbody></table></div>
+      </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 行政書士 行政法</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（行政書士試験研究センター）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

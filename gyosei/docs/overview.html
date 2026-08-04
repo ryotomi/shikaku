@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="行政書士試験の概要。受験資格・試験日程・出題科目と配点・合格基準・合格率・登録手続きを一覧でまとめた参考ページ。" />
+  <title>行政書士試験 概要 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) {
+        location.href = "/shikaku/login.html";
+      } else {
+        document.getElementById("page-content").style.display = "block";
+      }
+    });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">行政書士 学習ノート</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="../index.html">行政書士</a></li>
+        <li><a class="nav-link current" href="overview.html">試験概要</a></li>
+        <li><a class="nav-link" href="../practice.html">過去問演習</a></li>
+        <li><a class="nav-link" href="../flashcard.html">単語帳</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 基本情報 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験の基本情報</h2>
+        <p class="lead">
+          行政書士は、官公署に提出する書類の作成・提出代理や、権利義務・事実証明に関する書類の作成を行う
+          法律系の国家資格です。試験は年1回、例年11月に実施され、合格率は10〜15%前後で推移しています。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">正式名称</td>
+                <td>行政書士試験</td>
+              </tr>
+              <tr>
+                <td class="highlight">実施機関</td>
+                <td>一般財団法人 行政書士試験研究センター（総務大臣が指定した指定試験機関）</td>
+              </tr>
+              <tr>
+                <td class="highlight">根拠法令</td>
+                <td>行政書士法</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験資格</td>
+                <td><strong>制限なし</strong>。年齢・学歴・国籍等に関係なく、誰でも受験できる。</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験手数料</td>
+                <td>10,400円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- スケジュール -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">2026年度（令和8年度）スケジュール</h2>
+        <div class="notice">
+          <strong>試験日は例年11月第2日曜日。</strong>
+          2026年度は 11月8日（日）13:00〜16:00 に実施予定です。
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>イベント</th><th>日程</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>インターネット申込</td>
+                <td>2026年7月21日（火）9:00 〜 8月24日（月）17:00</td>
+              </tr>
+              <tr>
+                <td>郵送申込</td>
+                <td>2026年7月21日（火）〜 8月17日（月）消印有効</td>
+              </tr>
+              <tr>
+                <td class="highlight">試験日</td>
+                <td class="highlight">2026年11月8日（日）13:00〜16:00</td>
+              </tr>
+              <tr>
+                <td>合格発表</td>
+                <td>2027年（令和9年）1月27日（水）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 試験形式 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験形式</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">出題形式</td>
+                <td>筆記試験（5肢択一式・多肢選択式・記述式）</td>
+              </tr>
+              <tr>
+                <td class="highlight">問題数</td>
+                <td>60問</td>
+              </tr>
+              <tr>
+                <td class="highlight">配点</td>
+                <td>300点満点（択一式216点・多肢選択式24点・記述式60点）</td>
+              </tr>
+              <tr>
+                <td class="highlight">試験時間</td>
+                <td>3時間（180分）</td>
+              </tr>
+              <tr>
+                <td class="highlight">記述式</td>
+                <td>40字程度で記述する問題が3問出題される（行政法1問・民法2問）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 出題科目 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">出題科目と配点</h2>
+        <p class="lead">
+          「法令等科目」（244点）と「基礎知識科目」（56点）の2分野からなります。
+          令和6年度（2024年度）から旧「一般知識等」が「基礎知識」に改組されました。
+          下のバーは配点（300点満点）の科目別割合です。
+        </p>
+
+        <div class="subject-bar">
+          <div class="bar-segment" style="width:37.3%; background:#E8A020"></div>
+          <div class="bar-segment" style="width:25.3%; background:#5BAD6F"></div>
+          <div class="bar-segment" style="width:9.3%;  background:#4A90D9"></div>
+          <div class="bar-segment" style="width:6.7%;  background:#C0564B"></div>
+          <div class="bar-segment" style="width:2.7%;  background:#7F8C8D"></div>
+          <div class="bar-segment" style="width:18.7%; background:#9B59B6"></div>
+        </div>
+        <div class="bar-legend">
+          <span><i style="background:#E8A020"></i>行政法 112点</span>
+          <span><i style="background:#5BAD6F"></i>民法 76点</span>
+          <span><i style="background:#4A90D9"></i>憲法 28点</span>
+          <span><i style="background:#C0564B"></i>商法・会社法 20点</span>
+          <span><i style="background:#7F8C8D"></i>基礎法学 8点</span>
+          <span><i style="background:#9B59B6"></i>基礎知識 56点</span>
+        </div>
+
+        <h3 style="margin-top:1.6rem; font-size:1.05rem;">法令等科目（244点）</h3>
+        <div class="table-wrap" style="margin-top:0.6rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>科目</th>
+                <th class="num">択一式</th>
+                <th class="num">多肢選択</th>
+                <th class="num">記述式</th>
+                <th class="num">配点</th>
+                <th>学習優先度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">行政法</td>
+                <td class="num">19問</td>
+                <td class="num">2問</td>
+                <td class="num">1問</td>
+                <td class="num">112点</td>
+                <td><span class="badge badge-accent">最重要</span></td>
+              </tr>
+              <tr>
+                <td class="highlight">民法</td>
+                <td class="num">9問</td>
+                <td class="num">—</td>
+                <td class="num">2問</td>
+                <td class="num">76点</td>
+                <td><span class="badge badge-primary">高</span></td>
+              </tr>
+              <tr>
+                <td class="highlight">憲法</td>
+                <td class="num">5問</td>
+                <td class="num">1問</td>
+                <td class="num">—</td>
+                <td class="num">28点</td>
+                <td><span class="badge badge-primary">高</span></td>
+              </tr>
+              <tr>
+                <td class="highlight">商法・会社法</td>
+                <td class="num">5問</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">20点</td>
+                <td><span class="badge badge-primary">中</span></td>
+              </tr>
+              <tr>
+                <td class="highlight">基礎法学</td>
+                <td class="num">2問</td>
+                <td class="num">—</td>
+                <td class="num">—</td>
+                <td class="num">8点</td>
+                <td><span class="badge badge-primary">低</span></td>
+              </tr>
+              <tr style="background: var(--color-bg-alt)">
+                <td class="highlight">小計</td>
+                <td class="num">40問</td>
+                <td class="num">3問</td>
+                <td class="num">3問</td>
+                <td class="num highlight">244点</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:1.6rem; font-size:1.05rem;">基礎知識科目（56点・5肢択一14問）</h3>
+        <div class="table-wrap" style="margin-top:0.6rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>分野</th>
+                <th>主な出題内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">一般知識</td>
+                <td>政治・経済・社会</td>
+              </tr>
+              <tr>
+                <td class="highlight">諸法令</td>
+                <td>行政書士法等、行政書士業務に関連する諸法令</td>
+              </tr>
+              <tr>
+                <td class="highlight">情報通信・個人情報保護</td>
+                <td>IT用語・個人情報保護法・情報公開法 等</td>
+              </tr>
+              <tr>
+                <td class="highlight">文章理解</td>
+                <td>長文読解（要旨把握・空欄補充・並べ替え）</td>
+              </tr>
+              <tr style="background: var(--color-bg-alt)">
+                <td class="highlight">小計</td>
+                <td class="highlight">4分野あわせて14問・56点（各4点）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 合格基準 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格基準と合格率</h2>
+        <p class="lead">
+          合格は絶対評価で、次の3つの基準を<strong>すべて満たす</strong>必要があります。
+          総合180点に達していても、各科目の基準点（足切り）を下回ると不合格になります。
+        </p>
+
+        <div class="notice">
+          <strong>① 法令等 122点以上（244点の50%）</strong>／
+          <strong>② 基礎知識 24点以上（56点の約40%）</strong>／
+          <strong>③ 総合 180点以上（300点の60%）</strong><br>
+          とりわけ基礎知識で24点（6問）を確保できるかが合否の鍵になります。
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>年度</th>
+                <th class="num">受験者数</th>
+                <th class="num">合格者数</th>
+                <th class="num">合格率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>令和7年度（2025）</td>
+                <td class="num">50,163人</td>
+                <td class="num">7,292人</td>
+                <td class="num highlight">14.54%</td>
+              </tr>
+              <tr>
+                <td>令和6年度（2024）</td>
+                <td class="num">47,785人</td>
+                <td class="num">6,165人</td>
+                <td class="num highlight">12.90%</td>
+              </tr>
+              <tr>
+                <td>令和5年度（2023）</td>
+                <td class="num">46,991人</td>
+                <td class="num">6,571人</td>
+                <td class="num highlight">13.98%</td>
+              </tr>
+              <tr>
+                <td>令和4年度（2022）</td>
+                <td class="num">47,850人</td>
+                <td class="num">5,802人</td>
+                <td class="num highlight">12.13%</td>
+              </tr>
+              <tr>
+                <td>令和3年度（2021）</td>
+                <td class="num">47,870人</td>
+                <td class="num">5,353人</td>
+                <td class="num highlight">11.18%</td>
+              </tr>
+              <tr>
+                <td>令和2年度（2020）</td>
+                <td class="num">41,681人</td>
+                <td class="num">4,470人</td>
+                <td class="num highlight">10.72%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 学習ポイント -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">学習上のポイント</h2>
+        <ul class="exclusive-list">
+          <li>
+            <strong>① 行政法が最重要</strong><br>
+            択一19問＋多肢2問＋記述1問で112点（全体の約37%）。行政手続法・行政不服審査法・行政事件訴訟法・国家賠償法を中心に固める。
+          </li>
+          <li>
+            <strong>② 次点で民法</strong><br>
+            76点。記述式2問がここから出るため、条文ベースで書けるレベルの理解が必要。
+          </li>
+          <li>
+            <strong>③ 基礎知識は足切り回避が最優先</strong><br>
+            24点（6問）を割ると総合点に関わらず不合格。文章理解（3問前後）と個人情報保護は得点源にしやすい。
+          </li>
+          <li>
+            <strong>④ 記述式60点が合否を分ける</strong><br>
+            行政法1問・民法2問。部分点を狙い、キーワードを外さない解答練習を重ねる。
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 合格後の手続き -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格後の手続き（行政書士登録まで）</h2>
+        <p class="lead">
+          試験合格だけでは行政書士として業務を行えません。以下の登録手続きを経る必要があります。
+          なお試験合格に有効期限はなく、いつでも登録できます。
+        </p>
+
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>試験合格</strong>
+              <p>合格は永久に有効（有効期限なし）。すぐに登録する必要はない。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>登録申請</strong>
+              <p>事務所を設置する都道府県の行政書士会を経由し、日本行政書士会連合会の名簿へ登録申請する。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>登録免許税・会費等の納付</strong>
+              <p>登録免許税・登録手数料・入会金・会費等を納付する（費用は都道府県会により異なる）。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">✓</div>
+            <div class="flow-body">
+              <strong>行政書士として業務開始</strong>
+              <p>登録完了後、官公署提出書類の作成・提出代理等の業務が行える。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top:1.2rem">
+          弁護士・弁理士・公認会計士・税理士の有資格者は、行政書士試験を経ずに登録できる（資格者登録）。
+        </div>
+      </div>
+    </section>
+
+    <!-- 参考リンク -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">参考リンク</h2>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+          <li><a href="https://gyosei-shiken.or.jp/" target="_blank" rel="noopener">一般財団法人 行政書士試験研究センター（公式）</a></li>
+          <li><a href="https://www.tac-school.co.jp/kouza_gyosei/gyosei_sk_testinfo.html" target="_blank" rel="noopener">TAC — 2026年度行政書士試験の概要</a></li>
+          <li><a href="https://www.agaroot.jp/gyosei/column/exam_subject/" target="_blank" rel="noopener">アガルート — 試験科目・配点</a></li>
+          <li><a href="https://column.itojuku.co.jp/gyosei/method/ippanchishiki-kisochisiki-kaisei/" target="_blank" rel="noopener">伊藤塾 — 一般知識→基礎知識 改正の解説</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — 行政書士 学習ノート</div>
+      <div class="disclaimer">個人学習用の参考まとめサイトです。最新情報は必ず公式機関（行政書士試験研究センター）でご確認ください。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+
+</body>
+</html>

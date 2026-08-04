@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>基礎法学 — 行政書士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">行政書士 基礎法学</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">行政書士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>基礎法学</span></div>
+        <h2 class="section-title">基礎法学</h2>
+        <p class="lead">配点8点。法の分類・法源・法解釈・裁判制度など法の基礎概念から出題。</p>
+        <div class="notice"><strong>基礎法学は択一2問。</strong>範囲は広いが配点は小さい。基本用語の定義を確実に。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">法の分類</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>分類</th><th>内容</th></tr></thead><tbody><tr><td>公法・私法</td><td>国家と国民の関係が公法（憲法・行政法）、私人間が私法（民法・商法）</td></tr><tr><td>実体法・手続法</td><td>権利義務の内容が実体法、実現手続が手続法</td></tr><tr><td>一般法・特別法</td><td>特別法が一般法に優先する</td></tr><tr><td>強行法規・任意法規</td><td>合意で排除できないのが強行法規、できるのが任意法規</td></tr><tr><td>成文法・不文法</td><td>成文法（憲法・法律・命令・条例）と不文法（慣習法・判例法・条理）</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">法解釈の技法</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>技法</th><th>内容</th></tr></thead><tbody><tr><td>文理解釈</td><td>字句・文法に忠実に解する</td></tr><tr><td>拡張・縮小解釈</td><td>言葉の意味を通常より広く／狭く解する</td></tr><tr><td>類推解釈</td><td>類似の別事項に適用（刑罰法規で不利な類推は禁止）</td></tr><tr><td>反対解釈</td><td>規定のない場合に反対の結論を導く</td></tr><tr><td>勿論解釈</td><td>趣旨から当然に他の事項にも及ぶと解する</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">裁判制度</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>三審制</td><td>第一審→控訴審→上告審の原則3回</td></tr><tr><td>公開原則</td><td>対審・判決は原則公開</td></tr><tr><td>当事者主義</td><td>民事訴訟は当事者主義的、進行・資料収集を当事者に委ねる</td></tr></tbody></table></div>
+      </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 行政書士 基礎法学</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（行政書士試験研究センター）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

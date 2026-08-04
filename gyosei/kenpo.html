@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>憲法 — 行政書士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">行政書士 憲法</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">行政書士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>憲法</span></div>
+        <h2 class="section-title">憲法</h2>
+        <p class="lead">配点28点。国民主権・基本的人権の尊重・平和主義を三大原理とする。人権と統治機構から出題。</p>
+        <div class="notice"><strong>憲法は択一5問＋多肢1問。</strong>条文知識に加え、主要判例の結論を押さえる。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">人権の分類</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>分類</th><th>主な人権</th></tr></thead><tbody><tr><td>自由権（精神的自由）</td><td>思想良心・信教・表現・学問の自由</td></tr><tr><td>自由権（経済的自由）</td><td>職業選択・居住移転・財産権</td></tr><tr><td>自由権（人身の自由）</td><td>適正手続・令状主義・黙秘権</td></tr><tr><td>社会権</td><td>生存権・教育を受ける権利・労働基本権</td></tr><tr><td>参政権・受益権</td><td>選挙権・請願権・国家賠償請求権・裁判を受ける権利</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">精神的自由の規制は経済的自由の規制より厳格に審査される（<strong>二重の基準論</strong>）。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">統治機構</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>機関</th><th>要点</th></tr></thead><tbody><tr><td>国会</td><td>国権の最高機関・唯一の立法機関。二院制。衆議院の優越</td></tr><tr><td>内閣</td><td>行政権。議院内閣制。総理は国会が指名し天皇が任命</td></tr><tr><td>裁判所</td><td>司法権。違憲審査権（81条）。付随的違憲審査制。司法権の独立</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">憲法改正の手続</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>段階</th><th>要件</th></tr></thead><tbody><tr><td>国会の発議</td><td>各議院の総議員の3分の2以上の賛成</td></tr><tr><td>国民の承認</td><td>国民投票で過半数の賛成</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">憲法は国の<strong>最高法規</strong>（98条）であり、これに反する法律等は効力を有しない。</div>
+      </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 行政書士 憲法</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（行政書士試験研究センター）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>
