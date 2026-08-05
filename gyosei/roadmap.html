@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="2026年度行政書士試験（11/8）までの14週間・週25〜30時間前提の学習ロードマップ。行政法・民法集中と基礎知識の足切り回避を軸にした週次計画。" />
+  <title>学習ロードマップ — 行政書士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .phase-tag { display:inline-block; font-size:0.72rem; padding:0.12em 0.6em; border-radius:999px; color:#fff; margin-right:0.4rem; }
+    .p0{background:#C0564B}.p1{background:#7F8C8D}.p2{background:#E8A020}.p3{background:#5BAD6F}.p4{background:#4A90D9}.p5{background:#9B59B6}
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">行政書士 学習ロードマップ</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">行政書士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link current" href="roadmap.html">ロードマップ</a></li>
+    </ul></div></nav>
+
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>学習ロードマップ</span></div>
+        <h2 class="section-title">2026年度 学習ロードマップ</h2>
+        <p class="lead">試験日 <strong>2026年11月8日（日）</strong> まで約14週間。想定学習量 <strong>週25〜30時間（総計約350〜400時間）</strong>・法律の基礎が少しある方向けの短期集中プラン。</p>
+        <div class="notice"><strong>最優先タスク：受験申込。</strong>インターネット申込は <strong>2026年8月24日（月）17:00 締切</strong>（郵送は8/17消印有効）。まだ手続きが済んでいなければ、学習より先に必ず申込を完了してください。</div>
+      </div></section>
+
+      <!-- 戦略 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">戦略の柱（配点で優先順位を決める）</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>科目</th><th>配点</th><th>方針</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">行政法</td><td class="num">112点</td><td>最優先。学習時間の最大配分。択一の得点源かつ記述1問</td></tr>
+            <tr><td class="highlight">民法</td><td class="num">76点</td><td>次点。記述2問の出所。条文＋判例を事例で</td></tr>
+            <tr><td>基礎知識</td><td class="num">56点</td><td><strong>足切り24点の回避が最優先課題</strong>。文章理解・個人情報保護で確保</td></tr>
+            <tr><td>憲法</td><td class="num">28点</td><td>判例中心にコスパよく</td></tr>
+            <tr><td>商法・会社法</td><td class="num">20点</td><td>頻出（会社の機関・株式等）に絞る。深追いしない</td></tr>
+            <tr><td>基礎法学</td><td class="num">8点</td><td>直前に用語だけ。時間をかけない</td></tr>
+          </tbody>
+        </table></div>
+        <div class="notice" style="margin-top:1rem;">合格基準は <strong>①法令等122点以上 ②基礎知識24点以上 ③総合180点以上</strong> の同時達成。得点戦略の目安は「行政法＋民法で稼ぎ、基礎知識で足切りを回避、憲法・商法で上積み」。</div>
+      </div></section>
+
+      <!-- 週次ロードマップ -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">週次ロードマップ（全14ブロック）</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>時期</th><th>フェーズ</th><th>主な学習内容</th></tr></thead>
+          <tbody>
+            <tr><td>〜8/24</td><td><span class="phase-tag p0">申込</span></td><td><strong>受験申込を完了</strong>（写真・手数料10,400円）。並行して学習開始</td></tr>
+            <tr><td>W1〜W2<br>8/5〜8/17</td><td><span class="phase-tag p1">基礎固め</span></td><td>全体像の把握（試験概要）。行政法総論・民法総則の「型」を短縮インプット。憲法人権に着手。単語帳を毎日回し始める</td></tr>
+            <tr><td>W3〜W5<br>8/18〜9/7</td><td><span class="phase-tag p2">行政法 集中</span></td><td>行政手続法→行政不服審査法→行政事件訴訟法→国家賠償・損失補償→地方自治法。単元ごとに過去問演習を即かぶせる</td></tr>
+            <tr><td>W6〜W8<br>9/8〜9/28</td><td><span class="phase-tag p2">民法 集中</span></td><td>総則の残り→物権・担保物権→債権総論・各論→親族相続。事例で条文をあてる練習。憲法統治・商法会社法の頻出も並行で軽く</td></tr>
+            <tr><td>W9〜W10<br>9/29〜10/12</td><td><span class="phase-tag p3">記述＋基礎知識</span></td><td>記述式対策を開始（行政法1・民法2）。基礎知識は文章理解・個人情報保護法・諸法令で<strong>足切り回避</strong>。過去問2周目に入る</td></tr>
+            <tr><td>W11<br>10/13〜10/19</td><td><span class="phase-tag p3">弱点補強</span></td><td>過去問の誤答分析→苦手論点を集中補強。商法・基礎法学の総ざらい。多肢選択式に慣れる</td></tr>
+            <tr><td>W12〜W13<br>10/20〜11/2</td><td><span class="phase-tag p4">模試・総仕上げ</span></td><td>本番形式の模試を2〜3回（3時間・時間配分の体得）。復習を最優先。数字・条文の暗記総ざらい。記述の書き方を固める</td></tr>
+            <tr><td>最終週<br>11/3〜11/8</td><td><span class="phase-tag p5">直前</span></td><td>新規論点は入れない。頻出条文・数字・判例の最終確認、記述テンプレ見直し、体調・当日動線の準備</td></tr>
+          </tbody>
+        </table></div>
+        <div class="notice" style="margin-top:1rem;">時間配分の目安（週約27h）：<strong>行政法40％・民法25％・基礎知識10％・憲法10％・商法/基礎法学/記述/模試15％</strong>。フェーズが進むほど「インプット→過去問→記述・模試」へ重心を移す。</div>
+      </div></section>
+
+      <!-- サイト活用 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">本サイトの活用法</h2>
+        <ul class="exclusive-list">
+          <li><strong>① 単語帳（905語）</strong><br>毎日15〜20分、科目フィルターで当日の学習範囲を回す。「習得済み」で未定着だけ残す。<a href="flashcard.html">単語帳を開く →</a></li>
+          <li><strong>② 過去問演習（200問・5肢択一）</strong><br>インプット直後に該当科目でランダム演習。「苦手に登録」→2周目は苦手のみ。<a href="practice.html">演習する →</a></li>
+          <li><strong>③ 科目別まとめ</strong><br>各科目の頻出論点を比較表で最終確認。<a href="index.html">科目別まとめ一覧 →</a></li>
+          <li><strong>④ 試験概要</strong><br>配点・合格基準・日程の確認。<a href="docs/overview.html">試験概要を開く →</a></li>
+        </ul>
+      </div></section>
+
+      <!-- 外部で補う -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">本サイトで足りない部分（外部教材で補う）</h2>
+        <div class="notice"><strong>正直な注意：</strong>本サイトは5肢択一と用語に特化しています。以下は市販の問題集・模試で必ず補ってください。</div>
+        <div class="table-wrap" style="margin-top:1rem;"><table class="data-table">
+          <thead><tr><th>補うべき領域</th><th>理由・対策</th></tr></thead>
+          <tbody>
+            <tr><td>記述式（60点）</td><td>本サイト未収録。行政法1・民法2問。40字の記述問題集で「キーワードを外さない解答」を訓練</td></tr>
+            <tr><td>多肢選択式（24点）</td><td>本サイト未収録。過去問・問題集で空欄補充形式に慣れる</td></tr>
+            <tr><td>本番形式の模試</td><td>3時間×60問の時間配分は本番形式でしか鍛えられない。10月に2〜3回</td></tr>
+            <tr><td>最新の法改正・時事</td><td>基礎知識の政治経済社会・時事は直近の資料で補強（本サイトの制度記述は要点のみ）</td></tr>
+          </tbody>
+        </table></div>
+      </div></section>
+
+      <section class="section"><div class="container">
+        <h2 class="section-title">続ける仕組み（挫折しないために）</h2>
+        <ul class="exclusive-list">
+          <li><strong>毎日“最低ライン”を決める</strong>：忙しい日でも単語帳15分＋過去問5問だけは死守。ゼロの日を作らない。</li>
+          <li><strong>週末にレビュー</strong>：その週の過去問正答率を確認し、翌週の配分を微調整。</li>
+          <li><strong>過去問は「解く」より「なぜ誤りか」を言えるか</strong>：誤答肢の理由を口で説明できたら合格レベル。</li>
+        </ul>
+      </div></section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 行政書士 学習ロードマップ</div><div class="disclaimer">本ロードマップは学習目安です。試験日程・申込期限・制度は必ず公式（行政書士試験研究センター）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>
