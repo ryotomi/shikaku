@@ -45,6 +45,11 @@
       font-size: 0.9rem; color: var(--color-accent); text-decoration: none; font-weight: 500;
     }
     .cta:hover { text-decoration: underline; }
+    .chart-wrap { background: var(--color-white); border: 1px solid var(--color-border); padding: 1rem 1rem 0.6rem; margin: 1rem 0; }
+    #pnl-chart { width: 100%; height: auto; display: block; }
+    .chart-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin-top: 0.6rem; font-size: 0.85rem; color: var(--color-text-light); }
+    .chart-legend span { display: flex; align-items: center; gap: 0.4rem; }
+    .chart-legend i { width: 18px; height: 3px; border-radius: 2px; flex-shrink: 0; display: inline-block; }
   </style>
 </head>
 <body>
@@ -387,6 +392,59 @@
           税理士になれば行政書士は無試験で登録できますが、両方を登録し続けると会費も二重（年＋5〜7万円）。
           税務が主軸になったら<strong>行政書士登録をやめて維持費を圧縮</strong>する選択もあります（ただし行政書士名義の許認可業務はできなくなる点に注意）。
         </div>
+        <h3 class="subhead">試算例：シナリオ②（中小企業診断士＋総合事務所化）</h3>
+        <p>「診断士で看板を作り、必要に応じて有資格者を採用して受任を広げる」場合（<strong>すべて仮定値</strong>）。低コストで始められる一方、採用は固定費が増えるのが分岐点です。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>項目</th><th class="num">金額（仮定）</th><th>前提</th></tr></thead>
+            <tbody>
+              <tr><td class="highlight">取得コスト</td><td class="num">約30万円</td><td>予備校（1〜2年）。行政書士業を継続しながら</td></tr>
+              <tr><td class="highlight">初期費用</td><td class="num">約8万円</td><td>登録は無料。診断協会 入会金3万＋初年度会費5万（任意）</td></tr>
+              <tr><td class="highlight">追加維持費</td><td class="num">年 約5万円</td><td>協会年会費（任意）。5年更新に研修・実務従事が必要</td></tr>
+              <tr><td class="highlight">看板効果（収益）</td><td class="num">年 +80〜130万円</td><td>「経営コンサル」の信用で補助金・顧問の単価/受注が上乗せ</td></tr>
+              <tr><td class="highlight">＜採用する場合＞人件費</td><td class="num">年 約350万円</td><td>有資格者/補助者を1名。固定費として毎年発生</td></tr>
+              <tr><td class="highlight">＜採用する場合＞受任増</td><td class="num">年 +500〜600万円</td><td>採用者が回す案件の売上。稼働率が前提</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice">
+          <strong>回収の目安：</strong>
+          診断士のみ（採用なし）なら投資 約38万円は<strong>看板効果で1年以内に回収</strong>できる低リスク。
+          総合事務所化（採用）に進むと、<strong>採用者が生む粗利が人件費350万円を超えるか</strong>が損益分岐。受任が伴わない先行採用は赤字化するため、案件が溢れてから採るのが安全です。
+        </div>
+
+        <h3 class="subhead">試算例：シナリオ③（事業会社の起業／社外役員）</h3>
+        <p>資格追加はせず、士業をキャッシュ基盤に事業側へ関わる（<strong>すべて仮定値</strong>）。低コストの「社外役員型」と、ハイリスクの「自ら起業型」で性質が大きく異なります。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>項目</th><th class="num">金額（仮定）</th><th>前提</th></tr></thead>
+            <tbody>
+              <tr><td class="highlight">③a 社外役員：初期費用</td><td class="num">ほぼ0円</td><td>会社設立不要。既存の人脈から参画</td></tr>
+              <tr><td class="highlight">③a 収益（顧問料）</td><td class="num">月3〜10万円 ×社数</td><td>例：月5万×2社＝年120万円。複数社で分散</td></tr>
+              <tr><td class="highlight">③a 収益（エクイティ）</td><td class="num">株式・SO</td><td>未実現。Exit（上場/売却）時に価値化。0の可能性も</td></tr>
+              <tr><td class="highlight">③b 自ら起業：初期費用</td><td class="num">設立 約22〜25万円＋資本金・運転資金</td><td>株式会社の設立実費に加え、事業の立ち上げ資金</td></tr>
+              <tr><td class="highlight">③b 収益</td><td class="num">役員報酬＋株式価値</td><td>黒字化後の役員報酬。上振れは青天井／下振れは投資全損</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice">
+          <strong>回収の目安：</strong>
+          ③a 社外役員型は<strong>低コストで即始められ、月々の顧問料で回収リスクが小さい</strong>（SOはボーナス）。
+          ③b 起業型は<strong>回収を単純計算できないハイリスク・ハイリターン</strong>で、士業の安定収入を土台に“張れる範囲で”挑むのが原則です。
+        </div>
+
+        <h3 class="subhead">累計収支の推移（8年・仮定モデル）</h3>
+        <p>3シナリオの<strong>累計収支（投資を回収したうえで、どれだけプラスになったか）</strong>を8年で比較した仮定モデルです。縦軸は累計（万円）、横軸は着手からの年数。上記の仮定に基づく概算で、実際とは異なります。</p>
+        <div class="chart-wrap">
+          <svg id="pnl-chart" role="img" aria-label="3シナリオの累計収支を8年間で比較した折れ線グラフ。①税理士は序盤マイナスから後半に急伸、②診断士は低コストで早期に黒字化し安定、③社外役員は初年度から一定ペースで増加。"></svg>
+          <div class="chart-legend">
+            <span><i style="background:#2b4b6e"></i>① 税理士（専門家型）</span>
+            <span><i style="background:#0c7c8c"></i>② 診断士＋看板（経営者型・低コスト）</span>
+            <span><i style="background:#c04c38"></i>③ 社外役員×2社（当事者型）</span>
+          </div>
+        </div>
+        <p class="lead" style="font-size:0.85rem;color:var(--color-text-muted);">※①は取得に5年を要するため序盤は先行投資でマイナス、後半に税務顧問が積み上がり急伸。②は低コストで早期黒字だが伸びは緩やか。③は初年度から一定ペース（エクイティ＝株式・SOの将来価値は未計上のため、含めれば上振れ余地あり）。</p>
+
         <div class="notice">
           <strong>前提・免責：</strong>
           予備校・受験費、顧問単価（月3万円）、獲得社数はいずれも一般的な目安に基づく<strong>仮定</strong>で、実際は営業力・地域・専門性で大きく変動します。
@@ -459,5 +517,39 @@
     </div>
   </footer>
   </div><!-- /#page-content -->
+
+  <script>
+  (function () {
+    var series = [
+      { color: '#2b4b6e', vals: [-16, -32, -48, -64, -96, 72, 420, 948] },
+      { color: '#0c7c8c', vals: [-38, 37, 132, 242, 362, 492, 632, 782] },
+      { color: '#c04c38', vals: [120, 240, 360, 480, 600, 720, 840, 960] }
+    ];
+    var W = 760, H = 380, mL = 54, mR = 16, mT = 18, mB = 34;
+    var plotW = W - mL - mR, plotH = H - mT - mB;
+    var yMax = 1000, yMin = -100, n = 8;
+    function X(i) { return mL + (i) / (n - 1) * plotW; }
+    function Y(v) { return mT + (yMax - v) / (yMax - yMin) * plotH; }
+    var svg = '';
+    [1000, 750, 500, 250, 0, -100].forEach(function (t) {
+      var y = Y(t), bold = (t === 0);
+      svg += '<line x1="' + mL + '" y1="' + y + '" x2="' + (W - mR) + '" y2="' + y + '" stroke="' + (bold ? '#9a958c' : '#e6e1d8') + '" stroke-width="' + (bold ? 1.4 : 1) + '"/>';
+      svg += '<text x="' + (mL - 8) + '" y="' + (y + 4) + '" text-anchor="end" font-size="11" fill="#8a8a8a" font-family="sans-serif">' + t + '</text>';
+    });
+    for (var i = 0; i < n; i++) {
+      svg += '<text x="' + X(i) + '" y="' + (H - 12) + '" text-anchor="middle" font-size="11" fill="#8a8a8a" font-family="sans-serif">' + (i + 1) + '年</text>';
+    }
+    svg += '<text x="' + mL + '" y="12" font-size="10.5" fill="#8a8a8a" font-family="sans-serif">累計収支（万円）</text>';
+    series.forEach(function (s) {
+      var pts = s.vals.map(function (v, i) { return X(i) + ',' + Y(v); }).join(' ');
+      svg += '<polyline points="' + pts + '" fill="none" stroke="' + s.color + '" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
+      s.vals.forEach(function (v, i) {
+        svg += '<circle cx="' + X(i) + '" cy="' + Y(v) + '" r="3.2" fill="' + s.color + '"/>';
+      });
+    });
+    var el = document.getElementById('pnl-chart');
+    if (el) { el.setAttribute('viewBox', '0 0 ' + W + ' ' + H); el.innerHTML = svg; }
+  })();
+  </script>
 </body>
 </html>
