@@ -449,6 +449,7 @@
         <span class="ldc-badge" style="border-color:${systemColor.get(n.system) || "#888"}">${esc(systemLabel.get(n.system) || n.system)}</span>
       </div>
       <div class="ldc-panel-summary">${esc(n.summary || "")}</div>
+      ${n.prevention ? `<div class="ldc-panel-section"><h4>予防・対策</h4><div class="ldc-panel-summary">${esc(n.prevention)}</div></div>` : ""}
       <div class="ldc-panel-section">
         <h4>主な原因（上流）</h4>
         ${causes ? `<ul class="ldc-rel">${causes}</ul>` : '<p style="color:var(--color-text-muted);font-size:.8rem">— 上流要因なし（起点）</p>'}

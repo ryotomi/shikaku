@@ -1,164 +1,1565 @@
 {
   "datasetId": "lifestyle_disease",
   "datasetName": "生活習慣病 因果チャート",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "lastUpdated": "2026-08-08",
   "license": "CC BY 4.0",
-  "disclaimer": "本データは一般に確立された医学的知見を学習用に整理したものです。診断・治療の指針ではありません。個別の判断は必ず医師にご相談ください。",
+  "disclaimer": "本データは一般に確立された医学的知見を学習用に整理したものです。診断・治療の指針ではありません。個別の判断は必ず医師・歯科医師にご相談ください。",
   "layers": [
-    { "key": "habit", "label": "生活習慣・環境要因", "order": 0 },
-    { "key": "risk", "label": "危険因子・中間病態", "order": 1 },
-    { "key": "disease", "label": "疾患", "order": 2 },
-    { "key": "complication", "label": "臓器合併症", "order": 3 },
-    { "key": "outcome", "label": "転帰・機能障害", "order": 4 }
+    {
+      "key": "habit",
+      "label": "生活習慣・環境要因",
+      "order": 0
+    },
+    {
+      "key": "risk",
+      "label": "危険因子・中間病態",
+      "order": 1
+    },
+    {
+      "key": "disease",
+      "label": "疾患",
+      "order": 2
+    },
+    {
+      "key": "complication",
+      "label": "臓器合併症",
+      "order": 3
+    },
+    {
+      "key": "outcome",
+      "label": "転帰・機能障害",
+      "order": 4
+    }
   ],
   "systems": [
-    { "key": "diet", "label": "食事", "color": "#4f9d69" },
-    { "key": "activity", "label": "身体活動", "color": "#5aa9a3" },
-    { "key": "substance", "label": "嗜好品", "color": "#8a6d3b" },
-    { "key": "lifestyle", "label": "睡眠・ストレス", "color": "#9a7fb0" },
-    { "key": "metabolic", "label": "代謝", "color": "#d99a2b" },
-    { "key": "vascular", "label": "循環器・血管", "color": "#c0504d" },
-    { "key": "renal", "label": "腎", "color": "#4472a8" },
-    { "key": "hepatic", "label": "肝", "color": "#8f9b3b" },
-    { "key": "neuro", "label": "脳・神経・感覚", "color": "#6f6fb0" },
-    { "key": "respiratory", "label": "呼吸器", "color": "#5b8fb0" },
-    { "key": "other", "label": "その他・全身", "color": "#7a7a7a" }
+    {
+      "key": "diet",
+      "label": "食事",
+      "color": "#4f9d69"
+    },
+    {
+      "key": "activity",
+      "label": "身体活動",
+      "color": "#5aa9a3"
+    },
+    {
+      "key": "substance",
+      "label": "嗜好品",
+      "color": "#8a6d3b"
+    },
+    {
+      "key": "lifestyle",
+      "label": "睡眠・ストレス",
+      "color": "#9a7fb0"
+    },
+    {
+      "key": "environment",
+      "label": "生活・環境",
+      "color": "#7d9cc0"
+    },
+    {
+      "key": "metabolic",
+      "label": "代謝",
+      "color": "#d99a2b"
+    },
+    {
+      "key": "vascular",
+      "label": "循環器・血管",
+      "color": "#c0504d"
+    },
+    {
+      "key": "renal",
+      "label": "腎",
+      "color": "#4472a8"
+    },
+    {
+      "key": "hepatic",
+      "label": "肝",
+      "color": "#8f9b3b"
+    },
+    {
+      "key": "respiratory",
+      "label": "呼吸器",
+      "color": "#5b8fb0"
+    },
+    {
+      "key": "neuro",
+      "label": "脳・神経",
+      "color": "#6f6fb0"
+    },
+    {
+      "key": "ophthalmic",
+      "label": "眼",
+      "color": "#0f8a8a"
+    },
+    {
+      "key": "dental",
+      "label": "歯・口腔",
+      "color": "#b5651d"
+    },
+    {
+      "key": "musculoskeletal",
+      "label": "骨・運動器",
+      "color": "#7a8b5a"
+    },
+    {
+      "key": "other",
+      "label": "その他・全身",
+      "color": "#7a7a7a"
+    }
   ],
   "nodes": [
-    { "id": "salt_excess", "label": "塩分過多", "layer": "habit", "system": "diet", "summary": "食塩（ナトリウム）の過剰摂取。日本人の平均摂取量は目標値（1日6g未満）を大きく上回る。" },
-    { "id": "overeating", "label": "過食・高カロリー食", "layer": "habit", "system": "diet", "summary": "消費エネルギーを上回る摂取。内臓脂肪蓄積と食後高血糖の主因。" },
-    { "id": "sat_fat", "label": "飽和脂肪・トランス脂肪の過剰", "layer": "habit", "system": "diet", "summary": "肉の脂身・加工食品・揚げ物などに多い。血中LDLコレステロールを上げる。" },
-    { "id": "sugar_excess", "label": "糖質・加糖飲料の過剰", "layer": "habit", "system": "diet", "summary": "精製糖・清涼飲料の摂りすぎ。血糖負荷と肝での脂肪合成を高める。" },
-    { "id": "fiber_lack", "label": "食物繊維・野菜不足", "layer": "habit", "system": "diet", "summary": "食後血糖の急上昇を招き、満腹感が得られにくく過食につながる。" },
-    { "id": "phys_inactivity", "label": "運動不足", "layer": "habit", "system": "activity", "summary": "有酸素運動・筋トレの不足。エネルギー消費と骨格筋の糖取り込みが低下する。" },
-    { "id": "sitting", "label": "座位時間の過多", "layer": "habit", "system": "activity", "summary": "長時間の座りっぱなし。脂質代謝酵素の活性低下と独立した心血管リスク。" },
-    { "id": "smoking", "label": "喫煙", "layer": "habit", "system": "substance", "summary": "血管内皮の障害・動脈硬化促進・発がん・COPDの最大級のリスク因子。" },
-    { "id": "alcohol", "label": "過度の飲酒", "layer": "habit", "system": "substance", "summary": "純アルコール過剰。血圧・中性脂肪・尿酸を上げ、肝障害・一部のがんの原因。" },
-    { "id": "sleep_lack", "label": "睡眠不足", "layer": "habit", "system": "lifestyle", "summary": "耐糖能低下・交感神経亢進・食欲ホルモンの乱れを招く。" },
-    { "id": "stress", "label": "慢性ストレス", "layer": "habit", "system": "lifestyle", "summary": "交感神経緊張とコルチゾール上昇で血圧・内臓脂肪に悪影響。" },
-
-    { "id": "visceral_fat", "label": "内臓脂肪の蓄積（肥満）", "layer": "risk", "system": "metabolic", "summary": "内臓周囲の脂肪過剰。アディポサイトカイン異常を通じ多くの病態の起点となる。" },
-    { "id": "insulin_resistance", "label": "インスリン抵抗性", "layer": "risk", "system": "metabolic", "summary": "インスリンが効きにくくなる状態。高血糖・脂質異常の中核病態。" },
-    { "id": "hyperglycemia", "label": "高血糖", "layer": "risk", "system": "metabolic", "summary": "血糖値の慢性的な上昇。糖化・酸化ストレスで血管を傷害する。" },
-    { "id": "dyslipidemia", "label": "脂質異常症（高LDL・高TG・低HDL）", "layer": "risk", "system": "metabolic", "summary": "血中脂質の異常。動脈硬化を進める主要因子。" },
-    { "id": "hyperuricemia", "label": "高尿酸血症", "layer": "risk", "system": "metabolic", "summary": "血中尿酸の上昇。痛風発作・尿路結石・腎障害の原因。" },
-    { "id": "hypertension", "label": "高血圧", "layer": "risk", "system": "vascular", "summary": "血管に持続的な高い圧力。動脈硬化・脳心血管・腎障害の共通リスク。" },
-    { "id": "chronic_inflammation", "label": "慢性炎症", "layer": "risk", "system": "metabolic", "summary": "内臓脂肪由来の弱い炎症の持続。動脈硬化とインスリン抵抗性を悪化させる。" },
-    { "id": "endothelial_dysfunction", "label": "血管内皮障害", "layer": "risk", "system": "vascular", "summary": "血管内皮の機能低下。一酸化窒素産生の低下で動脈硬化の初期段階となる。" },
-    { "id": "atherosclerosis", "label": "動脈硬化（アテローム性）", "layer": "risk", "system": "vascular", "summary": "血管壁へのコレステロール沈着とプラーク形成。臓器虚血の共通経路。" },
-    { "id": "metabolic_syndrome", "label": "メタボリックシンドローム", "layer": "risk", "system": "metabolic", "summary": "内臓肥満に高血糖・高血圧・脂質異常が重なった状態。リスクが相乗する。" },
-
-    { "id": "t2dm", "label": "2型糖尿病", "layer": "disease", "system": "metabolic", "summary": "慢性高血糖が確立した状態。全身の大血管・細小血管合併症を招く。" },
-    { "id": "ischemic_heart", "label": "虚血性心疾患（狭心症・心筋梗塞）", "layer": "disease", "system": "vascular", "summary": "冠動脈の狭窄・閉塞による心筋の虚血・壊死。" },
-    { "id": "stroke_infarct", "label": "脳梗塞", "layer": "disease", "system": "neuro", "summary": "脳動脈の血栓・塞栓による脳組織の虚血。" },
-    { "id": "stroke_hemorrhage", "label": "脳出血", "layer": "disease", "system": "neuro", "summary": "高血圧などで脆弱化した脳内細動脈の破綻。" },
-    { "id": "ckd", "label": "慢性腎臓病（CKD）", "layer": "disease", "system": "renal", "summary": "腎機能の持続的な低下。高血圧・糖尿病が二大原因で、心血管リスクも高める。" },
-    { "id": "nafld", "label": "脂肪肝（NAFLD/NASH）", "layer": "disease", "system": "hepatic", "summary": "肝への脂肪蓄積。炎症を伴うNASHは線維化・肝硬変へ進む。" },
-    { "id": "gout", "label": "痛風", "layer": "disease", "system": "metabolic", "summary": "尿酸塩結晶が関節に沈着して起こる急性関節炎。" },
-    { "id": "copd", "label": "慢性閉塞性肺疾患（COPD）", "layer": "disease", "system": "respiratory", "summary": "主に喫煙による気道・肺胞の慢性炎症と気流閉塞。" },
-    { "id": "pad", "label": "末梢動脈疾患（PAD）", "layer": "disease", "system": "vascular", "summary": "四肢（主に下肢）動脈の狭窄・閉塞による血流障害。" },
-    { "id": "cancer", "label": "一部のがん", "layer": "disease", "system": "other", "summary": "喫煙・飲酒・肥満が関与する各種がん（肺・肝・食道・大腸など）。" },
-
-    { "id": "diabetic_nephropathy", "label": "糖尿病腎症", "layer": "complication", "system": "renal", "summary": "高血糖による糸球体の微小血管障害。透析導入の最多原因。" },
-    { "id": "diabetic_retinopathy", "label": "糖尿病網膜症", "layer": "complication", "system": "neuro", "summary": "網膜の微小血管障害。進行すると硝子体出血・網膜剥離を来す。" },
-    { "id": "diabetic_neuropathy", "label": "糖尿病神経障害", "layer": "complication", "system": "neuro", "summary": "末梢神経の代謝・微小血管障害。足潰瘍・感覚低下の原因。" },
-    { "id": "heart_failure", "label": "心不全", "layer": "complication", "system": "vascular", "summary": "心臓のポンプ機能低下。心筋梗塞・高血圧・弁膜症などの終着点。" },
-    { "id": "aortic_aneurysm", "label": "大動脈瘤・大動脈解離", "layer": "complication", "system": "vascular", "summary": "動脈壁の脆弱化による拡張・裂け。破裂は致死的。" },
-
-    { "id": "renal_failure", "label": "腎不全・透析", "layer": "outcome", "system": "renal", "summary": "末期腎不全。透析または腎移植が必要になる。" },
-    { "id": "blindness", "label": "失明・重度視力障害", "layer": "outcome", "system": "neuro", "summary": "増殖網膜症などによる視機能の喪失。成人失明の主要原因。" },
-    { "id": "amputation", "label": "下肢切断", "layer": "outcome", "system": "vascular", "summary": "重症下肢虚血・難治性足潰瘍・感染による切断。" },
-    { "id": "vascular_dementia", "label": "血管性認知症", "layer": "outcome", "system": "neuro", "summary": "多発梗塞や慢性脳虚血による認知機能の低下。" },
-    { "id": "liver_cirrhosis", "label": "肝硬変", "layer": "outcome", "system": "hepatic", "summary": "慢性肝障害の終末像。肝がん・肝不全のリスク。" },
-    { "id": "death", "label": "死亡・突然死", "layer": "outcome", "system": "other", "summary": "致死性不整脈・血管破綻・臓器不全などによる死亡。" }
+    {
+      "id": "salt_excess",
+      "label": "塩分過多",
+      "layer": "habit",
+      "system": "diet",
+      "summary": "食塩（ナトリウム）の過剰摂取。日本人の平均摂取量は目標値（1日6g未満）を大きく上回る。",
+      "prevention": "減塩を意識し、麺類の汁・加工食品・漬物を控える。だし・酸味・香辛料で味を補う。"
+    },
+    {
+      "id": "overeating",
+      "label": "過食・高カロリー食",
+      "layer": "habit",
+      "system": "diet",
+      "summary": "消費エネルギーを上回る摂取。内臓脂肪蓄積と食後高血糖の主因。",
+      "prevention": "腹八分目・適正エネルギー。ゆっくりよく噛んで食べる。"
+    },
+    {
+      "id": "sat_fat",
+      "label": "飽和脂肪・トランス脂肪の過剰",
+      "layer": "habit",
+      "system": "diet",
+      "summary": "肉の脂身・加工食品・揚げ物などに多い。血中LDLコレステロールを上げる。",
+      "prevention": "脂身・加工肉を控え、魚・植物性の油に置き換える。"
+    },
+    {
+      "id": "sugar_excess",
+      "label": "糖質・加糖飲料の過剰",
+      "layer": "habit",
+      "system": "diet",
+      "summary": "精製糖・清涼飲料の摂りすぎ。血糖負荷と肝での脂肪合成を高め、むし歯の原因にもなる。",
+      "prevention": "加糖飲料を水・お茶に。間食・精製糖を控える。"
+    },
+    {
+      "id": "fiber_lack",
+      "label": "食物繊維・野菜不足",
+      "layer": "habit",
+      "system": "diet",
+      "summary": "食後血糖の急上昇を招き、満腹感が得られにくく過食につながる。",
+      "prevention": "野菜・海藻・きのこ・全粒穀物を先に食べる。"
+    },
+    {
+      "id": "calcium_vitd_lack",
+      "label": "カルシウム・ビタミンD不足",
+      "layer": "habit",
+      "system": "diet",
+      "summary": "骨形成に必要な栄養の不足。骨密度の低下につながる。",
+      "prevention": "乳製品・小魚・大豆製品・緑黄色野菜と適度な日光浴。必要に応じ補充。"
+    },
+    {
+      "id": "phys_inactivity",
+      "label": "運動不足",
+      "layer": "habit",
+      "system": "activity",
+      "summary": "有酸素運動・筋トレの不足。エネルギー消費と骨格筋の糖取り込み、骨・筋肉の維持が低下する。",
+      "prevention": "早歩き等の有酸素を週150分＋筋トレを週2回。"
+    },
+    {
+      "id": "sitting",
+      "label": "座位時間の過多",
+      "layer": "habit",
+      "system": "activity",
+      "summary": "長時間の座りっぱなし。脂質代謝酵素の活性低下と独立した心血管リスク。",
+      "prevention": "30〜60分ごとに立ち上がり、こまめに体を動かす。"
+    },
+    {
+      "id": "smoking",
+      "label": "喫煙",
+      "layer": "habit",
+      "system": "substance",
+      "summary": "血管内皮の障害・動脈硬化促進・発がん・COPD・歯周病・加齢黄斑変性の最大級のリスク因子。",
+      "prevention": "禁煙（禁煙外来の活用）。受動喫煙も避ける。"
+    },
+    {
+      "id": "alcohol",
+      "label": "過度の飲酒",
+      "layer": "habit",
+      "system": "substance",
+      "summary": "純アルコール過剰。血圧・中性脂肪・尿酸を上げ、肝障害・一部のがん・骨量低下の原因。",
+      "prevention": "純アルコール1日20g程度まで・週に休肝日。"
+    },
+    {
+      "id": "sleep_lack",
+      "label": "睡眠不足",
+      "layer": "habit",
+      "system": "lifestyle",
+      "summary": "耐糖能低下・交感神経亢進・食欲ホルモンの乱れを招く。",
+      "prevention": "6〜8時間の規則正しい睡眠を確保する。"
+    },
+    {
+      "id": "stress",
+      "label": "慢性ストレス",
+      "layer": "habit",
+      "system": "lifestyle",
+      "summary": "交感神経緊張とコルチゾール上昇で血圧・内臓脂肪に悪影響。",
+      "prevention": "運動・趣味・人とのつながり・呼吸法で回復の時間をつくる。"
+    },
+    {
+      "id": "aging",
+      "label": "加齢",
+      "layer": "habit",
+      "system": "other",
+      "summary": "多くの疾患の背景となる非可逆的要因。白内障・加齢黄斑変性・緑内障・骨粗しょう症・サルコペニア・動脈硬化の共通の基盤。",
+      "prevention": "加齢自体は避けられないが、他の生活習慣の管理で進行を緩やかにできる。"
+    },
+    {
+      "id": "uv_exposure",
+      "label": "紫外線曝露",
+      "layer": "habit",
+      "system": "environment",
+      "summary": "強い紫外線への長期曝露。水晶体・網膜・皮膚に酸化ストレスを与える。",
+      "prevention": "サングラス・つばの広い帽子・日焼け止めで防御する。"
+    },
+    {
+      "id": "near_work",
+      "label": "近業・デジタル端末の長時間使用",
+      "layer": "habit",
+      "system": "environment",
+      "summary": "近距離作業・画面の長時間注視。近視の進行やドライアイに関与する。",
+      "prevention": "20分ごとに20秒遠くを見る。適切な照度・作業距離・休憩。"
+    },
+    {
+      "id": "poor_oral_care",
+      "label": "口腔ケア不足",
+      "layer": "habit",
+      "system": "environment",
+      "summary": "歯磨き・歯間清掃・歯科受診の不足。歯垢（プラーク）の蓄積で歯周病・むし歯を招く。",
+      "prevention": "適切なブラッシングと歯間清掃、定期的な歯科健診・歯石除去。"
+    },
+    {
+      "id": "visceral_fat",
+      "label": "内臓脂肪の蓄積（肥満）",
+      "layer": "risk",
+      "system": "metabolic",
+      "summary": "内臓周囲の脂肪過剰。アディポサイトカイン異常を通じ多くの病態の起点となり、関節への機械的負荷にもなる。",
+      "prevention": "食事・運動で腹囲・体重を適正化する。"
+    },
+    {
+      "id": "insulin_resistance",
+      "label": "インスリン抵抗性",
+      "layer": "risk",
+      "system": "metabolic",
+      "summary": "インスリンが効きにくくなる状態。高血糖・脂質異常の中核病態。",
+      "prevention": "減量・有酸素運動・筋トレで感受性が改善する。"
+    },
+    {
+      "id": "hyperglycemia",
+      "label": "高血糖",
+      "layer": "risk",
+      "system": "metabolic",
+      "summary": "血糖値の慢性的な上昇。糖化・酸化ストレスで全身の血管を傷害する。"
+    },
+    {
+      "id": "dyslipidemia",
+      "label": "脂質異常症（高LDL・高TG・低HDL）",
+      "layer": "risk",
+      "system": "metabolic",
+      "summary": "血中脂質の異常。動脈硬化を進める主要因子。",
+      "prevention": "飽和脂肪を控え、運動・減量。必要に応じ薬物治療。"
+    },
+    {
+      "id": "hyperuricemia",
+      "label": "高尿酸血症",
+      "layer": "risk",
+      "system": "metabolic",
+      "summary": "血中尿酸の上昇。痛風発作・尿路結石・腎障害の原因。",
+      "prevention": "プリン体・果糖・飲酒を控え、水分と減量。"
+    },
+    {
+      "id": "hypertension",
+      "label": "高血圧",
+      "layer": "risk",
+      "system": "vascular",
+      "summary": "血管に持続的な高い圧力。動脈硬化・脳心血管・腎・眼底血管の障害の共通リスク。",
+      "prevention": "減塩・減量・運動・節酒・家庭血圧測定。必要に応じ降圧薬。"
+    },
+    {
+      "id": "chronic_inflammation",
+      "label": "慢性炎症",
+      "layer": "risk",
+      "system": "metabolic",
+      "summary": "内臓脂肪や歯周病などに由来する弱い炎症の持続。動脈硬化とインスリン抵抗性を悪化させる。"
+    },
+    {
+      "id": "endothelial_dysfunction",
+      "label": "血管内皮障害",
+      "layer": "risk",
+      "system": "vascular",
+      "summary": "血管内皮の機能低下。一酸化窒素産生の低下で動脈硬化の初期段階となる。"
+    },
+    {
+      "id": "atherosclerosis",
+      "label": "動脈硬化（アテローム性）",
+      "layer": "risk",
+      "system": "vascular",
+      "summary": "血管壁へのコレステロール沈着とプラーク形成。臓器虚血の共通経路。"
+    },
+    {
+      "id": "metabolic_syndrome",
+      "label": "メタボリックシンドローム",
+      "layer": "risk",
+      "system": "metabolic",
+      "summary": "内臓肥満に高血糖・高血圧・脂質異常が重なった状態。リスクが相乗する。"
+    },
+    {
+      "id": "myopia",
+      "label": "近視・強度近視",
+      "layer": "risk",
+      "system": "ophthalmic",
+      "summary": "眼軸の延長による屈折異常。強度近視は緑内障・網膜剥離・近視性黄斑症のリスクを高める。",
+      "prevention": "屋外活動・近業の休憩。定期的な眼科検査。"
+    },
+    {
+      "id": "high_iop",
+      "label": "眼圧上昇",
+      "layer": "risk",
+      "system": "ophthalmic",
+      "summary": "眼内の圧が高い状態。視神経を圧迫し緑内障の危険因子となる（正常眼圧でも発症しうる）。"
+    },
+    {
+      "id": "t2dm",
+      "label": "2型糖尿病",
+      "layer": "disease",
+      "system": "metabolic",
+      "summary": "慢性高血糖が確立した状態。全身の大血管・細小血管合併症を招き、歯周病とも相互に悪化する。",
+      "prevention": "食事・運動・減量が基本。血糖・HbA1c の管理と定期的な合併症検査。"
+    },
+    {
+      "id": "ischemic_heart",
+      "label": "虚血性心疾患（狭心症・心筋梗塞）",
+      "layer": "disease",
+      "system": "vascular",
+      "summary": "冠動脈の狭窄・閉塞による心筋の虚血・壊死。"
+    },
+    {
+      "id": "stroke_infarct",
+      "label": "脳梗塞",
+      "layer": "disease",
+      "system": "neuro",
+      "summary": "脳動脈の血栓・塞栓による脳組織の虚血。"
+    },
+    {
+      "id": "stroke_hemorrhage",
+      "label": "脳出血",
+      "layer": "disease",
+      "system": "neuro",
+      "summary": "高血圧などで脆弱化した脳内細動脈の破綻。"
+    },
+    {
+      "id": "ckd",
+      "label": "慢性腎臓病（CKD）",
+      "layer": "disease",
+      "system": "renal",
+      "summary": "腎機能の持続的な低下。高血圧・糖尿病が二大原因で、心血管リスクも高める。"
+    },
+    {
+      "id": "nafld",
+      "label": "脂肪肝（NAFLD/NASH）",
+      "layer": "disease",
+      "system": "hepatic",
+      "summary": "肝への脂肪蓄積。炎症を伴うNASHは線維化・肝硬変へ進む。"
+    },
+    {
+      "id": "gout",
+      "label": "痛風",
+      "layer": "disease",
+      "system": "metabolic",
+      "summary": "尿酸塩結晶が関節に沈着して起こる急性関節炎。"
+    },
+    {
+      "id": "copd",
+      "label": "慢性閉塞性肺疾患（COPD）",
+      "layer": "disease",
+      "system": "respiratory",
+      "summary": "主に喫煙による気道・肺胞の慢性炎症と気流閉塞。"
+    },
+    {
+      "id": "pad",
+      "label": "末梢動脈疾患（PAD）",
+      "layer": "disease",
+      "system": "vascular",
+      "summary": "四肢（主に下肢）動脈の狭窄・閉塞による血流障害。"
+    },
+    {
+      "id": "cancer",
+      "label": "一部のがん",
+      "layer": "disease",
+      "system": "other",
+      "summary": "喫煙・飲酒・肥満が関与する各種がん（肺・肝・食道・大腸など）。"
+    },
+    {
+      "id": "cataract",
+      "label": "白内障",
+      "layer": "disease",
+      "system": "ophthalmic",
+      "summary": "水晶体の混濁による視力低下。加齢が主因で、紫外線・喫煙・糖尿病が促進する。手術で治療可能。",
+      "prevention": "紫外線対策・禁煙・血糖管理。進行時は手術で回復。"
+    },
+    {
+      "id": "glaucoma",
+      "label": "緑内障",
+      "layer": "disease",
+      "system": "ophthalmic",
+      "summary": "視神経が障害され視野が欠けていく病気。日本の中途失明の主要原因。自覚が乏しく健診が重要。",
+      "prevention": "定期的な眼科健診で早期発見し、眼圧を下げる治療で進行を抑える。"
+    },
+    {
+      "id": "amd",
+      "label": "加齢黄斑変性",
+      "layer": "disease",
+      "system": "ophthalmic",
+      "summary": "網膜の中心（黄斑）が加齢で障害され中心視力が低下。喫煙が最大の可変リスク。",
+      "prevention": "禁煙・紫外線対策・緑黄色野菜。早期発見で抗VEGF治療など。"
+    },
+    {
+      "id": "rvo",
+      "label": "網膜静脈閉塞症",
+      "layer": "disease",
+      "system": "ophthalmic",
+      "summary": "網膜の静脈が詰まり出血・むくみを来す。高血圧・動脈硬化が主要因。",
+      "prevention": "血圧・脂質・血糖の管理。"
+    },
+    {
+      "id": "dry_eye",
+      "label": "ドライアイ",
+      "layer": "disease",
+      "system": "ophthalmic",
+      "summary": "涙液の減少・質の低下で眼表面が乾く。長時間の画面注視や加齢で増える。",
+      "prevention": "こまめな休憩・まばたき・室内加湿。必要に応じ点眼。"
+    },
+    {
+      "id": "periodontitis",
+      "label": "歯周病",
+      "layer": "disease",
+      "system": "dental",
+      "summary": "歯を支える組織の慢性細菌感染・炎症。歯の喪失原因の第1位で、糖尿病・動脈硬化・誤嚥性肺炎とも関連する。",
+      "prevention": "プラークコントロール（歯磨き・歯間清掃）と定期的な歯科メンテナンス・禁煙。"
+    },
+    {
+      "id": "dental_caries",
+      "label": "齲蝕（むし歯）",
+      "layer": "disease",
+      "system": "dental",
+      "summary": "細菌が糖から作る酸で歯質が溶ける病気。放置で歯髄炎・歯の喪失に至る。",
+      "prevention": "糖の頻回摂取を控え、フッ化物・適切な歯磨き・定期健診。"
+    },
+    {
+      "id": "osteoporosis",
+      "label": "骨粗しょう症",
+      "layer": "disease",
+      "system": "musculoskeletal",
+      "summary": "骨密度・骨質の低下で骨がもろくなる。加齢・運動不足・栄養不足・喫煙・飲酒が関与し、骨折リスクを高める。",
+      "prevention": "カルシウム・ビタミンD・運動・禁煙・節酒。必要に応じ骨密度検査と薬物治療。"
+    },
+    {
+      "id": "knee_oa",
+      "label": "変形性膝関節症",
+      "layer": "disease",
+      "system": "musculoskeletal",
+      "summary": "膝関節軟骨の摩耗による痛み・可動域制限。肥満と加齢が主要因で、活動低下の悪循環を招く。",
+      "prevention": "減量・大腿四頭筋の筋トレ・適切な運動。"
+    },
+    {
+      "id": "sarcopenia",
+      "label": "サルコペニア（筋肉減少）",
+      "layer": "disease",
+      "system": "musculoskeletal",
+      "summary": "加齢や不活動・低栄養による骨格筋量・筋力の低下。転倒・フレイルの原因。",
+      "prevention": "十分なタンパク質摂取とレジスタンス運動。"
+    },
+    {
+      "id": "diabetic_nephropathy",
+      "label": "糖尿病腎症",
+      "layer": "complication",
+      "system": "renal",
+      "summary": "高血糖による糸球体の微小血管障害。透析導入の最多原因。"
+    },
+    {
+      "id": "diabetic_retinopathy",
+      "label": "糖尿病網膜症",
+      "layer": "complication",
+      "system": "ophthalmic",
+      "summary": "網膜の微小血管障害。進行すると硝子体出血・網膜剥離・血管新生緑内障を来す。"
+    },
+    {
+      "id": "diabetic_neuropathy",
+      "label": "糖尿病神経障害",
+      "layer": "complication",
+      "system": "neuro",
+      "summary": "末梢神経の代謝・微小血管障害。足潰瘍・感覚低下の原因。"
+    },
+    {
+      "id": "heart_failure",
+      "label": "心不全",
+      "layer": "complication",
+      "system": "vascular",
+      "summary": "心臓のポンプ機能低下。心筋梗塞・高血圧・弁膜症などの終着点。"
+    },
+    {
+      "id": "aortic_aneurysm",
+      "label": "大動脈瘤・大動脈解離",
+      "layer": "complication",
+      "system": "vascular",
+      "summary": "動脈壁の脆弱化による拡張・裂け。破裂は致死的。"
+    },
+    {
+      "id": "tooth_loss",
+      "label": "歯の喪失",
+      "layer": "complication",
+      "system": "dental",
+      "summary": "歯周病・むし歯による歯の欠損。咀嚼機能の低下を通じ低栄養・誤嚥・認知機能低下に波及する。",
+      "prevention": "8020（80歳で20本）を目標に、歯周病・むし歯の予防と早期治療。"
+    },
+    {
+      "id": "malnutrition",
+      "label": "低栄養",
+      "layer": "complication",
+      "system": "other",
+      "summary": "エネルギー・タンパク質等の不足。咀嚼障害・食欲低下から起こり、筋肉減少・虚弱を進める。",
+      "prevention": "多様な食品でタンパク質を確保。口腔機能の維持。"
+    },
+    {
+      "id": "renal_failure",
+      "label": "腎不全・透析",
+      "layer": "outcome",
+      "system": "renal",
+      "summary": "末期腎不全。透析または腎移植が必要になる。"
+    },
+    {
+      "id": "blindness",
+      "label": "失明・重度視力障害",
+      "layer": "outcome",
+      "system": "ophthalmic",
+      "summary": "緑内障・糖尿病網膜症・加齢黄斑変性などによる視機能の喪失。成人失明の主要原因。"
+    },
+    {
+      "id": "amputation",
+      "label": "下肢切断",
+      "layer": "outcome",
+      "system": "vascular",
+      "summary": "重症下肢虚血・難治性足潰瘍・感染による切断。"
+    },
+    {
+      "id": "vascular_dementia",
+      "label": "血管性認知症",
+      "layer": "outcome",
+      "system": "neuro",
+      "summary": "多発梗塞や慢性脳虚血、咀嚼機能低下などが関与する認知機能の低下。"
+    },
+    {
+      "id": "liver_cirrhosis",
+      "label": "肝硬変",
+      "layer": "outcome",
+      "system": "hepatic",
+      "summary": "慢性肝障害の終末像。肝がん・肝不全のリスク。"
+    },
+    {
+      "id": "fracture",
+      "label": "骨折（大腿骨近位部等）",
+      "layer": "outcome",
+      "system": "musculoskeletal",
+      "summary": "骨粗しょう症と転倒による骨折。特に大腿骨近位部骨折は要介護・生命予後の悪化につながる。"
+    },
+    {
+      "id": "frailty",
+      "label": "フレイル・要介護",
+      "layer": "outcome",
+      "system": "musculoskeletal",
+      "summary": "心身の予備能力が低下した虚弱状態。サルコペニア・低栄養・骨折などが重なって進む。"
+    },
+    {
+      "id": "aspiration_pneumonia",
+      "label": "誤嚥性肺炎",
+      "layer": "outcome",
+      "system": "respiratory",
+      "summary": "口腔内細菌を含む唾液・食物の誤嚥による肺炎。高齢者の主要な死因の一つ。"
+    },
+    {
+      "id": "death",
+      "label": "死亡・突然死",
+      "layer": "outcome",
+      "system": "other",
+      "summary": "致死性不整脈・血管破綻・臓器不全・肺炎などによる死亡。"
+    },
+    {
+      "id": "falls",
+      "label": "転倒・易転倒性",
+      "layer": "complication",
+      "system": "musculoskeletal",
+      "summary": "筋力・バランス・視力・反応の低下などで転びやすくなること。骨折・要介護の直接の引き金になる。",
+      "prevention": "下肢の筋トレ・バランス運動、住環境の整備（段差・照明）、視力・服薬の見直し。"
+    },
+    {
+      "id": "atrial_fibrillation",
+      "label": "心房細動",
+      "layer": "disease",
+      "system": "vascular",
+      "summary": "心房が不規則に細かく震える不整脈。左心房内に血栓ができ、心原性脳塞栓（重症の脳梗塞）の主要原因。加齢・高血圧・心不全で増える。",
+      "prevention": "血圧管理・節酒・適正体重。診断時は脳梗塞予防の抗凝固療法を検討。"
+    },
+    {
+      "id": "osa",
+      "label": "睡眠時無呼吸症候群",
+      "layer": "risk",
+      "system": "respiratory",
+      "summary": "睡眠中に気道が塞がり呼吸が止まる状態。間欠的な低酸素と交感神経亢進で高血圧・不整脈・心血管リスクを高める。内臓脂肪と双方向に関連。",
+      "prevention": "減量・側臥位・節酒。中等症以上はCPAP等の治療。"
+    }
   ],
   "edges": [
-    { "from": "salt_excess", "to": "hypertension", "label": "体液量・血管抵抗の増加", "strength": "strong" },
-    { "from": "overeating", "to": "visceral_fat", "label": "エネルギー過剰の蓄積", "strength": "strong" },
-    { "from": "overeating", "to": "hyperglycemia", "label": "食後血糖の上昇", "strength": "moderate" },
-    { "from": "sat_fat", "to": "dyslipidemia", "label": "LDLコレステロール上昇", "strength": "strong" },
-    { "from": "sugar_excess", "to": "hyperglycemia", "label": "血糖負荷", "strength": "strong" },
-    { "from": "sugar_excess", "to": "visceral_fat", "label": "中性脂肪合成の亢進", "strength": "moderate" },
-    { "from": "sugar_excess", "to": "nafld", "label": "肝での脂肪合成", "strength": "moderate" },
-    { "from": "fiber_lack", "to": "hyperglycemia", "label": "食後血糖の急上昇", "strength": "moderate" },
-    { "from": "fiber_lack", "to": "visceral_fat", "label": "満腹感低下による過食", "strength": "moderate" },
-    { "from": "phys_inactivity", "to": "visceral_fat", "label": "消費エネルギー低下", "strength": "strong" },
-    { "from": "phys_inactivity", "to": "insulin_resistance", "label": "骨格筋の糖取り込み低下", "strength": "strong" },
-    { "from": "sitting", "to": "insulin_resistance", "label": "脂質・糖代謝酵素の活性低下", "strength": "moderate" },
-    { "from": "smoking", "to": "endothelial_dysfunction", "label": "酸化ストレス・NO低下", "strength": "strong" },
-    { "from": "smoking", "to": "atherosclerosis", "label": "血管壁の直接傷害", "strength": "strong" },
-    { "from": "smoking", "to": "copd", "label": "気道・肺胞の慢性炎症", "strength": "strong" },
-    { "from": "smoking", "to": "cancer", "label": "発がん物質への曝露", "strength": "strong" },
-    { "from": "alcohol", "to": "hypertension", "label": "交感神経亢進", "strength": "moderate" },
-    { "from": "alcohol", "to": "dyslipidemia", "label": "中性脂肪の上昇", "strength": "moderate" },
-    { "from": "alcohol", "to": "nafld", "label": "アルコール性の脂肪蓄積", "strength": "strong" },
-    { "from": "alcohol", "to": "hyperuricemia", "label": "尿酸産生増加・排泄低下", "strength": "moderate" },
-    { "from": "alcohol", "to": "cancer", "label": "肝・食道等の発がん", "strength": "moderate" },
-    { "from": "sleep_lack", "to": "insulin_resistance", "label": "耐糖能の低下", "strength": "moderate" },
-    { "from": "sleep_lack", "to": "hypertension", "label": "交感神経亢進", "strength": "moderate" },
-    { "from": "sleep_lack", "to": "visceral_fat", "label": "食欲ホルモンの乱れ", "strength": "moderate" },
-    { "from": "stress", "to": "hypertension", "label": "交感神経・コルチゾール", "strength": "moderate" },
-    { "from": "stress", "to": "visceral_fat", "label": "コルチゾールによる脂肪蓄積", "strength": "moderate" },
-
-    { "from": "visceral_fat", "to": "insulin_resistance", "label": "アディポサイトカイン異常", "strength": "strong" },
-    { "from": "visceral_fat", "to": "chronic_inflammation", "label": "炎症性サイトカイン分泌", "strength": "strong" },
-    { "from": "visceral_fat", "to": "dyslipidemia", "label": "遊離脂肪酸の増加", "strength": "strong" },
-    { "from": "visceral_fat", "to": "hypertension", "label": "レニン・交感神経亢進", "strength": "moderate" },
-    { "from": "visceral_fat", "to": "metabolic_syndrome", "label": "中心性肥満が基盤", "strength": "strong" },
-    { "from": "insulin_resistance", "to": "hyperglycemia", "label": "糖取り込み低下・肝糖新生", "strength": "strong" },
-    { "from": "insulin_resistance", "to": "dyslipidemia", "label": "高TG・低HDL", "strength": "strong" },
-    { "from": "insulin_resistance", "to": "metabolic_syndrome", "label": "中核病態", "strength": "strong" },
-    { "from": "chronic_inflammation", "to": "insulin_resistance", "label": "炎症性サイトカイン", "strength": "moderate" },
-    { "from": "chronic_inflammation", "to": "atherosclerosis", "label": "プラーク形成の促進", "strength": "strong" },
-    { "from": "hyperglycemia", "to": "endothelial_dysfunction", "label": "糖化・酸化ストレス", "strength": "strong" },
-    { "from": "hyperglycemia", "to": "metabolic_syndrome", "label": "構成因子", "strength": "moderate" },
-    { "from": "dyslipidemia", "to": "atherosclerosis", "label": "LDLの血管壁沈着", "strength": "strong" },
-    { "from": "dyslipidemia", "to": "metabolic_syndrome", "label": "構成因子", "strength": "moderate" },
-    { "from": "hypertension", "to": "metabolic_syndrome", "label": "構成因子", "strength": "moderate" },
-    { "from": "hypertension", "to": "endothelial_dysfunction", "label": "機械的ストレス", "strength": "moderate" },
-    { "from": "hypertension", "to": "atherosclerosis", "label": "ずり応力・血管壁傷害", "strength": "strong" },
-    { "from": "endothelial_dysfunction", "to": "atherosclerosis", "label": "内皮バリアの破綻", "strength": "strong" },
-
-    { "from": "hyperglycemia", "to": "t2dm", "label": "慢性高血糖の確立", "strength": "strong" },
-    { "from": "insulin_resistance", "to": "t2dm", "label": "β細胞の代償破綻", "strength": "strong" },
-    { "from": "metabolic_syndrome", "to": "t2dm", "label": "発症リスクの集積", "strength": "moderate" },
-    { "from": "metabolic_syndrome", "to": "ischemic_heart", "label": "心血管リスクの集積", "strength": "moderate" },
-    { "from": "atherosclerosis", "to": "ischemic_heart", "label": "冠動脈狭窄・プラーク破綻", "strength": "strong" },
-    { "from": "atherosclerosis", "to": "stroke_infarct", "label": "脳動脈の血栓・塞栓", "strength": "strong" },
-    { "from": "atherosclerosis", "to": "pad", "label": "四肢動脈の狭窄", "strength": "strong" },
-    { "from": "atherosclerosis", "to": "ckd", "label": "腎硬化症", "strength": "moderate" },
-    { "from": "atherosclerosis", "to": "aortic_aneurysm", "label": "中膜の変性", "strength": "moderate" },
-    { "from": "hypertension", "to": "stroke_hemorrhage", "label": "細動脈の壊死・破綻", "strength": "strong" },
-    { "from": "hypertension", "to": "ckd", "label": "糸球体高血圧・腎硬化", "strength": "strong" },
-    { "from": "hypertension", "to": "ischemic_heart", "label": "心負荷・冠動脈硬化", "strength": "moderate" },
-    { "from": "hypertension", "to": "heart_failure", "label": "圧負荷による心肥大", "strength": "strong" },
-    { "from": "hypertension", "to": "aortic_aneurysm", "label": "壁ストレスの増大", "strength": "moderate" },
-    { "from": "hypertension", "to": "vascular_dementia", "label": "慢性脳虚血・白質病変", "strength": "moderate" },
-    { "from": "hyperuricemia", "to": "gout", "label": "尿酸塩結晶の関節沈着", "strength": "strong" },
-    { "from": "hyperuricemia", "to": "ckd", "label": "尿酸による腎障害", "strength": "moderate" },
-    { "from": "nafld", "to": "liver_cirrhosis", "label": "NASHからの線維化進行", "strength": "moderate" },
-
-    { "from": "t2dm", "to": "diabetic_nephropathy", "label": "糸球体の微小血管障害", "strength": "strong" },
-    { "from": "t2dm", "to": "diabetic_retinopathy", "label": "網膜の微小血管障害", "strength": "strong" },
-    { "from": "t2dm", "to": "diabetic_neuropathy", "label": "神経の代謝・微小血管障害", "strength": "strong" },
-    { "from": "t2dm", "to": "ischemic_heart", "label": "大血管合併症の促進", "strength": "moderate" },
-    { "from": "t2dm", "to": "vascular_dementia", "label": "脳血管・代謝障害", "strength": "moderate" },
-    { "from": "ischemic_heart", "to": "heart_failure", "label": "心筋壊死・収縮低下", "strength": "strong" },
-    { "from": "ischemic_heart", "to": "death", "label": "致死性不整脈", "strength": "strong" },
-    { "from": "stroke_infarct", "to": "vascular_dementia", "label": "多発梗塞・脳虚血", "strength": "strong" },
-    { "from": "stroke_hemorrhage", "to": "death", "label": "脳ヘルニア", "strength": "moderate" },
-    { "from": "ckd", "to": "renal_failure", "label": "末期腎不全へ進行", "strength": "strong" },
-    { "from": "ckd", "to": "ischemic_heart", "label": "心腎連関", "strength": "moderate" },
-    { "from": "ckd", "to": "hypertension", "label": "体液貯留・RAA亢進（悪循環）", "strength": "cycle" },
-    { "from": "diabetic_nephropathy", "to": "renal_failure", "label": "糸球体濾過の進行性低下", "strength": "strong" },
-    { "from": "diabetic_retinopathy", "to": "blindness", "label": "硝子体出血・網膜剥離", "strength": "strong" },
-    { "from": "diabetic_neuropathy", "to": "amputation", "label": "足潰瘍・感染", "strength": "strong" },
-    { "from": "pad", "to": "amputation", "label": "重症下肢虚血", "strength": "strong" },
-    { "from": "heart_failure", "to": "death", "label": "ポンプ失調・不整脈", "strength": "moderate" },
-    { "from": "aortic_aneurysm", "to": "death", "label": "破裂・解離", "strength": "strong" },
-    { "from": "copd", "to": "heart_failure", "label": "肺高血圧・右心負荷（肺性心）", "strength": "moderate" },
-    { "from": "cancer", "to": "death", "label": "進行・転移", "strength": "moderate" },
-    { "from": "liver_cirrhosis", "to": "cancer", "label": "肝細胞がんへの進展", "strength": "moderate" }
+    {
+      "from": "salt_excess",
+      "to": "hypertension",
+      "label": "体液量・血管抵抗の増加",
+      "strength": "strong"
+    },
+    {
+      "from": "overeating",
+      "to": "visceral_fat",
+      "label": "エネルギー過剰の蓄積",
+      "strength": "strong"
+    },
+    {
+      "from": "overeating",
+      "to": "hyperglycemia",
+      "label": "食後血糖の上昇",
+      "strength": "moderate"
+    },
+    {
+      "from": "sat_fat",
+      "to": "dyslipidemia",
+      "label": "LDLコレステロール上昇",
+      "strength": "strong"
+    },
+    {
+      "from": "sugar_excess",
+      "to": "hyperglycemia",
+      "label": "血糖負荷",
+      "strength": "strong"
+    },
+    {
+      "from": "sugar_excess",
+      "to": "visceral_fat",
+      "label": "中性脂肪合成の亢進",
+      "strength": "moderate"
+    },
+    {
+      "from": "sugar_excess",
+      "to": "nafld",
+      "label": "肝での脂肪合成",
+      "strength": "moderate"
+    },
+    {
+      "from": "sugar_excess",
+      "to": "dental_caries",
+      "label": "細菌が糖から酸を産生",
+      "strength": "strong"
+    },
+    {
+      "from": "fiber_lack",
+      "to": "hyperglycemia",
+      "label": "食後血糖の急上昇",
+      "strength": "moderate"
+    },
+    {
+      "from": "fiber_lack",
+      "to": "visceral_fat",
+      "label": "満腹感低下による過食",
+      "strength": "moderate"
+    },
+    {
+      "from": "calcium_vitd_lack",
+      "to": "osteoporosis",
+      "label": "カルシウム吸収・骨石灰化の低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "phys_inactivity",
+      "to": "visceral_fat",
+      "label": "消費エネルギー低下",
+      "strength": "strong"
+    },
+    {
+      "from": "phys_inactivity",
+      "to": "insulin_resistance",
+      "label": "骨格筋の糖取り込み低下",
+      "strength": "strong"
+    },
+    {
+      "from": "phys_inactivity",
+      "to": "osteoporosis",
+      "label": "骨への機械的刺激の不足",
+      "strength": "moderate"
+    },
+    {
+      "from": "phys_inactivity",
+      "to": "sarcopenia",
+      "label": "筋への刺激不足",
+      "strength": "strong"
+    },
+    {
+      "from": "sitting",
+      "to": "insulin_resistance",
+      "label": "脂質・糖代謝酵素の活性低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "smoking",
+      "to": "endothelial_dysfunction",
+      "label": "酸化ストレス・NO低下",
+      "strength": "strong"
+    },
+    {
+      "from": "smoking",
+      "to": "atherosclerosis",
+      "label": "血管壁の直接傷害",
+      "strength": "strong"
+    },
+    {
+      "from": "smoking",
+      "to": "copd",
+      "label": "気道・肺胞の慢性炎症",
+      "strength": "strong"
+    },
+    {
+      "from": "smoking",
+      "to": "cancer",
+      "label": "発がん物質への曝露",
+      "strength": "strong"
+    },
+    {
+      "from": "smoking",
+      "to": "amd",
+      "label": "酸化ストレス・脈絡膜循環障害",
+      "strength": "strong"
+    },
+    {
+      "from": "smoking",
+      "to": "periodontitis",
+      "label": "免疫低下・歯肉血流低下",
+      "strength": "strong"
+    },
+    {
+      "from": "smoking",
+      "to": "cataract",
+      "label": "水晶体の酸化",
+      "strength": "moderate"
+    },
+    {
+      "from": "smoking",
+      "to": "osteoporosis",
+      "label": "骨代謝への悪影響",
+      "strength": "moderate"
+    },
+    {
+      "from": "alcohol",
+      "to": "hypertension",
+      "label": "交感神経亢進",
+      "strength": "moderate"
+    },
+    {
+      "from": "alcohol",
+      "to": "dyslipidemia",
+      "label": "中性脂肪の上昇",
+      "strength": "moderate"
+    },
+    {
+      "from": "alcohol",
+      "to": "nafld",
+      "label": "アルコール性の脂肪蓄積",
+      "strength": "strong"
+    },
+    {
+      "from": "alcohol",
+      "to": "hyperuricemia",
+      "label": "尿酸産生増加・排泄低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "alcohol",
+      "to": "cancer",
+      "label": "肝・食道等の発がん",
+      "strength": "moderate"
+    },
+    {
+      "from": "alcohol",
+      "to": "osteoporosis",
+      "label": "骨形成の抑制",
+      "strength": "moderate"
+    },
+    {
+      "from": "sleep_lack",
+      "to": "insulin_resistance",
+      "label": "耐糖能の低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "sleep_lack",
+      "to": "hypertension",
+      "label": "交感神経亢進",
+      "strength": "moderate"
+    },
+    {
+      "from": "sleep_lack",
+      "to": "visceral_fat",
+      "label": "食欲ホルモンの乱れ",
+      "strength": "moderate"
+    },
+    {
+      "from": "stress",
+      "to": "hypertension",
+      "label": "交感神経・コルチゾール",
+      "strength": "moderate"
+    },
+    {
+      "from": "stress",
+      "to": "visceral_fat",
+      "label": "コルチゾールによる脂肪蓄積",
+      "strength": "moderate"
+    },
+    {
+      "from": "aging",
+      "to": "atherosclerosis",
+      "label": "血管の加齢性変化",
+      "strength": "moderate"
+    },
+    {
+      "from": "aging",
+      "to": "cataract",
+      "label": "水晶体タンパクの変性",
+      "strength": "strong"
+    },
+    {
+      "from": "aging",
+      "to": "amd",
+      "label": "黄斑の加齢性変化",
+      "strength": "strong"
+    },
+    {
+      "from": "aging",
+      "to": "glaucoma",
+      "label": "視神経の脆弱化",
+      "strength": "moderate"
+    },
+    {
+      "from": "aging",
+      "to": "high_iop",
+      "label": "房水流出の低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "aging",
+      "to": "dry_eye",
+      "label": "涙液分泌の低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "aging",
+      "to": "osteoporosis",
+      "label": "骨量の加齢性減少",
+      "strength": "strong"
+    },
+    {
+      "from": "aging",
+      "to": "sarcopenia",
+      "label": "筋量の加齢性減少",
+      "strength": "strong"
+    },
+    {
+      "from": "aging",
+      "to": "knee_oa",
+      "label": "関節軟骨の摩耗",
+      "strength": "moderate"
+    },
+    {
+      "from": "uv_exposure",
+      "to": "cataract",
+      "label": "水晶体の酸化障害",
+      "strength": "moderate"
+    },
+    {
+      "from": "near_work",
+      "to": "myopia",
+      "label": "眼軸延長の促進",
+      "strength": "strong"
+    },
+    {
+      "from": "near_work",
+      "to": "dry_eye",
+      "label": "まばたき減少",
+      "strength": "moderate"
+    },
+    {
+      "from": "poor_oral_care",
+      "to": "periodontitis",
+      "label": "歯垢（プラーク）の蓄積",
+      "strength": "strong"
+    },
+    {
+      "from": "poor_oral_care",
+      "to": "dental_caries",
+      "label": "歯垢中の細菌の増殖",
+      "strength": "strong"
+    },
+    {
+      "from": "visceral_fat",
+      "to": "insulin_resistance",
+      "label": "アディポサイトカイン異常",
+      "strength": "strong"
+    },
+    {
+      "from": "visceral_fat",
+      "to": "chronic_inflammation",
+      "label": "炎症性サイトカイン分泌",
+      "strength": "strong"
+    },
+    {
+      "from": "visceral_fat",
+      "to": "dyslipidemia",
+      "label": "遊離脂肪酸の増加",
+      "strength": "strong"
+    },
+    {
+      "from": "visceral_fat",
+      "to": "hypertension",
+      "label": "レニン・交感神経亢進",
+      "strength": "moderate"
+    },
+    {
+      "from": "visceral_fat",
+      "to": "metabolic_syndrome",
+      "label": "中心性肥満が基盤",
+      "strength": "strong"
+    },
+    {
+      "from": "visceral_fat",
+      "to": "knee_oa",
+      "label": "関節への機械的負荷",
+      "strength": "moderate"
+    },
+    {
+      "from": "insulin_resistance",
+      "to": "hyperglycemia",
+      "label": "糖取り込み低下・肝糖新生",
+      "strength": "strong"
+    },
+    {
+      "from": "insulin_resistance",
+      "to": "dyslipidemia",
+      "label": "高TG・低HDL",
+      "strength": "strong"
+    },
+    {
+      "from": "insulin_resistance",
+      "to": "metabolic_syndrome",
+      "label": "中核病態",
+      "strength": "strong"
+    },
+    {
+      "from": "chronic_inflammation",
+      "to": "insulin_resistance",
+      "label": "炎症性サイトカイン",
+      "strength": "moderate"
+    },
+    {
+      "from": "chronic_inflammation",
+      "to": "atherosclerosis",
+      "label": "プラーク形成の促進",
+      "strength": "strong"
+    },
+    {
+      "from": "hyperglycemia",
+      "to": "endothelial_dysfunction",
+      "label": "糖化・酸化ストレス",
+      "strength": "strong"
+    },
+    {
+      "from": "hyperglycemia",
+      "to": "metabolic_syndrome",
+      "label": "構成因子",
+      "strength": "moderate"
+    },
+    {
+      "from": "dyslipidemia",
+      "to": "atherosclerosis",
+      "label": "LDLの血管壁沈着",
+      "strength": "strong"
+    },
+    {
+      "from": "dyslipidemia",
+      "to": "metabolic_syndrome",
+      "label": "構成因子",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "metabolic_syndrome",
+      "label": "構成因子",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "endothelial_dysfunction",
+      "label": "機械的ストレス",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "atherosclerosis",
+      "label": "ずり応力・血管壁傷害",
+      "strength": "strong"
+    },
+    {
+      "from": "endothelial_dysfunction",
+      "to": "atherosclerosis",
+      "label": "内皮バリアの破綻",
+      "strength": "strong"
+    },
+    {
+      "from": "high_iop",
+      "to": "glaucoma",
+      "label": "眼圧による篩状板ストレス・視神経血流障害",
+      "strength": "strong"
+    },
+    {
+      "from": "myopia",
+      "to": "glaucoma",
+      "label": "視神経乳頭の脆弱化",
+      "strength": "moderate"
+    },
+    {
+      "from": "hyperglycemia",
+      "to": "t2dm",
+      "label": "慢性高血糖の確立",
+      "strength": "strong"
+    },
+    {
+      "from": "insulin_resistance",
+      "to": "t2dm",
+      "label": "β細胞の代償破綻",
+      "strength": "strong"
+    },
+    {
+      "from": "metabolic_syndrome",
+      "to": "t2dm",
+      "label": "発症リスクの集積",
+      "strength": "moderate"
+    },
+    {
+      "from": "metabolic_syndrome",
+      "to": "ischemic_heart",
+      "label": "心血管リスクの集積",
+      "strength": "moderate"
+    },
+    {
+      "from": "atherosclerosis",
+      "to": "ischemic_heart",
+      "label": "冠動脈狭窄・プラーク破綻",
+      "strength": "strong"
+    },
+    {
+      "from": "atherosclerosis",
+      "to": "stroke_infarct",
+      "label": "脳動脈の血栓・塞栓",
+      "strength": "strong"
+    },
+    {
+      "from": "atherosclerosis",
+      "to": "pad",
+      "label": "四肢動脈の狭窄",
+      "strength": "strong"
+    },
+    {
+      "from": "atherosclerosis",
+      "to": "ckd",
+      "label": "腎硬化症",
+      "strength": "moderate"
+    },
+    {
+      "from": "atherosclerosis",
+      "to": "aortic_aneurysm",
+      "label": "中膜の変性",
+      "strength": "moderate"
+    },
+    {
+      "from": "atherosclerosis",
+      "to": "rvo",
+      "label": "動静脈交叉部での静脈圧迫（分枝RVO）",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "stroke_hemorrhage",
+      "label": "細動脈の壊死・破綻",
+      "strength": "strong"
+    },
+    {
+      "from": "hypertension",
+      "to": "ckd",
+      "label": "糸球体高血圧・腎硬化",
+      "strength": "strong"
+    },
+    {
+      "from": "hypertension",
+      "to": "ischemic_heart",
+      "label": "心負荷・冠動脈硬化",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "heart_failure",
+      "label": "圧負荷による心肥大",
+      "strength": "strong"
+    },
+    {
+      "from": "hypertension",
+      "to": "aortic_aneurysm",
+      "label": "壁ストレスの増大",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "vascular_dementia",
+      "label": "慢性脳虚血・白質病変",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "rvo",
+      "label": "静脈壁の障害・血栓",
+      "strength": "strong"
+    },
+    {
+      "from": "hyperuricemia",
+      "to": "gout",
+      "label": "尿酸塩結晶の関節沈着",
+      "strength": "strong"
+    },
+    {
+      "from": "hyperuricemia",
+      "to": "ckd",
+      "label": "尿酸による腎障害",
+      "strength": "moderate"
+    },
+    {
+      "from": "nafld",
+      "to": "liver_cirrhosis",
+      "label": "NASHからの線維化進行",
+      "strength": "moderate"
+    },
+    {
+      "from": "t2dm",
+      "to": "diabetic_nephropathy",
+      "label": "糸球体の微小血管障害",
+      "strength": "strong"
+    },
+    {
+      "from": "t2dm",
+      "to": "diabetic_retinopathy",
+      "label": "網膜の微小血管障害",
+      "strength": "strong"
+    },
+    {
+      "from": "t2dm",
+      "to": "diabetic_neuropathy",
+      "label": "神経の代謝・微小血管障害",
+      "strength": "strong"
+    },
+    {
+      "from": "t2dm",
+      "to": "ischemic_heart",
+      "label": "大血管合併症の促進",
+      "strength": "strong"
+    },
+    {
+      "from": "t2dm",
+      "to": "vascular_dementia",
+      "label": "脳血管・代謝障害",
+      "strength": "moderate"
+    },
+    {
+      "from": "t2dm",
+      "to": "cataract",
+      "label": "水晶体の糖化・浸透圧変化",
+      "strength": "moderate"
+    },
+    {
+      "from": "t2dm",
+      "to": "periodontitis",
+      "label": "高血糖による歯周組織の易感染・治癒不良",
+      "strength": "strong"
+    },
+    {
+      "from": "periodontitis",
+      "to": "t2dm",
+      "label": "歯周炎症がインスリン抵抗性を悪化（悪循環）",
+      "strength": "cycle"
+    },
+    {
+      "from": "periodontitis",
+      "to": "chronic_inflammation",
+      "label": "全身への炎症波及が代謝を悪化（悪循環）",
+      "strength": "cycle"
+    },
+    {
+      "from": "periodontitis",
+      "to": "atherosclerosis",
+      "label": "歯周病菌・炎症の全身波及（動脈硬化との関連）",
+      "strength": "moderate"
+    },
+    {
+      "from": "periodontitis",
+      "to": "tooth_loss",
+      "label": "歯周組織・歯槽骨の破壊",
+      "strength": "strong"
+    },
+    {
+      "from": "periodontitis",
+      "to": "aspiration_pneumonia",
+      "label": "口腔内細菌の誤嚥",
+      "strength": "moderate"
+    },
+    {
+      "from": "dental_caries",
+      "to": "tooth_loss",
+      "label": "歯質崩壊・歯髄壊死の進行",
+      "strength": "strong"
+    },
+    {
+      "from": "ischemic_heart",
+      "to": "heart_failure",
+      "label": "心筋壊死・収縮低下",
+      "strength": "strong"
+    },
+    {
+      "from": "ischemic_heart",
+      "to": "death",
+      "label": "致死性不整脈",
+      "strength": "strong"
+    },
+    {
+      "from": "stroke_infarct",
+      "to": "vascular_dementia",
+      "label": "多発梗塞・脳虚血",
+      "strength": "strong"
+    },
+    {
+      "from": "stroke_hemorrhage",
+      "to": "death",
+      "label": "脳ヘルニア",
+      "strength": "moderate"
+    },
+    {
+      "from": "ckd",
+      "to": "renal_failure",
+      "label": "末期腎不全へ進行",
+      "strength": "strong"
+    },
+    {
+      "from": "ckd",
+      "to": "ischemic_heart",
+      "label": "心腎連関",
+      "strength": "moderate"
+    },
+    {
+      "from": "ckd",
+      "to": "hypertension",
+      "label": "体液貯留・RAA亢進（悪循環）",
+      "strength": "cycle"
+    },
+    {
+      "from": "diabetic_nephropathy",
+      "to": "renal_failure",
+      "label": "糸球体濾過の進行性低下",
+      "strength": "strong"
+    },
+    {
+      "from": "diabetic_retinopathy",
+      "to": "blindness",
+      "label": "硝子体出血・網膜剥離・黄斑浮腫",
+      "strength": "strong"
+    },
+    {
+      "from": "diabetic_retinopathy",
+      "to": "glaucoma",
+      "label": "血管新生緑内障",
+      "strength": "moderate"
+    },
+    {
+      "from": "diabetic_neuropathy",
+      "to": "amputation",
+      "label": "足潰瘍・感染",
+      "strength": "strong"
+    },
+    {
+      "from": "pad",
+      "to": "amputation",
+      "label": "重症下肢虚血",
+      "strength": "strong"
+    },
+    {
+      "from": "heart_failure",
+      "to": "death",
+      "label": "ポンプ失調・不整脈",
+      "strength": "strong"
+    },
+    {
+      "from": "aortic_aneurysm",
+      "to": "death",
+      "label": "破裂・解離",
+      "strength": "strong"
+    },
+    {
+      "from": "copd",
+      "to": "heart_failure",
+      "label": "肺高血圧・右心負荷（肺性心）",
+      "strength": "moderate"
+    },
+    {
+      "from": "cancer",
+      "to": "death",
+      "label": "進行・転移",
+      "strength": "moderate"
+    },
+    {
+      "from": "liver_cirrhosis",
+      "to": "cancer",
+      "label": "肝細胞がんへの進展",
+      "strength": "moderate"
+    },
+    {
+      "from": "cataract",
+      "to": "blindness",
+      "label": "未治療・治療アクセス不良時の高度視力低下（手術で回復可能）",
+      "strength": "moderate"
+    },
+    {
+      "from": "glaucoma",
+      "to": "blindness",
+      "label": "視野障害の進行",
+      "strength": "strong"
+    },
+    {
+      "from": "amd",
+      "to": "blindness",
+      "label": "中心視力の喪失",
+      "strength": "strong"
+    },
+    {
+      "from": "rvo",
+      "to": "blindness",
+      "label": "黄斑浮腫・血管新生",
+      "strength": "moderate"
+    },
+    {
+      "from": "tooth_loss",
+      "to": "malnutrition",
+      "label": "咀嚼機能の低下",
+      "strength": "strong"
+    },
+    {
+      "from": "tooth_loss",
+      "to": "aspiration_pneumonia",
+      "label": "口腔環境・嚥下機能の悪化",
+      "strength": "moderate"
+    },
+    {
+      "from": "tooth_loss",
+      "to": "vascular_dementia",
+      "label": "咀嚼刺激の減少・低栄養を介した認知機能低下（関連）",
+      "strength": "moderate"
+    },
+    {
+      "from": "malnutrition",
+      "to": "sarcopenia",
+      "label": "タンパク質・エネルギー不足",
+      "strength": "strong"
+    },
+    {
+      "from": "malnutrition",
+      "to": "frailty",
+      "label": "予備能力の低下",
+      "strength": "strong"
+    },
+    {
+      "from": "sarcopenia",
+      "to": "frailty",
+      "label": "筋力・身体機能の低下",
+      "strength": "strong"
+    },
+    {
+      "from": "osteoporosis",
+      "to": "fracture",
+      "label": "骨脆弱化",
+      "strength": "strong"
+    },
+    {
+      "from": "knee_oa",
+      "to": "phys_inactivity",
+      "label": "痛みによる活動低下（悪循環）",
+      "strength": "cycle"
+    },
+    {
+      "from": "fracture",
+      "to": "frailty",
+      "label": "臥床・活動性低下",
+      "strength": "strong"
+    },
+    {
+      "from": "fracture",
+      "to": "death",
+      "label": "大腿骨骨折後の予後悪化",
+      "strength": "moderate"
+    },
+    {
+      "from": "frailty",
+      "to": "death",
+      "label": "感染・臓器不全への脆弱化",
+      "strength": "moderate"
+    },
+    {
+      "from": "aspiration_pneumonia",
+      "to": "death",
+      "label": "重症肺炎・呼吸不全",
+      "strength": "strong"
+    },
+    {
+      "from": "hypertension",
+      "to": "stroke_infarct",
+      "label": "細小動脈硬化（ラクナ梗塞）・血栓形成",
+      "strength": "strong"
+    },
+    {
+      "from": "insulin_resistance",
+      "to": "nafld",
+      "label": "肝への遊離脂肪酸流入・脂質合成の亢進",
+      "strength": "strong"
+    },
+    {
+      "from": "t2dm",
+      "to": "heart_failure",
+      "label": "糖尿病性心筋症・拡張障害",
+      "strength": "moderate"
+    },
+    {
+      "from": "hypertension",
+      "to": "atrial_fibrillation",
+      "label": "左房負荷・心房リモデリング",
+      "strength": "moderate"
+    },
+    {
+      "from": "aging",
+      "to": "atrial_fibrillation",
+      "label": "心房の加齢性変化",
+      "strength": "moderate"
+    },
+    {
+      "from": "atrial_fibrillation",
+      "to": "stroke_infarct",
+      "label": "左心耳血栓による心原性塞栓",
+      "strength": "strong"
+    },
+    {
+      "from": "hypertension",
+      "to": "diabetic_retinopathy",
+      "label": "血圧による網膜微小血管ストレス",
+      "strength": "strong"
+    },
+    {
+      "from": "rvo",
+      "to": "glaucoma",
+      "label": "網膜虚血→血管新生緑内障",
+      "strength": "moderate"
+    },
+    {
+      "from": "poor_oral_care",
+      "to": "aspiration_pneumonia",
+      "label": "口腔内細菌量の増加と誤嚥",
+      "strength": "strong"
+    },
+    {
+      "from": "smoking",
+      "to": "dental_caries",
+      "label": "唾液緩衝能低下・歯肉退縮（根面齲蝕）",
+      "strength": "moderate"
+    },
+    {
+      "from": "t2dm",
+      "to": "dental_caries",
+      "label": "口腔乾燥・唾液性状の変化",
+      "strength": "moderate"
+    },
+    {
+      "from": "knee_oa",
+      "to": "sarcopenia",
+      "label": "疼痛・不動による大腿四頭筋の廃用性萎縮",
+      "strength": "moderate"
+    },
+    {
+      "from": "frailty",
+      "to": "aspiration_pneumonia",
+      "label": "サルコペニア性嚥下障害・咳嗽力低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "t2dm",
+      "to": "fracture",
+      "label": "AGEsによる骨質劣化・易転倒",
+      "strength": "moderate"
+    },
+    {
+      "from": "phys_inactivity",
+      "to": "hypertension",
+      "label": "血管拡張能低下・交感神経緊張",
+      "strength": "moderate"
+    },
+    {
+      "from": "salt_excess",
+      "to": "ckd",
+      "label": "糸球体内圧上昇・尿蛋白増加",
+      "strength": "moderate"
+    },
+    {
+      "from": "visceral_fat",
+      "to": "osa",
+      "label": "上気道周囲への脂肪沈着",
+      "strength": "moderate"
+    },
+    {
+      "from": "osa",
+      "to": "hypertension",
+      "label": "間欠的低酸素・交感神経亢進",
+      "strength": "strong"
+    },
+    {
+      "from": "sarcopenia",
+      "to": "falls",
+      "label": "筋力・バランスの低下",
+      "strength": "strong"
+    },
+    {
+      "from": "aging",
+      "to": "falls",
+      "label": "反応・視力・バランスの低下",
+      "strength": "moderate"
+    },
+    {
+      "from": "falls",
+      "to": "fracture",
+      "label": "転倒による外力",
+      "strength": "strong"
+    }
   ]
 }
