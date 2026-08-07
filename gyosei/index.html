@@ -23,6 +23,7 @@
 </head>
 <body>
   <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -71,7 +72,7 @@
             <span>行政書士</span>
           </div>
 
-          <h2 class="section-title">行政書士</h2>
+          <h1 class="section-title">行政書士</h1>
           <p class="lead">
             官公署提出書類の作成・提出代理などを担う法律系国家資格。試験は毎年11月に実施され、合格率は約10〜15%。
             行政法・民法を中心に、以下のコンテンツで体系的に学習できます。

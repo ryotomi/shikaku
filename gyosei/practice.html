@@ -325,6 +325,7 @@
 </head>
 <body>
   <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -372,8 +373,16 @@
       <div id="view-selector" class="qz-selector">
         <div class="container">
 
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">行政書士</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>過去問演習</span>
+          </div>
+
           <h1 class="qz-title">過去問演習</h1>
-          <p class="qz-sub">科目・出題数を選んで演習を開始してください</p>
+          <p class="qz-sub">科目・難易度・出題数を選んで演習を開始してください</p>
 
           <div class="filter-section">
             <div class="filter-label">科目</div>
@@ -385,6 +394,16 @@
               <button class="filter-btn subj-shoho"      data-subject="商法・会社法">商法・会社法</button>
               <button class="filter-btn subj-chishiki"   data-subject="基礎知識">基礎知識</button>
               <button class="filter-btn subj-kisohogaku" data-subject="基礎法学">基礎法学</button>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <div class="filter-label">難易度</div>
+            <div class="filter-buttons" id="difficulty-filters">
+              <button class="filter-btn active" data-difficulty="all">すべて</button>
+              <button class="filter-btn" data-difficulty="基本">基本</button>
+              <button class="filter-btn" data-difficulty="標準">標準</button>
+              <button class="filter-btn" data-difficulty="応用">応用</button>
             </div>
           </div>
 
@@ -411,7 +430,7 @@
                 <input type="checkbox" id="flagged-toggle" />
                 <span class="toggle-track"></span>
               </label>
-              <span class="toggle-label">苦手のみ</span>
+              <span class="toggle-label">要復習のみ（誤答・苦手）</span>
             </div>
           </div>
 
@@ -460,7 +479,7 @@
           <div class="quiz-actions">
             <button class="btn-flag" id="btn-flag">
               <span>⚑</span>
-              <span class="flag-text">苦手に登録</span>
+              <span class="flag-text">要復習に登録</span>
             </button>
             <button class="btn-next" id="btn-next" hidden>次の問題 →</button>
           </div>
@@ -554,10 +573,11 @@
     }
 
     const state = {
-      selectedSubject: 'all',
-      selectedCount:   '10',
-      shuffle:         true,
-      flaggedOnly:     false,
+      selectedSubject:    'all',
+      selectedDifficulty: 'all',
+      selectedCount:      '10',
+      shuffle:            true,
+      flaggedOnly:        false,
       deck:            [],
       index:           0,
       answered:        false,
@@ -592,6 +612,7 @@
       const flagged = getFlagged();
       let pool = QUESTIONS.filter(q => {
         if (state.selectedSubject !== 'all' && q.subject !== state.selectedSubject) return false;
+        if (state.selectedDifficulty !== 'all' && q.difficulty !== state.selectedDifficulty) return false;
         if (state.flaggedOnly && !flagged.has(q.id)) return false;
         return true;
       });
@@ -702,13 +723,19 @@
       nextBtn.textContent = state.index + 1 < state.deck.length ? '次の問題 →' : '結果を見る';
 
       recordResult(q.id, correct);
+      // 誤答は自動で「要復習」プールに登録（苦手のみ＝要復習フィルタで再演習できる）
+      if (!correct) {
+        const f = getFlagged();
+        if (!f.has(q.id)) { f.add(q.id); saveFlagged(f); }
+        updateFlagBtn(true);
+      }
       state.session.push({ id: q.id, subject: q.subject, topic: q.topic, question: q.question, correct });
     }
 
     function updateFlagBtn(flagged) {
       const btn = document.getElementById('btn-flag');
       btn.classList.toggle('flagged', flagged);
-      btn.querySelector('.flag-text').textContent = flagged ? '苦手登録済み' : '苦手に登録';
+      btn.querySelector('.flag-text').textContent = flagged ? '要復習に登録済み' : '要復習に登録';
     }
 
     function showResults() {
@@ -760,6 +787,15 @@
       document.querySelectorAll('#subject-filters .filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       state.selectedSubject = btn.dataset.subject;
+      updateSelectorUI();
+    });
+
+    document.getElementById('difficulty-filters').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('#difficulty-filters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.selectedDifficulty = btn.dataset.difficulty;
       updateSelectorUI();
     });
 
@@ -815,6 +851,20 @@
       updateSelectorUI();
     });
 
+    // ディープリンク: ?subject=gyoseiho / ?subject=民法 で科目を初期選択
+    function applyDeepLink() {
+      const raw = new URLSearchParams(location.search).get('subject');
+      if (!raw) return;
+      const bySlug = Object.entries(SUBJ_CLASS).find(([, slug]) => slug === raw);
+      const subject = bySlug ? bySlug[0] : (SUBJECTS.includes(raw) ? raw : null);
+      if (!subject) return;
+      state.selectedSubject = subject;
+      document.querySelectorAll('#subject-filters .filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.subject === subject);
+      });
+    }
+
+    applyDeepLink();
     loadAll();
   })();
   </script>

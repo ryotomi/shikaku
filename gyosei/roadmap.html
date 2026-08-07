@@ -18,6 +18,7 @@
 </head>
 <body>
   <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -40,7 +41,7 @@
     <main>
       <section class="section"><div class="container">
         <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>学習ロードマップ</span></div>
-        <h2 class="section-title">2026年度 学習ロードマップ</h2>
+        <h1 class="section-title">2026年度 学習ロードマップ</h1>
         <p class="lead">試験日 <strong>2026年11月8日（日）</strong> まで約14週間。想定学習量 <strong>週25〜30時間（総計約350〜400時間）</strong>・法律の基礎が少しある方向けの短期集中プラン。</p>
         <div class="notice"><strong>最優先タスク：受験申込。</strong>インターネット申込は <strong>2026年8月24日（月）17:00 締切</strong>（郵送は8/17消印有効）。まだ手続きが済んでいなければ、学習より先に必ず申込を完了してください。</div>
       </div></section>

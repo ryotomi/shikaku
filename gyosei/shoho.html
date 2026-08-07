@@ -15,6 +15,7 @@
 </head>
 <body>
   <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -35,7 +36,7 @@
     <main>
       <section class="section"><div class="container">
         <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>商法・会社法</span></div>
-        <h2 class="section-title">商法・会社法</h2>
+        <h1 class="section-title">商法・会社法</h1>
         <p class="lead">配点20点。商法総則・商行為と会社法から出題。会社法の比重が大きい。</p>
         <div class="notice"><strong>商法・会社法は択一5問。</strong>会社の種類・機関設計・株式を中心に頻出論点を押さえる。</div>
       </div></section>
@@ -50,6 +51,27 @@
       <section class="section"><div class="container">
         <h2 class="section-title">株式の要点</h2>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>株主平等の原則</td><td>株式の内容・数に応じて平等に取り扱う</td></tr><tr><td>株式譲渡自由の原則</td><td>原則自由。譲渡制限株式は会社の承認を要する</td></tr><tr><td>自己株式</td><td>議決権なし。取得は分配可能額の範囲等の規制</td></tr></tbody></table></div>
+      </div></section>
+
+      <section class="section"><div class="container">
+        <h2 class="section-title">この科目を演習する</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=shoho">
+            <div class="content-card-title">過去問演習（商法・会社法 20問）</div>
+            <div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="flashcard.html?subject=shoho">
+            <div class="content-card-title">単語帳（商法・会社法 100語）</div>
+            <div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。習得済みマーク付き。</div>
+            <div class="content-card-arrow">暗記する →</div>
+          </a>
+          <a class="content-card" href="roadmap.html">
+            <div class="content-card-title">学習ロードマップ</div>
+            <div class="content-card-desc">試験日までの週次計画。この科目の学習時期を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+        </div>
       </div></section>
 
     </main>

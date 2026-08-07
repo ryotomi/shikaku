@@ -15,6 +15,7 @@
 </head>
 <body>
   <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -35,7 +36,7 @@
     <main>
       <section class="section"><div class="container">
         <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>憲法</span></div>
-        <h2 class="section-title">憲法</h2>
+        <h1 class="section-title">憲法</h1>
         <p class="lead">配点28点。国民主権・基本的人権の尊重・平和主義を三大原理とする。人権と統治機構から出題。</p>
         <div class="notice"><strong>憲法は択一5問＋多肢1問。</strong>条文知識に加え、主要判例の結論を押さえる。</div>
       </div></section>
@@ -50,6 +51,27 @@
       <section class="section"><div class="container">
         <h2 class="section-title">憲法改正の手続</h2>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>段階</th><th>要件</th></tr></thead><tbody><tr><td>国会の発議</td><td>各議院の総議員の3分の2以上の賛成</td></tr><tr><td>国民の承認</td><td>国民投票で過半数の賛成</td></tr></tbody></table></div><div class="notice" style="margin-top:1rem;">憲法は国の<strong>最高法規</strong>（98条）であり、これに反する法律等は効力を有しない。</div>
+      </div></section>
+
+      <section class="section"><div class="container">
+        <h2 class="section-title">この科目を演習する</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=kenpo">
+            <div class="content-card-title">過去問演習（憲法 30問）</div>
+            <div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="flashcard.html?subject=kenpo">
+            <div class="content-card-title">単語帳（憲法 110語）</div>
+            <div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。習得済みマーク付き。</div>
+            <div class="content-card-arrow">暗記する →</div>
+          </a>
+          <a class="content-card" href="roadmap.html">
+            <div class="content-card-title">学習ロードマップ</div>
+            <div class="content-card-desc">試験日までの週次計画。この科目の学習時期を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+        </div>
       </div></section>
 
     </main>

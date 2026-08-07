@@ -251,6 +251,7 @@
 </head>
 <body>
   <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -306,7 +307,7 @@
             <span>単語帳</span>
           </div>
 
-          <h2 class="section-title">単語帳</h2>
+          <h1 class="section-title">単語帳</h1>
           <p class="lead">行政書士の重要用語集。フラッシュカードで暗記するか、用語集で一覧確認できます。</p>
 
           <!-- タブ -->
@@ -350,6 +351,7 @@
       '基礎知識':    '#9B59B6',
       '基礎法学':    '#7F8C8D',
     };
+    const SUBJ_SLUG = { gyoseiho: '行政法', minpo: '民法', kenpo: '憲法', shoho: '商法・会社法', kisohogaku: '基礎法学', chishiki: '基礎知識' };
 
     let allCards = [];
     let deck = [];
@@ -564,8 +566,17 @@
     }
 
     /* ===== 初期化 ===== */
+    // ディープリンク: ?subject=gyoseiho / ?subject=民法 で科目を初期選択
+    function applyDeepLink() {
+      const raw = new URLSearchParams(location.search).get('subject');
+      if (!raw) return;
+      const s = SUBJ_SLUG[raw] || (SUBJECTS.includes(raw) ? raw : null);
+      if (s) activeSubject = s;
+    }
+
     async function init() {
       loadKnown();
+      applyDeepLink();
       initTabs();
       try {
         const res = await fetch('data/flashcards.json');

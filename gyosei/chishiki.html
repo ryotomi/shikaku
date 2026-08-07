@@ -15,6 +15,7 @@
 </head>
 <body>
   <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -35,7 +36,7 @@
     <main>
       <section class="section"><div class="container">
         <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">行政書士</a><span class="breadcrumb-sep">›</span><span>基礎知識</span></div>
-        <h2 class="section-title">基礎知識</h2>
+        <h1 class="section-title">基礎知識</h1>
         <p class="lead">配点56点。旧「一般知識等」を令和6年度から改組。足切り（24点）回避が最優先。</p>
         <div class="notice">文章理解と個人情報保護は得点源にしやすい。時事的な政治経済社会も対策する。</div>
       </div></section>
@@ -50,6 +51,27 @@
       <section class="section"><div class="container">
         <h2 class="section-title">文章理解の技法</h2>
 <div class="table-wrap"><table class="data-table"><thead><tr><th>技法</th><th>要点</th></tr></thead><tbody><tr><td>要旨把握</td><td>筆者の最も伝えたい主張を読み取る</td></tr><tr><td>接続詞</td><td>逆接（しかし）・順接（だから）・換言（つまり）・例示（例えば）</td></tr><tr><td>文章整序</td><td>接続詞・指示語を手がかりに論理的順序へ並べ替える</td></tr></tbody></table></div>
+      </div></section>
+
+      <section class="section"><div class="container">
+        <h2 class="section-title">この科目を演習する</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=chishiki">
+            <div class="content-card-title">過去問演習（基礎知識 25問）</div>
+            <div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="flashcard.html?subject=chishiki">
+            <div class="content-card-title">単語帳（基礎知識 170語）</div>
+            <div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。習得済みマーク付き。</div>
+            <div class="content-card-arrow">暗記する →</div>
+          </a>
+          <a class="content-card" href="roadmap.html">
+            <div class="content-card-title">学習ロードマップ</div>
+            <div class="content-card-desc">試験日までの週次計画。この科目の学習時期を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+        </div>
       </div></section>
 
     </main>
