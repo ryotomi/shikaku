@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>健康維持 — 学習トップ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) { location.href = "../login.html"; return; }
+
+      document.getElementById("page-content").style.display = "block";
+      document.getElementById("user-avatar").src = user.photoURL || "";
+      document.getElementById("user-name").textContent = user.displayName || user.email;
+      document.getElementById("logout-btn").addEventListener("click", async () => {
+        await signOut(auth);
+        location.href = "../login.html";
+      });
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">健康維持</div>
+        <div class="site-role">生活習慣・老化対策の個人ノート</div>
+        <div class="user-chip">
+          <img id="user-avatar" src="" alt="" />
+          <span id="user-name"></span>
+          <button id="logout-btn">ログアウト</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../index.html">資格まとめ</a></li>
+          <li><a class="nav-link" href="../life/index.html">人生経営</a></li>
+          <li><a class="nav-link current" href="index.html">健康維持</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>健康維持</span>
+          </div>
+
+          <h2 class="section-title">健康維持</h2>
+          <p class="lead">
+            長く働き・学び続けるための土台となる「健康資本」を整えるためのノート。
+            日々の生活で予防できる病気と、加齢による衰えを緩やかにする取り組みを、以下の2分野で整理します。
+          </p>
+
+          <div class="content-grid">
+
+            <a class="content-card" href="seikatsu.html">
+              <div class="content-card-title">生活習慣病</div>
+              <div class="content-card-desc">高血圧・糖尿病・脂質異常症・肥満（メタボリックシンドローム）など、食事・運動・睡眠・喫煙といった生活習慣が要因となる病気の基礎知識と予防のポイント。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="anti-aging.html">
+              <div class="content-card-title">アンチエイジング</div>
+              <div class="content-card-desc">加齢に伴う体力・認知機能・見た目の変化を緩やかにするための、運動・栄養・睡眠・ストレス管理を中心としたエビデンスベースの取り組み。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+          </div>
+
+          <div class="notice" style="margin-top:1.6rem">
+            <strong>ご注意</strong>：本カテゴリの内容は一般的に知られている健康情報を個人学習用にまとめたものであり、医学的な診断・治療の助言ではありません。体調や治療に関する判断は必ず医師・薬剤師などの専門家にご相談ください。
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>健康維持 — 個人学習用ノート</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。健康・医療の判断は必ず専門家にご相談ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

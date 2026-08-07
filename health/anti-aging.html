@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>アンチエイジング — 健康維持</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem;
+    }
+    .prose h3 { font-family: var(--font-accent); color: var(--color-primary); font-size: 1.25rem; margin: 1.8rem 0 0.6rem; }
+    .prose p  { line-height: 1.9; margin: 0.6rem 0; }
+    .prose ul { line-height: 1.9; margin: 0.4rem 0 0.8rem 1.2rem; }
+    .prose ul li { margin: 0.2rem 0; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) { location.href = "../login.html"; return; }
+
+      document.getElementById("page-content").style.display = "block";
+      document.getElementById("user-avatar").src = user.photoURL || "";
+      document.getElementById("user-name").textContent = user.displayName || user.email;
+      document.getElementById("logout-btn").addEventListener("click", async () => {
+        await signOut(auth);
+        location.href = "../login.html";
+      });
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">健康維持</div>
+        <div class="site-role">生活習慣・老化対策の個人ノート</div>
+        <div class="user-chip">
+          <img id="user-avatar" src="" alt="" />
+          <span id="user-name"></span>
+          <button id="logout-btn">ログアウト</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../index.html">資格まとめ</a></li>
+          <li><a class="nav-link" href="../life/index.html">人生経営</a></li>
+          <li><a class="nav-link current" href="index.html">健康維持</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">健康維持</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>アンチエイジング</span>
+          </div>
+
+          <h2 class="section-title">アンチエイジング</h2>
+          <p class="lead">
+            加齢そのものは止められませんが、体力・筋肉・認知機能・血管・肌・骨などの衰えは、生活習慣によってその進み方を大きく変えられます。
+            特別なサプリや高額な施術よりも、運動・栄養・睡眠・ストレス管理という「基本」の積み重ねが、もっともエビデンスのある老化対策とされています。
+          </p>
+
+          <div class="prose">
+            <h3>老化に関わる主な要因</h3>
+            <ul>
+              <li><strong>酸化ストレス</strong> — 活性酸素による細胞の損傷。喫煙・過度な紫外線・過食・過度の飲酒で増える。</li>
+              <li><strong>慢性炎症（インフラメイジング）</strong> — 加齢に伴う弱い炎症の持続。内臓脂肪・睡眠不足・歯周病などが関与。</li>
+              <li><strong>糖化（AGEs）</strong> — 過剰な糖とタンパク質が結びつき、血管や肌・コラーゲンを劣化させる。</li>
+              <li><strong>筋肉・骨の減少（サルコペニア／骨粗しょう症）</strong> — 使わない・タンパク質不足で進行。転倒・寝たきりの原因に。</li>
+            </ul>
+
+            <h3>エビデンスのある取り組み</h3>
+            <ul>
+              <li><strong>運動</strong> — 有酸素運動＋筋力トレーニングの併用が効果的。筋トレは筋肉・骨・代謝の維持に、有酸素は心肺・血管・脳の健康に寄与する。</li>
+              <li><strong>栄養</strong> — 十分なタンパク質（体重1kgあたり1.0〜1.2g目安）、野菜・果物・魚・全粒穀物中心の食事。抗酸化に役立つ多様な食品を摂る。糖質・超加工食品の摂りすぎを控える。</li>
+              <li><strong>睡眠</strong> — 深い睡眠中に成長ホルモンが分泌され、細胞修復が進む。6〜8時間の規則正しい睡眠を確保する。</li>
+              <li><strong>ストレス管理</strong> — 慢性ストレスは老化を早める。運動・趣味・人とのつながり・呼吸法などで回復の時間をつくる。</li>
+              <li><strong>紫外線・肌ケア</strong> — 日焼け止めなどの紫外線対策と保湿は、シワ・シミなど光老化の抑制に有効。</li>
+              <li><strong>口腔・社会的つながり</strong> — 歯周病ケアと、人との交流・知的活動は、全身の炎症抑制と認知機能の維持に関係する。</li>
+            </ul>
+
+            <h3>優先順位の考え方</h3>
+            <p>
+              情報が氾濫しがちな分野ですが、効果と確実性の面では
+              <strong>①禁煙・節酒 → ②運動（特に筋トレ）→ ③睡眠 → ④食事 → ⑤ストレス・つながり</strong>
+              の順で基本を固めるのが現実的です。サプリメントや特別な施術は、これらの土台ができたうえでの上乗せと位置づけると良いとされています。
+            </p>
+          </div>
+
+          <div class="notice" style="margin-top:1.6rem">
+            <strong>ご注意</strong>：本ページは一般的な健康情報を個人学習用にまとめたものです。効果には個人差があり、持病のある方の運動・食事・サプリの導入は必ず医師にご相談ください。
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>健康維持 — 個人学習用ノート</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。健康・医療の判断は必ず専門家にご相談ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生活習慣病 — 健康維持</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem;
+    }
+    .prose h3 { font-family: var(--font-accent); color: var(--color-primary); font-size: 1.25rem; margin: 1.8rem 0 0.6rem; }
+    .prose p  { line-height: 1.9; margin: 0.6rem 0; }
+    .prose ul { line-height: 1.9; margin: 0.4rem 0 0.8rem 1.2rem; }
+    .prose ul li { margin: 0.2rem 0; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) { location.href = "../login.html"; return; }
+
+      document.getElementById("page-content").style.display = "block";
+      document.getElementById("user-avatar").src = user.photoURL || "";
+      document.getElementById("user-name").textContent = user.displayName || user.email;
+      document.getElementById("logout-btn").addEventListener("click", async () => {
+        await signOut(auth);
+        location.href = "../login.html";
+      });
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">健康維持</div>
+        <div class="site-role">生活習慣・老化対策の個人ノート</div>
+        <div class="user-chip">
+          <img id="user-avatar" src="" alt="" />
+          <span id="user-name"></span>
+          <button id="logout-btn">ログアウト</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../index.html">資格まとめ</a></li>
+          <li><a class="nav-link" href="../life/index.html">人生経営</a></li>
+          <li><a class="nav-link current" href="index.html">健康維持</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="../index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="index.html">健康維持</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>生活習慣病</span>
+          </div>
+
+          <h2 class="section-title">生活習慣病</h2>
+          <p class="lead">
+            食事・運動・喫煙・飲酒・睡眠などの生活習慣が発症・進行に関与する病気の総称。
+            自覚症状が乏しいまま進行し、放置すると心筋梗塞・脳卒中・腎不全などの重い合併症につながるため、早期の予防と定期的な健診が重要とされています。
+          </p>
+
+          <div class="prose">
+            <h3>主な生活習慣病</h3>
+            <ul>
+              <li><strong>高血圧</strong> — 血管に持続的に高い圧力がかかる状態。動脈硬化・心疾患・脳卒中の主要なリスク因子。</li>
+              <li><strong>糖尿病（2型）</strong> — インスリンの分泌・作用の低下で血糖値が慢性的に高くなる。神経障害・網膜症・腎症などの合併症を招く。</li>
+              <li><strong>脂質異常症</strong> — LDLコレステロールや中性脂肪が過剰、あるいはHDLが少ない状態。動脈硬化を進める。</li>
+              <li><strong>肥満・メタボリックシンドローム</strong> — 内臓脂肪の蓄積に、高血圧・高血糖・脂質異常が重なった状態。複数が重なるとリスクが相乗的に高まる。</li>
+              <li><strong>高尿酸血症・痛風</strong> — 尿酸値の上昇により関節炎（痛風発作）や尿路結石を起こしやすくなる。</li>
+            </ul>
+
+            <h3>健診でチェックしたい主な指標（一般的な目安）</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>項目</th><th>おおよその目安</th><th>関連する病気</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>血圧</td><td>家庭血圧 135/85 mmHg 未満</td><td>高血圧</td></tr>
+                  <tr><td>空腹時血糖 / HbA1c</td><td>血糖 110 mg/dL 未満 / HbA1c 6.0% 未満</td><td>糖尿病</td></tr>
+                  <tr><td>LDLコレステロール</td><td>140 mg/dL 未満（リスクにより異なる）</td><td>脂質異常症</td></tr>
+                  <tr><td>中性脂肪（TG）</td><td>150 mg/dL 未満</td><td>脂質異常症</td></tr>
+                  <tr><td>腹囲</td><td>男性 85cm・女性 90cm 未満が目安</td><td>メタボリックシンドローム</td></tr>
+                  <tr><td>BMI</td><td>18.5〜25 未満</td><td>肥満</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:0.82rem;color:var(--color-text-muted)">※ 基準値は年齢・持病・ガイドライン改訂により変わります。判定は必ず健診結果と医師の指示に従ってください。</p>
+
+            <h3>予防・改善の基本</h3>
+            <ul>
+              <li><strong>食事</strong> — 減塩（1日6g未満が目標）、野菜・食物繊維を先に食べる、糖質・飽和脂肪・アルコールの摂りすぎを避け、腹八分目を意識する。</li>
+              <li><strong>運動</strong> — 早歩きなどの有酸素運動を週合計150分程度＋筋トレを週2回。座りっぱなしを避け、こまめに体を動かす。</li>
+              <li><strong>禁煙</strong> — 喫煙は動脈硬化・がんの最大級のリスク。禁煙外来の活用も有効。</li>
+              <li><strong>節酒</strong> — 純アルコールで1日20g程度まで（ビール中瓶1本目安）、週に休肝日を設ける。</li>
+              <li><strong>睡眠・ストレス</strong> — 6〜8時間の睡眠を確保し、慢性的なストレスをためない。睡眠不足は血糖・血圧・食欲に悪影響。</li>
+              <li><strong>定期健診</strong> — 年1回の健康診断・特定健診で数値の変化を早期に把握する。</li>
+            </ul>
+          </div>
+
+          <div class="notice" style="margin-top:1.6rem">
+            <strong>ご注意</strong>：本ページは一般的な健康情報を個人学習用にまとめたものです。診断・治療・薬の判断は必ず医師・薬剤師にご相談ください。
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>健康維持 — 個人学習用ノート</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。健康・医療の判断は必ず専門家にご相談ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>
