@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="行政書士からのジャンプアッププラン。司法書士・税理士・公認会計士など資格を追加して業務を広げる『専門家型』と、営業で得た人脈を軸に総合事務所化・コンサル・プロダクト等で経営を目指す『経営者型』の2軸を、資格間の登録関係・相性・注意点とともにまとめた参考ページ。" />
+  <title>行政書士 ジャンプアッププラン（資格追加 × 事業経営） — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+    .subhead {
+      font-family: var(--font-accent);
+      font-weight: 500;
+      color: var(--color-primary);
+      margin: 1.6rem 0 0.6rem;
+      font-size: 1.15rem;
+    }
+    .axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.2rem 0; }
+    @media (max-width: 640px) { .axis-grid { grid-template-columns: 1fr; } }
+    .axis-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-primary);
+      padding: 1.2rem 1.3rem;
+    }
+    .axis-card.b { border-top-color: #0c7c8c; }
+    .axis-card h3 { font-family: var(--font-accent); font-weight: 500; font-size: 1.05rem; color: var(--color-primary); margin-bottom: 0.4rem; }
+    .axis-card.b h3 { color: #0a5c69; }
+    .axis-card p { font-size: 0.9rem; color: var(--color-text-light); }
+    .axis-card .tagline { font-size: 0.78rem; color: var(--color-text-muted); letter-spacing: 0.04em; display: block; margin-bottom: 0.5rem; }
+    .cta {
+      display: inline-block; margin-top: 0.4rem;
+      font-size: 0.9rem; color: var(--color-accent); text-decoration: none; font-weight: 500;
+    }
+    .cta:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">行政書士 ジャンプアッププラン</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="index.html">行政書士</a></li>
+        <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+        <li><a class="nav-link current" href="jumpup.html">ジャンプアップ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- リード -->
+    <section class="section">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/shikaku/index.html">ホーム</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="index.html">行政書士</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="career.html">キャリアプラン</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>ジャンプアップ</span>
+        </div>
+
+        <h2 class="section-title">ジャンプアッププラン<span class="badge badge-accent">5年目のその先へ</span></h2>
+        <p class="lead">
+          <a href="career.html">5年ロードマップ</a>で独立・事業拡大まで到達した後、<strong>行政書士単体の売上天井を超える</strong>ための2つの拡張軸。
+          「資格を足して業務を深める（専門家型）」か、「営業で得た人脈を軸に事業を広げる（経営者型）」か——本ページで両方を整理します。
+        </p>
+        <div class="axis-grid">
+          <div class="axis-card a">
+            <span class="tagline">AXIS A ｜ 専門家として深める</span>
+            <h3>資格スタック戦略</h3>
+            <p>司法書士・税理士・公認会計士・社労士・中小企業診断士などを追加し、独占業務と単価を広げる。時間を「勉強」に投資する道。</p>
+          </div>
+          <div class="axis-card b">
+            <span class="tagline">AXIS B ｜ 経営者として広げる</span>
+            <h3>人脈を軸に事業経営</h3>
+            <p>総合事務所化・コンサル法人・IT×法務プロダクト等へ。士業の枠を出て、時間を「採用・営業・事業」に投資する道。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 軸A：資格追加 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">軸A ｜ 資格スタック戦略</h2>
+        <p class="lead">
+          追加資格は「今の重点分野（IT・DX補助金／IT契約・規程）を太らせるか」で選びます。
+          相性・難易度・行政書士との登録関係を一覧にしました。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>資格</th>
+                <th>独占業務</th>
+                <th>行政書士との相乗効果</th>
+                <th>難易度・期間の目安</th>
+                <th>行政書士との登録関係</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">税理士</td>
+                <td>税務代理・税務書類作成・税務相談</td>
+                <td><strong>補助金＋月次税務顧問</strong>で強力なストック収入。中小IT企業の顧問の王道。</td>
+                <td>長期戦。科目合格制（5科目）で数年</td>
+                <td>税理士資格者は<strong>行政書士に無試験で登録可</strong></td>
+              </tr>
+              <tr>
+                <td class="highlight">中小企業診断士</td>
+                <td>（独占業務なし）経営診断・助言</td>
+                <td><strong>補助金・経営支援と抜群</strong>。「IT×経営コンサル」の看板になり、今の実務にすぐ効く。</td>
+                <td>中（行政書士よりやや上）／1〜2年</td>
+                <td>別試験（相互免除なし）</td>
+              </tr>
+              <tr>
+                <td class="highlight">社会保険労務士</td>
+                <td>労働・社会保険手続、就業規則作成等</td>
+                <td>IT企業の<strong>労務＋助成金</strong>をセット提案。補助金とは別の報酬源を持てる。</td>
+                <td>中〜難／行政書士資格で受験資格を満たせる</td>
+                <td>別試験（相互免除なし）</td>
+              </tr>
+              <tr>
+                <td class="highlight">司法書士</td>
+                <td>不動産・商業登記、認定で簡裁訴訟代理</td>
+                <td>会社設立（定款→登記）・相続を<strong>ワンストップ化</strong>。取りこぼしをなくす。</td>
+                <td>難関／複数年（合格率3〜5%前後）</td>
+                <td>別試験（相互免除なし。範囲は一部重複）</td>
+              </tr>
+              <tr>
+                <td class="highlight">公認会計士</td>
+                <td>財務諸表監査</td>
+                <td>会計・IPO・M&A等の<strong>高単価領域</strong>へ。ただし行政書士の延長というより別キャリア。</td>
+                <td>超難関／数年</td>
+                <td>会計士資格者は<strong>税理士・行政書士も登録可</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice">
+          <strong>行政書士法2条の要点：</strong>
+          弁護士・弁理士・公認会計士・税理士の資格を持てば、<strong>行政書士は試験なしで登録できます</strong>（＝上位・隣接資格を取ると行政書士は自動的に付いてくる）。
+          逆に行政書士からこれらを取るには各試験が必要。司法書士・社労士・中小企業診断士は行政書士とは別試験です。
+        </div>
+
+        <h3 class="subhead">あなたの重点（補助金・IT契約）起点の優先度</h3>
+        <ul class="exclusive-list">
+          <li><strong>まず効くのは中小企業診断士 or 社労士</strong>：補助金・助成金の幅が広がり、独立後の実務にすぐ効く。診断士は「経営コンサルの看板」、社労士は「助成金という別収益源」。</li>
+          <li><strong>ストックの柱を太くするなら税理士</strong>：月次顧問で安定収入。取得コストは大きいが、補助金（スポット）との組み合わせで収益が安定する。</li>
+          <li><strong>ワンストップを完成させるなら司法書士</strong>：会社設立・相続で登記まで自前化。難関のため、独立が軌道に乗ってからの中長期投資。</li>
+          <li><strong>公認会計士はコスパに注意</strong>：積み上げというより別キャリア。すでに会計志向が強い場合の選択肢。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 軸B：事業経営 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">軸B ｜ 人脈を軸に事業経営へ</h2>
+        <p class="lead">
+          営業で築いた顧客基盤と「IT×法務」の実績は、士業の枠を超えた事業の元手になります。
+          自分がプレイヤーとして手を動かす段階から、<strong>仕組みと人で稼ぐ経営者</strong>へ移る選択肢です。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>事業モデル</th><th>何をするか</th><th>人脈・IT/法務の強みの活かし方</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">総合事務所化（士業法人・パートナー制）</td>
+                <td>有資格者を採用・提携し、自分は経営とマネジメントに回る</td>
+                <td>顧客基盤を武器に人を集める。ワンストップ提供で単価と受任数を伸ばす</td>
+              </tr>
+              <tr>
+                <td class="highlight">補助金・DXコンサル法人</td>
+                <td>士業の枠を超えた高単価の経営・DXコンサルティング</td>
+                <td>IT×補助金の実績を法人事業化。中小企業診断士があると提案の説得力が増す</td>
+              </tr>
+              <tr>
+                <td class="highlight">IT×法務プロダクト／SaaS</td>
+                <td>契約書生成・補助金マッチング・規程整備などの自動化サービス</td>
+                <td>エンジニア経験を製品化。顧問先がそのまま最初のユーザー・検証パートナー</td>
+              </tr>
+              <tr>
+                <td class="highlight">研修・メディア事業</td>
+                <td>B2B研修・オンライン講座・情報発信の収益化</td>
+                <td>「元エンジニアの士業」の発信を資産化。集客とブランディングを兼ねる</td>
+              </tr>
+              <tr>
+                <td class="highlight">M&A・事業承継の支援</td>
+                <td>中小企業の売買・承継のサポート（※業法・許認可は要確認）</td>
+                <td>中小IT企業の人脈を活用。高単価だが、扱える範囲は資格・業法の確認が前提</td>
+              </tr>
+              <tr>
+                <td class="highlight">投資・スタートアップ支援</td>
+                <td>顧問先への出資やハンズオン支援</td>
+                <td>スタートアップ支援の延長。資本参加でアップサイドを狙う</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- いつ動くか -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">いつ動くか（5年ロードマップとの接続）</h2>
+        <p class="lead">
+          資格追加も事業化も、<strong>本業が安定していない段階で手を出すと共倒れ</strong>します。5年ロードマップの到達度に接続して段階的に判断します。
+        </p>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">～3</div>
+            <div class="flow-body">
+              <strong>〜3年目 ｜ まだ動かない</strong>
+              <p>副業〜独立準備で手一杯。資格追加も事業化もしない。今の重点分野に直結する1つ（診断士など）の情報収集に留める。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">4-5</div>
+            <div class="flow-body">
+              <strong>4〜5年目 ｜ 1本柱を決める</strong>
+              <p>専業が軌道に乗ったら、「顧問収入を太らせる税理士」か「看板になる中小企業診断士」を1つ検討。並行して総合事務所化 or コンサル法人化の芽を作る。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">6～</div>
+            <div class="flow-body">
+              <strong>6年目〜 ｜ 大方針を選ぶ</strong>
+              <p>「専門家として深める（資格スタック）」か「経営者として広げる（事業多角化）」の大方針を決める。両張りは資源分散を招くため、原則どちらかに軸足を置く。</p>
+            </div>
+          </div>
+        </div>
+        <div class="notice">
+          <strong>専門家型か、経営者型か。</strong>
+          資格を積み高単価スペシャリストになる道は「時間を勉強に投資」、人を雇い仕組みで稼ぐ道は「時間を採用・営業・事業に投資」。
+          あなたのIT×営業で作った人脈は<strong>経営者型と相性が良い</strong>一方、税理士のようなストック資格は専門家型の安定土台になります。
+          現実的には、まず4〜5年目で<strong>「1本柱の資格＋1つの事業」</strong>に絞るのが無理がありません。
+        </div>
+      </div>
+    </section>
+
+    <!-- 注意点 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">誠実に押さえる注意点</h2>
+        <ul class="exclusive-list">
+          <li><strong>会費の多重負担</strong>：資格ごとに登録・年会費が別途発生する（行政書士＋税理士＋…で固定費が積み上がる）。稼働に見合うかで判断する。</li>
+          <li><strong>名義貸し・非弁／非税理士行為の禁止</strong>：有資格者を雇う場合も、独占業務は各有資格者本人が担う。名義だけ借りる運用は不可。</li>
+          <li><strong>士業法人・広告・報酬の規制</strong>：事業化（コンサル・プロダクト・メディア）は、士業としての業務と切り分けて設計する。</li>
+          <li><strong>最大のリスクは「リソース分散」</strong>：資格勉強は数年単位で、本業・事業を止めうる。取得コストと機会費用（その間に稼げたはずの額）を天秤にかけて判断する。</li>
+          <li><strong>制度は要確認</strong>：各資格の受験要件・登録要件、M&A等の業法は変わり得る。着手前に各士業会・公式情報で最新を確認する。</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — 行政書士</div>
+      <div class="disclaimer">掲載内容は個人学習・キャリア検討目的です。資格制度・登録要件・業法は各士業会および公式情報で最新をご確認ください。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>
