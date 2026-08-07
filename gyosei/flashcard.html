@@ -95,12 +95,14 @@
       background: var(--color-white);
       border: 1px solid var(--color-border);
     }
-    .card-face.card-back { transform: rotateY(180deg); background: var(--color-bg-alt); }
+    .card-face.card-back { transform: rotateY(180deg); background: var(--color-bg-alt); justify-content: flex-start; overflow-y: auto; gap: 0.7rem; padding-top: 1.5rem; }
     .card-subject-tag { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.8rem; letter-spacing: 0.05em; }
     .card-term { font-family: var(--font-accent); font-size: 1.5rem; font-weight: 500; color: var(--color-primary); text-align: center; line-height: 1.5; }
     .card-hint { margin-top: 1.2rem; font-size: 0.78rem; color: var(--color-text-muted); }
     .card-definition { font-size: 0.95rem; color: var(--color-text); line-height: 1.9; text-align: center; }
     .card-term-small { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 1rem; }
+    .card-detail { align-self: stretch; font-size: 0.83rem; line-height: 1.8; color: var(--color-text-light); text-align: left; border-top: 1px solid var(--color-border); padding-top: 0.7rem; margin-top: 0.2rem; }
+    .card-detail::before { content: "補足"; display: block; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--color-text-muted); margin-bottom: 0.3rem; }
 
     .card-nav { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 1rem; }
     .nav-btn {
@@ -222,6 +224,14 @@
       font-size: 0.875rem;
       line-height: 1.85;
       color: var(--color-text-light);
+    }
+    .glossary-detail {
+      font-size: 0.83rem;
+      line-height: 1.85;
+      color: var(--color-text-muted);
+      margin-top: 0.45rem;
+      padding-left: 0.7rem;
+      border-left: 2px solid var(--color-border);
     }
 
     .glossary-known-btn {
@@ -437,6 +447,7 @@
             <div class="card-face card-back">
               <div class="card-term-small">${escHtml(card.term)}</div>
               <div class="card-definition">${escHtml(card.definition)}</div>
+              ${card.detail ? `<div class="card-detail">${escHtml(card.detail)}</div>` : ''}
             </div>
           </div>
         </div>
@@ -485,7 +496,8 @@
       if (glossarySearch.trim()) {
         const q = glossarySearch.trim().toLowerCase();
         cards = cards.filter(c =>
-          c.term.toLowerCase().includes(q) || c.definition.toLowerCase().includes(q)
+          c.term.toLowerCase().includes(q) || c.definition.toLowerCase().includes(q) ||
+          (c.detail && c.detail.toLowerCase().includes(q))
         );
       }
 
@@ -516,6 +528,7 @@
                     <span class="glossary-term">${escHtml(card.term)}</span>
                   </div>
                   <div class="glossary-definition">${escHtml(card.definition)}</div>
+                  ${card.detail ? `<div class="glossary-detail">${escHtml(card.detail)}</div>` : ''}
                 </div>
                 <button class="glossary-known-btn${isKnown ? ' is-known' : ''}" data-id="${card.id}">
                   ${isKnown ? '✓ 習得済み' : '習得済み'}
