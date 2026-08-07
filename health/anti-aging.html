@@ -14,10 +14,22 @@
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
       color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem;
     }
-    .prose h3 { font-family: var(--font-accent); color: var(--color-primary); font-size: 1.25rem; margin: 1.8rem 0 0.6rem; }
+    .prose h3 { font-family: var(--font-accent); color: var(--color-primary); font-size: 1.25rem; margin: 2rem 0 0.6rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--color-border); }
+    .prose h4 { font-size: 1.02rem; color: var(--color-primary); margin: 1.2rem 0 0.3rem; font-weight: 700; }
     .prose p  { line-height: 1.9; margin: 0.6rem 0; }
     .prose ul { line-height: 1.9; margin: 0.4rem 0 0.8rem 1.2rem; }
     .prose ul li { margin: 0.2rem 0; }
+    .ev-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 0.04em 0.5em; border-radius: 999px; border: 1px solid; margin-right: 0.4em; vertical-align: 0.08em; white-space: nowrap; }
+    .ev-est { color: #2f7a3f; border-color: #2f7a3f; background: #eef7f0; }
+    .ev-prom { color: #b7791f; border-color: #b7791f; background: #fbf3e4; }
+    .ev-unc { color: #7a6a4a; border-color: #b9a06a; background: #f6f1e6; }
+    .ev-neg { color: #a23b2e; border-color: #a23b2e; background: #faeceb; }
+    .callout { background: var(--color-bg-alt); border-left: 3px solid var(--color-primary); padding: 0.7rem 0.95rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.85; }
+    .prose .data-table td { vertical-align: top; }
+    .prose .data-table td:first-child { font-weight: 500; }
+    .toc { background: var(--color-white); border: 1px solid var(--color-border); padding: 0.7rem 1rem; margin: 1rem 0 0; font-size: 0.9rem; }
+    .toc ul { columns: 2; margin: 0.3rem 0 0 1.1rem; line-height: 1.8; }
+    @media (max-width: 560px) { .toc ul { columns: 1; } }
   </style>
 </head>
 <body>
@@ -88,39 +100,163 @@
 
           <h2 class="section-title">アンチエイジング</h2>
           <p class="lead">
-            加齢そのものは止められませんが、体力・筋肉・認知機能・血管・肌・骨などの衰えは、生活習慣によってその進み方を大きく変えられます。
-            特別なサプリや高額な施術よりも、運動・栄養・睡眠・ストレス管理という「基本」の積み重ねが、もっともエビデンスのある老化対策とされています。
+            加齢そのものは止められませんが、体力・筋肉・認知機能・血管・肌・骨・感覚器などの衰えは、生活習慣によってその進み方を大きく変えられます。
+            目標は単なる「寿命」より、自立して過ごせる期間＝<strong>健康寿命</strong>を延ばすこと。寿命・老化への遺伝の寄与は2〜3割程度と推定され（研究により幅があります）、残りは環境・生活習慣・偶然などの非遺伝要因で、そのうち運動・栄養・睡眠・禁煙は自分で変えられる部分です。
+            特別なサプリや高額な施術よりも、これら「基本」の積み重ねが、もっともエビデンスのある老化対策です。
           </p>
 
+          <div class="callout">
+            本ページでは、対策のエビデンスの強さを
+            <span class="ev-tag ev-est">確立</span>（大規模研究で有益が確立）
+            <span class="ev-tag ev-prom">有望</span>（有望だがヒトでの結論は途上）
+            <span class="ev-tag ev-unc">不確実</span>（根拠が乏しい・限定的）
+            <span class="ev-tag ev-neg">否定/注意</span>（有益が否定的、または有害リスク）
+            の目安で示します（下の表では補助的に「研究段階」＝不確実系、「非推奨」＝否定/注意系 の語も用います）。分類は一般的な合意に基づく簡略化で、個々の状況で異なります。
+          </div>
+
+          <nav class="toc" aria-label="目次">
+            <strong>目次</strong>
+            <ul>
+              <li><a href="#mechanism">老化のしくみ</a></li>
+              <li><a href="#basics">まず効く「基本」</a></li>
+              <li><a href="#byarea">領域別の対策</a></li>
+              <li><a href="#interventions">話題の介入とエビデンス</a></li>
+              <li><a href="#measure">測る・追う指標</a></li>
+              <li><a href="#byage">年代別の重点</a></li>
+              <li><a href="#priority">優先順位</a></li>
+              <li><a href="#myths">よくある誤解</a></li>
+              <li><a href="#sources">出典・参考</a></li>
+            </ul>
+          </nav>
+
           <div class="prose">
-            <h3>老化に関わる主な要因</h3>
+            <h3 id="mechanism">老化のしくみ（老化の生物学的特徴）</h3>
+            <p>
+              老化は単一の原因ではなく、相互に関連する複数の生物学的変化の積み重ねです。研究では「老化の特徴（Hallmarks of Aging）」として整理されています（López-Otín ら, 2013／2023 更新）。主なもの:
+            </p>
             <ul>
-              <li><strong>酸化ストレス</strong> — 活性酸素による細胞の損傷。喫煙・過度な紫外線・過食・過度の飲酒で増える。</li>
-              <li><strong>慢性炎症（インフラメイジング）</strong> — 加齢に伴う弱い炎症の持続。内臓脂肪・睡眠不足・歯周病などが関与。</li>
-              <li><strong>糖化（AGEs）</strong> — 過剰な糖とタンパク質が結びつき、血管や肌・コラーゲンを劣化させる。</li>
-              <li><strong>筋肉・骨の減少（サルコペニア／骨粗しょう症）</strong> — 使わない・タンパク質不足で進行。転倒・寝たきりの原因に。</li>
+              <li><strong>ゲノム不安定性・テロメア短縮・エピジェネティック変化</strong> — DNAの損傷蓄積と遺伝子発現の調節の乱れ。</li>
+              <li><strong>タンパク質恒常性（プロテオスタシス）の破綻</strong> — 異常タンパクの蓄積、オートファジー（細胞の掃除）の低下。</li>
+              <li><strong>栄養センシングの調節不全</strong> — インスリン/IGF-1・mTOR・AMPK・サーチュインなど、栄養に応じた代謝調節の乱れ。</li>
+              <li><strong>ミトコンドリア機能不全</strong> — エネルギー産生の低下と酸化ストレスの増加。</li>
+              <li><strong>細胞老化（セネッセンス）</strong> — 分裂を止めた「老化細胞」の蓄積と、炎症性物質（SASP）の放出。</li>
+              <li><strong>幹細胞の枯渇・細胞間コミュニケーションの変化</strong> — 組織の再生力の低下。</li>
+              <li><strong>慢性炎症（インフラメイジング）・腸内細菌叢の乱れ</strong> — 全身の弱い炎症の持続。</li>
+            </ul>
+            <p>
+              日常レベルでは、これらに<strong>酸化ストレス</strong>（活性酸素による損傷）と<strong>糖化（AGEs）</strong>（過剰な糖とタンパクの結合による血管・肌・コラーゲンの劣化）が関与します。
+              重要なのは、<strong>運動・栄養・睡眠・禁煙といった「基本」は、これらの特徴の多くに同時に働きかける</strong>という点です。個々のメカニズムを狙うサプリより、基本が効率的な理由がここにあります。
+            </p>
+
+            <h3 id="basics">まず効く「基本」（土台）</h3>
+
+            <h4><span class="ev-tag ev-est">確立</span>運動 — 費用対効果が高く、複数の老化特徴に同時に作用する介入</h4>
+            <p style="font-size:0.86rem;color:var(--color-text-light)">※ 喫煙者では禁煙が単独で同等以上の効果を持ちます。運動は「最も効果的な介入の一つ」と位置づけるのが正確です。</p>
+            <ul>
+              <li><strong>有酸素運動</strong>：中強度なら週150〜300分、高強度なら週75〜150分（両者の等価な組み合わせも可・WHO 2020）。安全な範囲で多いほど追加の便益が期待できます。心肺持久力（VO₂max）は全死亡・心血管死亡の<strong>強力な予測因子</strong>です。</li>
+              <li><strong>レジスタンス（筋力）運動</strong>：週2回以上、主要筋群を、徐々に負荷を高めながら（<strong>漸進的過負荷</strong>）。筋量・筋力・骨密度・代謝・インスリン感受性の維持に必須で、サルコペニア対策の中核。高齢者では素早く力を出す<strong>パワー系</strong>が歩行速度・転倒予防に特に有効です（開始時は指導下での安全確認を）。</li>
+              <li><strong>バランス・機能的運動</strong>：高齢者の転倒予防に有効性が確立（コクラン等）。太極拳や「下肢筋力＋バランス」の複合が特に有効。柔軟性運動は補助的に。</li>
+              <li><strong>座りすぎを減らす</strong>：長時間の座位はリスクを高めますが、その影響は日々の活動量で大きく変わり、十分に運動している人ではリスクの多くが相殺されます。座位をこまめに中断することと、総活動量を増やすことの両方が重要です。</li>
             </ul>
 
-            <h3>エビデンスのある取り組み</h3>
+            <h4><span class="ev-tag ev-est">確立</span>栄養 — 「食品/食事パターン」で考える</h4>
             <ul>
-              <li><strong>運動</strong> — 有酸素運動＋筋力トレーニングの併用が効果的。筋トレは筋肉・骨・代謝の維持に、有酸素は心肺・血管・脳の健康に寄与する。</li>
-              <li><strong>栄養</strong> — 十分なタンパク質（体重1kgあたり1.0〜1.2g目安）、野菜・果物・魚・全粒穀物中心の食事。抗酸化に役立つ多様な食品を摂る。糖質・超加工食品の摂りすぎを控える。</li>
-              <li><strong>睡眠</strong> — 深い睡眠中に成長ホルモンが分泌され、細胞修復が進む。6〜8時間の規則正しい睡眠を確保する。</li>
-              <li><strong>ストレス管理</strong> — 慢性ストレスは老化を早める。運動・趣味・人とのつながり・呼吸法などで回復の時間をつくる。</li>
-              <li><strong>紫外線・肌ケア</strong> — 日焼け止めなどの紫外線対策と保湿は、シワ・シミなど光老化の抑制に有効。</li>
-              <li><strong>口腔・社会的つながり</strong> — 歯周病ケアと、人との交流・知的活動は、全身の炎症抑制と認知機能の維持に関係する。</li>
+              <li><strong>食事パターン</strong>：<strong>地中海食</strong>は介入試験（PREDIMED 等）を含め最も強い根拠があります。和食型も野菜・魚・大豆中心で有益とされますが、伝統的な和食は食塩が多くなりがちなため<strong>減塩</strong>を意識します。</li>
+              <li><strong>タンパク質</strong>：健康な成人はおおむね体重1kgあたり1.0〜1.2g（国の推奨最低量0.8g/kgより多めの、筋量維持を重視した目安）。高齢者はフレイル予防に1.2〜1.5gが目安。肥満のある人は実体重でなく標準的な体重を基準に。腎機能低下がある場合は必ず医師と相談を。運動と組み合わせて筋量を守ります。</li>
+              <li><strong>控えるもの</strong>：加糖飲料・過剰な塩分・飽和脂肪の摂りすぎは根拠が比較的強い一方、超加工食品は観察研究中心で因果は確定的でないものの控えめが無難。抗酸化は高用量サプリより<strong>多様な食品</strong>から。</li>
+              <li><strong>食物繊維・発酵食品</strong>：腸内環境を整え、炎症・代謝に好影響。</li>
             </ul>
 
-            <h3>優先順位の考え方</h3>
+            <h4><span class="ev-tag ev-est">確立</span>睡眠・<span class="ev-tag ev-est">確立</span>禁煙・節酒</h4>
+            <ul>
+              <li><strong>睡眠</strong>：おおむね7時間前後（7〜9時間・個人差あり）、規則的な概日リズム。慢性的な不足は代謝・免疫・認知・気分に悪影響。いびき・日中の強い眠気があれば<strong>睡眠時無呼吸</strong>の評価を。</li>
+              <li><strong>禁煙</strong>：喫煙は老化を加速する最大級の因子（血管・肌・肺・がん）。やめた時点から利益が始まる。喫煙者にとっては単独で最大級の対策。</li>
+              <li><strong>節酒</strong>：近年の大規模評価では、少量でも明確な健康上の利益は確認されず、リスクは量に応じて増える傾向のため、少ないほど（飲まないのが最も）望ましいとされます（根拠は観察研究中心で議論も残ります）。</li>
+            </ul>
+
+            <h4><span class="ev-tag ev-est">確立</span>体組成・予防医療、<span class="ev-tag ev-prom">有望</span>つながり</h4>
+            <ul>
+              <li><strong>体組成</strong>：内臓脂肪・過体重の管理。ただし高齢期の極端な低体重・急なやせも不利（筋量低下）。</li>
+              <li><strong>予防医療</strong>：健診、がん検診、必要なワクチン（インフルエンザ・肺炎球菌・帯状疱疹など）、<strong>歯科・眼科・聴力</strong>の定期チェック。難聴は認知症の可変リスクの一つ。</li>
+              <li><strong>社会的つながり・知的活動・目的意識</strong>：社会的孤立は死亡・認知機能低下のリスク。交流・学習・生きがいはメンタルと認知の維持に寄与。</li>
+            </ul>
+
+            <h3 id="byarea">領域別の対策</h3>
+            <ul>
+              <li><strong>血管・心臓</strong>：血圧・脂質・血糖の管理、運動、減塩、禁煙。因果の全体像は <a href="lifestyle-disease-chart/index.html">生活習慣病 因果チャート</a> を参照。</li>
+              <li><strong>脳・認知</strong>：中年期からの血管リスク管理・運動・難聴対策・社会/知的活動・良質な睡眠。認知症の可変リスクの多くは生活習慣に由来。</li>
+              <li><strong>筋・骨（ロコモ／サルコペニア／フレイル／骨粗しょう症）</strong>：<strong>レジスタンス運動を土台</strong>に、十分なタンパク質・カルシウム・ビタミンDを併用（栄養単独では効果は限定的）。バランス運動で転倒予防を組み合わせる。</li>
+              <li><strong>肌</strong>：<strong>光老化対策</strong>（日焼け止め・帽子・衣類）が最重要。日焼け止めは<strong>広域スペクトル</strong>（UVB＝SPF・UVA＝PA の双方）を、屋外では2〜3時間ごとや発汗・水泳後に十分量を塗り直し、曇天・冬・窓際でも日常的に使用します（肝斑など色素性疾患では可視光対策として酸化鉄配合＝ティント製品が有利）。禁煙・保湿も基本。<strong>シワ改善はレチノイド（トレチノイン等）が最もエビデンスの確立した外用治療</strong>で日焼け止めと並ぶ柱ですが、初期は乾燥・赤み・落屑が起きやすく少量から漸増し保湿を併用、外用レチノイドは妊娠中は避け、経口イソトレチノインは催奇形性のため妊娠中は絶対禁忌（導入は皮膚科医に相談）。糖化（AGEs）はコラーゲン劣化に機序的には関与しますが、食事で糖化を減らして肌老化が改善するというヒトでのエビデンスは限定的です。</li>
+              <li><strong>感覚器（眼・耳・歯）</strong>：眼科（緑内障・加齢黄斑変性の早期発見）、聴力（必要なら補聴器）、歯科（歯周病＝全身炎症・咀嚼機能）。眼・歯は因果チャートにも収録。</li>
+              <li><strong>代謝・ホルモン・免疫</strong>：運動・減量でインスリン感受性を維持。ワクチンと基本習慣で免疫老化を緩和。安易なホルモン補充は避け、適応は専門医の管理下で。</li>
+            </ul>
+
+            <h3 id="interventions">話題の介入とエビデンス（冷静な評価）</h3>
+            <p>「若返り」を謳う介入は数多くありますが、<strong>ヒトでの寿命・健康寿命の延長</strong>が証明されたものはごく限られます。現状の目安は以下の通りです。</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>介入</th><th>現状の評価</th><th>コメント</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>カロリー制限（CR）</td><td><span class="ev-tag ev-prom">有望</span></td><td>動物では寿命延長が一貫。ヒトでは代謝指標の改善は示されるが寿命延長は未証明。低栄養・筋量減少に注意し、高齢者には不向きな場合。</td></tr>
+                  <tr><td>時間制限食・間欠的断食（TRE）</td><td><span class="ev-tag ev-prom">有望</span>／<span class="ev-tag ev-unc">不確実</span></td><td>減量・代謝改善は通常のカロリー制限と同程度。老化への独立した効果は不明。続けやすさが利点。極端な絶食は非推奨。</td></tr>
+                  <tr><td>ビタミンD</td><td>欠乏者で<span class="ev-tag ev-est">確立</span>／充足者は<span class="ev-tag ev-unc">限定的</span></td><td>欠乏の是正は骨の健康に有益。ただし転倒・骨折の予防効果は近年の大規模試験（VITAL）やUSPSTF評価では否定的〜限定的で、転倒予防目的の一律投与や充足者への上乗せは推奨されない（高用量はむしろ転倒増の報告）。血中濃度で判断。</td></tr>
+                  <tr><td>オメガ3（魚油）</td><td>混在（心血管ハイリスクで一部<span class="ev-tag ev-prom">有望</span>）</td><td>健康人の延命効果は不確実。高用量の魚油サプリでは心房細動リスクのわずかな増加の報告があり、サプリより<strong>魚食</strong>が基本。</td></tr>
+                  <tr><td>高用量の抗酸化サプリ（β-カロテン・高用量ビタミンE/A 等）</td><td><span class="ev-tag ev-neg">否定的</span></td><td>大規模試験で延命効果はなく、一部はむしろ有害。抗酸化は食品から。</td></tr>
+                  <tr><td>コラーゲン・ヒアルロン酸（経口）</td><td><span class="ev-tag ev-unc">不確実</span></td><td>経口コラーゲンペプチドは肌の弾力・水分の改善を示すRCTのメタ解析が複数あるが効果量は小さく、試験の質・資金源にばらつき。経口ヒアルロン酸の根拠はさらに限定的。害は少ないが過大評価に注意。</td></tr>
+                  <tr><td>NMN・NR（NAD⁺前駆体）／レスベラトロール</td><td><span class="ev-tag ev-unc">不確実</span></td><td>動物・小規模でNAD⁺上昇や代謝変化の報告。ヒトでの老化・寿命への効果は未確立で、長期安全性データも不足。</td></tr>
+                  <tr><td>メトホルミン</td><td><span class="ev-tag ev-unc">研究段階</span></td><td>糖尿病治療薬。老化を標的とした大規模試験（TAME など）が計画・提唱されているが、健康人への予防投与の効果は未確立。</td></tr>
+                  <tr><td>ラパマイシン（mTOR阻害）・セノリティクス（老化細胞除去）</td><td><span class="ev-tag ev-unc">研究段階</span></td><td>動物で有望。ヒトは臨床試験段階で、自己判断での使用は危険。</td></tr>
+                  <tr><td>成長ホルモン・テストステロン等の「若返り」目的補充</td><td><span class="ev-tag ev-neg">非推奨</span></td><td>医学的な欠乏症以外での使用は有害リスク。適応は専門医の管理下に限る。</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">
+              <strong>要点</strong>：運動・栄養・睡眠・禁煙といった「基本」が固まっていない段階で、サプリや先端介入に投資しても費用対効果は低いのが実情です。まず土台、その上での「上乗せ」と位置づけましょう。
+            </div>
+
+            <h3 id="measure">測る・追う指標</h3>
+            <ul>
+              <li><strong>身体機能</strong>：握力、歩行速度、片脚立ち時間、椅子立ち上がりテスト、VO₂max（専門施設での測定のほか6分間歩行やウェアラブルで傾向を把握）。フレイル・サルコペニアの早期把握に有用。</li>
+              <li><strong>体組成・代謝</strong>：腹囲・筋量、血圧、脂質、HbA1c・空腹時血糖、腎機能。必要に応じ骨密度。</li>
+              <li><strong>研究段階</strong>：生物学的年齢／エピジェネティック時計などの「老化度」測定は研究途上で、一般の臨床判断に用いるのは時期尚早。</li>
+            </ul>
+
+            <h3 id="byage">年代別の重点</h3>
+            <ul>
+              <li><strong>30〜40代</strong>：土台づくり（運動習慣・体組成・禁煙・睡眠）、健診での基準値把握、肌の紫外線対策。</li>
+              <li><strong>50代</strong>：筋量・骨量の維持（レジスタンス強化）、がん検診の徹底、更年期関連の管理、眼・歯のケア。</li>
+              <li><strong>60代以降</strong>：フレイル・サルコペニア予防（タンパク質＋運動）、転倒・難聴・口腔ケア、ワクチン、社会参加の維持。</li>
+            </ul>
+
+            <h3 id="priority">優先順位の考え方</h3>
             <p>
               情報が氾濫しがちな分野ですが、効果と確実性の面では
-              <strong>①禁煙・節酒 → ②運動（特に筋トレ）→ ③睡眠 → ④食事 → ⑤ストレス・つながり</strong>
-              の順で基本を固めるのが現実的です。サプリメントや特別な施術は、これらの土台ができたうえでの上乗せと位置づけると良いとされています。
+              <strong>①禁煙・節酒 → ②運動（特に筋トレ）→ ③睡眠 → ④食事 → ⑤ストレス・つながり → ⑥予防医療（健診・検診・ワクチン・歯科/眼科）</strong>
+              の順で基本を固めるのが現実的です。サプリメントや特別な施術は、これらの土台ができたうえでの「上乗せ」と位置づけましょう。
             </p>
+
+            <h3 id="myths">よくある誤解</h3>
+            <ul>
+              <li>「抗酸化サプリを大量に摂ればよい」→ 高用量はむしろ有害の可能性。抗酸化は食品から。</li>
+              <li>「特定の食品や断食だけで若返る」→ 本質は総合的な生活習慣。単一の魔法はない。</li>
+              <li>「高額な点滴・施術が近道」→ 多くはヒトでのエビデンス不足。まず基本の徹底を。</li>
+              <li>「運動は有酸素だけでよい」→ 筋トレ・バランスも必須（特に中年期以降）。</li>
+              <li>「睡眠は削ってよい」→ 睡眠は修復・記憶・代謝の土台。軽視は逆効果。</li>
+            </ul>
+
+            <h3 id="sources">出典・参考</h3>
+            <ul>
+              <li>厚生労働省 e-ヘルスネット／健康日本21（健康寿命・身体活動・栄養・睡眠）</li>
+              <li>WHO「身体活動・座位行動に関するガイドライン」(2020)</li>
+              <li>López-Otín ら「The Hallmarks of Aging」(Cell 2013／2023 更新)</li>
+              <li>各学会ガイドライン（動脈硬化性疾患予防／糖尿病／骨粗しょう症／サルコペニア／睡眠）、Lancet 認知症予防・介入・ケア委員会報告</li>
+            </ul>
           </div>
 
           <div class="notice" style="margin-top:1.6rem">
-            <strong>ご注意</strong>：本ページは一般的な健康情報を個人学習用にまとめたものです。効果には個人差があり、持病のある方の運動・食事・サプリの導入は必ず医師にご相談ください。
+            <strong>ご注意</strong>：本ページは一般に確立された健康情報を個人学習用に簡略化してまとめたものであり、診断・治療や特定のサプリ・介入を推奨するものではありません。効果には個人差があり、持病のある方や薬を服用中の方の運動・食事・サプリ・断食などの導入は、必ず事前に医師にご相談ください。
           </div>
         </div>
       </section>
