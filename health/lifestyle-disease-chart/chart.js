@@ -476,8 +476,20 @@
     const layRows = DATA.layers.map((l) =>
       `<div class="ldc-legend-row"><span class="ldc-legend-swatch" style="background:#fff;border:2px solid ${LAYER_BORDER[l.key] || "#666"}"></span>${esc(l.label)}</div>`).join("");
     legendEl.innerHTML = `
-      <div class="ldc-legend-col"><div class="ldc-legend-title">系統（塗り）</div>${sysRows}</div>
-      <div class="ldc-legend-col"><div class="ldc-legend-title">段階（枠）</div>${layRows}</div>`;
+      <div class="ldc-legend-head">
+        <span class="ldc-legend-heading">凡例</span>
+        <button class="ldc-legend-toggle" id="ldc-legend-toggle" aria-label="凡例の表示切替" title="凡例を折りたたむ">－</button>
+      </div>
+      <div class="ldc-legend-body">
+        <div class="ldc-legend-col"><div class="ldc-legend-title">系統（塗り）</div>${sysRows}</div>
+        <div class="ldc-legend-col"><div class="ldc-legend-title">段階（枠）</div>${layRows}</div>
+      </div>`;
+    $("ldc-legend-toggle").addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      const collapsed = legendEl.classList.toggle("is-collapsed");
+      ev.currentTarget.textContent = collapsed ? "＋" : "－";
+      ev.currentTarget.title = collapsed ? "凡例を開く" : "凡例を折りたたむ";
+    });
   }
 
   /* ---- ビュー操作 ---- */

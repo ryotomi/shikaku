@@ -80,10 +80,21 @@
 
 /* 凡例 */
 .ldc-legend {
-  position: absolute; bottom: 0.6rem; left: 0.6rem; background: rgba(255,255,255,0.93);
-  border: 1px solid var(--color-border); padding: 0.4rem 0.6rem; font-size: 0.72rem;
-  display: flex; gap: 0.9rem; max-width: calc(100% - 1.2rem); flex-wrap: wrap;
+  position: absolute; bottom: 0.6rem; left: 0.6rem; background: rgba(255,255,255,0.95);
+  border: 1px solid var(--color-border); padding: 0.3rem 0.5rem 0.45rem; font-size: 0.72rem;
+  display: flex; flex-direction: column; gap: 0.3rem; max-width: calc(100% - 1.2rem);
 }
+.ldc-legend-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
+.ldc-legend-heading { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-text-muted); }
+.ldc-legend-toggle {
+  background: var(--color-white); border: 1px solid var(--color-border); border-radius: 3px;
+  cursor: pointer; font-size: 0.8rem; line-height: 1; color: var(--color-text-light);
+  width: 20px; height: 18px; display: inline-flex; align-items: center; justify-content: center; padding: 0;
+}
+.ldc-legend-toggle:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.ldc-legend-body { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.ldc-legend.is-collapsed .ldc-legend-body { display: none; }
+.ldc-legend.is-collapsed { padding-bottom: 0.3rem; }
 .ldc-legend-col { display: flex; flex-direction: column; gap: 0.16rem; }
 .ldc-legend-title { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-text-muted); border-bottom: 1px solid var(--color-border); padding-bottom: 0.1rem; margin-bottom: 0.1rem; }
 .ldc-legend-row { display: flex; align-items: center; gap: 0.35rem; }
