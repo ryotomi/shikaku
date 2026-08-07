@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生活習慣病 因果チャート — 健康維持</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem;
+    }
+  </style>
+
+  <!-- D3.js v7.8.5 -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+  <script src="chart.js" defer></script>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) { location.href = "../../login.html"; return; }
+
+      document.getElementById("page-content").style.display = "block";
+      document.getElementById("user-avatar").src = user.photoURL || "";
+      document.getElementById("user-name").textContent = user.displayName || user.email;
+      document.getElementById("logout-btn").addEventListener("click", async () => {
+        await signOut(auth);
+        location.href = "../../login.html";
+      });
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">健康維持</div>
+        <div class="site-role">生活習慣・老化対策の個人ノート</div>
+        <div class="user-chip">
+          <img id="user-avatar" src="" alt="" />
+          <span id="user-name"></span>
+          <button id="logout-btn">ログアウト</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="../../index.html">資格まとめ</a></li>
+          <li><a class="nav-link" href="../../life/index.html">人生経営</a></li>
+          <li><a class="nav-link current" href="../index.html">健康維持</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="ldc-outer">
+          <div class="breadcrumb">
+            <a href="../../index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="../index.html">健康維持</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="../seikatsu.html">生活習慣病</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>因果チャート</span>
+          </div>
+
+          <h2 class="section-title">生活習慣病 因果チャート</h2>
+          <p class="ldc-intro">
+            「塩分過多 → 高血圧 → 腎機能低下」のように、日々の生活習慣が危険因子・疾患・合併症を経て重い転帰へつながる<strong>因果の連鎖</strong>を有向グラフにしました。
+            ノードをクリックすると、その要因の「原因（何から来るか）」と「結果（何を招くか）」、機序が右パネルに表示されます。段階・系統で絞り込めます。
+          </p>
+          <div class="ldc-flow-note">左（<b>原因</b>）　→　右（<b>結果</b>）　に読み進めてください。矢印は「◯◯が△△を引き起こす」を表します。</div>
+
+          <div class="ldc-filters">
+            <div class="ldc-filter-group">
+              <span class="ldc-filter-label">段階</span>
+              <span id="ldc-filter-layer" style="display:flex;flex-wrap:wrap;gap:.4rem"></span>
+            </div>
+            <div class="ldc-filter-group">
+              <span class="ldc-filter-label">系統</span>
+              <span id="ldc-filter-system" style="display:flex;flex-wrap:wrap;gap:.4rem"></span>
+              <button class="ldc-chip ldc-chip-action" data-preset="all">全て表示</button>
+              <button class="ldc-chip ldc-chip-action" data-preset="none">全て非表示</button>
+            </div>
+          </div>
+
+          <div class="ldc-graph-wrapper" id="ldc-graph-wrapper">
+            <div id="ldc-graph"><svg id="ldc-svg"></svg></div>
+            <button class="ldc-btn-fullscreen" id="ldc-btn-fullscreen">⛶ フルスクリーン</button>
+            <div id="ldc-loading" class="ldc-loading">
+              <span class="ldc-loading-spinner" aria-hidden="true"></span>
+              <span class="ldc-loading-msg">データを読み込み中…</span>
+            </div>
+            <div class="ldc-legend" id="ldc-legend"></div>
+            <aside id="ldc-panel" class="ldc-panel">
+              <div class="ldc-panel-header">
+                <button class="ldc-panel-close" id="ldc-panel-close" aria-label="閉じる">✕</button>
+              </div>
+              <div id="ldc-panel-body"></div>
+            </aside>
+          </div>
+
+          <div class="ldc-guide">
+            <h3>このチャートの読み方</h3>
+            <p>
+              ノードは左から右へ<strong>「生活習慣・環境要因 → 危険因子・中間病態 → 疾患 → 臓器合併症 → 転帰・機能障害」</strong>の順に並びます（実際の横位置は因果の深さで自動計算）。
+              矢印は原因から結果への向きで、太い実線は関与が特に強い経路、細い実線は関与する経路、<span style="color:#c0504d">赤い破線</span>は「悪循環」（結果が原因側を悪化させる）を表します。
+            </p>
+            <ul>
+              <li><strong>ノードをクリック</strong>：詳細パネルに説明・原因・結果・機序を表示し、関連する経路を強調します。</li>
+              <li><strong>段階・系統フィルタ</strong>：注目したい臓器系（循環器・腎・代謝など）や段階だけに絞れます。</li>
+              <li><strong>スクロール</strong>：図が画面より大きい場合は枠内をスクロールして移動できます。右上の「フルスクリーン」で全画面表示にすると見やすくなります。</li>
+            </ul>
+
+            <h3>代表的な因果の連鎖（例）</h3>
+            <ul>
+              <li>塩分過多 → 高血圧 → 慢性腎臓病 → 腎不全・透析</li>
+              <li>過食・運動不足 → 内臓脂肪 → インスリン抵抗性 → 高血糖 → 2型糖尿病 → 糖尿病腎症 → 透析</li>
+              <li>脂質異常症・喫煙 → 動脈硬化 → 虚血性心疾患 → 心不全 / 突然死</li>
+              <li>高血圧 → 脳出血、動脈硬化 → 脳梗塞 → 血管性認知症</li>
+            </ul>
+          </div>
+
+          <div class="notice ldc-sources">
+            <h3>出典・参考</h3>
+            <p>一般に確立された疫学・病態生理の知見に基づき整理しています。数値目安や診断基準は各ガイドラインをご参照ください。</p>
+            <ul>
+              <li>厚生労働省 e-ヘルスネット（生活習慣病・メタボリックシンドローム等）</li>
+              <li>日本高血圧学会「高血圧治療ガイドライン」／日本糖尿病学会「糖尿病診療ガイドライン」</li>
+              <li>日本動脈硬化学会「動脈硬化性疾患予防ガイドライン」／日本腎臓学会 CKD 診療ガイド</li>
+            </ul>
+            <p class="ldc-disclaimer">
+              ⚠️ 本コンテンツは学習・教養目的で、確立された一般的知見を簡略化して図示したものです。個々の病態は多因子で例外もあり、診断・治療の指針ではありません。健康・医療の判断は必ず医師にご相談ください。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>健康維持 — 個人学習用ノート</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。健康・医療の判断は必ず専門家にご相談ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>
