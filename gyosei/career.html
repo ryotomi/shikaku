@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ITエンジニア×法律系学部出身の強みを活かし、副業から段階的に独立する行政書士キャリアプラン。狙う専門分野・4フェーズのロードマップ・登録費用・兼業リスクをまとめた参考ページ。" />
+  <title>行政書士 キャリアプラン（副業→独立） — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    /* ページ固有：共通トークン（var(--color-*)）を流用 */
+    .strength-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+    @media (max-width: 640px) { .strength-grid { grid-template-columns: 1fr; } }
+    .strength-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-primary);
+      padding: 1.2rem 1.3rem;
+    }
+    .strength-card.it { border-top-color: #0c7c8c; }
+    .strength-card h3 {
+      font-family: var(--font-accent);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      margin-bottom: 0.7rem;
+    }
+    .strength-card.it h3 { color: #0a5c69; }
+    .strength-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .strength-card li {
+      font-size: 0.9rem; color: var(--color-text-light);
+      padding-left: 1.1rem; position: relative; line-height: 1.7;
+    }
+    .strength-card li::before {
+      content: ""; position: absolute; left: 0; top: 0.65em;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary);
+    }
+    .strength-card.it li::before { background: #0c7c8c; }
+
+    .dots { white-space: nowrap; font-size: 0.9rem; letter-spacing: 2px; color: #0c7c8c; }
+    .dots .off { color: var(--color-border); }
+
+    .phase-term {
+      font-family: var(--font-primary); font-weight: 400; font-size: 0.72rem;
+      color: var(--color-text-muted); background: var(--color-bg-alt);
+      padding: 0.12em 0.65em; border-radius: 999px; margin-left: 0.6em;
+      vertical-align: middle;
+    }
+    .flow-body p.phase-do { font-size: 0.86rem; }
+    .flow-body p.phase-income { font-size: 0.86rem; color: var(--color-text); }
+    .phase-income b { color: var(--color-primary); font-variant-numeric: tabular-nums; }
+    .phase-income .cau { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">行政書士 キャリアプラン</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="index.html">行政書士</a></li>
+        <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+        <li><a class="nav-link current" href="career.html">キャリアプラン</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- リード -->
+    <section class="section">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/shikaku/index.html">ホーム</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="index.html">行政書士</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>キャリアプラン</span>
+        </div>
+
+        <h2 class="section-title">副業から始めて段階的に独立する</h2>
+        <p class="lead">
+          「合格して即独立」ではなく、本業の収入を保ちながら実務経験と顧客基盤を積み、勝てる専門分野に絞ってから独立する——リスクを抑えた4フェーズ設計。
+          <strong>ITエンジニア×法律系学部出身</strong>という組み合わせが参入障壁になる領域を軸に据えます。
+        </p>
+        <div class="notice">
+          <strong>追い風：2026年1月1日施行の改正行政書士法で「デジタル社会への対応」が努力義務として明文化。</strong>
+          多くの実務家がIT対応に苦戦するなか、技術と法律の両方が分かる人材は希少です。
+        </div>
+      </div>
+    </section>
+
+    <!-- 強み -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">あなたの経歴が効く理由</h2>
+        <p class="lead">
+          目指すのは「ITが分かる法律家」ではなく<strong>「法律も書ける元エンジニア」</strong>。
+          前職の人脈と業界知識が、そのまま最初の見込み客リストになります。
+        </p>
+        <div class="strength-grid">
+          <div class="strength-card it">
+            <h3>ITエンジニアとしての強み</h3>
+            <ul>
+              <li>電子申請システム（gBizID / DIPS / 在留申請オンライン）を苦なく使いこなせる</li>
+              <li>補助金申請で問われる「システム導入・DX計画」の実現性を、技術者目線で説得力ある事業計画に落とせる</li>
+              <li>顧客のシステム・SaaS・セキュリティの実態を理解した上で規程や契約を設計できる</li>
+              <li>業務自動化・文書テンプレート化で、少人数でも高い処理能力を持てる</li>
+            </ul>
+          </div>
+          <div class="strength-card law">
+            <h3>法律系学部出身としての強み</h3>
+            <ul>
+              <li>条文・要件効果を読む訓練があり、リーガルリサーチの立ち上がりが速い</li>
+              <li>契約書・規程の条項設計、法的リスクの予見（予防法務）の素地がある</li>
+              <li>行政法・民法の体系理解があり、許認可の根拠法令を辿れる</li>
+              <li>「非弁行為」など業際の境界を意識でき、無用なトラブルを避けられる</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 狙う専門分野 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">狙うべき専門分野（優先順）</h2>
+        <p class="lead">
+          「何でもやる街の行政書士」は価格競争に沈みます。あなたの経歴が参入障壁になる4〜5分野に絞り込みます。
+          「相性」は“あなたの強みがどれだけ効くか”の目安です。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:2.5rem">#</th>
+                <th>分野</th>
+                <th>内容と強みの効きどころ</th>
+                <th style="white-space:nowrap">相性</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">1</td>
+                <td class="highlight">IT・DX系の補助金申請支援</td>
+                <td>デジタル化・AI導入補助金（旧IT導入補助金）、ものづくり補助金など。採択の鍵は「システム導入で何がどう改善するか」の実現性で、技術者の独壇場。<strong>成功報酬型で単価が高い（採択額の10〜20%が目安）</strong>。</td>
+                <td><span class="dots">●●●●●</span></td>
+              </tr>
+              <tr>
+                <td class="num">2</td>
+                <td class="highlight">外国人IT人材の入管業務</td>
+                <td>「技術・人文知識・国際業務」ビザの取得・更新、高度専門職など。IT企業のエンジニア採用に直結し、業務内容の技術的説明を的確に書ける点が差別化に。<strong>更新でリピートするストック型</strong>。※申請取次資格の取得が前提。</td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+              <tr>
+                <td class="num">3</td>
+                <td class="highlight">IT企業向けの契約・規程・個人情報対応</td>
+                <td>業務委託／SES／ライセンス契約、利用規約・プライバシーポリシー、個人情報保護法対応、Pマーク／ISMS整備支援、電気通信事業の届出など。<strong>顧問契約で月次収益化しやすい予防法務</strong>。</td>
+                <td><span class="dots">●●●●●</span></td>
+              </tr>
+              <tr>
+                <td class="num">4</td>
+                <td class="highlight">ドローン飛行許可・承認申請</td>
+                <td>産業利用の拡大で需要は右肩上がり。DIPSでの電子申請が中心で、機体・飛行原理の技術理解があると要件整理が速い。<strong>参入者がまだ少なく先行者利益を取りやすい</strong>。</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="num">5</td>
+                <td class="highlight">スタートアップ・起業支援</td>
+                <td>電子定款の作成、各種許認可、補助金・資金調達サポートをワンストップで。IT起業家と会話が成立するのが武器。<strong>※設立登記は司法書士・税務は税理士の領域。連携先を持ちハブになる</strong>。</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 重点分野・営業プラン -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">重点分野・営業プラン<span class="badge badge-accent">社内SE / 情シス出身向け</span></h2>
+        <p class="lead">
+          5分野のうち、<strong>IT・DX補助金申請支援を主軸に、IT契約・規程を「顧問」としてストック化</strong>する2本立てが最適解。
+          社内SE・情シス・DX推進の実務経験と、中小〜中堅IT企業の人脈が、そのまま参入障壁になります。
+          （英語が主力にできないため入管業務は将来オプションとして温存、ドローンは専門と接続しないため対象外）
+        </p>
+        <div class="notice">
+          <strong>「収益型は未定」への答えがこの組み合わせ自体です。</strong>
+          補助金＝高単価スポットで初速をつくり、顧問（契約・規程）＝安定ストックで土台を作る。
+          同じ1社に両方を提供し、収入の波を平準化します。片方に決める必要はありません。
+        </div>
+
+        <h3 style="font-family:var(--font-accent);font-weight:500;color:var(--color-primary);margin:1.6rem 0 0.6rem;">なぜこの2分野が最適か</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th style="width:34%">あなたの強み</th><th>どう効くか</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">社内SE・情シス・DX推進</td>
+                <td>補助金の採否を分ける核心＝「システム導入で業務が何をどう改善するか」を<strong>“実体験として”書ける</strong>。他士業が最も苦手な部分で、最大の差別化点になる。</td>
+              </tr>
+              <tr>
+                <td class="highlight">中小〜中堅IT企業の人脈</td>
+                <td>まさに IT導入補助金・ものづくり補助金の主対象であり、取引先からセキュリティ・契約整備を求められる層。<strong>最初の受注先そのもの</strong>。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notice">
+          <strong>ポジショニング（一言）：</strong>
+          「元・社内SE / 情シスの行政書士。現場のシステム導入を知っているから、“採択される”事業計画を書けます。」
+        </div>
+
+        <h3 style="font-family:var(--font-accent);font-weight:500;color:var(--color-primary);margin:1.6rem 0 0.6rem;">提供メニューと価格の目安</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>メニュー</th><th>課金形態</th><th class="num">目安</th><th style="white-space:nowrap">型</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">デジタル化・AI導入補助金／ものづくり補助金 申請支援</td>
+                <td>着手金＋成功報酬</td>
+                <td class="num">成功報酬＝採択額の10〜20%</td>
+                <td>スポット</td>
+              </tr>
+              <tr>
+                <td class="highlight">契約書・規程レビュー（SES／業務委託／利用規約／PP）</td>
+                <td>スポット</td>
+                <td class="num">1通 数万円〜</td>
+                <td>スポット</td>
+              </tr>
+              <tr>
+                <td class="highlight">顧問（契約・個人情報／Pマーク相談・補助金の年間伴走）</td>
+                <td>月額顧問</td>
+                <td class="num">月 数万円〜</td>
+                <td><strong>ストック</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="lead" style="font-size:0.85rem;color:var(--color-text-muted);">価格は相場の目安。地域・難度で変動するため、受任時に個別見積り。</p>
+
+        <h3 style="font-family:var(--font-accent);font-weight:500;color:var(--color-primary);margin:1.6rem 0 0.6rem;">集客チャネル（着手順）</h3>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>前職・現職経由の中小IT企業へ直接</strong>
+              <p>まず無料の「補助金診断」を入口に。既存の信頼を使える最短ルート。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>発信でストックを作る</strong>
+              <p>「情シスのための補助金・IT契約」をブログ／SNSで。IT力で自作すれば低コストで信頼が積める。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>他士業・ベンダーと提携</strong>
+              <p>税理士（顧問先に補助金ニーズ）、SIer／ツールベンダー（導入案件に補助金をセット）からの紹介ルートを作る。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">4</div>
+            <div class="flow-body">
+              <strong>公募カレンダー起点の営業</strong>
+              <p>補助金は公募時期が命。締切から逆算して声かけのタイミングを設計する。</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-family:var(--font-accent);font-weight:500;color:var(--color-primary);margin:1.6rem 0 0.6rem;">90日アクション（この分野に特化）</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>アクション</th><th style="white-space:nowrap">時期</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>狙う補助金を2つに固定（デジタル化補助金＋ものづくり補助金など）、公募スケジュールを把握</td><td class="num">Week 1–2</td></tr>
+              <tr><td>前職・現職の人脈から10社リスト化、「無料補助金診断」の案内文を用意</td><td class="num">Week 2–4</td></tr>
+              <tr><td>発信開始（採択のコツ／NG事業計画の型）、まず1社の申請を実費レベルでも受任し実績化</td><td class="num">Week 4–8</td></tr>
+              <tr><td>申請1件を回しつつ、その会社に契約・規程の顧問を提案しストック化</td><td class="num">Week 8–12</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="font-family:var(--font-accent);font-weight:500;color:var(--color-primary);margin:1.6rem 0 0.6rem;">誠実に押さえる注意点</h3>
+        <ul class="exclusive-list">
+          <li><strong>補助金支援は独占業務ではない</strong>：誰でも参入でき、コンサルとの競合が多い。だからこそ差別化は「元エンジニアの技術的説得力」の一点に集約する。</li>
+          <li><strong>認定経営革新等支援機関の関与</strong>：ものづくり補助金等は認定支援機関の関与が要件になる場合がある。行政書士単独でどこまで完結できるかは各補助金の公募要領で要確認。</li>
+          <li><strong>業際の境界</strong>：税務は税理士、登記は司法書士の領域。顧問先で境界を越える相談は連携で受ける。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ロードマップ -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">4フェーズ・ロードマップ</h2>
+        <p class="lead">
+          本業を辞めるのは「独立後の想定月商が本業収入に近づいた」段階。それまでは兼業でリスクを最小化します。
+          期間は目安で、<strong>フェーズ2の到達度で独立時期を判断</strong>します。
+        </p>
+        <div class="flow">
+
+          <div class="flow-step">
+            <div class="flow-num">0</div>
+            <div class="flow-body">
+              <strong>準備期 ｜ 合格〜登録前 <span class="phase-term">目安 〜3か月</span></strong>
+              <p>目標：登録の前に「売り方」と最初の見込み客を固める。資格は取ってから考える、では遅い。</p>
+              <p class="phase-do">やること：専門分野を1〜2つ仮決め／就業規則の副業規定を確認／前職・現職の人脈を見込み客リスト化／屋号・簡易サイト・SNSを準備／登録費用と運転資金を確保。</p>
+              <p class="phase-income">想定収入：<b>0円</b><span class="cau">（この期間の投資が後で効く）</span></p>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>副業期 ｜ 本業を続けながら開業 <span class="phase-term">目安 6〜18か月</span></strong>
+              <p>目標：本業を主軸に、行政書士として登録・開業して実績を1件ずつ積む。“稼ぐ”より“実務経験と信用を作る”フェーズ。</p>
+              <p class="phase-do">やること：都道府県行政書士会に登録・入会／入管をやるなら申請取次資格を取得／知人・前職経由の小さな案件を受任／1件ごとに手順書・テンプレを整備／実績を発信し問い合わせ導線を作る／他士業と関係構築。</p>
+              <p class="phase-income">想定月商：<b>数万〜20万円前後</b><span class="cau">（波が大きい。本業収入が支え。土日・平日夜で回す）</span></p>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>移行期 ｜ 独立の助走 <span class="phase-term">目安 12〜24か月</span></strong>
+              <p>目標：リピート・紹介が回り始め、専門分野の看板が立つ。「本業を辞めても数か月は食える」見込みと貯蓄を作る。</p>
+              <p class="phase-do">やること：専門分野を1つに絞り“第一想起”を狙う／顧問・継続契約を増やす／単価を上げ時間のかかる案件は選別・外注化／本業の稼働を落とせるか検討／独立後6か月分の生活防衛資金を確保／会計・請求・顧客管理をIT力で自動化。</p>
+              <p class="phase-income">想定月商：<b>20〜50万円</b><span class="cau">（本業月収の6〜7割に届いたら独立を現実の選択肢に）</span></p>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>独立期 ｜ 専業へ <span class="phase-term">目安 3年目以降</span></strong>
+              <p>目標：本業を退職し、専業として拡大。空いた時間を営業・高単価案件・仕組み化に再投資する。</p>
+              <p class="phase-do">やること：退職時期は「継続案件で固定費を賄える」目処で判断／法人化（行政書士法人）や採用を検討／IT×法務のセミナー・発信でブランド化／補助金・入管など季節性の収益を組み合わせ平準化／提携ネットワークでワンストップ強化。</p>
+              <p class="phase-income">想定月商：<b>50万円〜</b><span class="cau">（分野・営業力で大きく変動。保証ではなく設計目標）</span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 費用 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">登録・開業の費用</h2>
+        <p class="lead">
+          試験合格＝行政書士ではなく、事務所を置く都道府県の行政書士会への登録・入会が必須です。
+          金額は単位会ごとに異なるため、最終額は所属予定の会の公式サイトで確認してください（下記は2025年時点の一般的な目安）。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>項目</th><th class="num">目安金額</th><th>備考</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="highlight">登録手数料（連合会）</td><td class="num">25,000円</td><td>名簿登録の手数料</td></tr>
+              <tr><td class="highlight">入会金（単位会）</td><td class="num">約20〜25万円</td><td>都道府県で差が大きい（例：東京は入会金20万円）</td></tr>
+              <tr><td class="highlight">登録免許税</td><td class="num">30,000円</td><td>登録時に納付</td></tr>
+              <tr><td class="highlight">初期費用 合計</td><td class="num">約25〜30万円</td><td>会・地域により前後する</td></tr>
+              <tr><td class="highlight">年会費（維持費）</td><td class="num">年 約5〜7万円</td><td>月6,000円前後を数か月分まとめて納付する会が多い</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice">
+          このほか什器・PC・業務ソフト・賠償責任保険・広告費などが別途。
+          <strong>副業期は自宅を事務所にすれば固定費を最小化</strong>できます（事務所要件は会の規程を要確認）。
+        </div>
+      </div>
+    </section>
+
+    <!-- リスク -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">兼業のリスクと注意点</h2>
+        <p class="lead">
+          行政書士法に副業を禁じる規定はなく、会社員との兼業は可能です。ただし“詰み”を避けるため、開業前に必ず潰しておく論点があります。
+        </p>
+        <ul class="exclusive-list">
+          <li><strong>① 勤務先の就業規則</strong>：法律で認められていても、勤務先が副業を禁止・許可制にしている場合がある。開業前に確認し、必要なら許可申請を。競業避止・情報管理規定にも留意。</li>
+          <li><strong>② 利益相反・情報の分離</strong>：会社員としての職務と行政書士業務が利益相反しないよう明確に区別。勤務先の顧客・機密情報を流用しない。会社内で行政書士の独占業務は行えない（登録は個人単位）。</li>
+          <li><strong>③ 業際（他士業の独占業務）の壁</strong>：紛争性ある代理交渉は弁護士法72条（非弁）に抵触。登記は司法書士、税務は税理士、社会保険手続は社労士の独占。行政書士がやれるのは「官公署提出書類」「権利義務・事実証明に関する書類」の作成等。越える部分は連携で対応。</li>
+          <li><strong>④ 公務員は登録不可・稼働時間の現実</strong>：公務員は原則、在職中の登録・開業ができない。副業期は平日夜・土日で回すことになり、行政庁の窓口が平日日中である点との両立設計が鍵。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 90日アクション -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">まず動く：90日アクション</h2>
+        <p class="lead">合格前後どちらからでも着手できる最初の一歩。順番より“着手すること”が大事です。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>アクション</th><th>なぜ</th><th style="white-space:nowrap">時期</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="highlight">就業規則の副業規定を確認</td><td>ここが黒なら全計画の前提が変わる。最優先で潰す。</td><td class="num">Week 1</td></tr>
+              <tr><td class="highlight">専門分野を1〜2つに仮決め</td><td>補助金／入管／IT契約のどれで戦うか。前職の人脈が最も濃い領域を選ぶ。</td><td class="num">Week 1–2</td></tr>
+              <tr><td class="highlight">見込み客リストを20件書き出す</td><td>前職の同僚・取引先・IT起業家・外国人エンジニア採用企業など。</td><td class="num">Week 2–3</td></tr>
+              <tr><td class="highlight">登録費用＋運転資金を確保</td><td>初期25〜30万円＋年会費5〜7万円＋当面の実費を見積もる。</td><td class="num">Week 3–4</td></tr>
+              <tr><td class="highlight">屋号・簡易サイト・SNSを立ち上げ</td><td>「元エンジニアの行政書士」の一点で発信開始。IT力で自作すれば低コスト。</td><td class="num">Week 4–8</td></tr>
+              <tr><td class="highlight">所属予定の会の費用・要件を確認</td><td>入会金・事務所要件は会ごとに違う。公式サイトで最終確認し登録段取りを組む。</td><td class="num">Week 8–12</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 出典・注記 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">出典・注記</h2>
+        <div class="notice">
+          <strong>本ページは一般的な情報の整理であり、費用・制度は2025〜2026年時点の目安です。</strong>
+          登録要件・費用・業務範囲は所属予定の都道府県行政書士会および最新の法令で必ずご確認ください。
+          想定収入は市場・営業力により大きく変動し、成果を保証するものではありません。
+        </div>
+        <p class="lead" style="font-size:0.9rem">
+          参考：改正行政書士法のデジタル対応義務化／副業・兼業の可否（STUDYing・TAC）／登録費用・年会費（フォーサイト 等）／IT・入管・ドローン等の成長分野（TOTAL・飯島事務所 等）。数値は所属予定会の公式情報で更新してください。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — 行政書士</div>
+      <div class="disclaimer">掲載内容は個人学習・キャリア検討目的です。最新情報は公式機関（行政書士試験研究センター・各都道府県行政書士会）でご確認ください。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>
