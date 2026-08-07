@@ -378,20 +378,41 @@
               <tr><td class="highlight">追加の初期登録費</td><td class="num">約16万円</td><td>税理士登録（登録免許税6万＋手数料5万＋入会金約5万）</td></tr>
               <tr><td class="highlight">投資合計</td><td class="num">約96万円</td><td>取得80万＋初期16万</td></tr>
               <tr><td class="highlight">追加維持費</td><td class="num">年 約12万円</td><td>税理士会の年会費（本会＋支部）</td></tr>
-              <tr><td class="highlight">収益（顧問1社）</td><td class="num">月3万円＝年36万円</td><td>中小企業の月次顧問の一例</td></tr>
+              <tr><td class="highlight">収益（顧問1社）</td><td class="num">年 約48〜54万円</td><td>月次顧問 月3万＋決算料（月額の4〜6ヶ月分）。年商規模の大きい法人はさらに上振れ</td></tr>
             </tbody>
           </table>
         </div>
         <div class="notice">
           <strong>回収の目安：</strong>
-          税務顧問を<strong>3〜4社（年108〜144万円）</strong>獲得すれば、追加維持費（年12万円）を賄ったうえで、投資96万円を<strong>おおむね1〜2年で回収</strong>。
-          そこから顧問を<strong>15社（月45万＝年540万円）</strong>まで育てれば、税務だけで年500万円規模の新しいストック収入の柱になります。
+          決算料込みの標準単価（1社 年約50万円）なら、税務顧問<strong>3社（年約150万円）</strong>で追加維持費（年12万円）を賄い、投資96万円を<strong>1年前後で回収</strong>。
+          15社まで育てれば税務だけで<strong>年750万円規模</strong>の新しいストック収入の柱になります（単価の幅は下の感応度表を参照）。
         </div>
         <div class="notice">
           <strong>二重会費の最適化：</strong>
           税理士になれば行政書士は無試験で登録できますが、両方を登録し続けると会費も二重（年＋5〜7万円）。
           税務が主軸になったら<strong>行政書士登録をやめて維持費を圧縮</strong>する選択もあります（ただし行政書士名義の許認可業務はできなくなる点に注意）。
         </div>
+
+        <h3 class="subhead">単価×社数の感応度（税務顧問の年商）</h3>
+        <p>「1社あたり年額 × 顧問社数」で税務ストックの年商がどう動くか（<strong>行政書士業・補助金の収入とは別の上乗せ</strong>）。保守は決算料を除外、標準は月次＋決算料、強気は年商規模の大きい法人中心。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>1社あたり年額（前提）</th><th class="num">5社</th><th class="num">10社</th><th class="num">15社</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="highlight">保守 約36万円 <span style="color:var(--color-text-muted);font-weight:400;font-size:0.8rem;">月3万・決算料なし</span></td><td class="num">180万</td><td class="num">360万</td><td class="num">540万</td></tr>
+              <tr><td class="highlight">標準 約50万円 <span style="color:var(--color-text-muted);font-weight:400;font-size:0.8rem;">月3万＋決算料</span></td><td class="num">250万</td><td class="num">500万</td><td class="num">750万</td></tr>
+              <tr><td class="highlight">強気 約75万円 <span style="color:var(--color-text-muted);font-weight:400;font-size:0.8rem;">月5万＋決算料/記帳</span></td><td class="num">375万</td><td class="num">750万</td><td class="num">1,125万</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice">
+          <strong>ただし「収入のリアル」は二極化：</strong>
+          令和5年の行政書士実態調査では<strong>年間売上500万円未満が約76%</strong>を占める一方、1,000万円超も一定数——はっきり二極化しています。
+          本シミュレーションは<strong>「営業が回り、勝ち筋の少数側に入る」前提</strong>の数字です。単価には上振れ余地がある一方、受任が伸びなければ下振れも大きい点に注意してください。
+        </div>
+
         <h3 class="subhead">試算例：シナリオ②（中小企業診断士＋総合事務所化）</h3>
         <p>「診断士で看板を作り、必要に応じて有資格者を採用して受任を広げる」場合（<strong>すべて仮定値</strong>）。低コストで始められる一方、採用は固定費が増えるのが分岐点です。</p>
         <div class="table-wrap">
@@ -436,14 +457,15 @@
         <h3 class="subhead">累計収支の推移（8年・仮定モデル）</h3>
         <p>3シナリオの<strong>累計収支（投資を回収したうえで、どれだけプラスになったか）</strong>を8年で比較した仮定モデルです。縦軸は累計（万円）、横軸は着手からの年数。上記の仮定に基づく概算で、実際とは異なります。</p>
         <div class="chart-wrap">
-          <svg id="pnl-chart" role="img" aria-label="3シナリオの累計収支を8年間で比較した折れ線グラフ。①税理士は序盤マイナスから後半に急伸、②診断士は低コストで早期に黒字化し安定、③社外役員は初年度から一定ペースで増加。"></svg>
+          <svg id="pnl-chart" role="img" aria-label="累計収支を8年間で比較した折れ線グラフ。①税理士は序盤マイナスから後半に急伸し、実線=保守(1社36万)と破線=標準(1社50万・決算料込み)の幅で示す。②診断士は低コストで早期に黒字化し安定、③社外役員は初年度から一定ペースで増加。"></svg>
           <div class="chart-legend">
-            <span><i style="background:#2b4b6e"></i>① 税理士（専門家型）</span>
-            <span><i style="background:#0c7c8c"></i>② 診断士＋看板（経営者型・低コスト）</span>
-            <span><i style="background:#c04c38"></i>③ 社外役員×2社（当事者型）</span>
+            <span><i style="background:#2b4b6e"></i>① 税理士・保守（決算料なし）</span>
+            <span><i style="background:none;height:0;border-top:3px dashed #2b4b6e;width:18px"></i>① 税理士・標準（決算料込み）</span>
+            <span><i style="background:#0c7c8c"></i>② 診断士＋看板（低コスト）</span>
+            <span><i style="background:#c04c38"></i>③ 社外役員×2社</span>
           </div>
         </div>
-        <p class="lead" style="font-size:0.85rem;color:var(--color-text-muted);">※①は取得に5年を要するため序盤は先行投資でマイナス、後半に税務顧問が積み上がり急伸。②は低コストで早期黒字だが伸びは緩やか。③は初年度から一定ペース（エクイティ＝株式・SOの将来価値は未計上のため、含めれば上振れ余地あり）。</p>
+        <p class="lead" style="font-size:0.85rem;color:var(--color-text-muted);">※①は取得に5年かかるため序盤は先行投資でマイナス、後半に税務顧問が積み上がり急伸（<strong>実線＝保守 36万/社、破線＝標準 50万/社</strong>。標準では8年目に約1,368万円）。②は低コストで早期黒字だが伸びは緩やか。③は初年度から一定ペース（株式・SOの将来価値は未計上のため、含めれば上振れ余地あり）。</p>
 
         <div class="notice">
           <strong>前提・免責：</strong>
@@ -522,16 +544,17 @@
   (function () {
     var series = [
       { color: '#2b4b6e', vals: [-16, -32, -48, -64, -96, 72, 420, 948] },
+      { color: '#2b4b6e', dash: '6 4', vals: [-16, -32, -48, -64, -96, 142, 630, 1368] },
       { color: '#0c7c8c', vals: [-38, 37, 132, 242, 362, 492, 632, 782] },
       { color: '#c04c38', vals: [120, 240, 360, 480, 600, 720, 840, 960] }
     ];
     var W = 760, H = 380, mL = 54, mR = 16, mT = 18, mB = 34;
     var plotW = W - mL - mR, plotH = H - mT - mB;
-    var yMax = 1000, yMin = -100, n = 8;
+    var yMax = 1400, yMin = -100, n = 8;
     function X(i) { return mL + (i) / (n - 1) * plotW; }
     function Y(v) { return mT + (yMax - v) / (yMax - yMin) * plotH; }
     var svg = '';
-    [1000, 750, 500, 250, 0, -100].forEach(function (t) {
+    [1400, 1050, 700, 350, 0, -100].forEach(function (t) {
       var y = Y(t), bold = (t === 0);
       svg += '<line x1="' + mL + '" y1="' + y + '" x2="' + (W - mR) + '" y2="' + y + '" stroke="' + (bold ? '#9a958c' : '#e6e1d8') + '" stroke-width="' + (bold ? 1.4 : 1) + '"/>';
       svg += '<text x="' + (mL - 8) + '" y="' + (y + 4) + '" text-anchor="end" font-size="11" fill="#8a8a8a" font-family="sans-serif">' + t + '</text>';
@@ -542,10 +565,13 @@
     svg += '<text x="' + mL + '" y="12" font-size="10.5" fill="#8a8a8a" font-family="sans-serif">累計収支（万円）</text>';
     series.forEach(function (s) {
       var pts = s.vals.map(function (v, i) { return X(i) + ',' + Y(v); }).join(' ');
-      svg += '<polyline points="' + pts + '" fill="none" stroke="' + s.color + '" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
-      s.vals.forEach(function (v, i) {
-        svg += '<circle cx="' + X(i) + '" cy="' + Y(v) + '" r="3.2" fill="' + s.color + '"/>';
-      });
+      var da = s.dash ? ' stroke-dasharray="' + s.dash + '"' : '';
+      svg += '<polyline points="' + pts + '" fill="none" stroke="' + s.color + '" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"' + da + '/>';
+      if (!s.dash) {
+        s.vals.forEach(function (v, i) {
+          svg += '<circle cx="' + X(i) + '" cy="' + Y(v) + '" r="3.2" fill="' + s.color + '"/>';
+        });
+      }
     });
     var el = document.getElementById('pnl-chart');
     if (el) { el.setAttribute('viewBox', '0 0 ' + W + ' ' + H); el.innerHTML = svg; }
