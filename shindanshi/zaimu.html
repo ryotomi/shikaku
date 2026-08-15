@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="財務・会計は簿記・会計の「アカウンティング」と、投資判断・企業価値評価の「ファイナンス」の二本柱からなり、計算問題が中心の科目です。暗記だけでなく、電卓を使った計算処理のスピードと正確性が得点を左右します。1次試験で得た" />
+  <title>財務・会計 — 中小企業診断士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">中小企業診断士 財務・会計</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">中小企業診断士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">中小企業診断士</a><span class="breadcrumb-sep">›</span><span>財務・会計</span></div>
+        <h1 class="section-title">財務・会計</h1>
+        <p class="lead">財務・会計は簿記・会計の「アカウンティング」と、投資判断・企業価値評価の「ファイナンス」の二本柱からなり、計算問題が中心の科目です。暗記だけでなく、電卓を使った計算処理のスピードと正確性が得点を左右します。1次試験で得た計算力は第2次試験の事例IV（財務・会計）にそのまま直結するため、公式の丸暗記ではなく「何を求める式か」を理解して定着させる学習が重要です。頻出論点（経営分析の比率、CVP、NPV/IRR、CAPM/WACC）を優先的に固め、過去問演習で処理手順を体に覚え込ませましょう。</p>
+        <div class="notice">配点は各科目100点・7科目合計700点で、合計6割（420点）以上が合格基準。ただし1科目でも40点未満があると「足切り」で不合格になります。財務・会計は問題数が少なく1問あたりの配点が大きいため、1つの計算ミスや苦手論点で40点を割りやすい科目です。得意化して得点源にするか、最低でも足切り回避を確実にする戦略で臨みましょう。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">アカウンティング（財務諸表・簿記・減価償却）</h2>
+        <p class="lead">財務3表の構造と、頻出の減価償却・税効果などの会計処理を押さえる。全論点の土台となる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義・計算式</th><th>留意点</th></tr></thead><tbody><tr><td>貸借対照表(B/S)</td><td>一時点の財政状態。資産＝負債＋純資産</td><td>流動/固定は正常営業循環基準・1年基準で分類</td></tr><tr><td>損益計算書(P/L)</td><td>一期間の経営成績。売上総利益→営業利益→経常利益→税引前当期純利益→当期純利益と段階表示</td><td>営業利益＝売上総利益−販管費、経常利益＝営業利益＋営業外収益−営業外費用</td></tr><tr><td>キャッシュ・フロー計算書</td><td>営業・投資・財務の3区分でCFを表示</td><td>営業CFの間接法：税引前利益＋減価償却費±運転資本増減−法人税等</td></tr><tr><td>定額法</td><td>(取得原価−残存価額)÷耐用年数</td><td>毎期同額。残存価額は現行制度で原則ゼロ（備忘1円）</td></tr><tr><td>定率法</td><td>期首簿価×償却率(200%定率法など)</td><td>初期に多く償却。償却保証額を下回ると均等償却へ切替</td></tr><tr><td>税効果会計</td><td>会計と税務の一時差異を調整。繰延税金資産/負債を計上</td><td>将来減算一時差異→繰延税金資産、回収可能性の判断が必要</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">営業利益・経常利益・当期純利益の並びと減価償却2方式の式は必須の基礎知識。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">経営分析（収益性・安全性・効率性）</h2>
+        <p class="lead">財務諸表から各種比率を算出し企業を診断する、1次・2次を通じ最頻出の分野。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>指標・計算式</th><th>評価の方向</th></tr></thead><tbody><tr><td>収益性</td><td>売上高総利益率＝売上総利益÷売上高、売上高営業利益率＝営業利益÷売上高</td><td>高いほど良い</td></tr><tr><td>収益性(資本)</td><td>ROA＝利益÷総資本、ROE＝当期純利益÷自己資本</td><td>高いほど良い。デュポン分解で要因分析</td></tr><tr><td>効率性</td><td>総資本回転率＝売上高÷総資本、棚卸資産回転率＝売上高(or売上原価)÷棚卸資産</td><td>高い(回転が速い)ほど良い</td></tr><tr><td>安全性(短期)</td><td>流動比率＝流動資産÷流動負債×100、当座比率＝当座資産÷流動負債×100</td><td>高いほど良い(流動比率は200%・当座比率は100%が目安)</td></tr><tr><td>安全性(長期)</td><td>固定比率＝固定資産÷自己資本×100、固定長期適合率＝固定資産÷(自己資本＋固定負債)×100</td><td>低いほど良い(100%以下が望ましい)</td></tr><tr><td>安全性(資本構成)</td><td>自己資本比率＝自己資本÷総資本×100、負債比率＝負債÷自己資本×100</td><td>自己資本比率は高いほど、負債比率は低いほど良い</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">ROE＝売上高純利益率×総資本回転率×財務レバレッジ（デュポン分解）は要因分析の定番。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">CVP分析（損益分岐点）</h2>
+        <p class="lead">費用を変動費と固定費に分け、利益がゼロになる売上高を求める短期利益計画の基礎。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>計算式</th><th>留意点</th></tr></thead><tbody><tr><td>限界利益</td><td>限界利益＝売上高−変動費</td><td>限界利益率＝限界利益÷売上高＝1−変動費率</td></tr><tr><td>損益分岐点売上高(BEP)</td><td>固定費÷限界利益率</td><td>販売量ベースなら固定費÷(単価−単位変動費)</td></tr><tr><td>目標利益達成売上高</td><td>(固定費＋目標利益)÷限界利益率</td><td>目標利益を固定費に上乗せして計算</td></tr><tr><td>安全余裕率</td><td>(実際売上高−損益分岐点売上高)÷実際売上高×100</td><td>高いほど不況抵抗力が強い</td></tr><tr><td>損益分岐点比率</td><td>損益分岐点売上高÷実際売上高×100</td><td>低いほど良い。安全余裕率＋損益分岐点比率＝100%</td></tr><tr><td>営業レバレッジ</td><td>限界利益÷営業利益</td><td>高いほど売上変動が利益へ与える影響が大きい</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">固定費と変動費の分解（費用分解）を誤ると全ての比率がずれるため最初の切り分けが肝心。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">意思決定会計（差額原価・設備投資判断）</h2>
+        <p class="lead">複数の代替案を比較し有利な案を選ぶ。埋没原価を除き差額で判断するのが要点。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>差額原価収益分析</td><td>各案で変化する収益・原価(差額分)のみを比較</td><td>意思決定に関連する原価＝関連原価</td></tr><tr><td>埋没原価(サンクコスト)</td><td>どの案を選んでも変化しない過去原価</td><td>意思決定では無視する</td></tr><tr><td>機会原価</td><td>ある案を選んだために断念した最善案から得られたはずの利益</td><td>差額原価分析に含める必要がある</td></tr><tr><td>自製か購入か(内外製)</td><td>自製の差額原価と購入価格を比較</td><td>遊休設備の有無・固定費の回避可能性に注意</td></tr><tr><td>キャッシュフロー(投資)</td><td>税引後CF＝税引後利益＋減価償却費</td><td>減価償却費の節税効果(タックスシールド＝減価償却費×税率)を加味</td></tr><tr><td>加重平均資本コスト連携</td><td>投資評価の割引率にWACCを用いる</td><td>ファイナンスの資本コストと接続する論点</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">「埋没原価は無視」「機会原価は算入」「減価償却の節税効果は加算」の3点を取り違えないこと。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">ファイナンス（投資評価：NPV・IRR・回収期間）</h2>
+        <p class="lead">時間価値を考慮して設備投資の可否を判断する。事例IV最重要テーマの一つ。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>手法</th><th>計算式・判定基準</th><th>留意点</th></tr></thead><tbody><tr><td>現在価値(PV)</td><td>PV＝将来CF÷(1＋r)^n</td><td>rは割引率(資本コスト)、nは年数</td></tr><tr><td>正味現在価値(NPV)</td><td>NPV＝Σ(各年CFの現在価値)−初期投資額</td><td>NPV&gt;0なら投資採用。複数案は最大の案を選択</td></tr><tr><td>内部収益率(IRR)</td><td>NPV＝0となる割引率r</td><td>IRR&gt;資本コストなら採用。再投資率の前提に注意</td></tr><tr><td>回収期間法</td><td>初期投資÷年々のCF(または累計で回収年数)</td><td>時間価値を無視する簡便法。安全性重視の指標</td></tr><tr><td>収益性指数(PI)</td><td>PI＝CF現在価値の合計÷初期投資額</td><td>PI&gt;1なら採用。投資規模の異なる案の比較に有効</td></tr><tr><td>NPVとIRRの相違</td><td>規模やCFパターンで順位が逆転しうる</td><td>理論上はNPV法が優先される</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">NPVは金額、IRRは率で判定。回収期間法は時間価値を無視する点が試験で問われやすい。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">資本コスト・企業価値（WACC・CAPM・MM・配当）</h2>
+        <p class="lead">投資の割引率となる資本コストの算定と、資本構成・配当をめぐる理論を整理する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>計算式・内容</th><th>留意点</th></tr></thead><tbody><tr><td>CAPM(株主資本コスト)</td><td>rE＝rf＋β×(rM−rf)</td><td>rf:無リスク利子率、β:感応度、(rM−rf):市場リスクプレミアム</td></tr><tr><td>β(ベータ)</td><td>個別証券の収益率の市場に対する感応度</td><td>β&gt;1は市場より変動大、β=1は市場並み</td></tr><tr><td>WACC(加重平均資本コスト)</td><td>E/(D+E)×rE＋D/(D+E)×rD×(1−税率)</td><td>負債コストは節税効果で(1−税率)を乗じる</td></tr><tr><td>ポートフォリオ効果</td><td>分散投資でリスク(標準偏差)を低減</td><td>相関係数が低い(−1に近い)ほど分散効果が大きい</td></tr><tr><td>MM理論(第1命題)</td><td>税金がなければ企業価値は資本構成に無関係</td><td>完全市場が前提。現実には税・倒産コストで修正</td></tr><tr><td>配当政策(MM)</td><td>完全市場では配当政策は企業価値に影響しない</td><td>現実には配当のシグナリング・顧客効果等が存在</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">WACCの負債コストには必ず(1−税率)を掛ける点と、CAPMの各記号の意味を正確に押さえる。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この分野を学ぶ</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=zaimu">
+            <div class="content-card-title">過去問演習（財務・会計 10問）</div>
+            <div class="content-card-desc">この科目に絞って5肢択一を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="docs/overview.html">
+            <div class="content-card-title">試験概要</div>
+            <div class="content-card-desc">配点・合格基準・第1次7科目と第2次4事例・令和8年度日程を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+          <a class="content-card" href="index.html">
+            <div class="content-card-title">科目一覧に戻る</div>
+            <div class="content-card-desc">他の科目の分野別まとめや、中小企業診断士のトップへ。</div>
+            <div class="content-card-arrow">戻る →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 中小企業診断士 財務・会計</div><div class="disclaimer">掲載内容は個人学習目的の要点整理です。最新情報は公式機関（中小企業診断協会）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="運営管理は「生産管理（工場・ものづくり）」と「店舗・販売管理（小売・流通）」の2大領域からなり、いずれも第2次試験の事例III（生産・技術）・事例II（マーケティング・流通）に直結する得点源科目です。用語の定義暗記だけで" />
+  <title>運営管理 — 中小企業診断士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">中小企業診断士 運営管理</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">中小企業診断士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">中小企業診断士</a><span class="breadcrumb-sep">›</span><span>運営管理</span></div>
+        <h1 class="section-title">運営管理</h1>
+        <p class="lead">運営管理は「生産管理（工場・ものづくり）」と「店舗・販売管理（小売・流通）」の2大領域からなり、いずれも第2次試験の事例III（生産・技術）・事例II（マーケティング・流通）に直結する得点源科目です。用語の定義暗記だけでは足りず、生産形態の使い分け・IE/QC手法の目的・在庫と発注方式の計算・店舗指標の算出といった「使える知識」まで落とし込むことが合否を分けます。学習方針は、頻出の計算論点（EOQ・発注点・GMROI・交差比率・PERT）を確実に得点し、生産形態やレイアウト・手法の分類を横比較で整理することです。</p>
+        <div class="notice">第1次試験は各科目100点満点・7科目合計700点で、総得点60％（420点）以上かつ各科目40点以上が合格要件です。運営管理は1科目でも40点未満だと足切りで即不合格となるため、生産・店舗の両領域をバランスよく仕上げ、計算論点の取りこぼしを避けてください。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">生産形態と生産方式（受注・品種量・レイアウト）</h2>
+        <p class="lead">生産形態は「受注の起点」「品種と量」「工程の並べ方」の3軸で分類され、事例IIIで現状分析の切り口になる最頻出テーマです。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分軸</th><th>分類と特徴</th><th>代表例・留意点</th></tr></thead><tbody><tr><td>受注の起点</td><td>受注生産（受注後に生産・仕様柔軟だが納期長）／見込生産（需要予測で先行生産・在庫リスク）</td><td>MTO/MTS。中間形態の受注組立生産（ATO）も押さえる</td></tr><tr><td>品種と生産量</td><td>少種多量（大量・専用設備・低コスト）／多種少量（汎用設備・多能工・柔軟）／中種中量</td><td>多品種少量化がトレンド。段取り短縮が課題になる</td></tr><tr><td>仕事の流し方</td><td>連続生産（大量・装置産業）／ロット（バッチ）生産／個別生産（一品もの）</td><td>ロット生産は段取り回数と在庫のバランスが論点</td></tr><tr><td>工程の配置</td><td>製品別レイアウト（フローショップ・流れ作業）／機能別（ジョブショップ・工程別）／固定式（大型製品）</td><td>製品別＝少種多量、機能別＝多種少量に対応</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">「受注/見込」「多量/少量」「フロー/ジョブショップ」の対応関係を一体で覚える。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">ライン生産・セル生産と生産性指標</h2>
+        <p class="lead">ライン編成の効率化（ラインバランシング）とセル生産の柔軟性は、多品種化への対応策として頻出。バランス効率の計算も出題されます。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義・計算</th><th>留意点</th></tr></thead><tbody><tr><td>サイクルタイム</td><td>1製品の完成間隔＝稼働時間÷生産量。ピッチタイムとも</td><td>需要（生産量）から決まる。最長工程時間以上必要</td></tr><tr><td>ラインバランシング</td><td>各工程の作業時間を均等化し手待ち・ネックを減らす</td><td>編成効率＝総作業時間÷（工程数×サイクルタイム）×100</td></tr><tr><td>編成効率／バランスロス</td><td>効率＝Σ作業時間÷(ステーション数×サイクルタイム)。ロス率＝100−編成効率</td><td>ネック工程がサイクルタイムを規定する</td></tr><tr><td>セル生産</td><td>U字ライン等で1人〜少人数が多工程を担当（多能工化）</td><td>多品種少量・需要変動に強い。仕掛減・リードタイム短縮</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">編成効率＝Σ作業時間÷（工程数×サイクルタイム）は計算で頻出、公式を暗記。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">JIT・生産計画・スケジューリング</h2>
+        <p class="lead">JIT（トヨタ生産方式）の思想と、生産計画のPQ分析・スケジューリング手法は事例IIIの改善提案に直結します。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>JIT（かんばん方式）</td><td>必要なものを必要な時に必要な量だけ生産。後工程引取り</td><td>かんばんで在庫最小化。平準化生産が前提</td></tr><tr><td>7つのムダ</td><td>つくりすぎ・手待ち・運搬・加工・在庫・動作・不良のムダ</td><td>「つくりすぎのムダ」が最も重視される</td></tr><tr><td>平準化・段取り替え</td><td>生産量と種類を平準化。段取り短縮（SMED＝内段取りの外段取り化）</td><td>小ロット・多頻度生産を可能にする</td></tr><tr><td>工程管理手法</td><td>ガントチャート（進捗可視化）／PQ分析（品種と量でレイアウト方針決定）</td><td>MRP＝所要量計算で資材手配（部品表BOMを使う）</td></tr><tr><td>ディスパッチングルール</td><td>最早納期順（EDD）・最短加工時間順（SPT）等の優先順位付け</td><td>SPTは平均滞留時間の最小化に有効</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">JITは「後工程引取り・平準化・段取り短縮」がセットで機能する点を理解する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">IE・QC七つ道具・設備保全</h2>
+        <p class="lead">IE（方法研究・作業測定）とQC七つ道具は改善の道具箱、設備保全は稼働率維持の要で、いずれも定義の正確さが問われます。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>手法</th><th>内容</th><th>用途・留意点</th></tr></thead><tbody><tr><td>IE 方法研究</td><td>工程分析（工程図記号：加工〇・運搬→・数量検査□・品質検査◇・停滞▽）／動作研究（サーブリッグ）</td><td>ムダの発見。運搬・停滞の削減が改善対象</td></tr><tr><td>IE 作業測定</td><td>時間研究（ストップウォッチ法）／ワークサンプリング（瞬間観測法・統計的）</td><td>標準時間＝正味時間×(1+余裕率)。稼働分析に使う</td></tr><tr><td>QC七つ道具</td><td>パレート図・特性要因図・グラフ／層別・チェックシート・ヒストグラム・散布図・管理図</td><td>数値データが主。パレート＝重点管理、特性要因＝原因分析</td></tr><tr><td>新QC七つ道具</td><td>親和図・連関図・系統図・マトリックス図・アローダイアグラム・PDPC・マトリックスデータ解析</td><td>言語データの整理に使う（対比で問われる）</td></tr><tr><td>設備保全</td><td>予防保全（時間基準TBM・状態基準CBM）／事後保全／改良保全／保全予防。総称してTPM</td><td>設備総合効率＝時間稼働率×性能稼働率×良品率</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">設備総合効率＝時間稼働率×性能稼働率×良品率、QC7つ道具の各名称と用途を混同しない。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">在庫管理・発注方式・PERT（計算論点）</h2>
+        <p class="lead">EOQ・発注点・PERTは電卓のない中で頻出する計算問題群。公式と条件を確実に暗記し、失点を防ぎます。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>論点</th><th>公式・定義</th><th>留意点</th></tr></thead><tbody><tr><td>EOQ（経済的発注量）</td><td>√(2×年間需要量×1回発注費÷(単価×在庫保管費率))</td><td>発注費と保管費の合計が最小になる量。総費用最小点</td></tr><tr><td>定量発注方式</td><td>在庫が発注点を下回ったら一定量発注。発注点＝調達期間中需要＋安全在庫</td><td>ABC分析のA〜B品目やダブルビン法で運用</td></tr><tr><td>定期発注方式</td><td>一定期間ごとに発注。発注量＝(調達期間＋発注間隔)中の需要−現在在庫−発注残＋安全在庫</td><td>需要変動大・重要品目向け。安全在庫を多めに</td></tr><tr><td>ABC分析</td><td>金額累計でA(重点)・B・C管理。パレートの法則を在庫に応用</td><td>A品目は定期発注で厳格管理、C品目は簡易管理</td></tr><tr><td>PERT（日程）</td><td>作業を矢線で表現しクリティカルパス（最長経路）＝最短完成日数を算出</td><td>最早/最遅開始時刻を計算。余裕（フロート）が0の経路がCP</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">EOQ＝√(2DS÷H)、クリティカルパス＝所要日数最長経路＝プロジェクト最短完了日を確実に。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">店舗・立地・レイアウト・マーチャンダイジング</h2>
+        <p class="lead">事例IIの舞台となる小売店の立地・商圏・売場づくりを、指標と手法で整理します。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>商圏分析</td><td>ライリーの法則（2都市の吸引力＝人口比例・距離2乗に反比例）／ハフモデル（売場面積÷距離で吸引確率）</td><td>ハフは確率的、修正ハフモデルが日本で用いられる</td></tr><tr><td>店舗レイアウト</td><td>グリッド型（棚直角・GMS/SM）／レイアウト自由型（ブティック）／ワンウェイ型</td><td>客動線を長くし非計画購買を促す設計</td></tr><tr><td>陳列・売場</td><td>ゴールデンゾーン（手に取りやすい高さ）／エンド陳列／マグネット売場／ジャンブル陳列</td><td>エンドは特売・季節品、マグネットで回遊を促す</td></tr><tr><td>マーチャンダイジング</td><td>適品・適所・適時・適量・適価で商品を提供（5適）</td><td>品揃え幅（ライン数）と深さ（アイテム数）の設計</td></tr><tr><td>価格政策</td><td>EDLP（毎日低価格）／ハイ・ロープライシング／単一価格</td><td>EDLPは特売依存を避け在庫平準化に寄与</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">ライリー＝2都市間の吸引力比、ハフ＝個店の吸引確率、と使い分けを区別する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">販売管理・物流・在庫指標・関連法規</h2>
+        <p class="lead">POS等の情報システム、物流、収益性指標、法規は店舗運営の実務知識として広く問われます。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義・計算</th><th>留意点</th></tr></thead><tbody><tr><td>POS/情報システム</td><td>販売時点情報管理。単品（SKU）管理でデータ収集。JANコード</td><td>死に筋・売れ筋管理、発注・棚割に活用。PI値も</td></tr><tr><td>GMROI</td><td>粗利益÷平均在庫高（原価）×100＝在庫投資収益率</td><td>在庫が生む粗利益。値が高いほど投資効率良</td></tr><tr><td>交差比率</td><td>粗利益率×商品回転率（回転率＝売上÷平均在庫〔売価〕）</td><td>高い＝効率的。商品分類の重点管理に使う</td></tr><tr><td>物流・SCM</td><td>3PL（物流一括委託）／クロスドッキング（在庫レス通過型）／一括物流</td><td>多頻度小口配送。共同配送でコスト・環境負荷減</td></tr><tr><td>関連法規</td><td>大規模小売店舗立地法（周辺環境・1000㎡超）／中心市街地活性化法／都市計画法（用途地域）</td><td>まちづくり三法。旧大店法（需給調整）は廃止済み</td></tr><tr><td>独禁法・下請法など</td><td>再販売価格維持行為の原則禁止／景品表示法（不当表示規制）</td><td>製造小売や取引適正化の観点で出題される</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">GMROI＝粗利益÷平均在庫（原価）、交差比率＝粗利益率×回転率で分母（原価/売価）の違いに注意。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この分野を学ぶ</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=unei">
+            <div class="content-card-title">過去問演習（運営管理 10問）</div>
+            <div class="content-card-desc">この科目に絞って5肢択一を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="docs/overview.html">
+            <div class="content-card-title">試験概要</div>
+            <div class="content-card-desc">配点・合格基準・第1次7科目と第2次4事例・令和8年度日程を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+          <a class="content-card" href="index.html">
+            <div class="content-card-title">科目一覧に戻る</div>
+            <div class="content-card-desc">他の科目の分野別まとめや、中小企業診断士のトップへ。</div>
+            <div class="content-card-arrow">戻る →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 中小企業診断士 運営管理</div><div class="disclaimer">掲載内容は個人学習目的の要点整理です。最新情報は公式機関（中小企業診断協会）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

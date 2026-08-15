@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="「経済学・経済政策」は、診断士1次試験7科目の中でも計算・グラフ・論理を問う理論科目で、暗記より「なぜそうなるか」を図で理解することが得点の近道です。ミクロ（需要供給・余剰・費用・市場構造・外部性・ゲーム理論）とマクロ（" />
+  <title>経済学・経済政策 — 中小企業診断士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">中小企業診断士 経済学・経済政策</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">中小企業診断士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">中小企業診断士</a><span class="breadcrumb-sep">›</span><span>経済学・経済政策</span></div>
+        <h1 class="section-title">経済学・経済政策</h1>
+        <p class="lead">「経済学・経済政策」は、診断士1次試験7科目の中でも計算・グラフ・論理を問う理論科目で、暗記より「なぜそうなるか」を図で理解することが得点の近道です。ミクロ（需要供給・余剰・費用・市場構造・外部性・ゲーム理論）とマクロ（GDP・IS-LM・AD-AS・乗数・財政金融政策・国際収支）の2本柱で構成され、頻出のグラフ（余剰分析・IS-LM・AD-AS）を自力で描いて動かせるかが合否を分けます。基本パターンの反復演習で安定して60点超を狙える科目なので、深追いせず頻出論点を確実に固めましょう。</p>
+        <div class="notice">本科目の配点は100点満点で、7科目合計700点。総得点の60%（420点）以上かつ各科目40点未満が1科目でもあると足切りで不合格となります。経済学は難易度の年度変動が大きいため、得意科目で貯金を作りつつ、本科目は最低でも40点の足切り回避を確実にし、できれば60点を目標に据えましょう。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">需要と供給・価格弾力性</h2>
+        <p class="lead">市場分析の出発点。均衡の決定と、価格変化に対する反応の大きさを測る弾力性は計算・グラフ両面で頻出です。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>需要の価格弾力性</td><td>価格が1%変化したときの需要量の変化率（絶対値）</td><td>1超で弾力的（贅沢品）、1未満で非弾力的（生活必需品）。1のとき売上最大</td></tr><tr><td>供給の価格弾力性</td><td>価格変化に対する供給量の変化率</td><td>生産調整に時間がかかるほど短期は非弾力的（供給曲線が急）</td></tr><tr><td>需要の所得弾力性</td><td>所得が1%変化したときの需要量の変化率</td><td>正なら上級財、負なら下級財（劣等財）、1超は奢侈品・1未満は必需品</td></tr><tr><td>交差弾力性</td><td>他財の価格変化に対する自財の需要量の変化率</td><td>正なら代替財、負なら補完財</td></tr><tr><td>均衡・超過需要/供給</td><td>需要量=供給量となる価格・数量</td><td>価格が均衡より低いと超過需要、高いと超過供給。価格が調整して均衡へ</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">弾力性は「変化率÷変化率」であり傾きそのものではない点に注意する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">余剰分析と厚生</h2>
+        <p class="lead">市場の効率性を面積で評価する枠組み。課税・価格規制・貿易の効果を余剰の増減で説明できることが問われます。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>消費者余剰</td><td>支払ってもよい額と実際の支払額の差の合計</td><td>需要曲線と価格線で囲まれた面積（直線需要なら三角形）</td></tr><tr><td>生産者余剰</td><td>受け取った額と最低受入額の差の合計</td><td>価格線と供給曲線で囲まれた面積。可変費用の回収超過分</td></tr><tr><td>総余剰</td><td>消費者余剰＋生産者余剰（＋政府の税収）</td><td>完全競争の均衡で最大化＝パレート効率的</td></tr><tr><td>死荷重（厚生損失）</td><td>課税・独占・規制などで失われる総余剰</td><td>生産量が最適水準からずれるほど拡大する三角形</td></tr><tr><td>従量税の帰着</td><td>課税負担が需要者と供給者に分かれる配分</td><td>非弾力的な側がより多く負担する</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">課税は税収を生むが死荷重も生じ、総余剰は課税前より必ず減少する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">企業行動と費用構造</h2>
+        <p class="lead">供給曲線の背後にある費用理論。各費用曲線の関係と、利潤最大化・操業停止の判断条件が頻出です。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>限界費用（MC）</td><td>生産量を1単位増やすときの費用増加分</td><td>総費用曲線の傾き。U字型でAVC・ACの最低点を下から貫く</td></tr><tr><td>平均費用（AC）／平均可変費用（AVC）</td><td>総費用／生産量、可変費用／生産量</td><td>MC=ACのときACは最小。両者の差が平均固定費用</td></tr><tr><td>利潤最大化条件</td><td>限界収入＝限界費用（MR=MC）</td><td>完全競争では価格=MR=MCとなり、P=MCが供給条件</td></tr><tr><td>損益分岐点</td><td>利潤がゼロになる価格＝ACの最小値</td><td>この価格を下回ると赤字だが操業は続けうる</td></tr><tr><td>操業停止点</td><td>AVCの最小値＝短期に生産をやめる価格</td><td>P&lt;AVCなら生産による損失が固定費を上回るため生産停止</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">短期の供給曲線は操業停止点（AVC最小）より上の限界費用曲線である。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">市場構造の類型</h2>
+        <p class="lead">競争の程度で価格支配力や効率性が変わります。完全競争・独占・寡占・独占的競争の違いを整理します。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>特徴</th><th>例・留意点</th></tr></thead><tbody><tr><td>完全競争</td><td>多数の売り手・同質財・価格受容者・自由参入退出</td><td>長期利潤ゼロ、P=MCで効率的。農産物などが近似例</td></tr><tr><td>独占</td><td>売り手1社・価格支配力あり・参入障壁</td><td>MR=MCで生産、P&gt;MCとなり死荷重発生。電力等の規制産業</td></tr><tr><td>寡占</td><td>少数企業が相互依存で意思決定</td><td>屈折需要曲線で価格硬直性を説明。カルテル・協調が問題</td></tr><tr><td>独占的競争</td><td>多数企業・製品差別化・自由参入</td><td>短期は超過利潤、長期は参入でゼロに。飲食・小売など</td></tr><tr><td>価格差別</td><td>同一財を需要者ごとに異なる価格で販売</td><td>第一級は消費者余剰を全て吸収、第三級は市場分割</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">独占はP&gt;MCで過少生産となり、完全競争に比べ死荷重が発生する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">外部性・公共財・ゲーム理論</h2>
+        <p class="lead">市場が効率的に機能しない「市場の失敗」と、相互依存下の戦略的意思決定を扱います。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>外部性</td><td>取引の外にいる第三者への便益・費用の波及</td><td>負の外部性（公害）は過大生産、正は過少生産となる</td></tr><tr><td>ピグー税・コースの定理</td><td>外部費用を内部化する課税／当事者交渉での解決</td><td>コースの定理は取引費用ゼロで権利明確なら効率的配分が実現</td></tr><tr><td>公共財</td><td>非競合性かつ非排除性をもつ財</td><td>フリーライダー問題で市場供給が過少。国防・灯台が典型</td></tr><tr><td>ナッシュ均衡</td><td>各人が相手の戦略を所与に最適反応する状態</td><td>囚人のジレンマでは支配戦略均衡が全体最適から乖離</td></tr><tr><td>支配戦略</td><td>相手の行動に関わらず常に有利な戦略</td><td>両者が持てば支配戦略均衡。存在しない場合もある</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">囚人のジレンマは個々の合理的選択が全体で非効率を招く代表例である。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">国民経済計算とIS-LM・AD-AS</h2>
+        <p class="lead">マクロの中核。GDPの捉え方から財市場・貨幣市場の同時均衡、総需要・総供給までを一貫して押さえます。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>GDP三面等価</td><td>生産・分配・支出の各面から見たGDPは一致</td><td>支出面：GDP=C+I+G+(X-M)。名目と実質、GDPデフレーターを区別</td></tr><tr><td>IS曲線</td><td>財市場を均衡させる利子率と国民所得の組合せ</td><td>右下がり。政府支出増・減税で右シフト</td></tr><tr><td>LM曲線</td><td>貨幣市場を均衡させる利子率と国民所得の組合せ</td><td>右上がり。貨幣供給増で右（下）シフト</td></tr><tr><td>AD曲線／AS曲線</td><td>総需要＝物価と所得の関係／総供給の関係</td><td>ADは右下がり、短期ASは右上がり、長期ASは完全雇用で垂直</td></tr><tr><td>流動性の罠</td><td>利子率が下限に達し貨幣需要が無限に弾力的</td><td>LM水平部分で金融政策無効、財政政策が有効</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">IS-LM分析では、クラウディングアウトにより財政拡張の所得増効果が一部相殺される。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">乗数・政策・失業・国際収支</h2>
+        <p class="lead">景気安定化のための財政・金融政策と、労働市場・対外均衡の指標を整理します。計算と因果の理解が要ります。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語</th><th>定義</th><th>留意点</th></tr></thead><tbody><tr><td>政府支出乗数</td><td>政府支出1単位増による国民所得の増加倍率</td><td>1/(1-限界消費性向)。租税乗数はこれより絶対値が小さく符号は負</td></tr><tr><td>財政政策／金融政策</td><td>政府支出・税による調整／貨幣量・金利による調整</td><td>IS-LMで前者はIS、後者はLMをシフト。効果は曲線の傾きに依存</td></tr><tr><td>失業の類型</td><td>摩擦的・構造的・循環的失業</td><td>自然失業率＝摩擦的＋構造的。フィリップス曲線は失業と物価の逆相関</td></tr><tr><td>国際収支</td><td>経常収支＋資本移転等収支−金融収支＋誤差脱漏＝0</td><td>経常収支は貿易・サービス・第一次/第二次所得収支の合計。金融収支は差し引く点に注意</td></tr><tr><td>為替と政策効果</td><td>変動相場制ではマンデル＝フレミングモデルで判断</td><td>資本移動自由な変動相場下では金融政策が有効、財政政策は無効化</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">限界消費性向が大きいほど乗数効果は大きくなる。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この分野を学ぶ</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=keizai">
+            <div class="content-card-title">過去問演習（経済学・経済政策 10問）</div>
+            <div class="content-card-desc">この科目に絞って5肢択一を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="docs/overview.html">
+            <div class="content-card-title">試験概要</div>
+            <div class="content-card-desc">配点・合格基準・第1次7科目と第2次4事例・令和8年度日程を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+          <a class="content-card" href="index.html">
+            <div class="content-card-title">科目一覧に戻る</div>
+            <div class="content-card-desc">他の科目の分野別まとめや、中小企業診断士のトップへ。</div>
+            <div class="content-card-arrow">戻る →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 中小企業診断士 経済学・経済政策</div><div class="disclaimer">掲載内容は個人学習目的の要点整理です。最新情報は公式機関（中小企業診断協会）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

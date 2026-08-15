@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="経営情報システムは、IT技術の基礎知識（情報技術基礎）と、企業経営におけるIT活用・管理（経営情報管理）の2領域から構成される科目です。用語の正確な理解が得点に直結する暗記型科目である一方、近年は最新技術（AI・クラウド" />
+  <title>経営情報システム — 中小企業診断士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">中小企業診断士 経営情報システム</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">中小企業診断士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">中小企業診断士</a><span class="breadcrumb-sep">›</span><span>経営情報システム</span></div>
+        <h1 class="section-title">経営情報システム</h1>
+        <p class="lead">経営情報システムは、IT技術の基礎知識（情報技術基礎）と、企業経営におけるIT活用・管理（経営情報管理）の2領域から構成される科目です。用語の正確な理解が得点に直結する暗記型科目である一方、近年は最新技術（AI・クラウド・DX）や統計手法の応用出題も増えています。まず頻出の定番論点（正規化・SQL・OSI参照モデル・稼働率計算・開発技法）を確実に固め、その上で新技術用語を横断的に押さえるのが効率的です。ITパスポート〜基本情報レベルの知識で7割は対応可能なため、深追いより広く正確にを優先しましょう。</p>
+        <div class="notice">配点は各科目100点・7科目合計700点。合格は総得点60%（420点）以上が基準ですが、1科目でも40点未満があると足切りで即不合格となる点に注意。経営情報システムは平均点が低い年に得点調整（点数補正）が入ることもある難度変動科目です。なお1次試験には科目合格制度（合格科目は翌々年まで免除可）があります。難問に固執せず、正規化・稼働率・OSI・SQLなど確実に取れる頻出論点を落とさず、最低でも40点、できれば60点確保を目標にしてください。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">ハードウェア・ソフトウェア・OS</h2>
+        <p class="lead">コンピュータの構成要素と処理の基礎。装置の役割と記憶階層、OSの機能を正確に区別する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語/区分</th><th>定義・特徴</th><th>留意点・例</th></tr></thead><tbody><tr><td>五大装置</td><td>制御・演算・記憶・入力・出力。CPUは制御装置と演算装置(ALU)から成る</td><td>主記憶と演算のやり取りの速度差をキャッシュメモリで緩和</td></tr><tr><td>記憶階層</td><td>レジスタ&gt;キャッシュ&gt;主記憶(RAM)&gt;補助記憶(SSD/HDD)の順に高速・小容量・高価</td><td>DRAM=主記憶(要リフレッシュ)、SRAM=キャッシュ(高速)</td></tr><tr><td>RAM/ROM</td><td>RAMは揮発性で読み書き可、ROMは不揮発性で読み出し中心</td><td>フラッシュメモリ(ROM系)はSSD・USBに利用</td></tr><tr><td>OSの機能</td><td>ハード資源とアプリの仲介。プロセス/メモリ/ファイル/入出力管理</td><td>仮想記憶(ページング)で主記憶より大きい空間を提供</td></tr><tr><td>ソフト分類</td><td>基本ソフト(OS)/ミドルウェア(DBMS等)/応用ソフト(アプリ)</td><td>ミドルウェアはOSとアプリの中間層</td></tr><tr><td>性能指標</td><td>クロック周波数(Hz)、MIPS(命令実行数)、FLOPS(浮動小数点演算数)</td><td>キャッシュのヒット率が実効アクセス時間を左右</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">記憶階層は「速い・小さい・高い」が上位、という原則で装置を並べ替えられるようにする。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">データベース（正規化・SQL・ACID）</h2>
+        <p class="lead">関係データベースは最頻出領域。正規化の各段階とSQL、トランザクションのACID特性は必ず得点したい。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語/段階</th><th>定義・特徴</th><th>留意点・例</th></tr></thead><tbody><tr><td>第1正規形</td><td>繰り返し項目を排除し、全項目が単一値(原子値)</td><td>一つのセルに複数値を入れない</td></tr><tr><td>第2正規形</td><td>1NFかつ部分関数従属を排除(主キーの一部への従属を分離)</td><td>複合キーのときに問題化</td></tr><tr><td>第3正規形</td><td>2NFかつ推移的関数従属を排除(非キー属性間の従属を分離)</td><td>分割で更新時異常(冗長・不整合)を防ぐ</td></tr><tr><td>SQL基本</td><td>SELECT/FROM/WHERE/GROUP BY/HAVING/ORDER BY</td><td>GROUP BYの絞込はHAVING、行の絞込はWHERE</td></tr><tr><td>結合(JOIN)</td><td>内部結合(一致行のみ)、外部結合(不一致行もNULLで残す)</td><td>LEFT/RIGHT/FULL OUTER JOINを区別</td></tr><tr><td>ACID特性</td><td>原子性・一貫性・分離性(独立性)・永続性</td><td>コミット/ロールバックで原子性・永続性を担保</td></tr><tr><td>排他制御</td><td>同時アクセスの矛盾防止。ロック(共有/専有)、デッドロックに注意</td><td>2相ロック、粒度で性能と整合性が変化</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">正規化は「1NF=単一値→2NF=部分従属排除→3NF=推移従属排除」の順を語呂で確実に。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">ネットワーク（OSI・TCP/IP）</h2>
+        <p class="lead">通信の階層モデルと主要プロトコル、アドレスの仕組み。OSI7階層とTCP/IPの対応が頻出。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語/階層</th><th>役割・定義</th><th>代表例・留意点</th></tr></thead><tbody><tr><td>OSI 7階層</td><td>下位から物理・データリンク・ネットワーク・トランスポート・セッション・プレゼンテーション・アプリケーション</td><td>上→下で「アプセトネデブ」と暗記</td></tr><tr><td>TCP/IP 4層</td><td>ネットワークインタフェース・インターネット・トランスポート・アプリケーション</td><td>OSIより実装寄りの体系</td></tr><tr><td>TCP/UDP</td><td>TCPはコネクション型で信頼性重視(再送・順序保証)、UDPは非接続で高速</td><td>動画・音声配信はUDP、Web・メールはTCP</td></tr><tr><td>IPアドレス</td><td>ネットワーク上の識別番号。IPv4は32ビット、IPv6は128ビット</td><td>プライベート/グローバル、サブネットマスクで分割</td></tr><tr><td>主要機器</td><td>リピータ(物理)・ブリッジ/スイッチ(データリンク)・ルータ(ネットワーク層)</td><td>ルータはIPで経路選択(ルーティング)</td></tr><tr><td>主要プロトコル</td><td>HTTP(Web)/DNS(名前解決)/DHCP(IP自動割当)/SMTP・POP・IMAP(メール)</td><td>HTTPS=HTTP+TLSで暗号化</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">OSIとTCP/IPの階層対応と、機器がどの層で動作するか（ルータ=ネットワーク層）を必ず押さえる。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">セキュリティ（暗号・認証）</h2>
+        <p class="lead">情報セキュリティの3要素と暗号方式、認証技術。共通鍵/公開鍵の違いとデジタル署名が頻出。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語/方式</th><th>定義・特徴</th><th>留意点・例</th></tr></thead><tbody><tr><td>情報セキュリティ3要素</td><td>機密性(C)・完全性(I)・可用性(A)</td><td>真正性・責任追跡性等を加え7要素とも</td></tr><tr><td>共通鍵暗号</td><td>暗号化と復号に同じ鍵。高速だが鍵配送・管理が課題</td><td>AES。n人相互通信ではn(n-1)/2個の鍵が必要</td></tr><tr><td>公開鍵暗号</td><td>公開鍵で暗号化、秘密鍵で復号。鍵配送問題を解決するが低速</td><td>RSA。鍵はペアで管理</td></tr><tr><td>デジタル署名</td><td>送信者の秘密鍵で署名、公開鍵で検証。改ざん検知と否認防止</td><td>暗号化とは鍵の使い方が逆</td></tr><tr><td>ハッシュ関数</td><td>任意長データを固定長要約に変換。不可逆・改ざん検知に利用</td><td>SHA-256等。同一入力は同一出力</td></tr><tr><td>認証方式</td><td>知識(パスワード)・所有(トークン/ICカード)・生体(指紋・虹彩)</td><td>多要素認証は異なる要素を組合せる</td></tr><tr><td>PKI/認証局</td><td>公開鍵の正当性を第三者(CA)がデジタル証明書で保証</td><td>SSL/TLSサーバ証明書で通信を保護</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">「暗号化＝受信者の公開鍵、署名＝送信者の秘密鍵」という鍵の使い分けを混同しないこと。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">システムの信頼性（RAID・稼働率）</h2>
+        <p class="lead">信頼性設計の考え方と稼働率計算は計算問題として頻出。RAIDの各構成とMTBF/MTTRを正確に。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語/構成</th><th>定義・計算</th><th>留意点・例</th></tr></thead><tbody><tr><td>稼働率</td><td>MTBF÷(MTBF+MTTR)。MTBF=平均故障間隔、MTTR=平均修理時間</td><td>値が1に近いほど高信頼</td></tr><tr><td>直列システム</td><td>全て稼働で機能。稼働率=各要素の積(A×B)</td><td>要素が増えるほど全体は低下</td></tr><tr><td>並列システム</td><td>1つでも稼働で機能。稼働率=1−(1−A)(1−B)</td><td>冗長化で全体の信頼性が向上</td></tr><tr><td>RAID0</td><td>ストライピング。複数ディスクに分散し高速化</td><td>冗長性なし、1台故障で全損</td></tr><tr><td>RAID1</td><td>ミラーリング。同一データを2重書込みで冗長化</td><td>容量効率は50%</td></tr><tr><td>RAID5</td><td>パリティを分散記録。1台故障まで復旧可</td><td>最低3台、書込性能はやや低下</td></tr><tr><td>フォールト系設計</td><td>フォールトトレラント(故障しても稼働継続)、フェールセーフ(安全側に停止)、フェールソフト(機能縮退で継続)</td><td>フールプルーフは誤操作防止</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">稼働率は直列＝積、並列＝1−(1−稼働率)の積。計算式を暗記し確実に得点する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">システム開発技法・プロジェクト管理</h2>
+        <p class="lead">開発モデルの特徴とテスト、PMの管理手法。WFとアジャイルの対比、テスト工程が頻出。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語/技法</th><th>特徴・定義</th><th>留意点・例</th></tr></thead><tbody><tr><td>ウォーターフォール</td><td>要件→設計→実装→テストと後戻りしない順次型</td><td>大規模・要件安定に向く、変更に弱い</td></tr><tr><td>アジャイル</td><td>短い反復(イテレーション)で漸進的に開発。変化に柔軟</td><td>スクラム、XP。ドキュメントより動くソフト重視</td></tr><tr><td>プロトタイピング</td><td>試作品で早期に要件確認</td><td>仕様が曖昧な場合に有効</td></tr><tr><td>テスト工程</td><td>単体→結合→システム→運用(受入)テスト</td><td>ホワイトボックス(内部構造)/ブラックボックス(入出力)</td></tr><tr><td>WBS</td><td>作業を階層分解し管理単位を明確化</td><td>工数見積・進捗管理の基礎</td></tr><tr><td>アローダイアグラム(PERT)</td><td>作業の依存関係を図示、クリティカルパス(最長経路)で全体工期を算出</td><td>最長経路=全体の所要日数を決める</td></tr><tr><td>EVM</td><td>出来高(EV)・計画(PV)・実コスト(AC)で進捗とコストを定量管理</td><td>CV=EV−AC、SV=EV−PVで差異分析</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">WF＝順次で変更に弱い、アジャイル＝反復で柔軟、という対比とテスト工程の順序を押さえる。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">IS戦略・IT統制・統計分析</h2>
+        <p class="lead">経営とITの連携、内部統制、データ分析手法。近年はDX・統計解析の応用出題が増加。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>用語/手法</th><th>定義・特徴</th><th>留意点・例</th></tr></thead><tbody><tr><td>情報システム戦略</td><td>経営戦略と整合したIT活用の全体計画。SoR/SoEの視点</td><td>CIOが統括、全体最適を志向</td></tr><tr><td>ITガバナンス</td><td>ITを統制し企業価値を高める仕組み。COBITが代表的枠組み</td><td>内部統制(J-SOX)と連動</td></tr><tr><td>IT統制</td><td>IT全般統制(基盤・アクセス管理)とIT業務処理統制(個別処理)</td><td>職務分掌・アクセス権限管理が基本</td></tr><tr><td>外部委託</td><td>SLA(サービス品質保証)で水準を明文化。クラウド(SaaS/PaaS/IaaS)</td><td>IaaSは基盤、SaaSはアプリまで提供</td></tr><tr><td>相関と回帰</td><td>相関係数r(−1〜+1)で関係の強さ、回帰分析で予測式を導出</td><td>相関≠因果に注意</td></tr><tr><td>検定・推定</td><td>仮説検定でp値と有意水準(通常5%)を比較し帰無仮説を判断</td><td>第1種/第2種の誤りを区別</td></tr><tr><td>データ分析基盤</td><td>データウェアハウス(DWH)・データマイニング・BI・ビッグデータ</td><td>構造化/非構造化データを統合分析</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">「相関は因果を意味しない」「有意水準5%とp値の比較」など統計の基本原則を正確に理解する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この分野を学ぶ</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=joho">
+            <div class="content-card-title">過去問演習（経営情報システム 10問）</div>
+            <div class="content-card-desc">この科目に絞って5肢択一を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="docs/overview.html">
+            <div class="content-card-title">試験概要</div>
+            <div class="content-card-desc">配点・合格基準・第1次7科目と第2次4事例・令和8年度日程を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+          <a class="content-card" href="index.html">
+            <div class="content-card-title">科目一覧に戻る</div>
+            <div class="content-card-desc">他の科目の分野別まとめや、中小企業診断士のトップへ。</div>
+            <div class="content-card-arrow">戻る →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 中小企業診断士 経営情報システム</div><div class="disclaimer">掲載内容は個人学習目的の要点整理です。最新情報は公式機関（中小企業診断協会）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>
