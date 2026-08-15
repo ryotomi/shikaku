@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="行政書士(IT×法務)として人脈を獲得する具体的チャネルを士業界内・公的支援・ITコミュニティ・オンライン発信の4系統で整理し、IT×行政書士(法務・会計系)人材を実際に求めている実在の企業・行政書士法人・プラットフォームを需要先マップとしてまとめた参考ページ。各項目に一次情報URLと適合度の目安を付す。" />
+  <title>行政書士 人脈チャネル &amp; IT×士業の需要先マップ — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    /* ページ固有：共通トークン(var(--color-*))を流用 */
+    .subhead {
+      font-family: var(--font-accent);
+      font-weight: 500;
+      color: var(--color-primary);
+      margin: 1.8rem 0 0.6rem;
+      font-size: 1.12rem;
+    }
+    .subhead .badge { font-family: var(--font-primary); }
+
+    /* 3層マップ */
+    .map-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin: 1.2rem 0; }
+    @media (max-width: 760px) { .map-grid { grid-template-columns: 1fr; } }
+    .map-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-primary);
+      padding: 1.1rem 1.2rem;
+    }
+    .map-card.b { border-top-color: #0c7c8c; }
+    .map-card.c { border-top-color: #E8A020; }
+    .map-card h3 {
+      font-family: var(--font-accent); font-weight: 500; font-size: 1.02rem;
+      color: var(--color-primary); margin-bottom: 0.2rem;
+    }
+    .map-card.b h3 { color: #0a5c69; }
+    .map-card.c h3 { color: #9a6a10; }
+    .map-card .who { font-size: 0.76rem; color: var(--color-text-muted); letter-spacing: 0.03em; display: block; margin-bottom: 0.55rem; }
+    .map-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .map-card li { font-size: 0.85rem; color: var(--color-text-light); padding-left: 1rem; position: relative; line-height: 1.65; }
+    .map-card li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--color-primary); }
+    .map-card.b li::before { background: #0c7c8c; }
+    .map-card.c li::before { background: #E8A020; }
+
+    /* 適合度ドット */
+    .dots { white-space: nowrap; font-size: 0.85rem; letter-spacing: 1px; color: #0c7c8c; }
+    .dots .off { color: var(--color-border); }
+
+    /* 関わり方タグ */
+    .tag {
+      display: inline-block; font-size: 0.7rem; line-height: 1.5;
+      padding: 0.05em 0.5em; border-radius: 3px; margin: 0 0.25em 0.2em 0;
+      background: var(--color-bg-alt); color: var(--color-text-light); white-space: nowrap;
+    }
+    .tag.hire { background: rgba(192,76,56,0.12); color: var(--color-accent); }
+    .tag.ally { background: rgba(12,124,140,0.12); color: #0a5c69; }
+    .tag.match { background: rgba(43,75,110,0.12); color: var(--color-primary); }
+
+    .data-table td .src { font-size: 0.78rem; white-space: nowrap; }
+    .data-table .who-col { font-size: 0.82rem; color: var(--color-text-muted); }
+    .legend-line { font-size: 0.82rem; color: var(--color-text-muted); margin: 0.4rem 0 0; }
+    .legend-line .dots { font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">行政書士 人脈チャネル &amp; 需要先マップ</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="index.html">行政書士</a></li>
+        <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+        <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+        <li><a class="nav-link" href="jumpup.html">ジャンプアップ</a></li>
+        <li><a class="nav-link current" href="network.html">人脈・需要先</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- リード -->
+    <section class="section">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/shikaku/index.html">ホーム</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="index.html">行政書士</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="career.html">キャリアプラン</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>人脈・需要先</span>
+        </div>
+
+        <h2 class="section-title">人脈は「待つ」ものではなく「設計する」もの</h2>
+        <p class="lead">
+          <a href="career.html">キャリアプラン</a>では「前職の人脈から見込み客20社をリスト化」を最初の一歩に挙げました。本ページはその前提となる
+          <strong>“どこで・誰と・どう繋がるか”のチャネル地図</strong>と、<strong>IT×行政書士(法務・会計系)人材を実際に求めている実在の需要先マップ</strong>を、
+          Webの一次情報調査（2026年8月時点）にもとづいて整理したものです。学習の<a href="roadmap.html">ロードマップ</a>と並行して、
+          <strong>合格前から動ける低コストのチャネル</strong>から着手できます。
+        </p>
+        <div class="notice">
+          <strong>まず結論。</strong>この経歴で最も需要が濃いのは、①<strong>IT×補助金を主業にする行政書士法人・補助金コンサル</strong>（採用・パートナー募集が実在）、
+          ②<strong>外国人IT人材のビザを扱う入管特化事務所</strong>、③<strong>士業向けSaaS・案件マッチング</strong>。
+          一方で<strong>リーガルテック企業や会計SaaSの多くは「行政書士」を名指しでは求めていません</strong>（主対象は弁護士・税理士・社労士）。
+          この違いを正直に色分けして下に示します。
+        </div>
+      </div>
+    </section>
+
+    <!-- 3層マップ -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">まず“誰と繋がるか”を3層で捉える</h2>
+        <p class="lead">
+          人脈づくりが漠然とするのは「全方位に会おうとする」から。目的別に<strong>3つの層</strong>へ分け、各層に効くチャネルへ時間を配分します。
+          この人物像（元・社内SE/情シス × 法律系学部）の強みは、どの層でも「<strong>技術と法務の翻訳ができる希少性</strong>」です。
+        </p>
+        <div class="map-grid">
+          <div class="map-card a">
+            <h3>① 見込み客層</h3>
+            <span class="who">＝仕事を発注してくれる相手</span>
+            <ul>
+              <li>中小・中堅IT企業／SIer・受託開発（IT導入補助金・IT契約の当事者）</li>
+              <li>IT起業家・スタートアップ（創業期の定款・規程・許認可）</li>
+              <li>情シス・DX推進担当（SaaS導入に伴う契約・社内規程）</li>
+              <li>外国籍エンジニアを採用するIT企業（技人国ビザ）</li>
+            </ul>
+          </div>
+          <div class="map-card b">
+            <h3>② 紹介元・連携層</h3>
+            <span class="who">＝案件を回してくれる／組む相手</span>
+            <ul>
+              <li>他士業（税理士・社労士・司法書士・診断士）＝専門外案件の相互紹介</li>
+              <li>SaaSベンダー・IT導入支援事業者＝導入案件に補助金をセット</li>
+              <li>商工会議所の経営指導員・よろず支援拠点＝地域の紹介ハブ</li>
+              <li>地域金融機関（信金）の渉外担当＝経営者ネットワークの結節点</li>
+            </ul>
+          </div>
+          <div class="map-card c">
+            <h3>③ 学び・仲間層</h3>
+            <span class="who">＝実務力と存在感を高める相手</span>
+            <ul>
+              <li>同期・先輩行政書士（支部・予備校合格者コミュニティ）</li>
+              <li>IT×士業の実務コミュニティ（補助金・DX特化）</li>
+              <li>元エンジニア仲間（IT側の勉強会・技術コミュニティ）</li>
+              <li>「IT×行政書士」の先行ロールモデル（後述）</li>
+            </ul>
+          </div>
+        </div>
+        <div class="notice">
+          <strong>順序のコツ：</strong>①見込み客層にいきなり営業するより、まず<strong>②紹介元・③仲間層で「IT×補助金/IT契約の人」と覚えてもらう</strong>方が、
+          結果的に①からの受任が増えます。以下のチャネルは「着手しやすさ×この経歴の効きやすさ」の順に並べています。
+        </div>
+      </div>
+    </section>
+
+    <!-- 人脈獲得チャネル -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">人脈獲得チャネル（4系統・着手順）</h2>
+        <p class="lead">
+          「相手」欄は繋がる相手が<strong>見込み客／紹介元・連携／学び・仲間</strong>のどれに当たるかの目安、「相性」欄はこの経歴（IT×法務）との効きやすさの目安です。
+          金額・募集条件は変動するため、各行の出典で最新をご確認ください。
+        </p>
+
+        <h3 class="subhead">① 士業界内チャネル<span class="badge badge-primary">登録すれば入れる／低コスト</span></h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>チャネル</th><th>接触方法・効きどころ</th><th class="who-col">相手</th><th>費用/ハードル</th><th style="white-space:nowrap">相性</th><th>出典</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">都道府県行政書士会の支部研修・支部会</td>
+                <td>登録と同時に支部へ自動所属。相続・許認可中心のベテランはIT/電子申請(GビズID/Jグランツ)を苦手とする層が多く、<strong>逆に頼られる＝紹介を得やすい</strong>。</td>
+                <td class="who-col">紹介元・連携</td>
+                <td>会費に含む/実質ゼロ</td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+                <td class="src"><a href="https://www.gyosei.or.jp/" target="_blank" rel="noopener">日行連</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">行政書士制度広報月間(10月)の無料相談会</td>
+                <td>連合会・各県会が全国一斉実施する相談会の相談員に。<strong>実績ゼロでも会の看板で見込み客と直接話せる</strong>希少な場。補助金・DXの相談を拾える。</td>
+                <td class="who-col">見込み客・連携</td>
+                <td>無料/会員が対象</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://www.gyosei.or.jp/activity/events/" target="_blank" rel="noopener">イベント</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">予備校 合格者コミュニティ（伊藤塾 秋桜会・LEC 等）</td>
+                <td>合格直後の実務ノウハウと同期人脈を同時に得る最短ルート。秋桜会は会員4,229名（2026年1月）。<strong>勉強会運営やツール共有でIT力の存在感</strong>を出しやすい。</td>
+                <td class="who-col">学び・仲間</td>
+                <td>低〜中/受講前提の場合あり</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://www.itojuku.co.jp/shiken/gyosei/feature/kosumosukai.html" target="_blank" rel="noopener">秋桜会</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">全国士業プラットフォーム Honors</td>
+                <td>全国約50チーム・400名超。月次勉強会や経営者×士業の相談マッチング。<strong>若手・IT系が活躍しやすい新興コミュニティ</strong>で広域の紹介裾野が広がる。</td>
+                <td class="who-col">連携・見込み客</td>
+                <td>イベント1万円等</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://honors.jp/" target="_blank" rel="noopener">Honors</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">行政書士協同組合／全行団</td>
+                <td>賠償責任保険・共済・共同購買の場が横のつながりに。<strong>組合のHP/システム面でIT貢献</strong>しやすく、開業コストも下げられる。</td>
+                <td class="who-col">連携・学び</td>
+                <td>出資金＋組合費</td>
+                <td><span class="dots">●●<span class="off">●●●</span></span></td>
+                <td class="src"><a href="https://www.zengyodan.co.jp/" target="_blank" rel="noopener">全行団</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subhead">② 公的支援機関チャネル<span class="badge badge-primary">見込み客に会える公式導線／無料中心</span></h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>チャネル</th><th>接触方法・効きどころ</th><th class="who-col">相手</th><th>費用/ハードル</th><th style="white-space:nowrap">相性</th><th>出典</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">認定経営革新等支援機関＋推進協議会</td>
+                <td><strong>IT×補助金の核心</strong>。多くの補助金で認定支援機関の関与が要件/加点になり、認定を取ること自体が仕事と人脈を呼ぶ。IT・DX領域は診断士・税理士が手薄。</td>
+                <td class="who-col">提携・見込み客</td>
+                <td>研修・実務経験が要る（中〜高）</td>
+                <td><span class="dots">●●●●●</span></td>
+                <td class="src"><a href="https://www.ninteishien.go.jp/" target="_blank" rel="noopener">申請</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">IT導入支援事業者（デジタル化・AI導入補助金）登録</td>
+                <td>ITツール導入＋補助金申請・電子申請代理を<strong>ワンストップ提供</strong>。事務局サイト経由で中小企業から探される＝それ自体が集客チャネル。</td>
+                <td class="who-col">見込み客・ベンダー提携</td>
+                <td>体制整備が必要（中）</td>
+                <td><span class="dots">●●●●●</span></td>
+                <td class="src"><a href="https://it-shien.smrj.go.jp/" target="_blank" rel="noopener">IT導入補助金</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">商工会議所・商工会（会員＋エキスパートバンク専門家派遣）</td>
+                <td>地域の中小経営者に会える王道。<strong>専門家として登録・派遣される側に回る</strong>と見込み客が向こうから来る。経営指導員という紹介ハブに覚えられるのが大きい。</td>
+                <td class="who-col">見込み客・紹介元</td>
+                <td>年会費〜1万円台/派遣は無料〜</td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+                <td class="src"><a href="https://www.tokyo-cci.or.jp/soudan/expert/" target="_blank" rel="noopener">東商</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">よろず支援拠点（全国47拠点）</td>
+                <td>国が置く無料経営相談のハブ。IT活用・補助金・創業が主要テーマ。まず利用者→実績を積み<strong>コーディネーター登用</strong>で報酬を得ながら人脈を作る。</td>
+                <td class="who-col">見込み客・他士業</td>
+                <td>相談は無料/CO登用は選考</td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+                <td class="src"><a href="https://yorozu.smrj.go.jp/" target="_blank" rel="noopener">よろず</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">地域金融機関（信用金庫）のビジネスマッチング／創業支援拠点</td>
+                <td>信金は中小経営者ネットワークの結節点。渉外担当に専門を認知させれば継続紹介ルートに。TOKYO創業ステーション等の創業拠点はIT起業家の宝庫。</td>
+                <td class="who-col">見込み客・紹介元</td>
+                <td>取引前提/交流会は無料〜低額</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://startup-station.jp/m1/" target="_blank" rel="noopener">創業拠点</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subhead">③ IT・スタートアップコミュニティ<span class="badge badge-accent">元エンジニアの土俵で差別化</span></h3>
+        <div class="notice" style="margin-top:0.4rem;">
+          <strong>注意：多くのIT技術コミュニティは「No sell（売り込み禁止）」文化</strong>。営業でなく<strong>貢献（質問への回答・登壇）で信頼を積む</strong>のが前提です。ここは即効性より中長期の資産づくり。
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>チャネル</th><th>接触方法・効きどころ</th><th class="who-col">相手</th><th>費用/ハードル</th><th style="white-space:nowrap">相性</th><th>出典</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">情シスSlack（corp-engr）</td>
+                <td>情シス・コーポレートIT・情報セキュリティの現役実務者1.7万人超。<strong>元社内SE/情シスの経歴がそのまま共通言語</strong>。IT契約・社内規程・SaaS棚卸しの困りごとが日常的に流れる。</td>
+                <td class="who-col">見込み客・提携</td>
+                <td>無料（メール登録のみ）</td>
+                <td><span class="dots">●●●●●</span></td>
+                <td class="src"><a href="https://corp-engr.jp/" target="_blank" rel="noopener">情シスSlack</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">connpass の情シス/SaaS勉強会（＋登壇）</td>
+                <td>元エンジニアなら<strong>LT・登壇の素地</strong>あり。「IT×法務」という珍しい切り口で登壇すれば一気に差別化。SaaS導入に伴う契約・規程・個人情報は勉強会で需要が高い。</td>
+                <td class="who-col">見込み客・提携</td>
+                <td>無料〜数千円</td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+                <td class="src"><a href="https://connpass.com/" target="_blank" rel="noopener">connpass</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">kintone hive／キンコミ（サイボウズ）</td>
+                <td>kintone導入企業は<strong>社内規程・業務フロー・委託契約の見直しニーズ</strong>を抱えやすい。ノーコードに強い元エンジニアなら「導入＋規程整備」のセット提案が可能。</td>
+                <td class="who-col">見込み客・提携</td>
+                <td>契約(トライアル可)で無料</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://kintone.cybozu.co.jp/jp/event/hive/faq.html" target="_blank" rel="noopener">hive</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">JAWS-UG（AWS）等の技術コミュニティ</td>
+                <td>全国に支部があり地方でも地元IT企業と繋がれる。<strong>クラウド移行に伴うデータ・委託契約や規程整備</strong>の相談が生まれやすい。「No sell, No Job」文化に注意。</td>
+                <td class="who-col">見込み客・学び</td>
+                <td>無料〜懇親会実費</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://jaws-ug.jp/" target="_blank" rel="noopener">JAWS-UG</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">IVS／Startup Weekend 等のスタートアップイベント</td>
+                <td>資金調達・提携が動く場は<strong>IT系スタートアップの契約・規程・許認可ニーズが濃い</strong>。Startup Weekendは54時間チーム制で関係が深まりやすく地方でも開催。</td>
+                <td class="who-col">見込み客（起業家）</td>
+                <td>数千円〜4万円（イベント差大）</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://www.ivs.events/ja/pass" target="_blank" rel="noopener">IVS</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subhead">④ オンライン発信・マッチング<span class="badge badge-accent">合格前から作れる資産</span></h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>チャネル</th><th>接触方法・効きどころ</th><th class="who-col">相手</th><th>費用/ハードル</th><th style="white-space:nowrap">相性</th><th>出典</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">X（旧Twitter）＋note の専門発信</td>
+                <td>法改正・補助金公募・IT契約/規程の実務Tipsを継続発信。<strong>「IT×補助金」「IT委託契約・システム開発契約」のニッチで指名検索・指名相談</strong>につながる。守秘義務(行書法12条)に配慮。</td>
+                <td class="who-col">見込み客・紹介元</td>
+                <td>ほぼ無料/継続が前提</td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+                <td class="src"><a href="https://note.com/" target="_blank" rel="noopener">note</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">YOUTRUST（キャリアSNS）</td>
+                <td><strong>前職IT/情シス時代の人脈をそのまま資産化</strong>。登録者の中心がIT職種・スタートアップ。「技術がわかる法務相談相手」として旧IT界隈で想起されれば相談が回る。副業求人1,700社超。</td>
+                <td class="who-col">見込み客・紹介元</td>
+                <td>無料</td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+                <td class="src"><a href="https://youtrust.jp/lp/sns/sidejob" target="_blank" rel="noopener">YOUTRUST</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">ビザスク／Workship（スポットコンサル・業務委託）</td>
+                <td>「元社内SE/情シス×法律」というニッチな経歴は<strong>スポットコンサルで需要が生まれやすく、企業の意思決定層と1対1</strong>で接点を持てる。そこからIT契約・補助金の顧問へ。</td>
+                <td class="who-col">見込み客・提携</td>
+                <td>登録無料/経歴の言語化が要る</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://goworkship.com/" target="_blank" rel="noopener">Workship</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">補助金の広場 育成講座コミュニティ</td>
+                <td>採択される事業計画書の作り方を学びつつ、<strong>受講生限定のFacebook非公開グループ・懇親会で同方向の士業と繋がる</strong>。元エンジニアはIT導入補助金で価値提供でき相互紹介が回りやすい。</td>
+                <td class="who-col">提携・学び</td>
+                <td>中〜高（講座費）</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://course.hojyokin-hiroba.com/lp/" target="_blank" rel="noopener">育成講座</a></td>
+              </tr>
+              <tr>
+                <td class="highlight">ミツモア／比較ビズ（対顧客マッチング）</td>
+                <td>実績ゼロの開業初期でも案件接点を作れる。比較ビズは<strong>契約書作成・補助金申請サポートのBtoB案件</strong>が豊富。※成約手数料あり（詳細は下の需要先マップ）。</td>
+                <td class="who-col">見込み客</td>
+                <td>登録無料/成約手数料</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+                <td class="src"><a href="https://www.biz.ne.jp/subject/administrative/" target="_blank" rel="noopener">比較ビズ</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="legend-line">相性の凡例：<span class="dots">●●●●●</span>＝この経歴が最も効く／<span class="dots">●●<span class="off">●●●</span></span>＝繋がれるが強みは限定的。あくまで着手判断の目安です。</p>
+      </div>
+    </section>
+
+    <!-- 需要先マップ -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">IT×士業人材の「需要先マップ」</h2>
+        <p class="lead">
+          「IT×行政書士（法務・会計系）人材を実際に求めているのは誰か」を、Webの一次情報（求人・パートナー募集・提携リリース等／2026年8月時点）で確認できた範囲で分類しました。
+          <strong>「適合」欄は“この経歴との相性 × 一次情報の確度”の目安</strong>で、募集状況は変動します。必ず各行の出典で最新をご確認ください。
+        </p>
+        <div class="notice">
+          <strong>正直な色分け：</strong>
+          <span class="tag hire">採用</span>＝社員/委託の求人、
+          <span class="tag ally">提携</span>＝パートナー・業務提携・連携、
+          <span class="tag match">案件</span>＝対顧客/士業間の案件マッチング。
+          <strong>A〜Cは行政書士（またはIT×補助金人材）を直接求める先、D〜Fは「行政書士が主対象とは限らない」隣接領域</strong>です。過大評価しないよう分けています。
+        </div>
+
+        <h3 class="subhead">A. IT×補助金を直接求める行政書士法人・補助金コンサル<span class="badge badge-accent">最も確度が高い</span></h3>
+        <p class="lead" style="font-size:0.9rem;">この経歴に<strong>ど真ん中</strong>で刺さる層。採用・パートナー募集が実在し、「IT業界経験歓迎」「生成AIの日常使用」を明記する先もあります。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>需要先</th><th>種別</th><th>何を求めているか・関わり方</th><th style="white-space:nowrap">適合</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight"><a href="https://www.11consul.com/partnershindanshi/" target="_blank" rel="noopener">壱市コンサルティング</a></td>
+                <td>補助金コンサル</td>
+                <td>「AI×補助金」を掲げパートナー公募。必須要件に<strong>「ChatGPT/Claude等の生成AIを日常業務で使用」「補助金採択実績」</strong>、歓迎に行政書士等の資格。<span class="tag ally">提携</span><span class="tag hire">委託</span>準委任・リモート・副業可。</td>
+                <td><span class="dots">●●●●●</span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://www.shigyo.co.jp/about_us/recruit_info/boshu_shokushu/" target="_blank" rel="noopener">サポート行政書士法人</a></td>
+                <td>大手行政書士法人</td>
+                <td>認定支援機関。中途<strong>「DX・AI関係」枠に「★IT業界の経験者歓迎!」</strong>を明記。別枠で行政書士有資格者（許認可・補助金コンサル）、パートナー企業募集も。<span class="tag hire">採用</span><span class="tag ally">提携</span></td>
+                <td><span class="dots">●●●●●</span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://tani-group.com/recruit/" target="_blank" rel="noopener">谷島行政書士法人</a></td>
+                <td>行政書士法人（入管×DX）</td>
+                <td><strong>自社CRMを開発・運用しITツールでDX化</strong>、在宅ワーク可。資格不問の正社員から、パートナー（月50万円〜/年収1000万円目安）、委託アソシエイトまで多段階。<span class="tag hire">採用</span><span class="tag ally">パートナー</span></td>
+                <td><span class="dots">●●●●●</span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://gyosei-fujiwara.com/" target="_blank" rel="noopener">行政書士藤原七海事務所</a></td>
+                <td>個人（ロールモデル）</td>
+                <td><strong>応用情報技術者×行政書士</strong>を体現。freeeパートナーのITベンダー登録・ツール登録を代行し2営業日でPDF納品する等、IT×制度対応の需要が現に成立。同業連携・目指す姿の実在事例。<span class="tag ally">連携</span></td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://g1info.jp/itvendorsupport/" target="_blank" rel="noopener">G1行政書士法人</a></td>
+                <td>行政書士法人（補助金特化）</td>
+                <td>デジタル化・AI導入補助金に特化し<strong>ITベンダー×補助事業者を仲介</strong>。ITツール理解が前提の申請を大量に扱う（累計採択3,814件超）。ベンダー協業・案件連携の受け皿。<span class="tag ally">提携</span></td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://boundary.or.jp/recruit/" target="_blank" rel="noopener">バウンダリ行政書士法人</a></td>
+                <td>行政書士法人（ドローン）</td>
+                <td>DIPS（国のオンライン申請）を大量運用。募集は<strong>「一定のPCスキル」必須、資格取得時は登録費用半額会社負担</strong>。先端×電子申請でIT素養が活きる（累計3.5万件超）。<span class="tag hire">採用</span></td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://aoshima-office.com/partnership" target="_blank" rel="noopener">あおしま行政書士事務所</a></td>
+                <td>行政書士事務所</td>
+                <td><strong>コンサル・税理士・診断士・金融機関向けに「役割分担型」連携パートナーを明示募集</strong>。「経営支援の強みはそのまま、書類作成は行政書士が担当」＝IT出身が計画/IT設計、書類を分担する形の受け皿。<span class="tag ally">提携</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="legend-line">※行政書士法人アップル・リザルト・行政書士オフィス天晴なども補助金/IT補助金の専業として実在するが、外部人材の募集は公式に確認できず「実務モデル・連携候補」の位置づけ（低確度）。</p>
+
+        <h3 class="subhead">B. 補助金・法務DXプラットフォーム<span class="badge badge-primary">提携・体制構築</span></h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>需要先</th><th>種別</th><th>何を求めているか・関わり方</th><th style="white-space:nowrap">適合</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight"><a href="https://stayway.co.jp/news/1742/" target="_blank" rel="noopener">Stayway（補助金クラウド）</a></td>
+                <td>補助金SaaS／認定支援機関</td>
+                <td>金融機関50行超と連携し<strong>公認会計士・税理士・行政書士の専門家チーム</strong>を擁する。地域みらい行政書士法人と「顧客・Stayway・行政書士法人」の<strong>3社間契約体制を標準化</strong>（改正行書法・グレーゾーン解消制度対応）。<span class="tag hire">採用</span><span class="tag ally">提携</span></td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subhead">C. 外国人IT人材のビザを扱う入管特化事務所<span class="badge badge-primary">行政書士の直接需要</span></h3>
+        <p class="lead" style="font-size:0.9rem;">「技術・人文知識・国際業務」ビザは<strong>IT職の該当性判断（学歴と職務の関連性）にIT実務知識があるほど精緻に</strong>でき、外国籍エンジニアを採るIT企業からの申請需要が継続します。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>需要先</th><th>種別</th><th>何を求めているか・関わり方</th><th style="white-space:nowrap">適合</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight"><a href="https://touch.or.jp/work/it-engineer-visa/" target="_blank" rel="noopener">行政書士法人タッチ</a></td>
+                <td>入管特化事務所</td>
+                <td><strong>ITエンジニア専用の技人国ビザ解説を展開</strong>し、企業人事・監理団体・登録支援機関の3窓口を設置（累計相談1万件超）。IT職の申請に強い人材の需要層。<span class="tag match">案件</span><span class="tag ally">連携</span></td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://www.visajapan.jp/h_tokushu4.html" target="_blank" rel="noopener">行政書士法人ACROSEED</a></td>
+                <td>入管特化事務所</td>
+                <td>法人就労ビザのアウトソーシングを1,000社超に提供、<strong>ISO27001で在留・期限管理を仕組み化</strong>。申請オペレーションを理解するIT素養と親和的（IT人材の直接募集要件は未確認）。<span class="tag ally">連携</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://svisa.net/" target="_blank" rel="noopener">ワールド行政書士法人</a></td>
+                <td>入管特化事務所</td>
+                <td>外国人採用支援・技人国/特定技能に特化（1,000社超・50か国以上）。<strong>外国籍エンジニア採用に伴うビザ需要の受け皿</strong>（自社完結型のため外部連携枠は要問い合わせ）。<span class="tag ally">連携</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="legend-line">※<a href="https://www.gtalent.jp/" target="_blank" rel="noopener">ビズメイツ G Talent</a>・<a href="https://www.tokyodev.com/ja/" target="_blank" rel="noopener">TokyoDev</a> 等の外国籍エンジニア採用媒体は「ビザ需要の発生源」だが、ビザ支援を自社無料提供する例が多く行政書士の連携余地は限定的。</p>
+
+        <h3 class="subhead">D. 会計・バックオフィスSaaS の士業提携／取次<span class="badge badge-primary">登録・案件取次</span></h3>
+        <div class="notice" style="margin-top:0.4rem;">
+          <strong>要注意：</strong>この層のパートナー制度は<strong>主対象が税理士・社労士</strong>で、行政書士は「明示されていない／隣接資格取得時に効く」ものが多いです。ただし<strong>会社設立の電子定款取次と許認可プロダクト監修は行政書士の実需</strong>があります。
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>需要先</th><th>種別</th><th>何を求めているか・関わり方</th><th style="white-space:nowrap">適合</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight"><a href="https://biz.moneyforward.com/establish/" target="_blank" rel="noopener">マネーフォワード クラウド会社設立</a></td>
+                <td>SaaS（会社設立）</td>
+                <td><strong>電子定款作成を「提携行政書士」に取次</strong>（費用はMFが負担する仕組み）。IT適性が高くオンライン完結・スピード対応できる行政書士と相性が良い。<span class="tag match">案件</span><span class="tag ally">提携</span></td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://adv.freee.co.jp/advisor" target="_blank" rel="noopener">freee 認定アドバイザー／freee許認可</a></td>
+                <td>SaaS（会計/許認可）</td>
+                <td>freee税理士検索の行政書士枠に221件が掲載され、<strong>実態として行政書士も加入・掲載可</strong>。許認可プロダクトは「行政書士が監修」。IT×行政書士の得意領域と親和。<span class="tag ally">提携</span><span class="tag match">案件</span>（制度公式の主対象は税理士・社労士）</td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://biz.moneyforward.com/mfc-partner/" target="_blank" rel="noopener">MF公認メンバー／弥生PAP／SmartHR公認アドバイザー</a></td>
+                <td>SaaS（会計/労務）パートナー制度</td>
+                <td>クラウド会計・労務を使いこなす士業のパートナー制度。<strong>主対象は税理士・社労士・会計事務所</strong>で行政書士単独は主対象でない。<strong>将来 社労士等の隣接資格を取った場合に効く</strong>間接オプション。<span class="tag ally">提携</span></td>
+                <td><span class="dots">●●<span class="off">●●●</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subhead">E. 士業間・対顧客の案件マッチング<span class="badge badge-primary">案件を受ける</span></h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>需要先</th><th>種別</th><th>何を求めているか・関わり方</th><th style="white-space:nowrap">適合</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight"><a href="https://www.samu-rise.com/job_introduction" target="_blank" rel="noopener">SAMURISE</a></td>
+                <td>士業間マッチング</td>
+                <td>弁護士・税理士・行政書士・社労士等が<strong>案件を依頼・受託</strong>できる連携プラットフォーム。専門分野（IT契約・補助金・許認可）を掲げて他士業から案件を受ける導線。登録・利用無料。<span class="tag match">案件</span><span class="tag ally">連携</span></td>
+                <td><span class="dots">●●●●<span class="off">●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://lp.meetsmore.com/lps/administrative-scrivener" target="_blank" rel="noopener">ミツモア</a></td>
+                <td>対顧客マッチング</td>
+                <td>依頼総数700万件超。<strong>プロフィールでIT/DXの強みを打ち出せる行政書士ほど選ばれやすい</strong>集客チャネル。登録・月額0円だが成約手数料35%（税込38.5%）。<span class="tag match">案件</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://mochi-ya.ne.jp/" target="_blank" rel="noopener">レガシィクラウド Mochi-ya</a></td>
+                <td>士業間受発注</td>
+                <td>相続専門30年のレガシィが運営。<strong>得意分野ごとに案件を分担</strong>、行政書士も対象。登録・応募は無料、成立時のみ業務分担料。<span class="tag match">案件</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://www.biz.ne.jp/subject/administrative/" target="_blank" rel="noopener">比較ビズ／士業ドットコムSAMURAI</a></td>
+                <td>対顧客/掲載型</td>
+                <td>比較ビズは<strong>契約書作成・補助金・会社設立のBtoB案件</strong>が豊富。SAMURAIは掲載型で紹介料・送客手数料なし。いずれも狙う分野に直結。<span class="tag match">案件</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subhead">F. リーガルテック企業・事業会社法務<span class="badge badge-primary">IT×法務ハイブリッド枠</span></h3>
+        <div class="notice" style="margin-top:0.4rem;">
+          <strong>ここが最も誤解されやすい層。</strong>各社が求めるのは主に<strong>弁護士・企業法務経験者・エンジニア</strong>で、<strong>「行政書士」資格は直接の要件ではありません</strong>。
+          効くのは資格そのものより<strong>「元エンジニア×法務ドメイン理解」というハイブリッド性</strong>。将来 会社員として関わる/副業する選択肢、あるいは提携先として捉えるのが現実的です。
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>需要先</th><th>種別</th><th>何を求めているか（※行政書士は直接要件でない）</th><th style="white-space:nowrap">適合</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight"><a href="https://www.jmsc.co.jp/knowhow/topics/12698.html" target="_blank" rel="noopener">MS-Japan</a></td>
+                <td>士業特化 人材紹介</td>
+                <td>管理部門・士業特化の紹介大手。自社メディアで<strong>「法務DX（電子署名法要件のシステム要件定義・運用ルール策定）を主導した経験は極めて希少」</strong>と明言し該当求人を仲介。IT×法務人材の需要が集約される窓口。<span class="tag match">紹介</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://recruit.legalontech.jp/" target="_blank" rel="noopener">LegalOn Technologies</a></td>
+                <td>リーガルテック</td>
+                <td>AI契約審査の国内最大手（ARR100億円超）。<strong>企業法務経験者</strong>をプロダクト側に採用、加えて紹介・再販の販売パートナー制度。要件の中心は企業法務経験。<span class="tag hire">採用</span><span class="tag ally">パートナー</span></td>
+                <td><span class="dots">●●●<span class="off">●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://gvatech.co.jp/recruit" target="_blank" rel="noopener">GVA TECH</a></td>
+                <td>リーガルテック</td>
+                <td>AI契約審査・法務OS・商業登記支援を提供。<strong>法務ドメイン理解×プロダクト/技術</strong>のPM・エンジニア・リーガル職を採用。登記は司法書士領域で行政書士の直需要は限定的。<span class="tag hire">採用</span></td>
+                <td><span class="dots">●●<span class="off">●●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://careers.mntsq.co.jp/" target="_blank" rel="noopener">MNTSQ</a> ／ <a href="https://www.contracts.co.jp/" target="_blank" rel="noopener">ContractS</a></td>
+                <td>リーガルテック（契約管理）</td>
+                <td>大企業向けCLMを開発。<strong>契約実務を理解しITツールを扱える「リーガルエキスパート」</strong>を採用。契約・法務とプロダクトの橋渡し役。行政書士資格は必須でない。<span class="tag hire">採用</span></td>
+                <td><span class="dots">●●<span class="off">●●●</span></span></td>
+              </tr>
+              <tr>
+                <td class="highlight"><a href="https://hrmos.co/pages/moneyforward" target="_blank" rel="noopener">マネーフォワード</a> ／ <a href="https://open.talentio.com/1/c/smarthr" target="_blank" rel="noopener">SmartHR</a> 法務</td>
+                <td>SaaS企業 企業内法務</td>
+                <td><strong>IT/SaaS契約の審査・作成、個人情報保護・データ活用</strong>を担う企業内法務を募集。IT出身の事業理解が差別化に。ただし採用はコーポレートリーガルで、行政書士資格は直接要件でない。<span class="tag hire">採用</span></td>
+                <td><span class="dots">●●<span class="off">●●●</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="legend-line">適合の凡例：<span class="dots">●●●●●</span>＝行政書士(IT×補助金)を直接求める／<span class="dots">●●●<span class="off">●●</span></span>＝親和性はあるが行政書士が主対象とは限らない／<span class="dots">●●<span class="off">●●●</span></span>＝IT×法務ハイブリッドとして/隣接資格取得時に効く。募集状況は変動します。</p>
+      </div>
+    </section>
+
+    <!-- 90日人脈アクション -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">チャネル→需要先をつなぐ「90日 人脈アクション」</h2>
+        <p class="lead">
+          <a href="career.html">キャリアプランの90日アクション</a>が「顧客獲得」の段取りなら、こちらは<strong>人脈の“最初の輪”を作る</strong>ための順序です。
+          合格前でも③④は着手でき、合格・登録後に①②が開きます。
+        </p>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>Week 1–3 ｜ 発信の“旗”を立てる（合格前でも可）</strong>
+              <p>X＋noteで「元・社内SE/情シスの行政書士（を目指す人）」として、法改正・補助金公募・IT契約の実務Tipsを発信開始。YOUTRUSTに登録し前職IT人脈を棚卸し。旗があると、後で会う人に一言で覚えてもらえる。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>Week 3–6 ｜ 元エンジニアの土俵に顔を出す</strong>
+              <p>情シスSlack（corp-engr）に参加し、まず質問に答える側で貢献。connpass/JAWS-UGの勉強会に1〜2回参加、可能なら「IT×法務」でLT登壇のネタを準備。※売り込まない。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>Week 4–8 ｜ 需要先マップから“会いに行く先”を5つ選ぶ</strong>
+              <p>上のA・C・E層から、いま応募/提携/登録できる先を5つ選定。壱市・サポート・谷島などの募集要項を確認し、SAMURISE等のマッチングに登録。入管に寄せるなら技人国特化事務所の連携窓口に問い合わせ。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">4</div>
+            <div class="flow-body">
+              <strong>Week 6–10 ｜ 公的ハブに“専門家として”接続する</strong>
+              <p>よろず支援拠点・商工会議所の経営相談を利用→専門家派遣登録の要件を確認。認定支援機関・IT導入支援事業者の要件と公募スケジュールを把握。地元信金の渉外担当に「IT×補助金」を認知させる。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">5</div>
+            <div class="flow-body">
+              <strong>登録後 ｜ 業界内の“濃い人脈”を積む</strong>
+              <p>支部研修・広報月間の無料相談会に相談員として参加。予備校合格者コミュニティ（秋桜会 等）や補助金育成講座で同方向の士業と繋がり、相互紹介の土台を作る。デジタルが苦手な同業に“頼られる側”のポジションを取る。</p>
+            </div>
+          </div>
+        </div>
+        <div class="notice">
+          <strong>1本につなげる：</strong>③④で作った「旗」と発信を、A〜Cの需要先への応募・提携時の実績（＝あなたが何者かの証明）として使う。
+          チャネルは点で終わらせず、<strong>「発信→コミュニティ→需要先→紹介の循環」</strong>に組み上げるのが狙いです。
+        </div>
+      </div>
+    </section>
+
+    <!-- 注意点 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">誠実に押さえる注意点</h2>
+        <ul class="exclusive-list">
+          <li><strong>「行政書士を名指しで求める先」と「IT×法務なら入れる先」を混同しない</strong>：F層（リーガルテック・事業会社法務）や D層の一部は主対象が弁護士・税理士・社労士。行政書士資格が直接効くのはA〜C層です。過大な期待で消耗しないよう層で戦略を分ける。</li>
+          <li><strong>IT技術コミュニティは「No sell」文化</strong>：JAWS-UG等は営業目的の参加が明確に敬遠される。貢献→信頼→自然な相談の順序を守る。焦って売り込むと逆効果。</li>
+          <li><strong>守秘義務・利益相反</strong>：発信（X/note）では行政書士法12条の守秘義務に触れない配慮を。前職の顧客・機密情報は流用しない。企業の役員/顧問に踏み込む場合は立場の切り分けを（<a href="jumpup.html">ジャンプアップ参照</a>）。</li>
+          <li><strong>独占業務の境界</strong>：報酬を得て「業として」書類作成するのは有資格後。無資格期の副業プラットフォーム出品は助言・情報提供にとどめる。登記は司法書士、税務は税理士、紛争代理は弁護士の領域。</li>
+          <li><strong>認定支援機関・専門家派遣には要件がある</strong>：行政書士単独では実務経験・研修が必要な場合が多い。税理士・診断士との連名や、まず利用者→登録の順で現実的に。</li>
+          <li><strong>マッチングの手数料</strong>：ミツモア等は成約手数料（例：税込38.5%）が発生。「登録無料」＝「受注無料」ではない。単価設計に織り込む。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 出典 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">出典・データについて</h2>
+        <div class="notice">
+          <strong>本ページは2026年8月時点のWeb一次情報調査（各社の公式サイト・求人・パートナー募集・提携リリース等）にもとづく整理です。</strong>
+          企業の募集状況・パートナー制度・料金・要件は変動し、また掲載＝募集中/受入中を保証しません。応募・提携・登録の前に、必ず各行のリンク先で最新の一次情報をご確認ください。
+          「適合」の目安は編集上の相対評価であり、成果を保証するものではありません。
+        </div>
+        <p class="lead" style="font-size:0.88rem;">
+          主な参照先（抜粋）：日本行政書士会連合会／中小企業庁・中小機構（認定支援機関・よろず支援拠点・IT導入補助金）／各商工会議所エキスパートバンク／情シスSlack・connpass・JAWS-UG・サイボウズ／
+          壱市コンサルティング・サポート行政書士法人・谷島行政書士法人・G1行政書士法人・バウンダリ行政書士法人・あおしま行政書士事務所・行政書士藤原七海事務所・Stayway／
+          行政書士法人タッチ・ACROSEED・ワールド行政書士法人／freee・マネーフォワード・弥生・SmartHR／SAMURISE・ミツモア・レガシィ Mochi-ya・比較ビズ・士業ドットコムSAMURAI／
+          MS-Japan・LegalOn Technologies・GVA TECH・MNTSQ・ContractS。各URLは本文中の該当行に掲載。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — 行政書士 人脈チャネル &amp; 需要先マップ</div>
+      <div class="disclaimer">掲載内容は個人のキャリア検討目的の情報整理です。企業・団体の募集/提携状況・制度・料金は変動するため、各一次情報でご確認ください。特定の就職・提携・受注や収入を保証するものではありません。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>
