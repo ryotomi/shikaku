@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="日商簿記1級（第174回・2026/11/15）までの週次学習ロードマップ。連結・原価計算の意思決定を軸に、各科目の足切り40%回避を狙う短期集中プラン。" />
+  <title>学習ロードマップ — 簿記1級 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .phase-tag { display:inline-block; font-size:0.72rem; padding:0.12em 0.6em; border-radius:999px; color:#fff; margin-right:0.4rem; }
+    .p0{background:#C0564B}.p1{background:#7F8C8D}.p2{background:#E8A020}.p3{background:#4A90D9}.p4{background:#5BAD6F}.p5{background:#9B59B6}
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">簿記1級 学習ロードマップ</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">簿記1級</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link current" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">簿記1級</a><span class="breadcrumb-sep">›</span><span>学習ロードマップ</span></div>
+        <h1 class="section-title">学習ロードマップ（第174回 2026/11/15 目標）</h1>
+        <p class="lead">次回試験 <strong>2026年11月15日（日）</strong> まで約13週間の短期集中プラン。<strong>日商簿記2級の合格レベルを前提</strong>に、連結会計と意思決定会計を軸に組み立てます。</p>
+        <div class="notice"><strong>前提と正直な注意：</strong>1級の一般的な目安学習時間は2級合格者でも<strong>約500〜600時間</strong>（標準学習期間6〜12か月）。13週間で仕上げるには週25〜35時間の確保が必要で、2級が固まっていない場合は<strong>次々回（2027年6月見込み）を目標に据える</strong>のが現実的です。まずは自分の到達度で目標回を決めてください。</div>
+        <div class="notice" style="margin-top:0.6rem;"><strong>最優先タスク：受験申込。</strong>第174回の申込は概ね<strong>9月下旬〜10月中旬</strong>で、期間・方法は<strong>受験地の商工会議所ごとに異なります</strong>。学習より先に受験地の商工会議所サイトで申込日程を確認してください。</div>
+      </div></section>
+
+      <!-- 戦略 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">戦略の柱（4科目均等＋足切り回避）</h2>
+        <p class="lead">1級は各科目25点で均等配点、かつ<strong>1科目でも40%（10点）未満で不合格</strong>。得意科目で稼ぐより、全科目を合格ラインに乗せる配分が重要です。</p>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>科目</th><th>配点</th><th>方針</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">商業簿記</td><td class="num">25点</td><td>連結総合問題を反復。個別論点（税効果・退職給付・金融商品・収益認識）を横断で処理できるように</td></tr>
+            <tr><td class="highlight">会計学</td><td class="num">25点</td><td>商簿と同論点を理論面から。会計基準・概念フレームワークの趣旨を穴埋め・正誤で固める</td></tr>
+            <tr><td class="highlight">工業簿記</td><td class="num">25点</td><td>標準原価の差異分析・総合原価（非度外視法）・工程別（非累加法）をパターン化。得点を安定させる</td></tr>
+            <tr><td class="highlight">原価計算</td><td class="num">25点</td><td>CVP・直接原価計算・意思決定会計（設備投資NPV）。解法の型を作れば最も安定して稼げる</td></tr>
+          </tbody>
+        </table></div>
+        <div class="notice" style="margin-top:1rem;">得点戦略の目安：「工業簿記・原価計算を安定得点源に（各15点前後）」「商業簿記・会計学は連結で取りこぼさない」。<strong>どの科目も最低10点（40%）は死守</strong>。</div>
+      </div></section>
+
+      <!-- 週次ロードマップ -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">週次ロードマップ（全13週）</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>時期</th><th>フェーズ</th><th>主な学習内容</th></tr></thead>
+          <tbody>
+            <tr><td>〜10月中旬</td><td><span class="phase-tag p0">申込</span></td><td><strong>受験申込を完了</strong>（受験地の商工会議所で日程確認）。並行して学習開始</td></tr>
+            <tr><td>W1〜W2<br>8/15〜8/30</td><td><span class="phase-tag p1">基礎の底上げ</span></td><td>2級論点の総復習（個別の連結・工業簿記）。1級の全体像と出題区分の把握。単語帳を毎日回し始める</td></tr>
+            <tr><td>W3〜W6<br>8/31〜9/27</td><td><span class="phase-tag p2">商簿・会計学 集中</span></td><td>資本連結→成果連結（未実現利益消去）→持分法→包括利益・連結CF。個別論点（税効果・退職給付・社債・外貨・収益認識）。会計学の理論を並行</td></tr>
+            <tr><td>W7〜W9<br>9/28〜10/18</td><td><span class="phase-tag p3">工簿・原計 集中</span></td><td>標準原価計算の差異分析→総合原価（非度外視法）→工程別（非累加法）・部門別。原価計算はCVP→直接原価計算→意思決定会計（NPV/IRR）→ABC</td></tr>
+            <tr><td>W10〜W11<br>10/19〜11/1</td><td><span class="phase-tag p4">総合演習・弱点補強</span></td><td>本試験形式の総合問題を科目横断で。誤答分析→苦手論点を集中補強。過去問2周目。時間配分（商会90分・工原90分）を体に入れる</td></tr>
+            <tr><td>W12〜W13<br>11/2〜11/14</td><td><span class="phase-tag p5">直前・総仕上げ</span></td><td>本試験形式の答練を反復。新規論点は入れない。頻出仕訳・計算式・会計基準の趣旨を最終確認。電卓操作・見直し手順を固める</td></tr>
+          </tbody>
+        </table></div>
+        <div class="notice" style="margin-top:1rem;">時間配分の目安（週約28h）：<strong>商業簿記30％・会計学20％・工業簿記25％・原価計算25％</strong>。フェーズが進むほど「インプット→個別演習→総合問題・答練」へ重心を移す。</div>
+      </div></section>
+
+      <!-- サイト活用 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">本サイトの活用法</h2>
+        <ul class="exclusive-list">
+          <li><strong>① 単語帳</strong><br>毎日15〜20分、科目フィルターで当日の学習範囲を回す。会計基準・原価計算の用語と定義を「習得済み」で管理。<a href="flashcard.html">単語帳を開く →</a></li>
+          <li><strong>② 過去問演習（5肢択一）</strong><br>インプット直後に該当科目でランダム演習。理論の正誤判断と基本計算を確認。誤答は自動で「要復習」に登録され、あとでまとめて復習。<a href="practice.html">演習する →</a></li>
+          <li><strong>③ 科目別まとめ</strong><br>各科目の論点整理表を最終確認。<a href="index.html">科目別まとめ一覧 →</a></li>
+          <li><strong>④ 試験概要</strong><br>配点・合格基準（足切り）・日程の確認。<a href="docs/overview.html">試験概要を開く →</a></li>
+        </ul>
+      </div></section>
+
+      <!-- 外部で補う -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">本サイトで足りない部分（外部教材で補う）</h2>
+        <div class="notice"><strong>正直な注意：</strong>本サイトは5肢択一の確認と用語暗記に特化しています。1級は<strong>記述式（計算過程を書く総合問題）</strong>が本体なので、以下は市販の問題集・答練で必ず補ってください。</div>
+        <div class="table-wrap" style="margin-top:1rem;"><table class="data-table">
+          <thead><tr><th>補うべき領域</th><th>理由・対策</th></tr></thead>
+          <tbody>
+            <tr><td>連結の総合問題</td><td>本試験の中核。連結精算表・連結財務諸表作成を、市販の1級問題集で手を動かして繰り返す</td></tr>
+            <tr><td>工簿・原計の計算総合問題</td><td>標準原価の差異分析・非度外視法・意思決定会計は、計算量の多い総合問題で時間内に解く訓練が要る</td></tr>
+            <tr><td>本試験形式の答練・模試</td><td>商会90分・工原90分の時間配分は本番形式でしか鍛えられない。直前期に反復</td></tr>
+            <tr><td>最新の会計基準・出題区分改定</td><td>新リース会計基準など、出題範囲は改定される。受験年度の出題区分表を公式で確認</td></tr>
+          </tbody>
+        </table></div>
+      </div></section>
+
+      <section class="section"><div class="container">
+        <h2 class="section-title">続ける仕組み（挫折しないために）</h2>
+        <ul class="exclusive-list">
+          <li><strong>毎日“最低ライン”を決める</strong>：忙しい日でも単語帳15分＋過去問5問だけは死守。ゼロの日を作らない。</li>
+          <li><strong>週末にレビュー</strong>：その週の演習の正答率と苦手論点を確認し、翌週の配分を微調整。</li>
+          <li><strong>「解ける」より「速く正確に」</strong>：1級は時間との戦い。総合問題を時間を計って解き、電卓ミス・転記ミスを減らす。</li>
+        </ul>
+      </div></section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 簿記1級 学習ロードマップ</div><div class="disclaimer">本ロードマップは学習目安です。試験日程・申込期限・出題範囲は必ず公式（商工会議所の検定試験 kentei.ne.jp）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

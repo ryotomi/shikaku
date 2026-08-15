@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>原価計算 — 簿記1級 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">簿記1級 原価計算</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">簿記1級</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">簿記1級</a><span class="breadcrumb-sep">›</span><span>原価計算</span></div>
+        <h1 class="section-title">原価計算</h1>
+        <p class="lead">原価計算は、CVP分析・原価計算方式の選択・標準原価の差異分析・意思決定・設備投資と、「意思決定に役立つ原価情報」を扱う管理会計中心の科目です。計算の型が決まっているため反復で確実に得点でき、配点25点の安定した得点源になります。各手法の前提（埋没原価は無視、貢献利益で判断など）を理解すれば応用が効きます。</p>
+        <div class="notice"><strong>配点25点・後半（工業簿記・原価計算で90分）。</strong>管理会計寄り。意思決定会計・CVP・戦略的原価計算を問う。1科目でも40%（10点）未満だと足切りで不合格になるため、この科目でも最低ラインの確保が必須。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">CVP分析の基本指標</h2>
+        <p class="lead">貢献利益（限界利益）を軸に、損益分岐点と安全性を測る。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>指標</th><th>計算式</th><th>意味・ポイント</th></tr></thead><tbody><tr><td>貢献利益(限界利益)</td><td>売上高 − 変動費</td><td>固定費回収と利益の源泉</td></tr><tr><td>貢献利益率</td><td>貢献利益 ÷ 売上高</td><td>売上1円あたりの貢献額</td></tr><tr><td>損益分岐点売上高</td><td>固定費 ÷ 貢献利益率</td><td>利益ゼロとなる売上高</td></tr><tr><td>損益分岐点販売量</td><td>固定費 ÷ 単位あたり貢献利益</td><td>利益ゼロとなる数量</td></tr><tr><td>安全余裕率</td><td>(実際売上高 − 損益分岐点売上高) ÷ 実際売上高</td><td>何%売上が落ちても赤字化しないか</td></tr><tr><td>経営レバレッジ係数</td><td>貢献利益 ÷ 営業利益</td><td>安全余裕率の逆数。売上変動の利益増幅度</td></tr><tr><td>目標利益売上高</td><td>(固定費 + 目標利益) ÷ 貢献利益率</td><td>目標営業利益を得る売上高</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">経営レバレッジ係数 × 安全余裕率 = 1 が常に成立する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">全部原価計算 と 直接原価計算</h2>
+        <p class="lead">固定製造間接費を製品原価に含めるか（全部）、期間費用とするか（直接）で営業利益が食い違う。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>全部原価計算</th><th>直接原価計算</th></tr></thead><tbody><tr><td>固定製造間接費の扱い</td><td>製品原価に算入（在庫にも配分）</td><td>発生した期の期間費用</td></tr><tr><td>利益への影響</td><td>生産量が増えると利益が増えやすい</td><td>生産量に左右されず販売量で決まる</td></tr><tr><td>外部報告(制度会計)</td><td>認められる</td><td>認められない（内部管理用）</td></tr><tr><td>利益差の原因</td><td>在庫に含まれる固定費の増減</td><td>在庫に固定費を含めない</td></tr><tr><td>固定費調整</td><td>調整不要（そのまま制度上の利益）</td><td>全部原価計算利益＝直接利益＋(期末在庫の固定費−期首在庫の固定費)</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">在庫が増加（生産&gt;販売）すると全部原価計算利益 &gt; 直接原価計算利益。減少すると逆転する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">標準原価差異分析（三分法・四分法）</h2>
+        <p class="lead">実際発生額と標準配賦額の差を原因別に分解する。製造間接費（公式法変動予算）の分解が要。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>差異</th><th>計算式</th><th>備考</th></tr></thead><tbody><tr><td>材料 価格差異</td><td>(標準単価 − 実際単価) × 実際消費量</td><td>購入・市況要因</td></tr><tr><td>材料 数量差異</td><td>(標準消費量 − 実際消費量) × 標準単価</td><td>使い方・歩留要因</td></tr><tr><td>労務 賃率差異</td><td>(標準賃率 − 実際賃率) × 実際作業時間</td><td>賃率要因</td></tr><tr><td>労務 時間(作業能率)差異</td><td>(標準作業時間 − 実際作業時間) × 標準賃率</td><td>作業効率要因</td></tr><tr><td>予算差異</td><td>実際発生額 − 実際操業度における予算許容額</td><td>浪費・節約</td></tr><tr><td>能率差異</td><td>標準配賦率 × (実際操業度 − 標準操業度)</td><td>三分法。四分法では変動費分と固定費分に分割</td></tr><tr><td>操業度差異</td><td>固定費率 × (基準操業度 − 実際操業度)</td><td>設備の遊休・過剰稼働</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">四分法は三分法の能率差異を「変動費能率差異＝変動費率×(実際−標準操業度)」と「固定費能率差異＝固定費率×(実際−標準操業度)」に分ける。各差異の合計は必ず総差異に一致する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">業務的意思決定の判断基準</h2>
+        <p class="lead">差額原価・差額収益（＝関連原価のみ）で比較し、埋没原価は無視する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>意思決定</th><th>判断の軸</th><th>無視するもの</th></tr></thead><tbody><tr><td>特別注文の受注可否</td><td>差額収益 &gt; 差額原価（増分貢献利益&gt;0）なら受注</td><td>既存で発生済の固定費(埋没)</td></tr><tr><td>追加加工の可否</td><td>追加加工後の増分収益 &gt; 追加加工費なら加工</td><td>分離点までの結合原価(埋没)</td></tr><tr><td>内製か外注か</td><td>内製の回避可能原価 と 外注購入原価を比較</td><td>回避できない固定費</td></tr><tr><td>セグメントの継続/廃止</td><td>そのセグメントの貢献利益(個別固定費控除後)が正なら継続</td><td>配賦された共通固定費</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">『関連原価＝将来発生し、かつ代替案間で差が出る原価』のみを比較する。過去原価は常に埋没原価。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">設備投資の経済性計算</h2>
+        <p class="lead">貨幣の時間価値を考慮する割引法と、考慮しない非割引法に大別。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>方法</th><th>内容・判定基準</th><th>特徴</th></tr></thead><tbody><tr><td>正味現在価値法(NPV)</td><td>将来CFの現在価値合計 − 投資額。NPV&gt;0なら採用</td><td>割引法。金額で評価、加法性あり</td></tr><tr><td>内部利益率法(IRR)</td><td>NPV=0となる割引率。IRR&gt;資本コストなら採用</td><td>割引法。率で評価、複数解の恐れ</td></tr><tr><td>収益性指数(PI)</td><td>将来CFの現在価値 ÷ 投資額。1超なら採用</td><td>割引法。資金制約下の優先順位付け</td></tr><tr><td>回収期間法</td><td>投資額 ÷ 年々のCF(等額時)。短いほど有利</td><td>非割引が原則。安全性・流動性重視</td></tr><tr><td>会計的利益率法(ARR)</td><td>平均利益 ÷ 投資額。高いほど有利</td><td>非割引。CFでなく利益ベース</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">IRRは資本コストと比較して採否を決める。NPVとIRRは単独案では通常同じ結論だが、排他的案の優劣では食い違うことがあり、その場合はNPVを優先する。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">活動基準原価計算(ABC)と伝統的配賦</h2>
+        <p class="lead">製造間接費を活動（コストプール）ごとに、原因となるコストドライバーで配賦する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>伝統的原価計算</th><th>ABC</th></tr></thead><tbody><tr><td>配賦基準</td><td>操業度(直接作業時間・機械時間など)単一基準が中心</td><td>活動ごとのコストドライバー(段取回数・検査時間など)</td></tr><tr><td>少量多品種製品の原価</td><td>過小評価されやすい</td><td>実態に近い(段取等を正しく負担)</td></tr><tr><td>適する状況</td><td>間接費が小さい・製品が同質</td><td>間接費が大きい・多品種</td></tr><tr><td>計算コスト</td><td>低い</td><td>高い(活動の把握が必要)</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">ABCの手順: (1)活動ごとにコストプール集計 → (2)コストドライバー確定 → (3)ドライバー1単位あたりレート算定 → (4)製品の消費量で配賦。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">予算管理の体系</h2>
+        <p class="lead">総合予算は損益・資金・財政状態の計画を統合したもの。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>内容</th><th>例</th></tr></thead><tbody><tr><td>損益予算</td><td>収益・費用の計画</td><td>販売予算・製造予算・販管費予算</td></tr><tr><td>財務予算</td><td>資金と財政状態の計画</td><td>現金予算・見積貸借対照表</td></tr><tr><td>固定予算</td><td>特定の操業度前提で編成</td><td>予算差異分析が操業度変化に弱い</td></tr><tr><td>変動予算</td><td>操業度に応じて許容額が変動</td><td>実績と同じ操業度で比較でき差異分析に有用</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">予算差異分析では、実際操業度に対応する予算許容額(変動予算)と実績を比較するのが原則。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この科目を演習する</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=genka">
+            <div class="content-card-title">過去問演習（原価計算 17問）</div>
+            <div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="flashcard.html?subject=genka">
+            <div class="content-card-title">単語帳（原価計算 42語）</div>
+            <div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。習得済みマーク付き。</div>
+            <div class="content-card-arrow">暗記する →</div>
+          </a>
+          <a class="content-card" href="roadmap.html">
+            <div class="content-card-title">学習ロードマップ</div>
+            <div class="content-card-desc">試験日までの週次計画。この科目の学習時期を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 簿記1級 原価計算</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（商工会議所の検定試験 kentei.ne.jp）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

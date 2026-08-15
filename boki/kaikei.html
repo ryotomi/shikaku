@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会計学 — 簿記1級 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">簿記1級 会計学</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">簿記1級</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">簿記1級</a><span class="breadcrumb-sep">›</span><span>会計学</span></div>
+        <h1 class="section-title">会計学</h1>
+        <p class="lead">会計学は、簿記の背後にある会計基準・会計理論を問う科目で、連結会計を中心に企業結合・包括利益・概念フレームワークなど「なぜその処理をするのか」の理解が問われる。計算は連結精算表やEPSなど範囲が限定される一方、理論の穴埋め・正誤判定の配点比重が高く、基準の趣旨と要件の正確な記憶が得点を左右する。商業簿記と表裏一体で、連結・企業結合は両科目で頻出のため相互に補強して学習すると効率的である。</p>
+        <div class="notice"><strong>配点25点・前半（商業簿記・会計学で90分）。</strong>理論＋計算。会計基準・概念フレームワークの趣旨理解を問う。1科目でも40%（10点）未満だと足切りで不合格になるため、この科目でも最低ラインの確保が必須。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">連結会計の基本手続と勘定</h2>
+        <p class="lead">連結修正は「資本連結（投資と資本の相殺）」と「成果連結（内部取引・未実現利益の消去）」に大別される。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>対象</th><th>主な処理</th></tr></thead><tbody><tr><td>資本連結</td><td>親会社の投資と子会社の資本</td><td>相殺消去し、差額をのれん、非支配株主分を非支配株主持分に振替</td></tr><tr><td>債権債務の相殺</td><td>連結会社間の売掛金・買掛金・貸付金等</td><td>全額相殺消去。貸倒引当金も修正</td></tr><tr><td>取引高の相殺</td><td>連結会社間の売上高・仕入高</td><td>全額相殺消去</td></tr><tr><td>期末棚卸資産の未実現利益</td><td>内部売買で残る在庫の利益</td><td>全額消去。ダウンストリームは全額親会社負担</td></tr><tr><td>期末棚卸資産(アップストリーム)</td><td>子会社から親会社への販売分</td><td>全額消去し、非支配株主持分にも按分負担させる</td></tr><tr><td>固定資産の未実現利益</td><td>内部売買した土地等</td><td>売却損益を消去。実現まで繰延</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">未実現利益は原則「全額消去」。負担のみダウンストリーム＝全額親会社、アップストリーム＝持分割合で親会社と非支配株主に按分。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">のれんと非支配株主持分</h2>
+        <p class="lead">支配獲得時に子会社資産・負債を時価評価し、投資額と評価替後の資本持分との差額でのれんを算定する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>算定・処理</th><th>注意点</th></tr></thead><tbody><tr><td>評価差額</td><td>子会社資産負債を時価評価した差額</td><td>全面時価評価法により全部評価。子会社資本を構成</td></tr><tr><td>のれん</td><td>投資額 − 親持分に対応する評価替後資本</td><td>資産計上し20年以内で規則的償却</td></tr><tr><td>負ののれん</td><td>上記が負の値</td><td>発生年度に一括して特別利益(負ののれん発生益)計上</td></tr><tr><td>非支配株主持分</td><td>評価替後子会社資本 × 非支配株主持分割合</td><td>純資産の部に区分表示</td></tr><tr><td>のれんの減損</td><td>回収可能価額が帳簿価額を下回る</td><td>減損損失を計上（戻入れ不可）</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">日本基準ではのれんは規則的償却＋減損の併用。IFRSの非償却・毎期減損テストとは異なる。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">持分法と連結の比較</h2>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>持分法</th><th>連結（完全連結）</th></tr></thead><tbody><tr><td>対象</td><td>非連結子会社・関連会社（20%以上等）</td><td>支配従属関係にある子会社</td></tr><tr><td>取込方法</td><td>投資勘定を損益・持分変動で増減（一行連結）</td><td>資産・負債・収益・費用を合算</td></tr><tr><td>未実現利益消去</td><td>投資と利益を相殺（部分消去も持分割合で調整）</td><td>全額消去し負担を按分</td></tr><tr><td>のれん</td><td>投資勘定に含めて処理・償却</td><td>のれんとして区分計上・償却</td></tr><tr><td>非支配株主持分</td><td>登場しない</td><td>計上する</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">持分法は純資産・純利益への影響額が連結と一致する（一行連結）ことがポイント。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">包括利益とその他の包括利益(OCI)</h2>
+        <p class="lead">包括利益＝当期純利益＋その他の包括利益。純資産の変動のうち資本取引以外の要因を捉える。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>OCIの構成項目</th><th>内容</th><th>組替調整(リサイクリング)</th></tr></thead><tbody><tr><td>その他有価証券評価差額金</td><td>その他有価証券の時価評価差額</td><td>売却・減損時に純損益へ組替</td></tr><tr><td>繰延ヘッジ損益</td><td>ヘッジ手段の評価差額の繰延</td><td>ヘッジ対象の損益認識時に組替</td></tr><tr><td>為替換算調整勘定</td><td>在外子会社等の財務諸表換算差額</td><td>当該子会社の売却時等に組替</td></tr><tr><td>退職給付に係る調整額</td><td>数理計算上の差異・過去勤務費用の未認識分</td><td>費用処理される期に純損益へ組替</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">包括利益 = 期末純資産 − 期首純資産 − 資本取引による純資産変動（増資・配当等）。2計算書方式と1計算書方式がある。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">企業結合の会計処理</h2>
+        <p class="lead">企業結合は取得（パーチェス法）で処理するのが原則。共通支配下の取引は簿価引継ぎ。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>類型</th><th>処理方法</th><th>特徴</th></tr></thead><tbody><tr><td>取得</td><td>パーチェス法</td><td>取得原価を時価で配分。差額はのれん</td></tr><tr><td>共通支配下の取引</td><td>簿価引継ぎ（内部取引）</td><td>親子間の合併等。損益を認識しない</td></tr><tr><td>共同支配企業の形成</td><td>持分プーリング類似(簿価)</td><td>移転資産負債を移転直前簿価で計上</td></tr><tr><td>逆取得</td><td>会計上の取得企業を実質で判定</td><td>法律上の存続会社と会計上の取得企業が逆転</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">取得原価は原則として支払対価の時価。取得関連費用（アドバイザリー費用等）は発生時費用処理。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">事業分離の会計処理</h2>
+        <p class="lead">分離元企業が投資を清算したとみるか継続とみるかで移転損益の認識が分かれる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>受取対価</th><th>投資の継続/清算</th><th>移転損益</th></tr></thead><tbody><tr><td>現金等の財産</td><td>投資が清算された</td><td>移転損益を認識（時価と簿価の差額）</td></tr><tr><td>子会社株式となる株式</td><td>投資が継続している</td><td>移転損益を認識せず簿価引継ぎ</td></tr><tr><td>関連会社株式となる株式</td><td>投資が継続している</td><td>原則、移転損益を認識しない</td></tr><tr><td>その他有価証券となる株式</td><td>投資が清算された</td><td>移転損益を認識する</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">「投資の継続＝損益を認識しない、清算＝認識する」が判断軸。分離先が子会社・関連会社になる場合は継続とみなす。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">1株当たり当期純利益(EPS)</h2>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>指標</th><th>算式</th><th>留意点</th></tr></thead><tbody><tr><td>基本的1株当たり当期純利益</td><td>(当期純利益 − 優先株配当) ÷ 普通株期中平均株式数</td><td>自己株式は控除して平均株式数を算定</td></tr><tr><td>潜在株式調整後1株当たり当期純利益</td><td>調整後純利益 ÷ (期中平均株式数 + 潜在株式数)</td><td>希薄化効果がある場合のみ開示</td></tr><tr><td>株式分割・併合</td><td>期首に遡って調整（遡及修正）</td><td>資金流入を伴わないため過年度も調整</td></tr><tr><td>新株予約権</td><td>行使価格分の資金で自己株買入と仮定</td><td>希薄化効果の判定に用いる（自己株式方式）</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">希薄化効果がない（逆に1株利益が増える）潜在株式は潜在株式調整後EPSの計算に含めない。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この科目を演習する</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=kaikei">
+            <div class="content-card-title">過去問演習（会計学 17問）</div>
+            <div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="flashcard.html?subject=kaikei">
+            <div class="content-card-title">単語帳（会計学 44語）</div>
+            <div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。習得済みマーク付き。</div>
+            <div class="content-card-arrow">暗記する →</div>
+          </a>
+          <a class="content-card" href="roadmap.html">
+            <div class="content-card-title">学習ロードマップ</div>
+            <div class="content-card-desc">試験日までの週次計画。この科目の学習時期を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 簿記1級 会計学</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（商工会議所の検定試験 kentei.ne.jp）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

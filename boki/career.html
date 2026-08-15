@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="日商簿記1級合格後のキャリア。税理士・公認会計士へのステップアップ、経理・財務での評価、大学入試優遇までを、現行制度に基づき正確にまとめた参考ページ。" />
+  <title>キャリアプラン — 簿記1級 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">簿記1級 キャリアプラン</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">簿記1級</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link current" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">簿記1級</a><span class="breadcrumb-sep">›</span><span>キャリアプラン</span></div>
+        <h1 class="section-title">合格後のキャリア</h1>
+        <p class="lead">
+          日商簿記1級は「会計のスペシャリスト」を証明する検定で、それ自体が独占業務を持つ資格ではありません。
+          価値の中心は、<strong>上位資格（税理士・公認会計士）への足がかり</strong>と、<strong>経理・財務での実力の証明</strong>にあります。
+          ここでは合格後に開ける進路を、現行制度に基づいて整理します。
+        </p>
+      </div></section>
+
+      <!-- 合格後に得られる価値 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">合格で得られる主な価値</h2>
+        <ul class="exclusive-list">
+          <li><strong>① 税理士試験（税法科目）の受験資格</strong><br>
+            税法科目（法人税法・所得税法・消費税法等）の受験には受験資格が必要で、その「資格」ルートの一つが日商1級合格。会計のプロへの入口になる。</li>
+          <li><strong>② 経理・財務での高い評価</strong><br>
+            商業簿記・会計学・工業簿記・原価計算の4分野を高度に修得している証明。昇進・昇給・資格手当の対象になりうる（具体額は企業により異なる）。</li>
+          <li><strong>③ 希少性（合格率の低さ）</strong><br>
+            合格率は概ね10〜20%、合格者は毎回およそ1,000〜2,000名規模。2級から難易度が大きく跳ね上がるため、差別化材料になる。</li>
+          <li><strong>④ 大学入試の優遇・単位認定</strong><br>
+            推薦・総合型選抜で優遇する大学が多数（日商公式に一覧あり）。入学後の単位認定を行う大学もある。</li>
+          <li><strong>⑤ 実務での自走力</strong><br>
+            仕訳から決算書作成まで自力でこなせる水準に達する。独立・経営の局面で会計処理を内製でき、専門家への依頼範囲を絞れる。</li>
+        </ul>
+      </div></section>
+
+      <!-- 上位資格へのステップ -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">上位資格へのステップアップ</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>進路</th><th>1級との関係</th><th>メモ</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">税理士</td><td>税法科目の受験資格を確保。簿記論・財務諸表論の学習の下地になる</td><td>会計科目→税法科目と段階的に。科目合格制で長期戦</td></tr>
+            <tr><td class="highlight">公認会計士</td><td>財務会計論・管理会計論の基礎固めになる</td><td><strong>1級単独では短答式の科目免除は得られない</strong>点に注意</td></tr>
+            <tr><td class="highlight">経理・財務のプロ</td><td>管理会計・連結決算・原価計算の実務に直結</td><td>経理リーダー・財務分析・経営企画へ</td></tr>
+            <tr><td class="highlight">独立・経営</td><td>決算書の自作・数値管理の武器になる</td><td>他の士業（行政書士等）との組み合わせも</td></tr>
+          </tbody>
+        </table></div>
+      </div></section>
+
+      <!-- 税理士との関係を正確に -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">税理士試験との関係（現行制度の要点）</h2>
+        <div class="notice">
+          <strong>会計科目（簿記論・財務諸表論）は2023年度（令和5年度）から受験資格が不要</strong>になり、誰でも受験できます。
+          したがって「簿記論・財表を受けるために日商1級が必要」というのは<strong>旧制度の話で、現在は当てはまりません</strong>。
+        </div>
+        <div class="notice" style="margin-top:0.8rem;">
+          一方で<strong>税法科目（法人税法・所得税法・消費税法 等）は依然として受験資格が必要</strong>で、
+          「学識・資格・職歴」のいずれか一つを満たす方式です。その<strong>「資格」ルートの一つが日商簿記1級合格</strong>。
+          つまり1級の税理士試験における主な意義は「税法科目の受験資格を得る」点にあります。
+        </div>
+        <div class="notice" style="margin-top:0.8rem;">
+          <strong>誤情報に注意：</strong>日商1級の合格それ自体では、公認会計士試験（短答式）の科目免除は得られません。
+          短答免除は税理士有資格者や会計大学院修了など別条件によるものです。
+        </div>
+      </div></section>
+
+      <!-- 学習時間 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">合格までの目安学習時間</h2>
+        <p class="lead">
+          一般に、日商簿記2級合格者を前提として<strong>概ね500〜600時間</strong>が目安とされます（標準学習期間は6〜12か月）。
+          独学ではさらに長期化し、予備校講座の利用で短縮できるとする情報もあります。あくまで一般論で個人差が大きい数値です
+          （商工会議所が公式に定めた標準時間ではありません）。
+        </p>
+        <div class="notice">
+          学習の進め方は <a href="roadmap.html">学習ロードマップ</a> に、試験の全体像は <a href="docs/overview.html">試験概要</a> にまとめています。
+        </div>
+      </div></section>
+
+      <!-- 参考リンク -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">参考リンク</h2>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+          <li><a href="https://www.nta.go.jp/taxes/zeirishi/zeirishishiken/shikaku/shikaku.htm" target="_blank" rel="noopener">国税庁 — 税理士試験の受験資格の概要</a></li>
+          <li><a href="https://www.kentei.ne.jp/bookkeeping/class1" target="_blank" rel="noopener">商工会議所の検定試験 — 簿記1級（公式）</a></li>
+          <li><a href="https://www.kentei.ne.jp/39863" target="_blank" rel="noopener">日商簿記で入試優遇される大学一覧（公式案内）</a></li>
+        </ul>
+      </div></section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 簿記1級 キャリアプラン</div><div class="disclaimer">制度は改正されることがあります。税理士試験の受験資格等は必ず公式（国税庁・商工会議所）で最新情報をご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>工業簿記 — 簿記1級 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">簿記1級 工業簿記</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">簿記1級</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">簿記1級</a><span class="breadcrumb-sep">›</span><span>工業簿記</span></div>
+        <h1 class="section-title">工業簿記</h1>
+        <p class="lead">工業簿記は製造業の原価計算プロセスを帳簿に記録する科目で、原価計算基準に基づく費目別・部門別・製品別の3段階計算が骨格となる。計算問題が中心で、原価の集計・配賦・按分の手続きを正確に処理する能力が問われる。会計学（原価計算）と表裏一体で、計算手続きの背後にある考え方の理解が得点の鍵となる。</p>
+        <div class="notice"><strong>配点25点・後半（工業簿記・原価計算で90分）。</strong>標準原価計算・総合原価計算の高度な計算と勘定連絡を問う。1科目でも40%（10点）未満だと足切りで不合格になるため、この科目でも最低ラインの確保が必須。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">原価計算の3ステップと原価の分類</h2>
+        <p class="lead">原価計算は費目別→部門別→製品別の順に集計する。まず原価を性質で分類する基本枠組みを押さえる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>分類軸</th><th>区分</th><th>内容・例</th></tr></thead><tbody><tr><td>計算の3段階</td><td>費目別計算</td><td>材料費・労務費・経費に分けて当月消費額を把握（第1段階）</td></tr><tr><td>計算の3段階</td><td>部門別計算</td><td>製造間接費を部門に集計し配賦（第2段階、任意）</td></tr><tr><td>計算の3段階</td><td>製品別計算</td><td>製品単位に原価を集計（第3段階、個別/総合）</td></tr><tr><td>形態別分類</td><td>材料費・労務費・経費</td><td>原価の発生形態による最も基本的な分類</td></tr><tr><td>製品との関連</td><td>製造直接費/製造間接費</td><td>特定製品に直課できるか否か。間接費は配賦する</td></tr><tr><td>操業度との関連</td><td>変動費/固定費</td><td>操業度に比例するか一定か（原価予測・標準原価で重要）</td></tr><tr><td>原価の範囲</td><td>製造原価/総原価</td><td>総原価=製造原価+販売費及び一般管理費</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">費目別計算の消費額算定</h2>
+        <p class="lead">各費目で「予定価格/予定賃率」を使うと差異が生じる。実際発生額との差が消費価格差異・賃率差異となる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>費目</th><th>消費額の計算</th><th>生じる差異・留意点</th></tr></thead><tbody><tr><td>材料費</td><td>予定消費価格 × 実際消費量</td><td>予定消費額−実際消費額=材料消費価格差異。棚卸減耗は間接経費</td></tr><tr><td>直接労務費</td><td>予定賃率 × 直接作業時間</td><td>予定消費額−実際発生額=賃率差異。手待時間は間接労務費</td></tr><tr><td>間接労務費</td><td>間接工賃金・手待・段取等</td><td>当月要支払額=当月支払−前月未払+当月未払</td></tr><tr><td>経費</td><td>支払経費/月割経費/測定経費/発生経費</td><td>減価償却費は月割、電力料は測定、棚卸減耗は発生経費</td></tr><tr><td>材料の消費量</td><td>継続記録法/棚卸計算法</td><td>継続記録法は減耗を把握できる、棚卸計算法は不可</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">製造間接費の配賦と差異分析</h2>
+        <p class="lead">予定配賦率＝製造間接費予算÷基準操業度。配賦差異は予算差異と操業度差異に分解する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>計算式</th><th>意味</th></tr></thead><tbody><tr><td>予定配賦率</td><td>製造間接費予算 ÷ 基準操業度</td><td>期首に設定。変動費率＋固定費率</td></tr><tr><td>予定配賦額</td><td>予定配賦率 × 実際操業度</td><td>各製品へ配賦する額</td></tr><tr><td>製造間接費配賦差異</td><td>予定配賦額 − 実際発生額</td><td>借方差異(不利)は原価を過小配賦</td></tr><tr><td>予算差異</td><td>予算許容額 − 実際発生額</td><td>予算許容額＝変動費率×実際操業度＋固定費予算</td></tr><tr><td>操業度差異</td><td>固定費率 × (実際操業度 − 基準操業度)</td><td>固定費の遊休/超過利用による差異</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">公式法変動予算では予算許容額を実際操業度基準で求める。固定予算では予算額を一定とする。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">部門別計算：補助部門費の配賦方法</h2>
+        <p class="lead">補助部門費を製造部門へ配賦する方法。補助部門間の用役授受をどう扱うかで区分される。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>方法</th><th>補助部門間の用役授受</th><th>特徴・精度</th></tr></thead><tbody><tr><td>直接配賦法</td><td>無視する</td><td>計算が簡単だが正確性は劣る</td></tr><tr><td>相互配賦法(簡便法)</td><td>第1次配賦のみ相互に、第2次は直接配賦法</td><td>実務で多用。近似的に授受を反映</td></tr><tr><td>相互配賦法(連立方程式法)</td><td>完全に相互に反映</td><td>最も正確。連立方程式で最終額を算定</td></tr><tr><td>階梯式配賦法</td><td>一方向のみ配賦(順位付け)</td><td>他部門への用役提供が多い部門を上位に置く</td></tr><tr><td>配賦基準</td><td>用役の提供割合(kWh・作業時間等)</td><td>第1次集計後の部門費を用役量で配賦</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">個別原価計算と総合原価計算の比較</h2>
+        <p class="lead">生産形態に応じて製品別計算の方法が異なる。個別は指図書別、総合は期間の平均で計算する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>観点</th><th>個別原価計算</th><th>総合原価計算</th></tr></thead><tbody><tr><td>生産形態</td><td>受注生産・多品種少量</td><td>見込大量生産・同種製品の連続生産</td></tr><tr><td>集計単位</td><td>製造指図書別</td><td>一定期間(通常1か月)</td></tr><tr><td>原価計算表</td><td>指図書ごとに作成</td><td>総合原価計算表(仕掛品勘定)</td></tr><tr><td>仕損の扱い</td><td>仕損費を指図書間で振替</td><td>正常仕損費を良品に負担(度外視法/非度外視法)</td></tr><tr><td>月末仕掛品</td><td>未完成指図書の原価を集計</td><td>完成品と月末仕掛品に按分(平均法/先入先出法)</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">総合原価計算の種類と月末仕掛品評価</h2>
+        <p class="lead">製品の種類・工程数で総合原価計算を細分。月末仕掛品評価は平均法か先入先出法を用いる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>種類/方法</th><th>適用場面・計算のポイント</th><th>特徴</th></tr></thead><tbody><tr><td>単純総合原価計算</td><td>単一製品を連続生産</td><td>総製造費用を完成品と月末仕掛品に按分</td></tr><tr><td>工程別総合原価計算</td><td>複数工程。前工程費を次工程始点材料費とみなす</td><td>累加法/非累加法</td></tr><tr><td>組別総合原価計算</td><td>異種製品を組別に。組直接費は賦課、組間接費は配賦</td><td>製品種類ごとに計算</td></tr><tr><td>等級別総合原価計算</td><td>同種製品を等級区分。等価係数×数量=積数で按分</td><td>サイズ違い等</td></tr><tr><td>平均法</td><td>(月初仕掛品原価+当月製造費用)÷(完成品+月末換算量)</td><td>月初と当月を平均</td></tr><tr><td>先入先出法</td><td>当月製造費用÷(完成品−月初換算+月末換算)</td><td>月初仕掛品から先に完成と仮定</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">標準原価計算の差異分析</h2>
+        <p class="lead">標準原価と実際原価の差を原因別に分析。材料・労務・間接費で分析軸が異なる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>原価要素</th><th>差異項目</th><th>計算式</th></tr></thead><tbody><tr><td>直接材料費</td><td>価格差異</td><td>(標準単価 − 実際単価) × 実際消費量</td></tr><tr><td>直接材料費</td><td>数量差異</td><td>標準単価 × (標準消費量 − 実際消費量)</td></tr><tr><td>直接労務費</td><td>賃率差異</td><td>(標準賃率 − 実際賃率) × 実際作業時間</td></tr><tr><td>直接労務費</td><td>作業時間差異</td><td>標準賃率 × (標準作業時間 − 実際作業時間)</td></tr><tr><td>製造間接費</td><td>予算差異</td><td>予算許容額 − 実際発生額</td></tr><tr><td>製造間接費</td><td>能率差異</td><td>標準配賦率(or変動費率) × (標準操業度 − 実際操業度)</td></tr><tr><td>製造間接費</td><td>操業度差異</td><td>固定費率 × (実際操業度 − 基準操業度)</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">標準消費量・標準作業時間は「実際生産量に対する標準」で計算する（実際生産量×原単位）。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">連産品・副産物の会計処理</h2>
+        <p class="lead">同一工程から複数製品が生じる場合の結合原価の扱い。連産品と副産物で処理が異なる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>定義</th><th>会計処理</th></tr></thead><tbody><tr><td>連産品</td><td>同一工程・同一原料から生じる経済的価値の高い複数製品</td><td>結合原価を正常市価基準等で各連産品に按分</td></tr><tr><td>副産物</td><td>主産物の製造に伴い付随的に生じる価値の低い物</td><td>評価額を主産物の総合原価から控除</td></tr><tr><td>作業屑</td><td>加工中に生じる価値のある屑</td><td>評価額を発生部門費/製造原価から控除</td></tr><tr><td>正常市価基準</td><td>分離点における各製品の正常市価で按分</td><td>連産品の代表的な按分方法</td></tr><tr><td>副産物評価額</td><td>見積売却価額 − 見積販売費・一般管理費(−利益)</td><td>この額を主産物原価から差し引く</td></tr></tbody></table></div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この科目を演習する</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=kogyo">
+            <div class="content-card-title">過去問演習（工業簿記 17問）</div>
+            <div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="flashcard.html?subject=kogyo">
+            <div class="content-card-title">単語帳（工業簿記 45語）</div>
+            <div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。習得済みマーク付き。</div>
+            <div class="content-card-arrow">暗記する →</div>
+          </a>
+          <a class="content-card" href="roadmap.html">
+            <div class="content-card-title">学習ロードマップ</div>
+            <div class="content-card-desc">試験日までの週次計画。この科目の学習時期を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 簿記1級 工業簿記</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（商工会議所の検定試験 kentei.ne.jp）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

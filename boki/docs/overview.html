@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="日商簿記検定1級の試験概要。受験資格・試験日程・出題科目と配点・合格基準（足切り）・合格率・合格後の価値を一覧でまとめた参考ページ。" />
+  <title>日商簿記1級 試験概要 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) {
+        location.href = "/shikaku/login.html";
+      } else {
+        document.getElementById("page-content").style.display = "block";
+      }
+    });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">日商簿記1級 学習ノート</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="../index.html">簿記1級</a></li>
+        <li><a class="nav-link current" href="overview.html">試験概要</a></li>
+        <li><a class="nav-link" href="../roadmap.html">ロードマップ</a></li>
+        <li><a class="nav-link" href="../practice.html">過去問演習</a></li>
+        <li><a class="nav-link" href="../flashcard.html">単語帳</a></li>
+        <li><a class="nav-link" href="../career.html">キャリアプラン</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 基本情報 -->
+    <section class="section">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/shikaku/index.html">ホーム</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../index.html">簿記1級</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>試験概要</span>
+        </div>
+
+        <h1 class="section-title">試験の基本情報</h1>
+        <p class="lead">
+          日商簿記検定1級は、日本商工会議所および各地商工会議所が主催する簿記検定の最上位級です。
+          商業簿記・会計学・工業簿記・原価計算の4科目からなり、試験は年2回（6月・11月）実施され、
+          合格率は概ね10〜20%（長期平均は約10%前後）で推移しています。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">正式名称</td>
+                <td>日商簿記検定試験 1級（商工会議所の検定試験）</td>
+              </tr>
+              <tr>
+                <td class="highlight">実施機関</td>
+                <td>日本商工会議所・各地商工会議所</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験資格</td>
+                <td><strong>制限なし</strong>。学歴・年齢・性別・国籍を問わず誰でも受験できる（希望の級から受験可）。</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験料</td>
+                <td>8,800円（税込）。※申込方法・会場により別途、事務手数料が加算される場合がある。</td>
+              </tr>
+              <tr>
+                <td class="highlight">実施方式</td>
+                <td>統一試験（ペーパー・全国一斉の指定試験日）のみ。<strong>1級にネット試験（CBT）はない</strong>（CBTは2級・3級のみ）。</td>
+              </tr>
+              <tr>
+                <td class="highlight">出題形式</td>
+                <td>記述式（答案用紙に計算過程・金額等を記入する筆記形式）。マークシートではない。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- スケジュール -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">2026年度（試験日程）</h2>
+        <div class="notice">
+          <strong>1級は年2回（6月・11月）のみ。</strong>
+          今日以降で直近の1級実施回は <strong>第174回：2026年11月15日（日）</strong> です。
+          2月の統一試験（第175回）は2級・3級のみで1級は実施されません。
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>回次</th><th>試験日</th><th>1級の実施</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>第173回</td>
+                <td>2026年6月14日（日）</td>
+                <td>実施済み（終了）</td>
+              </tr>
+              <tr>
+                <td class="highlight">第174回</td>
+                <td class="highlight">2026年11月15日（日）</td>
+                <td class="highlight">実施 ← 次回</td>
+              </tr>
+              <tr>
+                <td>第175回</td>
+                <td>2027年2月28日（日）</td>
+                <td>なし（2級・3級のみ）</td>
+              </tr>
+              <tr>
+                <td>第176回（見込み）</td>
+                <td>2027年6月中旬（未定）</td>
+                <td>実施見込み</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          申込期間は全国一律ではなく<strong>受験地の商工会議所ごとに異なり</strong>、試験日の約3か月前が目安です。
+          第174回（2026/11/15）の申込は概ね9月下旬〜10月中旬。受験地の商工会議所で必ず確認してください。
+          第176回（2027年6月見込み）の正式な回次・試験日は本ページ作成時点で未発表です。
+        </div>
+      </div>
+    </section>
+
+    <!-- 試験形式 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験形式・時間</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">試験科目</td>
+                <td>商業簿記・会計学・工業簿記・原価計算の4科目</td>
+              </tr>
+              <tr>
+                <td class="highlight">配点</td>
+                <td>各科目25点・合計100点満点</td>
+              </tr>
+              <tr>
+                <td class="highlight">試験時間</td>
+                <td>前半「商業簿記・会計学」90分 ＋ 後半「工業簿記・原価計算」90分 ＝ <strong>計180分</strong></td>
+              </tr>
+              <tr>
+                <td class="highlight">受験区分</td>
+                <td>前半のみ・後半のみの受験は不可（4科目一括受験）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          公式（kentei.ne.jp）は配点を「70%以上・各科目40%以上」と<strong>パーセントで表記</strong>しており、「各科目25点・合計100点」という点数配分は大手予備校の共通見解に基づく整理です（公式の「各科目40%以上」＝各25点満点で10点以上と整合）。
+        </div>
+      </div>
+    </section>
+
+    <!-- 出題科目 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">出題科目と特徴</h2>
+        <p class="lead">
+          4科目は各25点で均等配点。前半（商業簿記・会計学）と後半（工業簿記・原価計算）の2ブロックで実施されますが、
+          <strong>採点・足切りは4科目それぞれ独立</strong>です。下のバーは配点（100点満点）の科目別割合です。
+        </p>
+
+        <div class="subject-bar">
+          <div class="bar-segment" style="width:25%; background:#E8A020"></div>
+          <div class="bar-segment" style="width:25%; background:#5BAD6F"></div>
+          <div class="bar-segment" style="width:25%; background:#4A90D9"></div>
+          <div class="bar-segment" style="width:25%; background:#C0564B"></div>
+        </div>
+        <div class="bar-legend">
+          <span><i style="background:#E8A020"></i>商業簿記 25点</span>
+          <span><i style="background:#5BAD6F"></i>会計学 25点</span>
+          <span><i style="background:#4A90D9"></i>工業簿記 25点</span>
+          <span><i style="background:#C0564B"></i>原価計算 25点</span>
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>科目</th>
+                <th class="num">配点</th>
+                <th>時間区分</th>
+                <th>性格・主な出題</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">商業簿記</td>
+                <td class="num">25点</td>
+                <td>前半（商会90分）</td>
+                <td>計算中心。連結会計・企業結合・税効果・退職給付・金融商品・収益認識など高度な個別論点と財務諸表作成</td>
+              </tr>
+              <tr>
+                <td class="highlight">会計学</td>
+                <td class="num">25点</td>
+                <td>前半（商会90分）</td>
+                <td>理論＋計算。会計基準・概念フレームワークの趣旨理解を穴埋め・正誤・語群選択で問う</td>
+              </tr>
+              <tr>
+                <td class="highlight">工業簿記</td>
+                <td class="num">25点</td>
+                <td>後半（工原90分）</td>
+                <td>標準原価計算の差異分析・総合原価計算（非度外視法）・工程別（非累加法）・部門別計算</td>
+              </tr>
+              <tr>
+                <td class="highlight">原価計算</td>
+                <td class="num">25点</td>
+                <td>後半（工原90分）</td>
+                <td>管理会計寄り。CVP分析・直接原価計算・意思決定会計（設備投資NPV）・ABC等の戦略的原価計算</td>
+              </tr>
+              <tr style="background: var(--color-bg-alt)">
+                <td class="highlight">合計</td>
+                <td class="num highlight">100点</td>
+                <td>計180分</td>
+                <td>総合70点以上かつ各科目10点（40%）以上で合格</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 合格基準 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格基準と合格率</h2>
+        <p class="lead">
+          合格には次の2つの基準を<strong>両方満たす</strong>必要があります。総合で70点を超えていても、
+          1科目でも40%（10点）未満があると<strong>足切り</strong>で不合格になります。苦手科目を作れないのが1級の最大の関門です。
+        </p>
+
+        <div class="notice">
+          <strong>① 総合 70%以上（100点満点で70点以上）</strong>／
+          <strong>② 各科目 40%以上（各25点満点で10点以上）</strong><br>
+          公式（kentei.ne.jp）の表記は「70%以上　ただし、1科目ごとの得点は40%以上」。1科目でも40%未満だと総合70%以上でも不合格です。
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>回次</th>
+                <th>実施日</th>
+                <th class="num">受験者数</th>
+                <th class="num">合格者数</th>
+                <th class="num">合格率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>第173回</td>
+                <td>2026年6月14日</td>
+                <td class="num">9,806人</td>
+                <td class="num">2,076人</td>
+                <td class="num highlight">21.2%</td>
+              </tr>
+              <tr>
+                <td>第171回</td>
+                <td>2025年11月16日</td>
+                <td class="num">10,524人</td>
+                <td class="num">1,604人</td>
+                <td class="num highlight">15.2%</td>
+              </tr>
+              <tr>
+                <td>第170回</td>
+                <td>2025年6月8日</td>
+                <td class="num">9,610人</td>
+                <td class="num">1,343人</td>
+                <td class="num highlight">14.0%</td>
+              </tr>
+              <tr>
+                <td>第168回</td>
+                <td>2024年11月17日</td>
+                <td class="num">10,420人</td>
+                <td class="num">1,572人</td>
+                <td class="num highlight">15.1%</td>
+              </tr>
+              <tr>
+                <td>第167回</td>
+                <td>2024年6月9日</td>
+                <td class="num">9,457人</td>
+                <td class="num">992人</td>
+                <td class="num highlight">10.5%</td>
+              </tr>
+              <tr>
+                <td>第165回</td>
+                <td>2023年11月19日</td>
+                <td class="num">10,251人</td>
+                <td class="num">1,722人</td>
+                <td class="num highlight">16.8%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          合格率は全国統計（実受験者数を母数）。<strong>長期平均は約10%前後</strong>で、過去最低は第147回（2017年11月）の5.9%。
+          一方で直近（2023年以降）は14〜21%と<strong>上振れ傾向</strong>にあります。回次番号が飛ぶのは、2月の統一試験に1級が実施されないためです。
+        </div>
+      </div>
+    </section>
+
+    <!-- 学習ポイント -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">学習上のポイント</h2>
+        <ul class="exclusive-list">
+          <li>
+            <strong>① 苦手科目を作れない（足切り40%）</strong><br>
+            4科目すべてで各25点中10点以上が必須。得意科目で稼いでも、1科目が40%未満なら不合格。全科目を底上げする学習配分が要る。
+          </li>
+          <li>
+            <strong>② 商業簿記・会計学は「連結」が主戦場</strong><br>
+            資本連結・成果連結・持分法・包括利益・連結CFまで拡大。連結総合問題を繰り返し解けるかが合否を分ける。
+          </li>
+          <li>
+            <strong>③ 工業簿記・原価計算で得点を安定させる</strong><br>
+            標準原価計算の差異分析・総合原価計算（非度外視法）・意思決定会計（設備投資NPV）はパターン化しやすく、得点源にできる。
+          </li>
+          <li>
+            <strong>④ 会計学の「理論」対策</strong><br>
+            会計基準・概念フレームワークの趣旨理解を穴埋め・正誤で問う。丸暗記でなく「なぜその処理か」を言えるレベルに。
+          </li>
+          <li>
+            <strong>⑤ 時間との戦い</strong><br>
+            商会90分・工原90分と短い。2級レベルの仕訳を反射的に処理できる速度を前提に、総合問題の時間配分を体で覚える。
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 合格後の価値 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格後の価値・キャリア</h2>
+        <p class="lead">
+          1級は「会計のスペシャリスト」を証明する資格で、上位資格や実務への足がかりになります。詳細は
+          <a href="../career.html">キャリアプラン</a> にまとめています。
+        </p>
+
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>税理士試験（税法科目）の受験資格</strong>
+              <p>日商1級合格は、税理士試験の税法科目（法人税法・所得税法・消費税法等）の受験資格ルートの一つ。なお会計科目（簿記論・財務諸表論）は2023年度から受験資格が不要になった。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>経理・財務での評価</strong>
+              <p>4分野を高度なレベルで修得している証明として、昇進・昇給・資格手当の対象になりうる（具体額は企業により異なる）。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>公認会計士・上位資格の下地</strong>
+              <p>財務会計論・管理会計論の基礎固めになる。ただし<strong>1級単独で公認会計士短答式の科目免除は得られない</strong>点に注意。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">✓</div>
+            <div class="flow-body">
+              <strong>大学入試の優遇・単位認定</strong>
+              <p>推薦・総合型選抜で優遇する大学が多数（日商公式に一覧あり）。入学後の単位認定を行う大学もある。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 参考リンク -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">参考リンク</h2>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+          <li><a href="https://www.kentei.ne.jp/bookkeeping/class1" target="_blank" rel="noopener">商工会議所の検定試験 — 簿記1級（公式）</a></li>
+          <li><a href="https://www.kentei.ne.jp/bookkeeping/class1/exam" target="_blank" rel="noopener">簿記1級 試験科目・注意事項（合格基準の公式表記）</a></li>
+          <li><a href="https://www.kentei.ne.jp/bookkeeping/candidate-data/data_class1" target="_blank" rel="noopener">簿記1級 受験者データ（合格率・公式）</a></li>
+          <li><a href="https://www.kentei.ne.jp/calendar_2026" target="_blank" rel="noopener">2026年度 試験日程カレンダー（公式）</a></li>
+          <li><a href="https://www.nta.go.jp/taxes/zeirishi/zeirishishiken/shikaku/shikaku.htm" target="_blank" rel="noopener">国税庁 — 税理士試験の受験資格の概要</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — 日商簿記1級 学習ノート</div>
+      <div class="disclaimer">個人学習用の参考まとめサイトです。試験日程・受験料・申込期限・制度は必ず公式（商工会議所の検定試験 kentei.ne.jp）でご確認ください。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+
+</body>
+</html>

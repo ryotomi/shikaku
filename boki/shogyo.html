@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商業簿記 — 簿記1級 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">簿記1級 商業簿記</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">簿記1級</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">簿記1級</a><span class="breadcrumb-sep">›</span><span>商業簿記</span></div>
+        <h1 class="section-title">商業簿記</h1>
+        <p class="lead">日商簿記1級の商業簿記は、企業会計基準に基づく個別論点の仕訳・計上を問う計算中心の科目です。有価証券・固定資産・リース・退職給付・税効果・外貨建・収益認識など論点ごとに処理の型が決まっており、区分判定と計算手順を正確に運用できるかが得点を分けます。会計学と表裏一体で、理論的背景の理解が計算精度を支えます。</p>
+        <div class="notice"><strong>配点25点・前半（商業簿記・会計学で90分）。</strong>計算中心。連結会計・企業結合・個別論点を横断的に処理する。1科目でも40%（10点）未満だと足切りで不合格になるため、この科目でも最低ラインの確保が必須。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">有価証券の保有区分と評価</h2>
+        <p class="lead">保有目的により評価方法と評価差額の処理先が異なる。区分判定が全ての出発点。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>保有区分</th><th>評価</th><th>評価差額の処理</th></tr></thead><tbody><tr><td>売買目的有価証券</td><td>時価</td><td>当期の損益（有価証券評価損益）</td></tr><tr><td>満期保有目的の債券</td><td>取得原価または償却原価</td><td>評価差額なし（金利調整差額は償却原価法で損益）</td></tr><tr><td>子会社・関連会社株式</td><td>取得原価</td><td>評価差額なし</td></tr><tr><td>その他有価証券（全部純資産直入法）</td><td>時価</td><td>評価差額を純資産（その他有価証券評価差額金、税効果控除後）</td></tr><tr><td>市場価格のない株式等</td><td>取得原価</td><td>評価差額なし（実価法で減損の可能性）</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">その他有価証券は原則全部純資産直入法。評価差額には税効果を適用し、翌期首に洗替処理で振り戻す。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">減価償却の主な方法</h2>
+        <p class="lead">取得原価を耐用年数にわたり費用配分する。方法により各期の費用額が異なる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>方法</th><th>計算式（1期分）</th><th>特徴</th></tr></thead><tbody><tr><td>定額法</td><td>（取得原価−残存価額）÷耐用年数</td><td>毎期一定額。均等配分</td></tr><tr><td>定率法</td><td>期首帳簿価額×償却率</td><td>初期に多く、逓減。200%定率法が主流</td></tr><tr><td>生産高比例法</td><td>（取得原価−残存価額）×当期利用量÷総利用可能量</td><td>利用度に比例。航空機・鉱山など</td></tr><tr><td>級数法</td><td>（取得原価−残存価額）×当期の項数÷総項数</td><td>定率法に近い逓減型</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">200%定率法では償却保証額を下回った年度以降、改定取得価額×改定償却率で均等償却に切り替える。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">リース取引の分類と会計処理</h2>
+        <p class="lead">ファイナンス・リースは資産計上、オペレーティング・リースは賃貸借処理。所有権移転の有無で減価償却の耐用年数が変わる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>資産計上</th><th>減価償却の耐用年数・残存価額</th></tr></thead><tbody><tr><td>所有権移転ファイナンス・リース</td><td>する</td><td>自己資産と同一（経済的耐用年数、残存価額あり）</td></tr><tr><td>所有権移転外ファイナンス・リース</td><td>する</td><td>リース期間、残存価額ゼロ</td></tr><tr><td>オペレーティング・リース</td><td>しない（賃貸借処理）</td><td>支払リース料を費用計上</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">ファイナンス判定はノンキャンセラブル（解約不能）かつフルペイアウトの2要件。現在価値基準（90%以上）または経済的耐用年数基準（75%以上）のいずれかで該当。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">外貨建項目の換算（決算時）</h2>
+        <p class="lead">貨幣・非貨幣で決算時の換算レートが異なり、換算差額の処理先も分かれる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>決算時の換算レート</th><th>換算差額の処理</th></tr></thead><tbody><tr><td>外国通貨・外貨預金・金銭債権債務</td><td>決算時レート（CR）</td><td>為替差損益（当期の損益）</td></tr><tr><td>売買目的有価証券・その他有価証券</td><td>決算時レート（CR）</td><td>評価差額に含めて処理（区分に従う）</td></tr><tr><td>満期保有目的の外貨建債券</td><td>決算時レート（CR）</td><td>為替差損益。金利調整分は償却原価法</td></tr><tr><td>子会社・関連会社株式、棚卸資産</td><td>取得時レート（HR）</td><td>換算替えせず（差額なし）</td></tr><tr><td>前払費用・前受収益等の経過項目</td><td>取得時レート（HR）</td><td>換算替えせず</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">為替予約はヘッジ会計（原則は独立処理、要件充足で振当処理も可）。振当処理では直々差額を当期損益、直先差額を期間配分。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">税効果会計 一時差異の分類</h2>
+        <p class="lead">会計上と税務上の差異のうち、将来解消するもの（一時差異）に税効果を適用する。永久差異は対象外。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>内容・例</th><th>計上される項目</th></tr></thead><tbody><tr><td>将来減算一時差異</td><td>貸倒引当金繰入超過、減価償却超過、賞与引当金、その他有価証券評価差損</td><td>繰延税金資産</td></tr><tr><td>将来加算一時差異</td><td>その他有価証券評価差益、圧縮積立金（積立金方式）</td><td>繰延税金負債</td></tr><tr><td>永久差異</td><td>受取配当金の益金不算入、交際費損金不算入、罰科金</td><td>税効果の対象外</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">繰延税金資産は回収可能性（将来の課税所得で回収見込みか）を毎期検討。回収不能分は計上しない。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">純資産の変動項目</h2>
+        <p class="lead">自己株式・新株予約権・ストックオプションは純資産に直接影響する。処理先を区別する。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>計上区分</th><th>処理のポイント</th></tr></thead><tbody><tr><td>自己株式（取得）</td><td>純資産の控除項目（株主資本のマイナス）</td><td>取得原価で控除。付随費用は営業外費用</td></tr><tr><td>自己株式（処分）</td><td>処分差額はその他資本剰余金</td><td>処分差損でその他資本剰余金がマイナスなら繰越利益剰余金で補填</td></tr><tr><td>新株予約権</td><td>純資産（株主資本以外）</td><td>権利行使で資本金等へ振替、失効益は特別利益</td></tr><tr><td>ストックオプション</td><td>新株予約権（費用は株式報酬費用）</td><td>公正な評価額を対象勤務期間に費用配分</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">ストックオプションの各期費用＝公正評価単価×権利確定見込個数×経過期間割合−既計上額。失効見込の変動は見積り修正で処理。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">収益認識の5ステップと計上時点</h2>
+        <p class="lead">収益認識基準（企業会計基準第29号）は履行義務の充足で収益を認識する。充足パターンで計上時点が変わる。</p>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>ステップ／論点</th><th>内容</th><th>留意点</th></tr></thead><tbody><tr><td>①契約の識別</td><td>顧客との契約を特定</td><td>回収可能性等の要件を満たすこと</td></tr><tr><td>②履行義務の識別</td><td>別個の財・サービスに区分</td><td>一つの契約に複数の履行義務がありうる</td></tr><tr><td>③取引価格の算定</td><td>変動対価・重要な金融要素等を考慮</td><td>変動対価は最頻値または期待値で見積る</td></tr><tr><td>④取引価格の配分</td><td>独立販売価格の比率で配分</td><td>値引きは合理的に配分</td></tr><tr><td>⑤収益の認識</td><td>一時点または一定期間で認識</td><td>支配の移転時点で判定</td></tr></tbody></table></div>
+        <div class="notice" style="margin-top:1rem;">一定期間で充足する要件（いずれか）: 顧客が便益を同時に受取り消費する／資産を作り出し支配が顧客に移る／他に転用できず対価回収権がある。該当なければ一時点で認識。</div>
+      </div></section>
+      <section class="section"><div class="container">
+        <h2 class="section-title">この科目を演習する</h2>
+        <div class="content-grid">
+          <a class="content-card" href="practice.html?subject=shogyo">
+            <div class="content-card-title">過去問演習（商業簿記 17問）</div>
+            <div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録され、あとでまとめて復習できます。</div>
+            <div class="content-card-arrow">演習する →</div>
+          </a>
+          <a class="content-card" href="flashcard.html?subject=shogyo">
+            <div class="content-card-title">単語帳（商業簿記 40語）</div>
+            <div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。習得済みマーク付き。</div>
+            <div class="content-card-arrow">暗記する →</div>
+          </a>
+          <a class="content-card" href="roadmap.html">
+            <div class="content-card-title">学習ロードマップ</div>
+            <div class="content-card-desc">試験日までの週次計画。この科目の学習時期を確認。</div>
+            <div class="content-card-arrow">開く →</div>
+          </a>
+        </div>
+      </div></section>
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 簿記1級 商業簿記</div><div class="disclaimer">掲載内容は個人学習目的です。最新情報は公式機関（商工会議所の検定試験 kentei.ne.jp）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>
