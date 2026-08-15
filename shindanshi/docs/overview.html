@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="中小企業診断士試験の概要。第1次試験の7科目・第2次試験の4事例・令和8年度日程・配点・合格基準・合格率・登録手続きを一覧でまとめた参考ページ。" />
+  <title>中小企業診断士試験 概要 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) {
+        location.href = "/shikaku/login.html";
+      } else {
+        document.getElementById("page-content").style.display = "block";
+      }
+    });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">中小企業診断士 学習ノート</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="../index.html">中小企業診断士</a></li>
+        <li><a class="nav-link current" href="overview.html">試験概要</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 基本情報 -->
+    <section class="section">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/shikaku/index.html">ホーム</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../index.html">中小企業診断士</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>試験概要</span>
+        </div>
+
+        <h1 class="section-title">試験の基本情報</h1>
+        <p class="lead">
+          中小企業診断士は、経営コンサルティングに関する<strong>唯一の国家資格</strong>です。
+          企業の経営課題に対して診断・助言を行う専門家として、中小企業支援法に基づき経済産業大臣に登録されます。
+          試験は<strong>第1次試験（マークシート・7科目）</strong>と<strong>第2次試験（記述式・4事例）</strong>の2段階選抜で、
+          いずれも合格後、実務補習等を経て登録します。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">正式名称</td>
+                <td>中小企業診断士試験</td>
+              </tr>
+              <tr>
+                <td class="highlight">実施機関</td>
+                <td>一般社団法人 中小企業診断協会（J-SMECA／経済産業大臣が指定する指定試験機関）</td>
+              </tr>
+              <tr>
+                <td class="highlight">根拠法令</td>
+                <td>中小企業支援法（登録は経済産業大臣）</td>
+              </tr>
+              <tr>
+                <td class="highlight">資格の性質</td>
+                <td>名称独占に準ずる国家登録資格。<strong>業務独占（独占業務）はない</strong>（登録しなければ「中小企業診断士」を名乗れない）。</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験資格</td>
+                <td><strong>制限なし</strong>。年齢・学歴・国籍等に関係なく、誰でも受験できる。</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験手数料<br>（令和8年度）</td>
+                <td>
+                  第1次試験 <strong>17,200円</strong>（非課税）＋オンライン決済事務手数料590円（税込）<br>
+                  第2次試験 <strong>15,100円</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 試験の全体像 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験の全体像（登録までの流れ）</h2>
+        <p class="lead">
+          第1次試験に合格すると第2次試験（筆記）に進み、最終合格後は実務補習または実務従事を経て登録します。
+          第1次試験合格の有効期間は<strong>2年間</strong>（合格年度とその翌年度の計2回、第2次試験を受験可）です。
+        </p>
+
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>第1次試験（例年8月）</strong>
+              <p>7科目・マークシート（多肢選択式）。2日間で実施。総点数の60%以上で合格。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>第2次試験（筆記／例年10月）</strong>
+              <p>4事例・記述式。総点数の60%以上で最終合格。<strong>令和8年度から口述試験は廃止</strong>され、筆記のみで合否判定。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>実務補習 または 実務従事（合計15日以上）</strong>
+              <p>第2次試験合格から3年以内に、実務補習の受講日数と実務従事日数の合計が15日以上に達すること。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">✓</div>
+            <div class="flow-body">
+              <strong>中小企業診断士として登録</strong>
+              <p>経済産業大臣の登録簿へ登録され、名称を使用して活動できる。登録の有効期間は5年間。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice" style="margin-top:1.2rem">
+          <strong>第1次試験合格者には、第2次試験を経ないルートもある。</strong>
+          中小企業大学校の「養成課程」や大学等の「登録養成課程」を修了すると、第2次試験・実務補習が免除されて登録できる。
+        </div>
+      </div>
+    </section>
+
+    <!-- スケジュール -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">令和8年度（2026年度）スケジュール</h2>
+        <div class="notice">
+          <strong>令和8年度は制度変更あり。</strong>
+          第2次試験の<strong>口述試験が廃止</strong>され、筆記試験のみで最終合否が決まります（最終合格発表も前倒し）。
+          あわせて受験手数料が改定（第1次 14,500円→17,200円／第2次 17,800円→15,100円。合計32,300円は据え置き）。
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>イベント</th><th>日程</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>第1次試験 申込受付（インターネットのみ）</td>
+                <td>2026年4月23日（木）〜 5月27日（水）</td>
+              </tr>
+              <tr>
+                <td class="highlight">第1次試験</td>
+                <td class="highlight">2026年8月1日（土）・8月2日（日）</td>
+              </tr>
+              <tr>
+                <td>第1次試験 合格発表</td>
+                <td>2026年9月1日（火）</td>
+              </tr>
+              <tr>
+                <td>第2次試験 申込受付</td>
+                <td>2026年9月1日（火）〜 9月18日（金）</td>
+              </tr>
+              <tr>
+                <td class="highlight">第2次試験（筆記）</td>
+                <td class="highlight">2026年10月25日（日）</td>
+              </tr>
+              <tr>
+                <td>第2次試験 口述</td>
+                <td>廃止（令和8年度より実施なし）</td>
+              </tr>
+              <tr>
+                <td>最終合格発表</td>
+                <td>2027年1月13日（水）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.82rem; color:var(--color-text-light); margin-top:0.6rem;">
+          ※日程は公表スケジュール（予定を含む）に基づく。最新・確定情報は必ず公式（中小企業診断協会）の試験案内でご確認ください。
+        </p>
+      </div>
+    </section>
+
+    <!-- 第1次試験 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">第1次試験（7科目・700点満点）</h2>
+        <p class="lead">
+          経営に関する幅広い知識を問うマークシート（多肢選択式）の試験です。7科目を2日間で受験し、各科目100点満点・合計700点満点。
+          下のバーは7科目（各100点＝均等配点）を表し、凡例に各科目の試験時間を併記しています。
+        </p>
+
+        <div class="subject-bar">
+          <div class="bar-segment" style="width:14.28%; background:#4A90D9"></div>
+          <div class="bar-segment" style="width:14.28%; background:#C0564B"></div>
+          <div class="bar-segment" style="width:14.28%; background:#E8A020"></div>
+          <div class="bar-segment" style="width:14.28%; background:#5BAD6F"></div>
+          <div class="bar-segment" style="width:14.28%; background:#9B59B6"></div>
+          <div class="bar-segment" style="width:14.28%; background:#16A085"></div>
+          <div class="bar-segment" style="width:14.32%; background:#7F8C8D"></div>
+        </div>
+        <div class="bar-legend">
+          <span><i style="background:#4A90D9"></i>経済学・経済政策 60分</span>
+          <span><i style="background:#C0564B"></i>財務・会計 60分</span>
+          <span><i style="background:#E8A020"></i>企業経営理論 90分</span>
+          <span><i style="background:#5BAD6F"></i>運営管理 90分</span>
+          <span><i style="background:#9B59B6"></i>経営法務 60分</span>
+          <span><i style="background:#16A085"></i>経営情報システム 60分</span>
+          <span><i style="background:#7F8C8D"></i>中小企業経営・政策 90分</span>
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>日</th>
+                <th>科目</th>
+                <th class="num">試験時間</th>
+                <th class="num">配点</th>
+                <th>第2次試験との関連</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1日目</td>
+                <td class="highlight">経済学・経済政策</td>
+                <td class="num">60分</td>
+                <td class="num">100点</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>1日目</td>
+                <td class="highlight">財務・会計</td>
+                <td class="num">60分</td>
+                <td class="num">100点</td>
+                <td><span class="badge badge-accent">事例IVに直結</span></td>
+              </tr>
+              <tr>
+                <td>1日目</td>
+                <td class="highlight">企業経営理論</td>
+                <td class="num">90分</td>
+                <td class="num">100点</td>
+                <td><span class="badge badge-accent">事例I・IIに直結</span></td>
+              </tr>
+              <tr>
+                <td>1日目</td>
+                <td class="highlight">運営管理</td>
+                <td class="num">90分</td>
+                <td class="num">100点</td>
+                <td><span class="badge badge-accent">事例II・IIIに直結</span></td>
+              </tr>
+              <tr>
+                <td>2日目</td>
+                <td class="highlight">経営法務</td>
+                <td class="num">60分</td>
+                <td class="num">100点</td>
+                <td><span class="badge badge-primary">関連</span></td>
+              </tr>
+              <tr>
+                <td>2日目</td>
+                <td class="highlight">経営情報システム</td>
+                <td class="num">60分</td>
+                <td class="num">100点</td>
+                <td><span class="badge badge-primary">関連</span></td>
+              </tr>
+              <tr>
+                <td>2日目</td>
+                <td class="highlight">中小企業経営・中小企業政策</td>
+                <td class="num">90分</td>
+                <td class="num">100点</td>
+                <td>—</td>
+              </tr>
+              <tr style="background: var(--color-bg-alt)">
+                <td class="highlight">合計</td>
+                <td class="highlight">7科目</td>
+                <td class="num">—</td>
+                <td class="num highlight">700点</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notice" style="margin-top:1.2rem">
+          <strong>合格基準（第1次）：総点数の60%以上（420点以上）、かつ1科目でも満点の40%未満（40点未満）がないこと。</strong><br>
+          絶対評価で、足切り科目が1つでもあると不合格になります。
+        </div>
+
+        <h3 style="margin-top:1.6rem; font-size:1.05rem;">科目合格制度</h3>
+        <p class="lead" style="margin-top:0.4rem">
+          第1次試験が不合格でも、満点の60%（原則60点）以上を得点した科目は<strong>「科目合格」</strong>となり、
+          申請により<strong>翌年度・翌々年度の2回</strong>、第1次試験で当該科目が免除されます。
+          複数年に分けて7科目を攻略する戦略が取れます。
+        </p>
+      </div>
+    </section>
+
+    <!-- 第2次試験 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">第2次試験（4事例・400点満点）</h2>
+        <p class="lead">
+          架空の中小企業に関する与件文を読み、経営課題への診断・助言を<strong>記述式</strong>で解答する試験です。
+          科目の正式名称は「中小企業の診断及び助言に関する実務の事例Ⅰ〜Ⅳ」で、各事例80分・100点満点、合計400点満点。
+        </p>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>事例</th>
+                <th>テーマ</th>
+                <th class="num">試験時間</th>
+                <th class="num">配点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">事例Ⅰ</td>
+                <td>組織（人事を含む）</td>
+                <td class="num">80分</td>
+                <td class="num">100点</td>
+              </tr>
+              <tr>
+                <td class="highlight">事例Ⅱ</td>
+                <td>マーケティング・流通</td>
+                <td class="num">80分</td>
+                <td class="num">100点</td>
+              </tr>
+              <tr>
+                <td class="highlight">事例Ⅲ</td>
+                <td>生産・技術</td>
+                <td class="num">80分</td>
+                <td class="num">100点</td>
+              </tr>
+              <tr>
+                <td class="highlight">事例Ⅳ</td>
+                <td>財務・会計</td>
+                <td class="num">80分</td>
+                <td class="num">100点</td>
+              </tr>
+              <tr style="background: var(--color-bg-alt)">
+                <td class="highlight">合計</td>
+                <td class="highlight">4事例</td>
+                <td class="num">—</td>
+                <td class="num highlight">400点</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notice" style="margin-top:1.2rem">
+          <strong>合格基準（第2次）：総点数の60%以上（240点以上）、かつ1事例でも満点の40%未満（40点未満）がないこと。</strong><br>
+          <strong>令和8年度から口述試験は廃止</strong>され、筆記試験の成績のみで最終合格が決まります。
+        </div>
+      </div>
+    </section>
+
+    <!-- 合格率 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格率と受験者統計</h2>
+        <p class="lead">
+          第1次試験の合格率はコロナ特例で高かった令和2〜3年度をピークに近年は20%台へ低下、第2次試験は長年18〜19%前後で推移しています。
+          <strong>第1次・第2次を同年度に突破する「ストレート合格率」は約4〜5%</strong>とされ、難関資格に位置づけられます。
+        </p>
+
+        <h3 style="margin-top:0.4rem; font-size:1.05rem;">第1次試験</h3>
+        <div class="table-wrap" style="margin-top:0.6rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>年度</th>
+                <th class="num">受験者数</th>
+                <th class="num">合格者数</th>
+                <th class="num">合格率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>令和7年度（2025）</td><td class="num">18,360人</td><td class="num">4,344人</td><td class="num highlight">23.7%</td></tr>
+              <tr><td>令和6年度（2024）</td><td class="num">18,209人</td><td class="num">5,007人</td><td class="num highlight">27.5%</td></tr>
+              <tr><td>令和5年度（2023）</td><td class="num">18,621人</td><td class="num">5,521人</td><td class="num highlight">29.6%</td></tr>
+              <tr><td>令和4年度（2022）</td><td class="num">17,345人</td><td class="num">5,019人</td><td class="num highlight">28.9%</td></tr>
+              <tr><td>令和3年度（2021）</td><td class="num">16,057人</td><td class="num">5,839人</td><td class="num highlight">36.4%</td></tr>
+              <tr><td>令和2年度（2020）</td><td class="num">11,785人</td><td class="num">5,005人</td><td class="num highlight">42.5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:1.4rem; font-size:1.05rem;">第2次試験</h3>
+        <div class="table-wrap" style="margin-top:0.6rem">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>年度</th>
+                <th class="num">受験者数</th>
+                <th class="num">合格者数</th>
+                <th class="num">合格率</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>令和7年度（2025）</td><td class="num">7,044人</td><td class="num">1,240人</td><td class="num highlight">17.6%</td></tr>
+              <tr><td>令和6年度（2024）</td><td class="num">8,119人</td><td class="num">1,516人</td><td class="num highlight">18.7%</td></tr>
+              <tr><td>令和5年度（2023）</td><td class="num">8,241人</td><td class="num">1,555人</td><td class="num highlight">18.9%</td></tr>
+              <tr><td>令和4年度（2022）</td><td class="num">8,712人</td><td class="num">1,625人</td><td class="num highlight">18.7%</td></tr>
+              <tr><td>令和3年度（2021）</td><td class="num">8,757人</td><td class="num">1,600人</td><td class="num highlight">18.3%</td></tr>
+              <tr><td>令和2年度（2020）</td><td class="num">6,388人</td><td class="num">1,174人</td><td class="num highlight">18.4%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.82rem; color:var(--color-text-light); margin-top:0.6rem;">
+          ※受験者数は集計の定義（申込者／実受験者等）により出典間で差があります。上表は合格率と整合する実受験者ベースの概数です。正確な統計は公式でご確認ください。
+        </p>
+      </div>
+    </section>
+
+    <!-- 学習ポイント -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">学習上のポイント</h2>
+        <ul class="exclusive-list">
+          <li>
+            <strong>① 財務・会計と企業経営理論が要</strong><br>
+            この2科目は第1次で問われるだけでなく、第2次の事例Ⅳ（財務）・事例Ⅰ／Ⅱ（組織・マーケ）に直結する。早期に固めると全体の得点が安定する。
+          </li>
+          <li>
+            <strong>② 科目合格制度を戦略に組み込む</strong><br>
+            60点以上で科目合格し翌年度・翌々年度に免除できるため、7科目を1年で完成させるか、複数年で分割するかを最初に設計する。
+          </li>
+          <li>
+            <strong>③ 第2次は「与件文に忠実」が鉄則</strong><br>
+            記述式は知識よりも、与件情報を根拠に一貫した助言を組み立てる力が問われる。事例Ⅳは計算問題が中心で、演習量が得点に直結する。
+          </li>
+          <li>
+            <strong>④ 令和8年度からの変更点に注意</strong><br>
+            第2次口述試験が廃止され、筆記一本で最終合格が決まる。第1次合格の有効期間は2年間（合格年度＋翌年度）である点も学習計画に織り込む。
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 合格後の手続き -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格後の手続き（登録・更新）</h2>
+        <p class="lead">
+          第2次試験の合格だけでは「中小企業診断士」を名乗れません。実務要件を満たして登録し、5年ごとに更新する必要があります。
+        </p>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">登録の要件</td>
+                <td>第2次試験合格後<strong>3年以内</strong>に、実務補習の受講日数と実務従事日数の合計が<strong>15日以上</strong>に達すること（両者は合算可）。</td>
+              </tr>
+              <tr>
+                <td class="highlight">実務補習</td>
+                <td>登録実務補習機関が実施。指導員のもとで実在の中小企業を診断する。15日間コース等が設けられている。</td>
+              </tr>
+              <tr>
+                <td class="highlight">実務従事</td>
+                <td>中小企業への経営診断・助言業務等に自ら従事する方法。実務補習と合算して15日以上を満たせばよい。</td>
+              </tr>
+              <tr>
+                <td class="highlight">登録の有効期間</td>
+                <td><strong>5年間</strong>。更新には、①理論政策更新研修（または論文審査）を<strong>5回以上</strong>修了、②実務従事等を<strong>合計30日以上</strong>、の両方が必要。</td>
+              </tr>
+              <tr>
+                <td class="highlight">養成課程ルート</td>
+                <td>第1次試験合格者は、中小企業大学校の養成課程や大学等の登録養成課程を修了することで、第2次試験・実務補習を免除して登録できる。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notice" style="margin-top:1.2rem">
+          中小企業診断士に業務独占はありませんが、経営診断・補助金／事業計画策定支援、公的支援機関（よろず支援拠点・商工会議所等）の専門家業務など、
+          <strong>経営視座の相談相手</strong>として活躍の場が広い資格です。
+        </div>
+      </div>
+    </section>
+
+    <!-- 参考リンク -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">参考リンク</h2>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+          <li><a href="https://www.j-smeca.jp/" target="_blank" rel="noopener">一般社団法人 中小企業診断協会（J-SMECA・公式）</a></li>
+          <li><a href="https://www.jf-cmca.jp/contents/010_c_/010_c_r08_shiken/R08_1ji_shiken_about.html" target="_blank" rel="noopener">中小企業診断協会 — 令和8年度 第1次試験案内</a></li>
+          <li><a href="https://www.chusho.meti.go.jp/shindanshi/2026/260205shindanshi.html" target="_blank" rel="noopener">中小企業庁 — 令和8年度からの試験改正点（口述廃止・受験料改定）</a></li>
+          <li><a href="https://www.j-smeca.jp/contents/005_jitsumuhoshu.html" target="_blank" rel="noopener">中小企業診断協会 — 実務補習・登録について</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — 中小企業診断士 学習ノート</div>
+      <div class="disclaimer">個人学習用の参考まとめサイトです。最新情報は必ず公式機関（中小企業診断協会）でご確認ください。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+
+</body>
+</html>
