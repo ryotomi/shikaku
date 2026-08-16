@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="公認会計士試験の学習ロードマップ。短答式（財務会計論を主軸）から論文式（租税法・選択科目の追加、会計学の記述）までを段階的に積み上げる長期プラン。" />
+  <title>学習ロードマップ — 公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .phase-tag { display:inline-block; font-size:0.72rem; padding:0.12em 0.6em; border-radius:999px; color:#fff; margin-right:0.4rem; }
+    .p0{background:#C0564B}.p1{background:#7F8C8D}.p2{background:#2b6cb0}.p3{background:#2f855a}.p4{background:#6b46c1}.p5{background:#9c4221}
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">公認会計士 学習ロードマップ</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">公認会計士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link current" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">公認会計士</a><span class="breadcrumb-sep">›</span><span>学習ロードマップ</span></div>
+        <h1 class="section-title">学習ロードマップ（短答式 → 論文式）</h1>
+        <p class="lead">公認会計士試験は<strong>短答式を突破してから論文式に進む</strong>2段階選抜です。まずは短答式（次回＝<strong>2026年12月13日 第I回</strong>）を最初の目標に据え、財務会計論を軸に4科目を仕上げます。</p>
+        <div class="notice"><strong>前提と正直な注意：</strong>公認会計士試験の合格に必要な学習時間は一般に<strong>2,500〜4,000時間</strong>、標準的な学習期間は<strong>1.5〜3年</strong>とされます（予備校等の目安で、個人差が大きい）。短期間で一気に仕上げる試験ではないため、「いつの短答式を狙うか」を最初に決め、そこから逆算して計画を立ててください。簿記の学習経験がない場合は、まず日商簿記2〜3級相当の仕訳基盤を作ることから始めるのが現実的です。</div>
+        <div class="notice" style="margin-top:0.6rem;"><strong>最優先タスク：出願。</strong>令和9年 第I回短答式（2026/12/13）の出願期間は<strong>令和8年8月28日〜9月17日</strong>です。学習より先に、公式（CPAAOB）で出願方法・期限を確認してください。出願はペイジー（Pay-easy）による電子納付です。</div>
+      </div></section>
+
+      <!-- 戦略 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">戦略の柱（財務会計論を制する者が短答を制す）</h2>
+        <p class="lead">短答式は<strong>財務会計論だけが200点</strong>と配点2倍。ここを安定させることが突破の必要条件です。企業法・監査論は知識で固めやすく、管理会計論は計算の型でカバーします。</p>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>科目</th><th>短答配点</th><th>方針</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">財務会計論</td><td class="num">200点</td><td>最重量。簿記（計算）の反復で速度と正確性を作り、財務諸表論（理論）で各会計基準の趣旨を固める。ここが崩れると短答は通らない</td></tr>
+            <tr><td class="highlight">管理会計論</td><td class="num">100点</td><td>原価計算・CVP・意思決定は解法をパターン化。計算ミスを減らせば安定得点源になる</td></tr>
+            <tr><td class="highlight">監査論</td><td class="num">100点</td><td>監査の全体像（リスク・アプローチ・報告）を先に掴み、基準・実務指針の趣旨で正誤判断を鍛える。暗記より理解</td></tr>
+            <tr><td class="highlight">企業法</td><td class="num">100点</td><td>会社法中心。条文の要件・効果を体系で押さえ、金商法・商法総則を上乗せ。短答では知識の正確さが得点に直結</td></tr>
+          </tbody>
+        </table></div>
+        <div class="notice" style="margin-top:1rem;">短答突破の目安は<strong>総点数の70%前後</strong>。財務会計論で7割を確保し、他3科目で取りこぼさない配分が基本。<strong>1科目でも極端に低いと足切り</strong>があるため、苦手科目を作らないこと。</div>
+      </div></section>
+
+      <!-- フェーズ -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">学習フェーズ（短答→論文の全体像）</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>フェーズ</th><th>区分</th><th>主な学習内容</th></tr></thead>
+          <tbody>
+            <tr><td>出願・情報収集</td><td><span class="phase-tag p0">準備</span></td><td>狙う短答回を決め、出願（電子納付）。学習教材・予備校の選定。全体像と出題範囲の把握</td></tr>
+            <tr><td>第1期<br>基礎固め</td><td><span class="phase-tag p1">簿記基盤</span></td><td>簿記（仕訳）の基礎を反復し、財務会計論の計算基盤を作る。日商2〜3級相当が未了ならここで固める。単語帳を毎日回し始める</td></tr>
+            <tr><td>第2期<br>短答インプット</td><td><span class="phase-tag p2">財務・管理</span></td><td>財務会計論（金融商品・固定資産・退職給付・税効果・企業結合・連結）と管理会計論（原価計算・CVP・意思決定）を計算中心に。理論も並行</td></tr>
+            <tr><td>第3期<br>短答インプット</td><td><span class="phase-tag p3">監査・企業法</span></td><td>監査論（リスク・アプローチ・報告・倫理）と企業法（設立・株式・機関・計算・組織再編）を体系で。財務・管理の演習は継続</td></tr>
+            <tr><td>第4期<br>短答直前</td><td><span class="phase-tag p0">短答答練</span></td><td>本試験形式の答練・過去問を反復。誤答分析で弱点を潰す。時間配分（財務150分・管理75分・監査50分・企業法50分）を体に入れて短答突破</td></tr>
+            <tr><td>第5期<br>論文移行</td><td><span class="phase-tag p4">租税・選択追加</span></td><td>短答合格後、<strong>租税法</strong>（法人税中心）と<strong>選択科目</strong>（多くは経営学）を新規に開始。会計学（財務＋管理）を記述で書けるレベルへ</td></tr>
+            <tr><td>第6期<br>論文直前</td><td><span class="phase-tag p5">論述・答練</span></td><td>監査論・企業法の論述、会計学の総合問題、租税法の計算を答練で反復。理論科目は「趣旨を自分の言葉で書く」訓練。8月の論文本番へ</td></tr>
+          </tbody>
+        </table></div>
+        <div class="notice" style="margin-top:1rem;">短答と論文で問われ方が変わります。<strong>短答＝正誤・数値をマークで速く正確に</strong>、<strong>論文＝理由・趣旨を記述で説明</strong>。短答合格後に租税法・選択科目が増える負荷を見込んで計画を立てること。</div>
+      </div></section>
+
+      <!-- サイト活用 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">本サイトの活用法</h2>
+        <ul class="exclusive-list">
+          <li><strong>① 科目別まとめ（網羅的解説）</strong><br>各科目の単元を体系的に整理。インプットの地図として使い、設例で計算の型を確認。<a href="index.html">科目別まとめ一覧 →</a></li>
+          <li><strong>② 単語帳</strong><br>毎日15〜20分、科目フィルターで当日範囲の会計基準・監査基準・会社法・税法の用語を回す。「習得済み」で管理。<a href="flashcard.html">単語帳を開く →</a></li>
+          <li><strong>③ 過去問演習（5肢択一）</strong><br>インプット直後に該当科目でランダム演習。理論の正誤判断と基本計算を確認。誤答は自動で「要復習」に登録。<a href="practice.html">演習する →</a></li>
+          <li><strong>④ 試験概要</strong><br>短答・論文の配点、合格基準（足切り）、日程、免除の確認。<a href="docs/overview.html">試験概要を開く →</a></li>
+        </ul>
+      </div></section>
+
+      <!-- 外部で補う -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">本サイトで足りない部分（外部教材で補う）</h2>
+        <div class="notice"><strong>正直な注意：</strong>本サイトは5肢択一の確認と用語暗記、単元の体系整理に特化しています。論文式は<strong>記述式（計算過程・論述）</strong>が本体で、独学が難しい試験です。以下は予備校講座・問題集・答練で必ず補ってください。</div>
+        <div class="table-wrap" style="margin-top:1rem;"><table class="data-table">
+          <thead><tr><th>補うべき領域</th><th>理由・対策</th></tr></thead>
+          <tbody>
+            <tr><td>財務会計論・管理会計論の計算総合問題</td><td>短答・論文の中核。連結・企業結合・原価計算・意思決定は、計算量の多い総合問題を時間内に解く訓練が要る</td></tr>
+            <tr><td>監査論・企業法の論述</td><td>論文式は「趣旨・理由を書く」試験。答練の答案添削で論理と表現を鍛える必要がある</td></tr>
+            <tr><td>租税法・選択科目</td><td>短答にはなく論文で新規に学ぶ。法人税の別表四・税額計算、経営学の財務管理は問題演習が不可欠</td></tr>
+            <tr><td>最新の会計基準・監査基準・法改正</td><td>新リース会計基準・監査基準改訂・会社法／税法改正など、出題範囲は毎年更新される。受験年度の出題範囲の要旨を公式で確認</td></tr>
+          </tbody>
+        </table></div>
+      </div></section>
+
+      <section class="section"><div class="container">
+        <h2 class="section-title">続ける仕組み（長期戦を乗り切る）</h2>
+        <ul class="exclusive-list">
+          <li><strong>毎日“最低ライン”を決める</strong>：忙しい日でも単語帳15分＋過去問5問だけは死守。ゼロの日を作らない。長期戦は習慣がすべて。</li>
+          <li><strong>週末にレビュー</strong>：その週の演習の正答率と苦手論点を確認し、翌週の配分を微調整。財務会計論の計算は毎週触れる。</li>
+          <li><strong>「解ける」より「速く正確に」</strong>：短答は時間との戦い。総合問題を時間を計って解き、電卓ミス・マークミスを減らす。</li>
+        </ul>
+      </div></section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 公認会計士 学習ロードマップ</div><div class="disclaimer">本ロードマップは学習目安です。試験日程・出願期限・出題範囲は必ず公式（金融庁 公認会計士・監査審査会 CPAAOB）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

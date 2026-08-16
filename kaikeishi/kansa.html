@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>監査論 — 公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .worked-example { background: var(--color-white); border: 1px solid var(--color-border); border-left: 4px solid var(--color-primary-light); border-radius: 0 6px 6px 0; padding: 0.9rem 1.2rem; margin: 1rem 0; }
+    .we-label { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--color-primary); font-weight: 700; margin-bottom: 0.4rem; }
+    .we-setup { font-size: 0.9rem; color: var(--color-text); margin-bottom: 0.5rem; }
+    .we-steps { margin: 0.2rem 0 0.6rem 1.2rem; padding: 0; }
+    .we-steps li { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.9; }
+    .we-answer { font-size: 0.9rem; font-weight: 500; color: var(--color-primary); border-top: 1px dashed var(--color-border); padding-top: 0.4rem; }
+    .section p.body-p { color: var(--color-text-light); line-height: 2; margin-bottom: 0.7rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+const auth = getAuth(initializeApp(firebaseConfig));
+onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+</script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">公認会計士 監査論</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">公認会計士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+
+    <section class="section"><div class="container">
+      <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">公認会計士</a><span class="breadcrumb-sep">›</span><span>監査論</span></div>
+      <h1 class="section-title">監査論</h1>
+      <p class="lead">監査論は、財務諸表監査をはじめとする保証業務の「なぜ・何を・どのように」を扱う、公認会計士に固有の中核科目。会計士業務の独占領域そのものを支える理論であり、条文・基準の丸暗記でなく「趣旨（なぜその手続・その意見になるのか）」の理解が合否を分ける。</p>
+      <div class="notice"><strong>配点等</strong> 短答式で100点、論文式で100点。短答は監査基準・監査基準委員会報告書（監基報）・法令の正確な知識を問う5択。論文は「二重責任の原則」「リスク・アプローチ」「意見の種類」など理由付けの記述が中心。計算はほぼ出ず、純粋な理論科目。監査基準（企業会計審議会）・監査基準委員会報告書（日本公認会計士協会）・公認会計士法・会社法・金商法（J-SOX）が学習の柱となる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">1. 監査の意義と目的</h2>
+      <p class="lead">財務諸表監査は、経営者が作成した財務諸表に監査人が独立の立場から意見を表明し、その情報の信頼性を高める（信頼性を付与する）ことを目的とする。</p>
+      <p class="body-p">財務諸表を作成するのは経営者であり、監査人はそれを検証して意見を述べる。この役割分担が<strong>二重責任の原則</strong>である。すなわち、財務諸表を作成する責任は経営者にあり（適正な作成責任）、その財務諸表が適正に表示されているかどうかについて意見を表明する責任は監査人にある（意見表明責任）。監査人が財務諸表そのものを作り替えることはできず、逆に経営者は監査人の意見に対して責任を負わない。この分離があるからこそ、監査人の独立性と客観性が担保される。</p>
+      <p class="body-p">監査によって提供されるのは<strong>合理的保証</strong>であって、絶対的保証ではない。「重要な虚偽表示がない」ことを合理的な水準で保証するにとどまり、100%の保証はしない。これは監査に<strong>固有の限界</strong>があるためである。すなわち、(1)財務諸表の性質上、経営者の見積り・判断が介在すること、(2)監査は試査（サンプリング）を基礎とし全件検証をしないこと、(3)証拠の多くが決定的でなく心証的であること、(4)不正は隠蔽・共謀により発見が困難であること、(5)監査を合理的な期間・コストで実施する必要があること、などが理由である。</p>
+      <div class="notice" style="margin-top:1rem;">論文頻出。「なぜ絶対的保証でないのか」は固有の限界（試査・見積り・共謀・コスト制約）から説明する。二重責任の原則は監査人独立性の前提であることまで書けると加点される。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">2. 保証業務の枠組み</h2>
+      <p class="lead">監査は「保証業務」の一類型。保証の程度（心証の水準）により合理的保証業務と限定的保証業務に分かれる。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>保証の程度</th><th>結論の表現</th><th>代表例</th></tr></thead><tbody>
+        <tr><td class="highlight">合理的保証業務</td><td>高い（ただし絶対ではない）</td><td>積極的形式（〜適正に表示している）</td><td>財務諸表監査、内部統制監査</td></tr>
+        <tr><td class="highlight">限定的保証業務</td><td>合理的保証より低い</td><td>消極的形式（〜信じさせる事項が認められなかった）</td><td>期中レビュー（旧 四半期レビュー）</td></tr>
+      </tbody></table></div>
+      <p class="body-p"><strong>レビュー</strong>は限定的保証業務であり、手続は主として質問と分析的手続に限定される。監査のように内部統制の運用評価や広範な実証手続を行わないため、得られる心証は監査より低い。したがって結論も「重要な点において適正に表示していないと信じさせる事項が認められなかった」という消極的（否定形）表現になる。監査（積極的意見）とレビュー（消極的結論）の表現の違いは、保証水準の違いの反映である。</p>
+      <p class="body-p">保証業務のほかに、監査人が結論の保証を提供しない<strong>合意された手続業務（AUP）</strong>などもある。監査・レビュー・その他の保証業務・非保証業務の関係を体系として押さえておく。</p>
+      <div class="notice" style="margin-top:1rem;">「積極的形式＝合理的保証」「消極的形式＝限定的保証」の対応は短答頻出。表現の違いが心証水準の違いに対応している趣旨を理解しておく。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">3. 監査基準の体系と法令上の監査</h2>
+      <p class="lead">監査の規範は、企業会計審議会が定める「監査基準」を頂点に、日本公認会計士協会の監査基準委員会報告書（監基報）が実務指針として詳細を補う。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>階層</th><th>内容</th><th>設定主体</th></tr></thead><tbody>
+        <tr><td class="highlight">一般基準</td><td>監査人の適格性・独立性・正当な注意・守秘義務など監査人の資質・態度</td><td>企業会計審議会</td></tr>
+        <tr><td class="highlight">実施基準</td><td>リスク・アプローチ、内部統制、監査証拠など監査の実施手続</td><td>企業会計審議会</td></tr>
+        <tr><td class="highlight">報告基準</td><td>意見の種類、監査報告書の記載、KAM など報告のルール</td><td>企業会計審議会</td></tr>
+        <tr><td>監査基準委員会報告書（監基報）</td><td>上記基準を実務で運用するための詳細な指針</td><td>日本公認会計士協会（JICPA）</td></tr>
+      </tbody></table></div>
+      <p class="body-p">法令上の監査には主に3つの根拠がある。<strong>金融商品取引法監査</strong>（有価証券報告書等の財務諸表を対象。投資者保護が目的）、<strong>会社法監査</strong>（大会社等の計算書類を対象。会計監査人による監査。株主・債権者保護が目的）、および両者を担う専門職の資格・義務を定める<strong>公認会計士法</strong>である。同じ会社でも金商法監査と会社法監査の双方を受けることがあり、対象書類・目的・報告先が異なる。</p>
+      <div class="notice" style="margin-top:1rem;">「監査基準」は審議会、「監基報」は協会という設定主体の違いは頻出。金商法監査＝投資者保護／会社法監査＝株主・債権者保護という目的の違いも押さえる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">4. 監査のプロセス概観</h2>
+      <p class="lead">監査は「契約→計画→リスク評価→リスク対応→意見形成・報告」という一連の流れで進む。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>段階</th><th>主な内容</th></tr></thead><tbody>
+        <tr><td class="highlight">契約の新規受任・更新</td><td>前提条件の充足確認、独立性・適格性の確認、監査契約書の締結</td></tr>
+        <tr><td class="highlight">監査計画</td><td>監査の基本的な方針の策定、詳細な監査計画の作成、重要性の決定</td></tr>
+        <tr><td class="highlight">リスク評価手続</td><td>企業・環境・内部統制の理解、重要な虚偽表示リスクの識別・評価</td></tr>
+        <tr><td class="highlight">リスク対応手続</td><td>評価したリスクに応じた運用評価手続・実証手続の実施</td></tr>
+        <tr><td class="highlight">意見形成・報告</td><td>入手した監査証拠の評価、意見の形成、監査報告書の作成・提出</td></tr>
+      </tbody></table></div>
+      <p class="body-p">この流れの根底にあるのが<strong>リスク・アプローチ</strong>である。リスクの高い領域に監査資源を重点配分し、低い領域は手続を簡素化することで、限られた時間・コストの中で効果的かつ効率的に合理的保証を得る。各段階は一方通行でなく、実施の途中で新たな事実が判明すれば計画・リスク評価に立ち戻る反復的な性格をもつ。</p>
+      <div class="notice" style="margin-top:1rem;">監査計画・リスク評価・リスク対応の順序と、各段階が「リスク・アプローチ」で貫かれている点を体系として理解する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">5. リスク・アプローチと監査リスク</h2>
+      <p class="lead">監査リスクとは、財務諸表に重要な虚偽表示があるのに監査人が誤って「適正である」と意見を表明してしまうリスク。これを合理的に低い水準に抑えることが監査の目標。</p>
+      <p class="body-p">監査リスクは次のように分解される。<strong>監査リスク ＝ 重要な虚偽表示リスク（RMM）× 発見リスク（DR）</strong>。さらに重要な虚偽表示リスクは<strong>固有リスク（IR）× 統制リスク（CR）</strong>に分けられる。固有リスクは内部統制を考慮しない状態で虚偽表示が生じる可能性、統制リスクは内部統制で防止・発見できない可能性、発見リスクは監査人の手続で虚偽表示を発見できない可能性を表す。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>構成要素</th><th>意味</th><th>誰がコントロールするか</th></tr></thead><tbody>
+        <tr><td class="highlight">固有リスク（IR）</td><td>統制を考慮しない虚偽表示の起こりやすさ</td><td>企業側（監査人は評価のみ）</td></tr>
+        <tr><td class="highlight">統制リスク（CR）</td><td>内部統制で防止・発見できないリスク</td><td>企業側（監査人は評価のみ）</td></tr>
+        <tr><td class="highlight">発見リスク（DR）</td><td>監査手続で虚偽表示を発見できないリスク</td><td>監査人（手続の量・時期・種類で調整）</td></tr>
+      </tbody></table></div>
+      <p class="body-p">重要な虚偽表示リスク（IR×CR）は企業側の事情で決まり監査人は評価するだけだが、発見リスクは監査人が手続を増減して調整できる。したがって、目標とする監査リスクを一定に保つには、<strong>評価した重要な虚偽表示リスクが高いほど、許容できる発見リスクを低く設定し、より多くの・より適切な監査手続を実施する</strong>という反比例の関係になる。これがリスク・アプローチの核心である。</p>
+      <div class="notice" style="margin-top:1rem;">「RMMが高い→DRを低く→手続を厚く」の反比例関係は論文の定番。IR・CRは企業要因、DRのみ監査人が操作可能という点が理由付けの鍵。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">6. 監査上の重要性</h2>
+      <p class="lead">重要性とは、財務諸表利用者の意思決定に影響を与えうる虚偽表示の大きさの基準。監査計画と虚偽表示の評価の双方で用いる。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>概念</th><th>内容</th><th>用途</th></tr></thead><tbody>
+        <tr><td class="highlight">財務諸表全体の重要性</td><td>財務諸表全体に対して設定する金額的基準</td><td>意見形成の判断基準</td></tr>
+        <tr><td class="highlight">手続実施上の重要性</td><td>財務諸表全体の重要性より低く設定する金額</td><td>未修正・未発見の虚偽表示の集計が全体の重要性を超える可能性を下げる</td></tr>
+        <tr><td class="highlight">明らかに僅少な虚偽表示</td><td>集計しても影響がないと明らかな極めて小さい金額</td><td>集計対象から除外する閾値</td></tr>
+      </tbody></table></div>
+      <p class="body-p">手続実施上の重要性を財務諸表全体の重要性より<strong>低く</strong>設定するのは、個々では重要性未満でも合算すると重要となる虚偽表示や、発見されない虚偽表示が存在しうるためである。バッファを設けることで、未修正・未発見の虚偽表示の総額が全体の重要性を超えるリスクを許容可能な水準まで下げる。重要性は金額だけでなく、法令違反や関連当事者取引など<strong>質的</strong>な要素も考慮する。</p>
+      <div class="notice" style="margin-top:1rem;">「手続実施上の重要性＜財務諸表全体の重要性」の大小関係と、その理由（合算リスク・未発見リスクへのバッファ）を必ずセットで理解する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">7. 内部統制の理解と評価</h2>
+      <p class="lead">内部統制は、業務の有効性・効率性、財務報告の信頼性、法令遵守、資産の保全を達成するために組織内に整備・運用される仕組み。監査人はこれを理解・評価して統制リスクを判断する。</p>
+      <p class="body-p">内部統制は<strong>6つの基本的要素</strong>から構成される。(1)統制環境、(2)リスクの評価と対応、(3)統制活動、(4)情報と伝達、(5)モニタリング、(6)IT（情報技術）への対応。統制環境は他の要素の基盤となる組織風土・経営者の姿勢であり、最も重要とされる。</p>
+      <p class="body-p">監査人はまず内部統制を<strong>理解</strong>し（整備状況の評価）、統制に依拠する方針であれば<strong>運用評価手続</strong>を実施して統制が期間を通じて有効に運用されていたかを確かめ、統制リスクを評価する。統制リスクを低く評価するには運用評価手続による裏付けが必要である。統制に依拠しない場合は運用評価手続を行わず、実証手続で虚偽表示リスクに対応する。</p>
+      <div class="notice" style="margin-top:1rem;">6要素のうち「ITへの対応」は、COSOの5要素にはない日本の内部統制基準に独立の基本的要素として明示されている点が特徴（2024年3月改訂後も6要素構成を維持）。統制に依拠する＝運用評価手続が必要、という因果を押さえる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">8. 監査証拠と監査手続</h2>
+      <p class="lead">監査人は「十分かつ適切な監査証拠」を入手して意見の合理的な基礎を得る。十分性は量、適切性は質（証明力＝関連性と信頼性）の問題。</p>
+      <p class="body-p">監査手続は目的により大きく<strong>リスク評価手続</strong>と<strong>リスク対応手続</strong>に分かれ、後者はさらに内部統制の<strong>運用評価手続</strong>と<strong>実証手続</strong>に分かれる。実証手続には、勘定残高等を直接検証する<strong>詳細テスト</strong>と、財務データ間・非財務データとの関係の分析による<strong>分析的実証手続</strong>がある。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>手続</th><th>内容</th></tr></thead><tbody>
+        <tr><td class="highlight">記録・文書の閲覧</td><td>証憑・帳簿・契約書等を確かめる</td></tr>
+        <tr><td class="highlight">実査</td><td>現金・有価証券等の実物を現物確認する</td></tr>
+        <tr><td class="highlight">立会</td><td>実地棚卸などの現場に立ち会い観察する</td></tr>
+        <tr><td class="highlight">確認</td><td>取引先・銀行など第三者に直接文書で問い合わせ回答を得る</td></tr>
+        <tr><td class="highlight">再計算</td><td>記録・書類の計算の正確性を自ら計算し確かめる</td></tr>
+        <tr><td class="highlight">再実施</td><td>企業が行った統制手続を監査人が独立に実施する</td></tr>
+        <tr><td class="highlight">観察</td><td>他者が実施するプロセスや手続を見る</td></tr>
+        <tr><td class="highlight">質問</td><td>知識のある者に口頭・書面で問い合わせる</td></tr>
+      </tbody></table></div>
+      <p class="body-p">証拠の信頼性は入手源と形態で異なり、一般に(1)企業外部の独立した情報源＞内部、(2)監査人が自ら入手＞企業提供、(3)文書＞口頭、(4)原本＞写し、が信頼性が高い。<strong>確認</strong>は外部の第三者から監査人が直接入手する点で証明力が高い代表的手続である。質問は単独では証拠力が弱く、他の手続と組み合わせる必要がある。</p>
+      <div class="notice" style="margin-top:1rem;">「実査＝実物」「確認＝第三者への照会」「立会＝棚卸への立ち会い」の区別は短答頻出。証拠の信頼性の序列（外部・原本・文書が強い）も理由込みで覚える。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">9. 監査サンプリング</h2>
+      <p class="lead">母集団の全件でなく一部（サンプル）を抽出し、その結果から母集団全体の特性を推定する手法。試査を前提とする監査で不可避に生じるリスクを扱う。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>リスク</th><th>内容</th></tr></thead><tbody>
+        <tr><td class="highlight">サンプリングリスク</td><td>サンプルに基づく結論と、母集団全体を調べた場合の結論が異なるリスク（抽出したこと自体に起因）</td></tr>
+        <tr><td class="highlight">ノンサンプリングリスク</td><td>手続の誤選択・証拠の誤解釈など、抽出以外の原因による誤った結論のリスク</td></tr>
+      </tbody></table></div>
+      <p class="body-p"><strong>統計的サンプリング</strong>は無作為抽出と確率論を用い、サンプリングリスクを数値で測定・制御できる。<strong>非統計的サンプリング</strong>は監査人の判断で抽出し、リスクを数値化しない。いずれも適切に設計・実施されれば有効な監査証拠を提供しうる。サンプルサイズは、許容できるサンプリングリスクが低いほど、期待逸脱率・虚偽表示率が高いほど、大きくなる。</p>
+      <div class="notice" style="margin-top:1rem;">サンプリングリスク（抽出に起因）とノンサンプリングリスク（人的ミス）の区別が要点。統計的手法の利点は「リスクの数量化」にあると理解する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">10. 会計上の見積り・関連当事者・後発事象</h2>
+      <p class="lead">判断や不確実性を伴う領域は虚偽表示リスクが高く、監査上とくに注意を要する。</p>
+      <p class="body-p"><strong>会計上の見積り</strong>（貸倒引当金、繰延税金資産の回収可能性、固定資産の減損、退職給付債務など）は、経営者の仮定・判断に依存するため固有リスクが高い。監査人は見積りの方法・仮定の合理性、使用データの適切性を評価し、経営者の偏向（バイアス）の兆候にも留意する。見積りの不確実性が高いほど、より慎重な監査手続が求められる。</p>
+      <p class="body-p"><strong>関連当事者</strong>との取引は、通常の取引条件と異なる可能性や、実態の隠蔽・利益操作に利用される可能性があるため、その識別と開示の適切性が重要になる。<strong>後発事象</strong>は決算日後に発生した事象で、決算日時点の状況を示す証拠となる「修正後発事象」（財務諸表の修正が必要）と、決算日後の新たな事象である「開示後発事象」（重要なら注記）に区別される。監査人は監査報告書日まで（場合により以降も）後発事象に関する手続を実施する。</p>
+      <div class="notice" style="margin-top:1rem;">修正後発事象（決算日時点の状況を反映→本表修正）と開示後発事象（決算日後の新事象→注記）の区別は会計学とも共通する頻出論点。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">11. 不正リスクへの対応</h2>
+      <p class="lead">虚偽表示は「誤謬（意図しない誤り）」と「不正（意図的な行為）」に分かれる。不正は隠蔽・共謀を伴うため発見が難しく、監査人は職業的懐疑心をもって対応する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>意図</th><th>代表例</th></tr></thead><tbody>
+        <tr><td class="highlight">誤謬</td><td>意図しない</td><td>計算ミス、基準の適用誤り、事実の見落とし</td></tr>
+        <tr><td class="highlight">不正（不正な財務報告）</td><td>意図的</td><td>粉飾決算、収益の前倒し計上</td></tr>
+        <tr><td class="highlight">不正（資産の流用）</td><td>意図的</td><td>現金・在庫の横領、架空経費</td></tr>
+      </tbody></table></div>
+      <p class="body-p">とりわけ<strong>経営者による内部統制の無効化</strong>は、どんなに優れた内部統制でも経営者の権限で覆されうるため、常に存在するリスクとして特別な対応が求められる。監査人は、仕訳テスト（異常な仕訳の検討）、会計上の見積りにおける経営者バイアスの検討、通例でない重要な取引の事業上の合理性の評価などを行う。日本では上場会社等の一定の監査に「<strong>不正リスク対応基準</strong>」が適用され、不正リスク要因への対応や不正の疑義が生じた場合の手続が定められている。</p>
+      <div class="notice" style="margin-top:1rem;">「経営者による内部統制の無効化」は常に対応が必要な特別リスクとして扱われる点が最重要。誤謬と不正は「意図の有無」で区別する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">12. 継続企業の前提（GC）</h2>
+      <p class="lead">財務諸表は原則として企業が事業を継続する前提（ゴーイング・コンサーン）で作成される。この前提に重要な疑義があるかを監査人は検討する。</p>
+      <p class="body-p">継続企業の前提に<strong>重要な不確実性</strong>が認められ、かつそれが財務諸表に適切に注記されている場合、監査人は無限定適正意見を表明したうえで、監査報告書に「<strong>継続企業の前提に関する重要な不確実性</strong>」の区分を設けて注意喚起する（意見自体は不適正にはならない）。他方、注記が不適切な場合は除外事項として限定付適正意見または不適正意見となる。継続企業の前提が成立していない（清算等が確実である）にもかかわらず継続企業を前提として財務諸表が作成されている場合は、不適正意見となりうる。</p>
+      <div class="notice" style="margin-top:1rem;">「重要な不確実性あり＋適切な注記あり→無限定適正＋GC区分（強調ではなく独立区分）」という結論が頻出。注記の適否で意見が変わる点を整理する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">13. グループ監査・内部監査人・専門家の利用</h2>
+      <p class="lead">監査人は自ら全てを実施するとは限らず、他の監査人や専門家の作業を利用することがある。ただし意見表明の責任は分割されない。</p>
+      <p class="body-p"><strong>グループ監査</strong>では、連結財務諸表に対する意見をグループ監査責任者（グループ監査人）が表明する。子会社等の構成単位の財務情報について構成単位の監査人が作業を行う場合も、グループ全体の意見に対する責任はグループ監査人が負う。グループ監査人は構成単位の重要性やリスクに応じて関与の程度を決め、構成単位の監査人の作業に関与・指示・レビューする。</p>
+      <p class="body-p"><strong>内部監査人</strong>の作業を利用する場合、監査人は内部監査機能の客観性・能力・組織上の位置づけを評価する。ただし内部監査人は経営者側の機能であり、外部監査人の独立性・意見表明責任を代替するものではない。<strong>専門家</strong>（不動産鑑定、年金数理、評価の専門家等）の作業を利用する場合も、その専門家の適性・能力・客観性と、作業の妥当性を監査人自身が評価する必要がある。いずれの場合も監査意見に対する<strong>単独の責任</strong>は監査人（グループ監査人）にある。</p>
+      <div class="notice" style="margin-top:1rem;">他者の作業を利用しても「意見に対する責任は分割されない（監査人が単独責任を負う）」という原則が一貫して問われる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">14. 監査報告と意見の種類</h2>
+      <p class="lead">監査の結論は監査報告書に集約される。除外事項の有無と重要性・広範性によって意見の種類が決まる。</p>
+      <p class="body-p">意見には、財務諸表が適正に表示されていると認める<strong>無限定適正意見</strong>と、問題がある場合の<strong>除外事項付意見（限定付適正意見・不適正意見・意見不表明）</strong>がある。除外事項には2類型ある。(1)<strong>意見に関する除外</strong>（財務諸表に重要な虚偽表示がある場合）、(2)<strong>監査範囲の制約</strong>（十分かつ適切な監査証拠を入手できない場合）。そのうえで、その影響が「重要だが広範でない」か「重要かつ広範」かで意見が分かれる。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>除外事項の性質</th><th>重要だが広範でない</th><th>重要かつ広範</th></tr></thead><tbody>
+        <tr><td class="highlight">財務諸表に重要な虚偽表示がある（意見に関する除外）</td><td>限定付適正意見</td><td>不適正意見</td></tr>
+        <tr><td class="highlight">十分かつ適切な証拠を入手できない（監査範囲の制約）</td><td>限定付適正意見</td><td>意見不表明</td></tr>
+      </tbody></table></div>
+      <p class="body-p">除外事項付意見を表明する場合、監査人は「<strong>意見の根拠</strong>」区分にその理由と、可能なら金額的影響を記載する。監査報告書には、経営者・監査役等の責任、監査人の責任、意見の根拠などが構造化して記載される。</p>
+      <div class="notice" style="margin-top:1rem;">この2×2の対応表（虚偽表示×広範性、証拠制約×広範性）は監査論で最重要。「広範（pervasive）＝財務諸表全体への影響」の概念が意見不表明・不適正の分かれ目になる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">15. KAM・その他の記載内容・強調事項</h2>
+      <p class="lead">監査報告書には意見のほかに、利用者の理解に資する情報が記載される。</p>
+      <p class="body-p"><strong>監査上の主要な検討事項（KAM：Key Audit Matters）</strong>は、当年度の監査で監査人がとくに重要と判断した事項であり、監査役等とのコミュニケーション事項の中から選ばれる。KAMは監査意見を変えるものではなく、監査の透明性を高め、監査人が何に注力したかを利用者に伝えることが目的である。原則として上場会社等の監査報告書に記載される。</p>
+      <p class="body-p"><strong>その他の記載内容</strong>とは、監査した財務諸表を含む開示書類のうち財務諸表と監査報告書以外の情報（有価証券報告書の事業の概況等）を指す。監査人はこれを通読し、財務諸表や監査で得た知識との重要な相違がないかを検討するが、その他の記載内容そのものに監査意見を表明するわけではない。</p>
+      <p class="body-p"><strong>強調事項</strong>は、財務諸表に適切に記載・注記されている事項のうち利用者の理解に重要なものを追記して注意を促すもの（意見に影響しない）。<strong>その他の事項</strong>は、財務諸表に記載されていないが監査・監査人の責任・報告書の理解に関連する事項を追記するもの。いずれも除外事項ではない。</p>
+      <div class="notice" style="margin-top:1rem;">KAM・強調事項・その他の記載内容はいずれも「意見を修正しない（除外事項ではない）」点が共通。KAMは監査役等との協議事項から選定される点が頻出。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">16. 監査事務所の品質管理</h2>
+      <p class="lead">個々の監査業務の品質を組織的に確保するため、監査事務所には品質管理の体制整備が求められる。</p>
+      <p class="body-p">品質管理は、監査事務所全体のシステムと、個々の監査業務における品質管理の二層で構成される。事務所は、リスク評価を基礎とした品質管理システム（ガバナンス、職業倫理・独立性、契約の新規受任・更新、業務の実施、人的資源、情報と伝達、モニタリング等）を整備・運用する。<strong>審査</strong>は、監査意見が表明される前に、監査チーム外の適格な者が重要な判断や結論を客観的に評価する手続であり、上場会社等では特に重要となる。</p>
+      <p class="body-p"><strong>監査調書</strong>は、実施した監査手続・入手した監査証拠・到達した結論を記録した文書。監査調書は、経験のある他の監査人が理解できる程度に、実施した手続の内容・時期・範囲、結果、重要な判断とその根拠を記載する。品質管理・審査・監査調書は、監査の品質を事後的にも検証可能にする基盤である。</p>
+      <div class="notice" style="margin-top:1rem;">審査は「意見表明前」に「チーム外」の者が行う客観的評価という点が要点。監査調書は「経験ある他の監査人が理解できる」水準が記載の目安。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">17. 職業倫理と独立性</h2>
+      <p class="lead">監査の信頼性は監査人の独立性に支えられる。独立性には精神的独立性と外観的独立性の両面がある。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>内容</th></tr></thead><tbody>
+        <tr><td class="highlight">精神的独立性（実質的独立性）</td><td>職業的専門家としての判断を害する影響を受けず、公正不偏の態度を保つ心の状態</td></tr>
+        <tr><td class="highlight">外観的独立性（形式的独立性）</td><td>第三者から見て独立性が損なわれていると推測される状況にないこと</td></tr>
+      </tbody></table></div>
+      <p class="body-p">両者が必要なのは、監査人が実際に公正であっても、外観上独立性が疑われれば監査の信頼性が損なわれるためである。独立性を阻害する要因には、自己利益（財務的利害）、自己レビュー（自らが関与した対象を監査）、擁護（依頼人の立場を擁護）、馴れ合い（親密な関係）、不当なプレッシャーなどがある。監査人はこれらを識別し、阻害要因が重要な場合はセーフガード（防止策）を講じ、それでも解消できなければ業務を辞退する。</p>
+      <p class="body-p">具体的な規律として、<strong>公認会計士法・倫理規則</strong>により、監査業務と一定の<strong>非監査業務の同時提供の制限</strong>、監査責任者等の<strong>ローテーション</strong>（一定期間で交代し馴れ合いを防ぐ）、そして<strong>守秘義務</strong>（正当な理由なく業務上知り得た秘密を漏らさない）などが定められている。守秘義務は正当な理由（法令に基づく開示、監査交代時の引継ぎ等）がある場合には解除される。</p>
+      <div class="notice" style="margin-top:1rem;">「精神的独立性＋外観的独立性の両方が必要」な理由（実際に公正でも外観が疑われれば信頼が失われる）は論文頻出。阻害要因（自己利益・自己レビュー・擁護・馴れ合い・不当な圧力）を列挙できるようにする。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">18. 内部統制監査（J-SOX）と期中レビュー</h2>
+      <p class="lead">金商法は、上場会社等に財務報告に係る内部統制の経営者評価と、それに対する監査人の監査を求める（いわゆるJ-SOX）。</p>
+      <p class="body-p">経営者は、財務報告に係る内部統制の有効性を自ら評価し「内部統制報告書」を作成する。監査人は、この経営者評価が適正に行われているかを監査し「内部統制監査報告書」で意見を表明する。財務諸表監査と内部統制監査は同一の監査人が一体として実施し、相互に監査証拠を利用し合うことで効率化が図られる。両者はともに<strong>合理的保証</strong>を提供する監査であり、レビューではない。</p>
+      <p class="body-p">上場会社の四半期報告制度は<strong>2024年（令和6年）4月施行の金融商品取引法改正で廃止</strong>され、金商法上は半期報告書に対する<strong>期中レビュー</strong>へ移行した（従来の四半期レビューに相当。四半期開示は取引所規則の四半期決算短信に一本化）。期中レビュー（レビュー）は期中の財務情報に対する<strong>限定的保証業務</strong>であり、主として質問と分析的手続によって実施される。したがって結論は消極的形式（「適正に表示していないと信じさせる事項が認められなかった」）で表される。年度の財務諸表監査（合理的保証・積極的意見）とは保証水準・手続・結論表現がいずれも異なる。</p>
+      <div class="notice" style="margin-top:1rem;">「内部統制監査＝合理的保証（監査）」「期中レビュー（半期）＝限定的保証（レビュー）」の区別が要点。財務諸表監査と内部統制監査は同一監査人が一体実施する点も押さえる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">19. 監査役等とのコミュニケーション・監査人の交代</h2>
+      <p class="lead">監査人は、ガバナンスに責任を負う監査役等と適切にコミュニケーションを行い、監査の実効性を確保する。</p>
+      <p class="body-p">監査人は、<strong>監査役等（監査役・監査役会・監査等委員会・監査委員会）</strong>と、監査の範囲・時期、監査上の重要な発見事項、内部統制の重要な不備、独立性に関する事項などについてコミュニケーションを行う。監査役等は経営者から独立して監査人と連携する立場にあり、KAMもこのコミュニケーション事項の中から選定される。双方向のやり取りにより、経営者による不正・内部統制無効化のリスクにも対応しやすくなる。</p>
+      <p class="body-p"><strong>監査人の交代</strong>にあたっては、前任監査人と後任監査人の間で引継ぎが行われる。後任予定の監査人は、契約受任の可否を判断するため前任監査人に問い合わせ、前任監査人は（守秘義務が正当な理由で解除される範囲で）必要な情報を提供する。監査人の交代・不再任の理由が意見の相違等による場合は、投資者保護の観点から適切に開示される。</p>
+      <div class="notice" style="margin-top:1rem;">監査役等は「経営者から独立してガバナンスに責任を負う者」であり、監査人の重要な連携相手。監査人交代時の引継ぎでは守秘義務が正当な理由で解除される点を押さえる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">この科目を演習する</h2>
+      <div class="content-grid">
+        <a class="content-card" href="practice.html?subject=kansa"><div class="content-card-title">過去問演習</div><div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録。</div><div class="content-card-arrow">演習する →</div></a>
+        <a class="content-card" href="flashcard.html?subject=kansa"><div class="content-card-title">単語帳</div><div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。</div><div class="content-card-arrow">暗記する →</div></a>
+        <a class="content-card" href="roadmap.html"><div class="content-card-title">学習ロードマップ</div><div class="content-card-desc">試験日までの計画でこの科目の学習時期を確認。</div><div class="content-card-arrow">開く →</div></a>
+      </div>
+    </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 公認会計士 監査論</div><div class="disclaimer">掲載内容は個人学習目的です。最新の会計基準・監査基準・法令は公式資料（金融庁 公認会計士・監査審査会 等）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

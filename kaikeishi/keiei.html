@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>選択科目（経営学） — 公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .worked-example { background: var(--color-white); border: 1px solid var(--color-border); border-left: 4px solid var(--color-primary-light); border-radius: 0 6px 6px 0; padding: 0.9rem 1.2rem; margin: 1rem 0; }
+    .we-label { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--color-primary); font-weight: 700; margin-bottom: 0.4rem; }
+    .we-setup { font-size: 0.9rem; color: var(--color-text); margin-bottom: 0.5rem; }
+    .we-steps { margin: 0.2rem 0 0.6rem 1.2rem; padding: 0; }
+    .we-steps li { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.9; }
+    .we-answer { font-size: 0.9rem; font-weight: 500; color: var(--color-primary); border-top: 1px dashed var(--color-border); padding-top: 0.4rem; }
+    .section p.body-p { color: var(--color-text-light); line-height: 2; margin-bottom: 0.7rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+const auth = getAuth(initializeApp(firebaseConfig));
+onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+</script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">公認会計士 選択科目（経営学）</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">公認会計士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+
+    <section class="section"><div class="container">
+      <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">公認会計士</a><span class="breadcrumb-sep">›</span><span>選択科目（経営学）</span></div>
+      <h1 class="section-title">選択科目（経営学）</h1>
+      <p class="lead">論文式試験のみで課される選択科目（100点満点）。経営学・経済学・民法・統計学の4科目から1科目を選択する。本ページは受験生の多数が選ぶ「経営学」を中心に、経営管理（戦略・組織）と財務管理（コーポレート・ファイナンス）の2本柱を解説する。</p>
+      <div class="notice"><strong>配点等</strong> 論文式試験の選択科目は100点満点（1科目）。短答式試験には選択科目はなく、論文式でのみ課される。経営学は「経営管理論（経営戦略・経営組織）」と「財務管理論（ファイナンス）」の大きく2分野で構成され、後者には計算問題が含まれる。合否は科目別の得点比率（偏差値換算）で判定され、一定水準に達しない科目があると足切りの対象となりうる。試験制度・配点の最新の詳細は必ず公認会計士・監査審査会の公式資料で確認すること。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">① 選択科目の全体像と選び方</h2>
+      <p class="lead">選択科目は4科目から1つ。学習範囲・計算量・費用対効果を踏まえ、多くの受験生が「経営学」を選ぶ。ただし選択比率は予備校の推計であり、公式統計として公表されているものではない点に注意する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>選択科目</th><th>主な範囲</th><th>特徴</th><th>向いている人</th></tr></thead><tbody>
+        <tr><td class="highlight">経営学</td><td>経営管理（戦略・組織）＋財務管理（ファイナンス）</td><td>範囲が比較的予測しやすく、財務会計・管理会計との親和性が高い。多数派とされる。</td><td>暗記＋軽めの計算をバランス良く得点したい人</td></tr>
+        <tr><td>経済学</td><td>ミクロ経済学・マクロ経済学</td><td>グラフ・数式が中心。得意なら高得点も狙えるが範囲が広く負担が大きい。</td><td>数学・グラフに強い人</td></tr>
+        <tr><td>民法</td><td>財産法（総則・物権・債権）中心</td><td>会社法と一部関連。条文・判例の理解が必要で論述量が多い。</td><td>法律の論述が得意な人・法学部出身者</td></tr>
+        <tr><td>統計学</td><td>確率・推定・検定・回帰など</td><td>計算中心で範囲は比較的狭い。数理が得意なら効率的。</td><td>数理・統計に強い人</td></tr>
+      </tbody></table></div>
+      <p class="body-p">経営学が多数派とされる理由は、範囲が体系化されており対策が立てやすいこと、財務管理論の計算が財務会計論・管理会計論と重なる考え方（現在価値、資本コスト等）を含むこと、暗記中心の経営管理論で安定得点しやすいことにある。一方、経済学・統計学は数理が得意な人には効率的で、民法は法律科目に適性がある人に向く。</p>
+      <p class="body-p">選び方の要点は3つ。第1に「既存の得意・適性」（数学か、法律論述か、暗記か）。第2に「他科目との相乗効果」（経営学の財務管理は会計科目と、民法は企業法と親和性がある）。第3に「学習リソースの充実度」（経営学は教材・答練が豊富）。本ページ以降は多数派である経営学を前提に、②〜⑧で経営管理論、⑨〜⑫で財務管理論を扱う。</p>
+      <div class="notice" style="margin-top:1rem;">「経営学＝多数派」という選択比率は各予備校の受講生データに基づく推計であり、公認会計士・監査審査会が公表する公式統計ではない。あくまで傾向として捉え、最終判断は自分の適性で行うこと。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">② 経営戦略論・競争戦略</h2>
+      <p class="lead">個々の事業でどう競争優位を築くかを扱う「競争戦略」。中心はポーターの「5つの競争要因（ファイブ・フォース）」「3つの基本戦略」「価値連鎖（バリューチェーン）」。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>5つの競争要因</th><th>内容</th><th>脅威が強まる例</th></tr></thead><tbody>
+        <tr><td class="highlight">新規参入の脅威</td><td>新たな競合が業界に入る可能性</td><td>参入障壁（規模の経済・ブランド）が低い</td></tr>
+        <tr><td class="highlight">代替品の脅威</td><td>別の手段で同じニーズが満たされる</td><td>代替品の価格性能比が高い</td></tr>
+        <tr><td class="highlight">売り手の交渉力</td><td>供給業者が価格・条件を左右する力</td><td>供給元が少数・切替コストが高い</td></tr>
+        <tr><td class="highlight">買い手の交渉力</td><td>顧客が値下げ等を要求する力</td><td>買い手が大口・製品が差別化されない</td></tr>
+        <tr><td class="highlight">既存競合の敵対</td><td>業界内の競争の激しさ</td><td>成長率が低く固定費が高い</td></tr>
+      </tbody></table></div>
+      <p class="body-p">ポーターは、業界の収益性はこの5要因の強弱で規定されると論じた。5要因が総じて弱い（＝脅威が小さい）業界ほど平均収益性が高くなる。企業はこの構造分析を踏まえ、自社に有利なポジションを取る「ポジショニング・アプローチ」で競争優位を追求する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>3つの基本戦略</th><th>競争優位の源泉</th><th>ターゲット</th></tr></thead><tbody>
+        <tr><td class="highlight">コストリーダーシップ</td><td>低コスト（価格競争力）</td><td>業界全体</td></tr>
+        <tr><td class="highlight">差別化</td><td>製品・サービスの独自性</td><td>業界全体</td></tr>
+        <tr><td class="highlight">集中（フォーカス）</td><td>コスト集中／差別化集中</td><td>特定の狭いセグメント</td></tr>
+      </tbody></table></div>
+      <p class="body-p">「価値連鎖（バリューチェーン）」は、企業活動を主活動（購買物流・製造・出荷物流・販売マーケティング・サービス）と支援活動（全般管理・人事・技術開発・調達）に分解し、どの活動が付加価値・コストを生むかを分析する枠組み。各活動の強み・弱みを把握し、コスト優位や差別化の源泉を特定する。</p>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：3つの基本戦略で「コストリーダーシップと差別化を中途半端に併存させると『スタック・イン・ザ・ミドル（中途半端）』に陥る」という論点が頻出。5フォースは「買い手＝顧客」「売り手＝仕入先」の向きを取り違えないこと。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">③ 成長戦略・全社戦略</h2>
+      <p class="lead">複数事業をどう組み合わせ、企業全体としてどこで成長するかを扱う「全社戦略」。アンゾフの成長マトリクス、多角化、PPM、シナジーが中心。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>アンゾフの成長マトリクス</th><th>既存市場</th><th>新規市場</th></tr></thead><tbody>
+        <tr><td class="highlight">既存製品</td><td>市場浸透（シェア拡大）</td><td>新市場開拓</td></tr>
+        <tr><td class="highlight">新規製品</td><td>新製品開発</td><td>多角化（最もリスク大）</td></tr>
+      </tbody></table></div>
+      <p class="body-p">アンゾフは成長の方向を「製品×市場」の4象限で整理した。既存の延長線上（市場浸透）ほどリスクが低く、製品も市場も新規となる多角化が最もリスクが高い。多角化には、既存事業と関連する「関連多角化（シナジーを狙う）」と、関連の薄い「非関連多角化（リスク分散を狙う）」がある。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>PPMの4象限</th><th>市場成長率／相対シェア</th><th>意味と定石</th></tr></thead><tbody>
+        <tr><td class="highlight">花形（スター）</td><td>成長率 高／シェア 高</td><td>資金流入も投資も大。将来の金のなる木候補、育てる。</td></tr>
+        <tr><td class="highlight">問題児</td><td>成長率 高／シェア 低</td><td>資金を要するが将来性あり。選別投資し花形化を狙う。</td></tr>
+        <tr><td class="highlight">金のなる木</td><td>成長率 低／シェア 高</td><td>投資少なく資金流入大。ここで得た資金を他象限へ配分。</td></tr>
+        <tr><td class="highlight">負け犬</td><td>成長率 低／シェア 低</td><td>資金貢献が小さい。撤退・縮小を検討。</td></tr>
+      </tbody></table></div>
+      <p class="body-p">PPM（プロダクト・ポートフォリオ・マネジメント）はボストン・コンサルティング・グループが提唱。縦軸に市場成長率、横軸に相対的マーケットシェアを取り、事業（製品）を4象限に配置して資源配分を検討する。基本の資金循環は「金のなる木で得た資金を、問題児や花形に投じて育てる」こと。シナジーは「1＋1＞2」となる相乗効果で、販売・生産・投資・マネジメント等の面で生じる。</p>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：PPMは「相対シェア（＝自社シェア÷最大競合シェア）」が横軸で、単なる市場シェアではない。金のなる木は「新規投資を絞りキャッシュを回収する」象限であり、追加投資対象ではない点が誤答されやすい。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">④ 経営資源とケイパビリティ</h2>
+      <p class="lead">競争優位の源泉を「外部のポジション」ではなく「内部の経営資源・能力」に求める考え方。資源ベース理論（RBV）、VRIOフレームワーク、コア・コンピタンスが中心。</p>
+      <p class="body-p">資源ベース理論（RBV：Resource-Based View）は、持続的競争優位の源泉を企業内部の経営資源（ヒト・モノ・カネ・情報・ブランド・組織能力等）に見出す。ポーターのポジショニング・アプローチが「業界構造・外部環境」を重視するのに対し、RBVは「模倣困難な内部資源」を重視する点で対照的な枠組みとして問われる。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>VRIOの4視点</th><th>問い</th><th>満たさないと…</th></tr></thead><tbody>
+        <tr><td class="highlight">Value（経済価値）</td><td>その資源は機会を活かし脅威を無力化するか</td><td>競争劣位</td></tr>
+        <tr><td class="highlight">Rarity（希少性）</td><td>その資源を持つ企業は少数か</td><td>競争均衡</td></tr>
+        <tr><td class="highlight">Inimitability（模倣困難性）</td><td>他社が真似るのは難しい／高コストか</td><td>一時的な競争優位にとどまる</td></tr>
+        <tr><td class="highlight">Organization（組織）</td><td>資源を活かす組織体制が整っているか</td><td>優位を持続的に実現できない</td></tr>
+      </tbody></table></div>
+      <p class="body-p">VRIOはバーニーの枠組みで、4つをすべて満たす資源が「持続的競争優位」をもたらす。V・R・Iを満たしても、それを活かす組織（O）がなければ潜在的優位を実現できない。コア・コンピタンス（ハメル＆プラハラード）は「顧客価値を生み、模倣困難で、複数事業に展開できる中核的能力」を指し、RBVと同じく内部能力に競争力の源泉を求める議論である。</p>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：ポジショニング（外部・ポーター）とRBV（内部・バーニー）の対比、およびVRIOの4段階（価値→希少→模倣困難→組織）が「どの段階でどの程度の優位が生じるか」を答えさせる形で頻出。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑤ 経営組織論</h2>
+      <p class="lead">戦略を実行する器としての「組織」を扱う。組織構造の類型、組織のライフサイクル、コンティンジェンシー理論、官僚制が中心。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>組織構造</th><th>編成の軸</th><th>長所</th><th>短所</th></tr></thead><tbody>
+        <tr><td class="highlight">機能別組織</td><td>職能（製造・営業・経理等）</td><td>専門性・規模の経済が働く</td><td>部門間調整が難しく全社視点が育ちにくい</td></tr>
+        <tr><td class="highlight">事業部制組織</td><td>製品・地域・顧客</td><td>迅速な意思決定・利益責任の明確化</td><td>経営資源の重複・セクショナリズム</td></tr>
+        <tr><td class="highlight">マトリクス組織</td><td>職能×事業の二元</td><td>資源共有と柔軟性の両立</td><td>命令系統の二重化（ツーボス）で混乱しやすい</td></tr>
+      </tbody></table></div>
+      <p class="body-p">機能別（職能別）組織は専門性を高めやすいが、トップに調整負荷が集中する。事業部制は各事業部が利益責任を負う分権的構造で、意思決定は速いが資源の重複が生じやすい。マトリクス組織は職能と事業の二軸を交差させ、一人の部下が二人の上司を持つため、権限・責任の設計を誤ると混乱する。</p>
+      <p class="body-p">コンティンジェンシー理論（条件適応理論）は「唯一最善の組織はなく、環境・技術等の条件に適合した組織構造が有効」とする立場。安定的環境では機械的（官僚的）組織が、変化の激しい環境では有機的組織が適合しやすい（バーンズ＆ストーカー）。官僚制（ウェーバー）は規則・階層・専門分化・文書主義による合理的な支配形態だが、規則の自己目的化（官僚制の逆機能：マートン）という弊害も指摘される。組織のライフサイクル論では、起業→共同体→公式化→精巧化などの段階ごとに直面する課題（危機）が変化するとされる。</p>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：「機械的組織／有機的組織」と環境の適合、官僚制の「順機能（効率）と逆機能（硬直化）」の両面が論述で問われやすい。マトリクスの弱点は「命令系統の二重性」と明確に言えること。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑥ モチベーション理論</h2>
+      <p class="lead">人はなぜ働くのか、何が動機づけになるのかを扱う。マズローの欲求段階説、ハーズバーグの二要因理論、期待理論、マグレガーのX理論・Y理論が中心。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>理論</th><th>提唱者</th><th>要点</th></tr></thead><tbody>
+        <tr><td class="highlight">欲求段階説</td><td>マズロー</td><td>生理的→安全→社会的→承認→自己実現の5段階。低次が満たされると高次を求める。</td></tr>
+        <tr><td class="highlight">二要因理論</td><td>ハーズバーグ</td><td>満足を生む「動機づけ要因（達成・承認・仕事内容）」と、不満を防ぐ「衛生要因（給与・労働条件・対人関係）」は別次元。</td></tr>
+        <tr><td class="highlight">期待理論</td><td>ブルーム／ポーター＆ローラー</td><td>動機づけ＝期待（努力→成果）×手段性（成果→報酬）×誘意性（報酬の魅力）。</td></tr>
+        <tr><td class="highlight">X理論・Y理論</td><td>マグレガー</td><td>X＝人は本来怠惰で統制が要る／Y＝人は自律的で自己実現を求める。人間観の対比。</td></tr>
+      </tbody></table></div>
+      <p class="body-p">ハーズバーグの核心は「衛生要因をいくら改善しても不満は減るが積極的な満足（動機づけ）にはつながらない」点。給与や労働条件（衛生要因）と、仕事そのものの達成感（動機づけ要因）を混同しないことが問われる。期待理論は「努力すれば成果が出る（期待）」「成果が報酬に結びつく（手段性）」「その報酬に価値がある（誘意性）」の3つの積で動機づけの強さを説明する内容理論に対する過程理論の代表である。</p>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：マズロー・ハーズバーグ・マグレガーは「内容理論（何が動機づけるか）」、期待理論は「過程理論（どう動機づけが生じるか）」という分類が頻出。二要因理論の「衛生要因＝不満の予防にとどまる」は最重要論点。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑦ リーダーシップ論</h2>
+      <p class="lead">リーダーの資質・行動・状況適合を扱う。特性理論→行動理論（PM理論）→コンティンジェンシー理論（SL理論・フィードラー）へと発展した流れを押さえる。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>アプローチ</th><th>着眼点</th><th>代表理論</th></tr></thead><tbody>
+        <tr><td class="highlight">特性理論</td><td>優れたリーダーが持つ資質・特性</td><td>資質論（生まれつきの特性）</td></tr>
+        <tr><td class="highlight">行動理論</td><td>リーダーの行動スタイル</td><td>PM理論（三隅）、オハイオ研究、マネジリアル・グリッド</td></tr>
+        <tr><td class="highlight">コンティンジェンシー理論</td><td>状況に応じた最適スタイル</td><td>SL理論、フィードラー理論、パス・ゴール理論</td></tr>
+      </tbody></table></div>
+      <p class="body-p">PM理論（三隅二不二）は、リーダー行動を「P機能（Performance：目標達成・課題遂行）」と「M機能（Maintenance：集団維持・人間関係）」の2軸で捉え、両機能がともに高いPM型を理想とする。行動理論は「良いリーダーの行動は学習できる」という点で特性理論から前進した。</p>
+      <p class="body-p">コンティンジェンシー理論は「唯一最善のリーダー像はなく、状況次第で有効なスタイルが変わる」とする。SL理論（ハーシー＆ブランチャード）は部下の成熟度に応じて、指示的→説得的→参加的→委任的とスタイルを変えるべきとする。フィードラー理論は、リーダーとメンバーの関係・仕事の構造化度・地位勢力からなる「状況の好意性」に応じて、タスク志向型と人間関係志向型のどちらが有効かが変わると論じた。</p>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：発展の順序（特性→行動→状況適合）を押さえること。SL理論は「部下の成熟度が高まるほど関与を減らし委任へ」という向きを取り違えないこと。フィードラーは「状況が極端に好意的／非好意的な時はタスク志向が有効」という結論が問われる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑧ 経営管理・ガバナンス・マーケティング</h2>
+      <p class="lead">意思決定、コーポレートガバナンス、イノベーション、マーケティングの基礎（4P）など、経営管理論の残る重要トピックを横断的に整理する。</p>
+      <p class="body-p">意思決定については、サイモンの「限定合理性（人間の合理性には情報・計算能力の限界がある）」と「満足化原理（最適解ではなく満足できる水準で意思決定する）」が基礎理論として重要。プログラム化しうる定型的意思決定と、非定型的な戦略的意思決定の区別も問われる。</p>
+      <p class="body-p">コーポレートガバナンスは、経営者（エージェント）が株主（プリンシパル）の利益に反して行動する「エージェンシー問題」をどう抑制するかが核心。社外取締役の活用、監査役会・指名委員会等設置会社などの機関設計、情報開示、報酬設計（インセンティブの整合）が手段となる。日本では会社法上の機関設計とコーポレートガバナンス・コードが関連する（制度の詳細は企業法・会社法の学習と最新の公式資料で確認）。</p>
+      <p class="body-p">イノベーションでは、シュンペーターの「新結合」、プロダクト・イノベーションとプロセス・イノベーション、持続的イノベーションと破壊的イノベーション（クリステンセン「イノベーションのジレンマ」）が重要。マーケティングの基礎はマーケティング・ミックス「4P」で整理する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>マーケティングの4P</th><th>内容</th></tr></thead><tbody>
+        <tr><td class="highlight">Product（製品）</td><td>製品・品質・ブランド・品揃え</td></tr>
+        <tr><td class="highlight">Price（価格）</td><td>価格設定・値引・支払条件</td></tr>
+        <tr><td class="highlight">Place（流通）</td><td>チャネル・立地・在庫・物流</td></tr>
+        <tr><td class="highlight">Promotion（販促）</td><td>広告・販売促進・人的販売・PR</td></tr>
+      </tbody></table></div>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：エージェンシー問題とガバナンス手段の対応、破壊的イノベーションが「既存優良企業ほど対応が遅れる（ジレンマ）」理由、STP（セグメンテーション・ターゲティング・ポジショニング）と4Pの関係が論述で狙われる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑨ 財務管理の基礎（現在価値・DCF・投資意思決定）</h2>
+      <p class="lead">ここから財務管理論（ファイナンス）。時間価値の考え方（現在価値・DCF）と、それを用いた投資意思決定（NPV法・IRR法）が土台となる。</p>
+      <p class="body-p">貨幣の時間価値とは「今の1円は将来の1円より価値が高い」という考え方。将来のキャッシュ・フロー（CF）を割引率rで現在価値（PV）に割り引き、その合計と投資額を比較して投資の可否を判断する。将来CFの現在価値の合計から初期投資額を差し引いたものが正味現在価値（NPV：Net Present Value）である。NPV＞0なら投資は企業価値を増やすと判断し、採択する。IRR（内部収益率）は「NPV＝0となる割引率」であり、IRRが資本コストを上回れば採択する。</p>
+      <div class="worked-example">
+        <div class="we-label">設例</div>
+        <p class="we-setup">初期投資1,000（時点0で支出）。1年後と2年後にそれぞれ600のキャッシュ・フローが得られる。割引率（資本コスト）は年10%。この投資のNPVを求め、採否を判定せよ。</p>
+        <ol class="we-steps">
+          <li>1年後CFの現在価値＝600 ÷ 1.10 ＝ 545.45（＝ 600 × 0.9091）</li>
+          <li>2年後CFの現在価値＝600 ÷ 1.10² ＝ 600 ÷ 1.21 ＝ 495.87（＝ 600 × 0.8264）</li>
+          <li>CFの現在価値合計＝545.45 ＋ 495.87 ＝ 1,041.32</li>
+          <li>NPV＝現在価値合計 − 初期投資＝1,041.32 − 1,000 ＝ ＋41.32</li>
+        </ol>
+        <div class="we-answer">答え： NPV ≒ ＋41.32（＞0）なので投資は採択。検算：割引率をIRR（この案件では約13.1%）まで上げるとNPVは0に近づき、資本コスト10%＜IRRより採択判定と整合する。</div>
+      </div>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：NPV法とIRR法は多くの場合同じ結論になるが、投資規模が異なる相互排他的案件や、CFの符号が複数回変わる案件ではIRRが誤り（複数解・順位逆転）を生む。理論的にはNPV法が優れるとされる点が頻出。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑩ 証券投資論（リスク・リターン・ポートフォリオ・CAPM）</h2>
+      <p class="lead">リスクとリターンの関係、分散投資の効果（相関）、効率的フロンティア、そしてCAPM（資本資産評価モデル）とβ、証券市場線を扱う。計算の核となる単元。</p>
+      <p class="body-p">期待収益率は各シナリオの収益率をその確率で加重平均した値。リスクは収益率のばらつき（分散・標準偏差）で測る。複数資産に分散投資すると、資産間の相関が完全な正（＋1）でない限り、ポートフォリオのリスクは各資産のリスクの加重平均より小さくなる（分散効果）。リスクとリターンの組合せのうち、同じリスクで最大のリターン（同じリターンで最小のリスク）を与える組合せの集合が効率的フロンティアである。</p>
+      <div class="worked-example">
+        <div class="we-label">設例</div>
+        <p class="we-setup">ある株式の来期収益率は、好況（確率0.3）で＋30%、通常（確率0.5）で＋10%、不況（確率0.2）で−10%と予想される。期待収益率と標準偏差を求めよ。</p>
+        <ol class="we-steps">
+          <li>期待収益率 E(R)＝0.3×30 ＋ 0.5×10 ＋ 0.2×(−10) ＝ 9 ＋ 5 − 2 ＝ 12（%）</li>
+          <li>各シナリオの偏差²×確率：好況 (30−12)²×0.3＝324×0.3＝97.2</li>
+          <li>通常 (10−12)²×0.5＝4×0.5＝2.0／不況 (−10−12)²×0.2＝484×0.2＝96.8</li>
+          <li>分散＝97.2 ＋ 2.0 ＋ 96.8 ＝ 196（%²）</li>
+          <li>標準偏差＝√196 ＝ 14（%）</li>
+        </ol>
+        <div class="we-answer">答え： 期待収益率 12%、標準偏差 14%。検算：確率合計 0.3＋0.5＋0.2＝1.0、偏差の加重和 97.2＋2.0＋96.8＝196 と整合。</div>
+      </div>
+      <p class="body-p">CAPM（資本資産評価モデル）は、分散投資で消せない市場全体のリスク（システマティック・リスク）だけが期待収益率に反映されるとする。個別資産のシステマティック・リスクの大きさを表すのがβ（ベータ）で、市場ポートフォリオのβは1。要求（期待）収益率は次式で表される。<br>要求収益率＝安全利子率 ＋ β×（市場の期待収益率 − 安全利子率）。この関係を図示したものが証券市場線（SML）である。</p>
+      <div class="worked-example">
+        <div class="we-label">設例</div>
+        <p class="we-setup">安全利子率（rf）＝1%、市場ポートフォリオの期待収益率 E(Rm)＝7%、ある株式のβ＝1.2。CAPMによりこの株式の要求収益率を求めよ。</p>
+        <ol class="we-steps">
+          <li>市場リスクプレミアム＝E(Rm) − rf＝7% − 1%＝6%</li>
+          <li>要求収益率＝rf ＋ β×(E(Rm) − rf)＝1% ＋ 1.2×6%</li>
+          <li>＝1% ＋ 7.2%＝8.2%</li>
+        </ol>
+        <div class="we-answer">答え： 要求収益率 8.2%。検算：β＝1なら1%＋1×6%＝7%＝市場と一致、β＝1.2はそれより高リスクなので8.2%＞7%と整合する。</div>
+      </div>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：分散効果は「相関係数が小さい（＜1）ほど大きい」。CAPMで報われるのはシステマティック・リスク（β）のみで、分散で消せる固有リスク（アンシステマティック・リスク）は報われない、という論点が最重要。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑪ 資本コストと資本構成（WACC・MM理論）</h2>
+      <p class="lead">企業が資金調達に要するコスト（資本コスト）と、負債と自己資本の比率（資本構成）が企業価値に与える影響を扱う。WACCとMM理論が2大テーマ。</p>
+      <p class="body-p">WACC（加重平均資本コスト）は、株主資本コストと負債コストを、時価ベースの資本構成で加重平均したもの。負債利子は税務上損金算入され法人税を減らす（節税効果）ため、負債コストには (1 − 税率) を掛ける。WACCは投資評価の割引率としても用いられる。</p>
+      <div class="worked-example">
+        <div class="we-label">設例</div>
+        <p class="we-setup">ある企業の時価は、自己資本E＝600、負債D＝400（企業価値V＝1,000）。株主資本コスト re＝10%、負債コスト rd＝5%、法人税率＝30%。WACCを求めよ。</p>
+        <ol class="we-steps">
+          <li>自己資本比率 E/V＝600/1,000＝0.6、負債比率 D/V＝400/1,000＝0.4</li>
+          <li>自己資本の寄与＝(E/V)×re＝0.6×10%＝6.0%</li>
+          <li>負債の寄与（税引後）＝(D/V)×rd×(1−税率)＝0.4×5%×(1−0.3)＝0.4×5%×0.7＝1.4%</li>
+          <li>WACC＝6.0% ＋ 1.4%＝7.4%</li>
+        </ol>
+        <div class="we-answer">答え： WACC＝7.4%。検算：税を無視すると 0.6×10%＋0.4×5%＝6%＋2%＝8%。節税効果で負債の寄与が2%→1.4%へ低下し、WACCが8%→7.4%に下がることと整合する。</div>
+      </div>
+      <p class="body-p">MM理論（モジリアーニ＆ミラー）は資本構成と企業価値の関係を論じる。①法人税等のない完全市場では、企業価値は資本構成（負債比率）に無関連である（第1命題＝資本構成無関連命題）。負債を増やすと株主資本コストが財務リスクの上昇分だけ高まり、WACCは一定に保たれるため企業価値は変わらない。②法人税を考慮した修正命題では、負債利子の節税効果（タックス・シールド）の分だけ、負債のある企業（レバード）の価値が負債のない企業（アンレバード）を上回る。</p>
+      <div class="worked-example">
+        <div class="we-label">設例</div>
+        <p class="we-setup">法人税を考慮したMM理論による。無借金企業の価値 VU＝1,000、法人税率＝30%。この企業が負債D＝400を用いた場合、レバード企業の価値 VL を求めよ（負債は永久債と仮定）。</p>
+        <ol class="we-steps">
+          <li>節税効果（タックス・シールドの現在価値）＝税率 × 負債＝0.3 × 400＝120</li>
+          <li>MM修正第1命題：VL＝VU ＋ 税率×D</li>
+          <li>VL＝1,000 ＋ 120＝1,120</li>
+        </ol>
+        <div class="we-answer">答え： レバード企業の価値 VL＝1,120。検算：税率が0なら節税効果0で VL＝VU＝1,000（税なしMM＝無関連）に戻り、修正命題と整合する。</div>
+      </div>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：税なしMM＝「WACC一定・企業価値一定」、税ありMM＝「負債で節税、負債が多いほど企業価値増」。ただし現実には財務破綻コストや倒産リスクの増加があるため、無限に負債を増やすのが最適ではなく、節税効果と破綻コストが釣り合う「最適資本構成」が存在するとされる（トレードオフ理論）。財務レバレッジは自己資本利益率(ROE)を増幅する一方で変動リスクも高める。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">⑫ 配当政策・企業価値評価・オプションの基礎</h2>
+      <p class="lead">株主還元（配当政策・ペイアウト）、企業価値評価（DCF法・マルチプル法）、そしてオプションの基礎（コール・プット、プットコール・パリティ）を扱う。財務管理論の総仕上げ。</p>
+      <p class="body-p">配当政策（ペイアウト政策）は、稼いだ利益を配当・自社株買いで株主に還元するか、内部留保して再投資するかの選択。MMの配当無関連命題は「完全市場では配当政策は企業価値に影響しない（株主は自作配当で調整できる）」とする。現実には税制・情報の非対称性（配当のシグナリング効果）・エージェンシーコスト等が影響するため、配当政策は無関連とは言い切れない。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>企業価値評価法</th><th>考え方</th><th>特徴</th></tr></thead><tbody>
+        <tr><td class="highlight">DCF法</td><td>将来のフリー・キャッシュ・フローをWACCで割り引いた現在価値の合計</td><td>理論的で本質的だが、将来予測と割引率に結果が敏感</td></tr>
+        <tr><td class="highlight">マルチプル法（類似会社比較）</td><td>PER・PBR・EV/EBITDA等の倍率を類似企業から適用</td><td>簡便で市場実態を反映するが、比較対象の選定に依存</td></tr>
+      </tbody></table></div>
+      <p class="body-p">オプションは、原資産を将来の一定期日（期間）に、あらかじめ定めた行使価格で「買う権利＝コール・オプション」「売る権利＝プット・オプション」。権利であって義務ではないため、保有者は不利なら行使しない。満期のコールの価値は「max(株価−行使価格, 0)」、プットは「max(行使価格−株価, 0)」となる。</p>
+      <div class="worked-example">
+        <div class="we-label">設例</div>
+        <p class="we-setup">同一の原資産・行使価格K＝100・満期のヨーロピアン・コールとプットがある。満期時の株価Sが (a) 120 のとき、(b) 80 のときの、コールとプットそれぞれの本源的価値（満期ペイオフ）を求め、プットコール・パリティ「C − P ＝ S − K（無リスク金利を無視した簡略形）」が満期時点で成り立つことを確認せよ。</p>
+        <ol class="we-steps">
+          <li>(a) S＝120：コール＝max(120−100,0)＝20、プット＝max(100−120,0)＝0。C−P＝20−0＝20、S−K＝120−100＝20 → 一致</li>
+          <li>(b) S＝80：コール＝max(80−100,0)＝0、プット＝max(100−80,0)＝20。C−P＝0−20＝−20、S−K＝80−100＝−20 → 一致</li>
+        </ol>
+        <div class="we-answer">答え： (a) コール20・プット0、(b) コール0・プット20。両ケースとも満期で C−P＝S−K が成立し、プットコール・パリティと整合する。（満期前は割引現在価値 K を用い C − P ＝ S − K/(1+r)^T となる。）</div>
+      </div>
+      <div class="notice" style="margin-top:1rem;">試験のツボ：オプション価値は「本源的価値（今行使したときの価値）＋時間的価値」から成る。ブラック・ショールズ・モデルの結論（オプション価値は原資産価格・行使価格・満期・ボラティリティ・金利で決まり、ボラティリティが高いほどオプション価値は高い）も押さえる。プットコール・パリティは裁定取引で導かれる関係である。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">この科目を演習する</h2>
+      <div class="content-grid">
+        <a class="content-card" href="practice.html?subject=keiei"><div class="content-card-title">過去問演習</div><div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録。</div><div class="content-card-arrow">演習する →</div></a>
+        <a class="content-card" href="flashcard.html?subject=keiei"><div class="content-card-title">単語帳</div><div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。</div><div class="content-card-arrow">暗記する →</div></a>
+        <a class="content-card" href="roadmap.html"><div class="content-card-title">学習ロードマップ</div><div class="content-card-desc">試験日までの計画でこの科目の学習時期を確認。</div><div class="content-card-arrow">開く →</div></a>
+      </div>
+    </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 公認会計士 選択科目（経営学）</div><div class="disclaimer">掲載内容は個人学習目的です。最新の会計基準・監査基準・法令は公式資料（金融庁 公認会計士・監査審査会 等）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>租税法 — 公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .worked-example { background: var(--color-white); border: 1px solid var(--color-border); border-left: 4px solid var(--color-primary-light); border-radius: 0 6px 6px 0; padding: 0.9rem 1.2rem; margin: 1rem 0; }
+    .we-label { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--color-primary); font-weight: 700; margin-bottom: 0.4rem; }
+    .we-setup { font-size: 0.9rem; color: var(--color-text); margin-bottom: 0.5rem; }
+    .we-steps { margin: 0.2rem 0 0.6rem 1.2rem; padding: 0; }
+    .we-steps li { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.9; }
+    .we-answer { font-size: 0.9rem; font-weight: 500; color: var(--color-primary); border-top: 1px dashed var(--color-border); padding-top: 0.4rem; }
+    .section p.body-p { color: var(--color-text-light); line-height: 2; margin-bottom: 0.7rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+const auth = getAuth(initializeApp(firebaseConfig));
+onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+</script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">公認会計士 租税法</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">公認会計士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+
+    <section class="section"><div class="container">
+      <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">公認会計士</a><span class="breadcrumb-sep">›</span><span>租税法</span></div>
+      <h1 class="section-title">租税法</h1>
+      <p class="lead">租税法は論文式試験のみで課される100点満点の科目です。法人税法を主軸に、所得税法・消費税法、そして租税法総論を横断的に問います。会計（財務会計論）で学んだ「企業利益」を出発点として、税務上の「課税所得」を導く別表四の申告調整が中心テーマであり、計算と理論（法令の趣旨・要件）の両面から得点する必要があります。</p>
+      <div class="notice"><strong>配点等</strong> 論文式・租税法（100点）。おおむね計算(理論を含む総合問題)が中心で、法人税が最大の配点、次いで所得税・消費税、総論。短答式では出題されないため、論文対策として集中的に学習します。数値は本ページの設例内で前提として明示した税率・金額に基づく検算済みの例です（実務・本試験では最新の法令・税率を必ず確認してください）。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">1. 租税法総論</h2>
+      <p class="lead">租税法を貫く基本原則と、申告納税制度・税務調査の枠組みを押さえる。理論問題で問われやすい論点。</p>
+      <p class="body-p">日本国憲法は<strong>租税法律主義</strong>（憲法84条）を定め、租税の賦課・徴収には法律の根拠を要するとします。これを具体化する原則として、課税要件が法律で定められることを求める<strong>課税要件法定主義</strong>、その内容が明確であることを求める<strong>課税要件明確主義</strong>、遡及課税を原則禁止する<strong>遡及立法の禁止</strong>などがあります。もう一つの柱が<strong>租税公平主義</strong>（担税力に応じた公平な負担、憲法14条の平等原則に由来）です。</p>
+      <p class="body-p">課税は形式（私法上の名義・契約形式）ではなく経済的実質に即して行うべきとする考え方が<strong>実質課税の原則</strong>です。所得税法12条・法人税法11条は、収益が法律上帰属する者と実質的に享受する者が異なる場合、実質的に享受する者に帰属するものとして課税する旨（実質所得者課税）を定めます。</p>
+      <p class="body-p"><strong>租税回避</strong>とは、通常用いない異常な法形式を選択して税負担の軽減を図る行為をいい、脱税（違法な事実の隠蔽）とも節税（法が予定する範囲での負担軽減）とも区別されます。租税回避を否認するには原則として個別の否認規定が必要であり、同族会社の行為計算否認（法人税法132条）などがその例です。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>概念</th><th>意味</th><th>課税上の扱い</th></tr></thead><tbody>
+        <tr><td>節税</td><td>法が予定する範囲での税負担軽減</td><td>適法。否認されない</td></tr>
+        <tr><td>租税回避</td><td>異常な法形式による税負担の回避</td><td>個別否認規定があれば否認</td></tr>
+        <tr><td class="highlight">脱税</td><td>事実の隠蔽・仮装による不正</td><td>違法。追徴・重加算税・罰則</td></tr>
+      </tbody></table></div>
+      <p class="body-p">わが国は原則として<strong>申告納税制度</strong>を採用し、納税者自身が課税標準・税額を計算して申告・納付します（一部の税は賦課課税）。申告が適正でない場合、税務署長は<strong>更正・決定</strong>を行い、その前提として<strong>税務調査</strong>が実施されます。過少申告加算税・無申告加算税・重加算税・延滞税などの附帯税も総論の頻出論点です。</p>
+      <div class="notice"><strong>試験のツボ</strong> 「租税法律主義」と「租税公平主義」の内容と根拠条文、実質課税の原則の条文（所法12・法法11）、租税回避と脱税・節税の区別は理論の定番。趣旨→要件→効果の順で論述できるようにする。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">2. 法人税の基礎 — 課税所得の計算構造</h2>
+      <p class="lead">「企業利益＋加算−減算＝課税所得」。別表四の申告調整と確定決算主義を理解する。</p>
+      <p class="body-p">法人税の納税義務者は内国法人・外国法人等で、内国法人は原則として全世界所得に課税されます。課税所得は<strong>事業年度</strong>ごとに計算します。出発点は会計上の<strong>当期純利益</strong>であり、これに税務調整（別表四での加算・減算）を加えて<strong>所得金額</strong>を導きます。すなわち「益金の額 − 損金の額 ＝ 所得金額」ですが、実務上は「確定決算の当期利益 ± 申告調整 ＝ 所得金額」として計算します。</p>
+      <p class="body-p"><strong>確定決算主義</strong>とは、株主総会等の承認を受けた確定した決算に基づいて課税所得を計算し申告する仕組みです。減価償却費や引当金など一定の項目は、会社の帳簿で費用として経理する<strong>損金経理</strong>を行っていることが損金算入の要件（損金経理要件）とされます。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>別表四の調整</th><th>内容</th><th>例</th></tr></thead><tbody>
+        <tr><td>加算・留保</td><td>会計費用だが税務上は損金否認（将来解消）</td><td>減価償却超過額、引当金繰入超過額</td></tr>
+        <tr><td>加算・社外流出</td><td>損金否認で将来も解消しない</td><td>交際費損金不算入、損金経理法人税等</td></tr>
+        <tr><td>減算・留保</td><td>会計収益だが税務上は益金不算入</td><td>減価償却超過の認容</td></tr>
+        <tr><td>減算・社外流出</td><td>益金不算入で社外流出</td><td>受取配当等の益金不算入、還付法人税</td></tr>
+      </tbody></table></div>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">当期純利益 20,000,000円。加算項目：損金経理した納税充当金（法人税等）3,000,000円、交際費損金不算入額 1,000,000円、減価償却超過額 500,000円。減算項目：受取配当等の益金不算入額 800,000円、還付法人税等 200,000円。別表四で所得金額を求める。</p>
+        <ol class="we-steps">
+          <li>加算合計 ＝ 3,000,000 ＋ 1,000,000 ＋ 500,000 ＝ 4,500,000円</li>
+          <li>減算合計 ＝ 800,000 ＋ 200,000 ＝ 1,000,000円</li>
+          <li>所得金額 ＝ 20,000,000 ＋ 4,500,000 − 1,000,000 ＝ 23,500,000円</li>
+        </ol>
+        <div class="we-answer">答え： 所得金額 23,500,000円（当期利益に加算4,500,000・減算1,000,000を調整）。この23,500,000円は後述10章の繰越欠損金設例の前提所得としても用いる。</div>
+      </div>
+      <div class="notice"><strong>試験のツボ</strong> 「加算=利益に足す」「減算=利益から引く」。留保／社外流出の区分は別表五(一)や税効果と連動する。損金経理要件がある項目（減価償却・引当金・圧縮記帳等）を暗記する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">3. 益金 — 益金算入・不算入</h2>
+      <p class="lead">益金は原則すべての収益。ただし政策的に益金不算入とされる項目がある。</p>
+      <p class="body-p">益金の額は、別段の定めを除き、資産の販売・有償譲渡・役務提供による収益、無償による資産の譲受け等、資本等取引以外の取引に係る収益をいいます（法人税法22条・22条の2）。代表的な<strong>益金不算入</strong>項目が<strong>受取配当等の益金不算入</strong>で、法人間の二重課税を排除する趣旨から、株式等の区分に応じて配当額の一定割合を益金に算入しません。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>株式等の区分</th><th>持株割合の目安</th><th class="num">益金不算入割合</th><th>負債利子控除</th></tr></thead><tbody>
+        <tr><td>完全子法人株式等</td><td>100%</td><td class="num highlight">100%</td><td>なし</td></tr>
+        <tr><td>関連法人株式等</td><td>1/3超</td><td class="num">100%</td><td>あり(注)</td></tr>
+        <tr><td>その他の株式等</td><td>5%超1/3以下</td><td class="num">50%</td><td>なし</td></tr>
+        <tr><td>非支配目的株式等</td><td>5%以下</td><td class="num">20%</td><td>なし</td></tr>
+      </tbody></table></div>
+      <p class="body-p">（注）関連法人株式等は、配当等の額から「関連法人株式等に係る配当等の額の4%」または「その事業年度の支払利子等の額の10%」のいずれか少ない金額を控除した残額が益金不算入となります（現行制度）。このほか<strong>還付金等</strong>のうち、損金不算入だった法人税・地方法人税・都道府県民税・市町村民税の還付金は益金不算入（減算・社外流出）です。一方、事業税の還付金は益金算入となる点に注意します。</p>
+      <div class="notice"><strong>試験のツボ</strong> 4区分の不算入割合（100/100/50/20）は必ず暗記。負債利子控除は関連法人株式等のみ。「還付金は益金不算入だが、損金算入だった税（事業税等）の還付は益金算入」という対応関係を理解する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">4. 損金 — 損金算入の要件</h2>
+      <p class="lead">損金は原価・費用・損失。債務確定基準と損金経理要件がカギ。</p>
+      <p class="body-p">損金の額は、別段の定めを除き、①収益に対応する<strong>売上原価等</strong>、②<strong>販売費・一般管理費その他の費用</strong>、③<strong>損失</strong>から成ります（法人税法22条3項）。費用のうち償却費以外のものは、その事業年度末までに<strong>債務が確定</strong>していること（債務確定基準：債務の成立・具体的給付原因の発生・金額の合理的算定が可能）が損金算入の要件です。</p>
+      <p class="body-p">売上原価は、収益との<strong>費用収益対応の原則</strong>に基づき、期末棚卸資産の評価を通じて確定します。棚卸資産の評価方法（原価法・低価法）は届出により選定し、無届の場合は法定評価方法（最終仕入原価法による原価法）によります。減価償却費・各種引当金など一定の項目は、会社が費用として<strong>損金経理</strong>していることが損金算入の要件（損金経理要件）となります。</p>
+      <div class="notice"><strong>試験のツボ</strong> 「償却費以外の費用は債務確定基準」が原則。損金経理要件が課される項目（減価償却費、圧縮記帳の直接減額、引当金繰入、少額資産の即時償却など）を区別して押さえる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">5. 役員給与</h2>
+      <p class="lead">役員給与は原則損金不算入。3類型（定期同額・事前確定届出・業績連動）のいずれかに該当してはじめて損金算入。</p>
+      <p class="body-p">役員給与は、恣意的な利益調整（=実質的な利益処分）を防ぐため、次の3類型に該当するもの以外は損金不算入とされます（法人税法34条）。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>類型</th><th>要件</th><th>備考</th></tr></thead><tbody>
+        <tr><td>定期同額給与</td><td>1か月以下の一定期間ごとに同額支給</td><td>期首から3か月以内の改定等は許容</td></tr>
+        <tr><td>事前確定届出給与</td><td>所定時期に確定額を支給する旨を事前に税務署へ届出</td><td>届出どおりの支給が要件</td></tr>
+        <tr><td>業績連動給与</td><td>利益等の指標に連動、有価証券報告書開示等の要件を満たす</td><td>同族会社(非上場)は原則不可</td></tr>
+      </tbody></table></div>
+      <p class="body-p">上記に該当しても、職務内容等に照らし<strong>不相当に高額な部分</strong>（過大役員給与）は損金不算入です。また、事実を隠蔽・仮装して支給する給与も損金不算入となります。<strong>役員退職給与</strong>は、原則として損金算入されますが、不相当に高額な部分は否認されます（実務では「最終月額報酬 × 勤続年数 × 功績倍率」による功績倍率法が用いられます）。損金算入時期は原則として株主総会等で退職金額が具体的に確定した日の属する事業年度です。</p>
+      <div class="notice"><strong>試験のツボ</strong> 「役員給与は原則損金不算入 → 3類型なら例外的に損金算入 → ただし過大部分は否認」の三段構えで論述する。退職給与は3類型の枠外で、過大部分のみ否認される点に注意。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">6. 交際費・寄附金</h2>
+      <p class="lead">いずれも損金算入に限度がある政策的規定。限度額計算は計算問題の定番。</p>
+      <p class="body-p"><strong>交際費等</strong>は、得意先・仕入先その他事業に関係ある者に対する接待・供応・慰安・贈答等の費用です。原則損金不算入ですが、<strong>期末資本金1億円超100億円以下</strong>の法人は「接待飲食費の50%」を損金算入できます。<strong>資本金1億円以下</strong>の中小法人は「(a)年800万円までの全額」と「(b)接待飲食費の50%」の有利な方を選択できます。なお1人あたり一定金額（現行10,000円）以下の一定の飲食費は交際費等から除かれます。</p>
+      <p class="body-p"><strong>寄附金</strong>は、金銭その他資産の贈与・無償の供与です。相手先により扱いが異なり、①国・地方公共団体への寄附金と指定寄附金は<strong>全額損金算入</strong>、②特定公益増進法人等への寄附金は<strong>特別枠の限度額</strong>まで損金算入、③一般の寄附金は<strong>一般損金算入限度額</strong>まで、限度超過額は損金不算入です。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>寄附金の区分</th><th>限度額（当期12か月の場合）</th></tr></thead><tbody>
+        <tr><td>一般寄附金</td><td class="num">(資本金等 × 2.5/1000 ＋ 所得 × 2.5/100) × 1/4</td></tr>
+        <tr><td>特定公益増進法人等</td><td class="num">(資本金等 × 3.75/1000 ＋ 所得 × 6.25/100) × 1/2</td></tr>
+        <tr><td class="highlight">国等・指定寄附金</td><td>全額損金算入（限度なし）</td></tr>
+      </tbody></table></div>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">資本金等の額 40,000,000円、当期12か月。寄附金支出前の所得金額 30,000,000円。当期の一般寄附金支出額 500,000円（国等・特定公益増進法人向けはなし）。一般寄附金の損金不算入額を求める。</p>
+        <ol class="we-steps">
+          <li>資本金基準 ＝ 40,000,000 × 2.5/1000 ＝ 100,000円</li>
+          <li>所得基準 ＝ 30,000,000 × 2.5/100 ＝ 750,000円</li>
+          <li>損金算入限度額 ＝ (100,000 ＋ 750,000) × 1/4 ＝ 212,500円</li>
+          <li>損金不算入額 ＝ 支出額 500,000 − 限度額 212,500 ＝ 287,500円</li>
+        </ol>
+        <div class="we-answer">答え： 一般寄附金の損金不算入額 287,500円（別表四で加算・社外流出）。</div>
+      </div>
+      <div class="notice"><strong>試験のツボ</strong> 交際費は「1億円超100億円以下＝飲食費50%のみ」「1億円以下＝800万円 or 飲食費50%の選択」を区別。寄附金限度額は「資本金基準＋所得基準」に係数と分数を掛ける。所得基準の「所得」は寄附金支出前の所得（別段の定め上の仮計）を用いる点に注意。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">7. 減価償却・繰延資産</h2>
+      <p class="lead">償却限度額を超える会計上の償却費は損金不算入。損金経理要件がある。</p>
+      <p class="body-p">減価償却費は、税法の定める<strong>償却限度額</strong>を上限として損金算入されます（損金経理要件あり）。会計上の償却費が限度額を超える部分は<strong>償却超過額</strong>として加算・留保され、翌期以降に会計上の償却不足が生じたとき（限度額の範囲内で）認容減算されます。償却方法は定額法・定率法等から選定し、無届の場合は法定償却方法（平成19年4月以後取得の建物・建物附属設備・構築物等は定額法）によります。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>取得価額の目安</th><th>取扱い</th></tr></thead><tbody>
+        <tr><td>少額減価償却資産</td><td>10万円未満</td><td>全額を損金算入（取得時に費用処理）</td></tr>
+        <tr><td>一括償却資産</td><td>20万円未満</td><td>3年間で均等償却（月割不要）</td></tr>
+        <tr><td>中小企業者等の特例</td><td>30万円未満</td><td>年間300万円まで即時損金算入（措置法）</td></tr>
+      </tbody></table></div>
+      <p class="body-p"><strong>繰延資産</strong>のうち税法固有の繰延資産（公共的施設の負担金、資産賃借の権利金等）は、支出の効果が及ぶ期間で償却します。<strong>リース取引</strong>は、所有権移転外ファイナンス・リースを含め、税務上は原則として売買があったものとして扱い、賃借人は資産計上してリース期間定額法等で償却します（オペレーティング・リースは賃貸借処理）。</p>
+      <div class="notice"><strong>試験のツボ</strong> 「償却超過は加算・留保、翌期認容で減算」の流れは別表四・五(一)と連動。10万円/20万円/30万円の3つの閾値と処理を混同しない。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">8. 引当金・準備金</h2>
+      <p class="lead">税務上、損金算入が認められる引当金は限定的。貸倒引当金と貸倒損失を押さえる。</p>
+      <p class="body-p">会計上は多様な引当金を計上しますが、税務上損金算入が認められる引当金は限定されています。中心は<strong>貸倒引当金</strong>で、対象法人（中小法人・銀行・保険会社等）に限り、繰入限度額まで損金経理により損金算入できます。繰入限度は、①個別評価金銭債権（実質的に回収不能等の債権を個別に評価）と、②一括評価金銭債権（過去の貸倒実績率、または中小法人の法定繰入率による）に分けて計算します。</p>
+      <p class="body-p"><strong>貸倒損失</strong>は引当金と異なり、実際に債権が回収不能となった場合の損金です。法律上の貸倒れ（債権の法的消滅）、事実上の貸倒れ（債務者の資産状況等から全額回収不能が明らかで、その明らかになった事業年度に損金経理）、形式上の貸倒れ（取引停止後1年以上経過等の場合に備忘価額を残して損金経理）の3類型で判断します。</p>
+      <div class="notice"><strong>試験のツボ</strong> 「一括評価は貸倒実績率 or 中小法人の法定繰入率」「個別評価は債権ごと」。貸倒損失の3類型（法律上／事実上／形式上）と、事実上・形式上は損金経理が要件である点を区別する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">9. 圧縮記帳</h2>
+      <p class="lead">国庫補助金・保険差益等の課税を将来に繰り延べる制度。直接減額方式と積立金方式で税効果が異なる。</p>
+      <p class="body-p"><strong>圧縮記帳</strong>は、国庫補助金・工事負担金・保険差益・交換・収用等により生じた利益（益金）に対する課税を、取得資産の帳簿価額を減額（圧縮）することで<strong>将来に繰り延べる</strong>制度です。課税を免除するのではなく、圧縮後の低い帳簿価額を基礎に減価償却費が小さくなり、または譲渡時に譲渡益が大きくなることで、後年度に課税が取り戻されます。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>方式</th><th>会計処理</th><th>税効果会計</th></tr></thead><tbody>
+        <tr><td>直接減額方式</td><td>圧縮損を計上し資産の帳簿価額を直接減額</td><td>会計と税務が一致し、原則として一時差異は生じない</td></tr>
+        <tr><td>積立金方式</td><td>圧縮積立金を利益処分等で積立（資産は減額しない）</td><td>会計簿価＞税務簿価の一時差異 → 繰延税金負債を計上</td></tr>
+      </tbody></table></div>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">機械（取得価額 10,000,000円）を国庫補助金 6,000,000円と自己資金で取得。直接減額方式で圧縮記帳する。耐用年数10年・定額法（償却率0.100）で、取得年度の減価償却費（期首取得・1年分）を求める。</p>
+        <ol class="we-steps">
+          <li>圧縮限度額 ＝ 国庫補助金の額 6,000,000円</li>
+          <li>圧縮後の帳簿価額 ＝ 10,000,000 − 6,000,000 ＝ 4,000,000円</li>
+          <li>減価償却費 ＝ 圧縮後簿価 4,000,000 × 0.100 ＝ 400,000円</li>
+        </ol>
+        <div class="we-answer">答え： 圧縮後帳簿価額 4,000,000円、初年度の減価償却費 400,000円。補助金6,000,000円分だけ簿価が下がり、以後の償却費が小さくなることで課税が繰り延べられる。</div>
+      </div>
+      <div class="notice"><strong>試験のツボ</strong> 「圧縮記帳＝課税の繰延べ（免除ではない）」が本質。直接減額は一時差異が生じないのに対し、積立金方式は将来加算一時差異として繰延税金負債が生じる、という税効果との接続を必ず説明できるように。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">10. 繰越欠損金</h2>
+      <p class="lead">青色申告法人の欠損金は翌期以降に繰り越して所得から控除できる。大法人は控除限度あり。</p>
+      <p class="body-p"><strong>青色申告書</strong>を提出した事業年度に生じた欠損金（青色欠損金）は、翌期以降<strong>10年間</strong>（平成30年4月1日以後開始事業年度で生じた分）繰り越して、各事業年度の所得金額から控除できます。ただし、資本金1億円超等の<strong>大法人</strong>は控除限度が所得金額の<strong>50%</strong>に制限されます。<strong>中小法人等</strong>は所得金額の100%（全額）まで控除できます。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">大法人（資本金5億円）。当期の控除前所得金額 23,500,000円（第2章設例の所得金額と同一）。前期以前から繰り越された青色欠損金 15,000,000円がある。当期の控除額と翌期繰越額を求める。</p>
+        <ol class="we-steps">
+          <li>控除限度額 ＝ 所得金額 23,500,000 × 50% ＝ 11,750,000円</li>
+          <li>控除額 ＝ min(繰越欠損金 15,000,000, 限度額 11,750,000) ＝ 11,750,000円</li>
+          <li>控除後の所得金額 ＝ 23,500,000 − 11,750,000 ＝ 11,750,000円</li>
+          <li>翌期繰越欠損金 ＝ 15,000,000 − 11,750,000 ＝ 3,250,000円</li>
+        </ol>
+        <div class="we-answer">答え： 当期の欠損金控除額 11,750,000円、控除後所得 11,750,000円、翌期へ繰り越す欠損金 3,250,000円。中小法人なら全額15,000,000円控除でき所得は8,500,000円となる。</div>
+      </div>
+      <div class="notice"><strong>試験のツボ</strong> 「大法人は所得の50%まで、中小法人等は100%」「繰越期間10年（それ以前発生分は9年）」。控除は古い年度の欠損金から順に充てる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">11. 同族会社</h2>
+      <p class="lead">少数株主に支配される会社への特別規定。行為計算否認と特定同族会社の留保金課税。</p>
+      <p class="body-p"><strong>同族会社</strong>とは、株主等の上位<strong>3グループ</strong>（株主とその同族関係者をまとめた3グループ）の持株割合等の合計が<strong>50%超</strong>となる会社をいいます。少数の株主が会社を支配できるため、租税回避が行われやすく、特別規定が設けられています。</p>
+      <p class="body-p">第一に<strong>同族会社の行為計算否認</strong>（法人税法132条）。同族会社の行為・計算で、これを容認すると法人税の負担を不当に減少させる結果となるものについては、税務署長がその行為・計算を否認して所得・税額を計算できます。第二に<strong>特定同族会社の留保金課税</strong>。被支配会社（原則1グループで50%超）である特定同族会社が、配当せず一定額を超えて所得を社内留保した場合、通常の法人税に加えて<strong>留保金額に対する特別税率</strong>（留保控除額を超える部分に段階税率）が課されます。ただし資本金1億円以下の中小法人は原則として留保金課税の適用対象外です。</p>
+      <div class="notice"><strong>試験のツボ</strong> 「同族会社＝上位3グループで50%超」「特定同族会社（留保金課税）＝1グループで50%超、かつ資本金1億円超が主対象」。行為計算否認は個別否認規定の代表例として総論とも結びつく。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">12. 税額の計算 — 法人税率・税額控除</h2>
+      <p class="lead">所得金額に税率を乗じて算出税額を求め、税額控除を差し引く。</p>
+      <p class="body-p">法人税額は「課税所得金額（1,000円未満切捨）× 税率」で算出します。普通法人（大法人）の税率は<strong>23.2%</strong>。中小法人（資本金1億円以下等）は年800万円以下の所得部分に<strong>軽減税率15%</strong>（本則19%の特例）が適用されます。算出した法人税額から、二重課税を排除する各種<strong>税額控除</strong>を差し引きます。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>税額控除</th><th>趣旨・内容</th></tr></thead><tbody>
+        <tr><td>所得税額控除</td><td>利子・配当等に課された源泉所得税を法人税額から控除（二重課税排除）</td></tr>
+        <tr><td>外国税額控除</td><td>外国で課された法人税相当額を、控除限度額の範囲で控除（国際的二重課税排除）</td></tr>
+        <tr><td>各種の政策税額控除</td><td>試験研究費の税額控除、賃上げ促進税制等（措置法）</td></tr>
+      </tbody></table></div>
+      <p class="body-p">なお、法人税とは別に、法人税額を課税標準とする<strong>地方法人税</strong>（現行税率10.3%）が国税として課され、さらに地方税として法人住民税・法人事業税が課されます。これらを合わせた実効税率が実務上の税負担となります。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">大法人。課税所得金額 12,000,000円（1,000円未満切捨済み）。法人税率23.2%。当期に受けた利子・配当に係る所得税額控除 30,000円、外国税額控除 20,000円がある。差引法人税額を求める。</p>
+        <ol class="we-steps">
+          <li>法人税額 ＝ 12,000,000 × 23.2% ＝ 2,784,000円</li>
+          <li>税額控除合計 ＝ 所得税額控除 30,000 ＋ 外国税額控除 20,000 ＝ 50,000円</li>
+          <li>差引法人税額 ＝ 2,784,000 − 50,000 ＝ 2,734,000円</li>
+        </ol>
+        <div class="we-answer">答え： 差引法人税額 2,734,000円（別途、地方法人税10.3%＝2,784,000×10.3%等が加わる）。</div>
+      </div>
+      <div class="notice"><strong>試験のツボ</strong> 「大法人23.2%／中小の軽減15%」「所得税額控除・外国税額控除は二重課税排除」を押さえる。所得税額控除は益金算入した源泉税を控除する構造（別表四で加算しつつ税額から控除）である点に注意。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">13. 所得税 — 所得区分と税額計算</h2>
+      <p class="lead">個人の所得を10種類に分類し、総合／分離で課税。超過累進税率と所得控除がポイント。</p>
+      <p class="body-p">所得税は個人の1暦年（1/1〜12/31）の所得に課税します。所得はその源泉・性質により<strong>10種類</strong>に区分され、区分ごとに所得金額を計算します。多くは<strong>総合課税</strong>（合算して超過累進税率を適用）ですが、退職所得・山林所得・一定の譲渡所得等は<strong>分離課税</strong>されます。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>所得の種類</th><th>内容の例</th><th>課税方法</th></tr></thead><tbody>
+        <tr><td>利子所得</td><td>預貯金・公社債の利子</td><td>原則 源泉分離</td></tr>
+        <tr><td>配当所得</td><td>株式の配当等</td><td>総合／申告分離 等</td></tr>
+        <tr><td>不動産所得</td><td>不動産の貸付</td><td>総合</td></tr>
+        <tr><td>事業所得</td><td>事業による所得</td><td>総合</td></tr>
+        <tr><td>給与所得</td><td>給料・賞与（給与所得控除後）</td><td>総合</td></tr>
+        <tr><td>退職所得</td><td>退職金（(収入−退職所得控除)×1/2）</td><td>分離</td></tr>
+        <tr><td>山林所得</td><td>山林の伐採・譲渡</td><td>分離（五分五乗）</td></tr>
+        <tr><td>譲渡所得</td><td>資産の譲渡</td><td>総合／分離</td></tr>
+        <tr><td>一時所得</td><td>懸賞金・満期保険金等（1/2課税）</td><td>総合</td></tr>
+        <tr><td>雑所得</td><td>公的年金等・上記以外</td><td>総合 等</td></tr>
+      </tbody></table></div>
+      <p class="body-p">一定の所得区分で損失が出た場合、<strong>不動産・事業・山林・譲渡</strong>所得の損失は他の所得と<strong>損益通算</strong>できます（「富（フ）士（ジ）山（サン）上（ジョウ）」で記憶）。総所得金額から<strong>所得控除</strong>（基礎控除・配偶者控除・扶養控除・社会保険料控除・医療費控除等）を差し引いた課税総所得金額に<strong>超過累進税率</strong>（5%〜45%の7段階）を適用し、算出税額から<strong>税額控除</strong>（配当控除・住宅借入金等特別控除＝住宅ローン控除等）を控除します。給与や利子・配当などは<strong>源泉徴収</strong>され、最終的に<strong>確定申告</strong>で精算します。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">給与収入 7,000,000円、不動産所得 500,000円。社会保険料控除 1,000,000円、配偶者控除 380,000円、基礎控除 480,000円。給与所得控除は「収入×10%＋1,100,000円」（660万円超850万円以下の区分）。総所得金額と算出税額を求める（速算表：課税所得330万円超695万円以下は「税率20%−427,500円」）。</p>
+        <ol class="we-steps">
+          <li>給与所得控除 ＝ 7,000,000 × 10% ＋ 1,100,000 ＝ 1,800,000円</li>
+          <li>給与所得 ＝ 7,000,000 − 1,800,000 ＝ 5,200,000円</li>
+          <li>総所得金額 ＝ 給与所得 5,200,000 ＋ 不動産所得 500,000 ＝ 5,700,000円</li>
+          <li>所得控除合計 ＝ 1,000,000 ＋ 380,000 ＋ 480,000 ＝ 1,860,000円</li>
+          <li>課税総所得金額 ＝ 5,700,000 − 1,860,000 ＝ 3,840,000円（1,000円未満切捨後も同額）</li>
+          <li>算出税額 ＝ 3,840,000 × 20% − 427,500 ＝ 340,500円</li>
+        </ol>
+        <div class="we-answer">答え： 総所得金額 5,700,000円、算出税額 340,500円（別途、復興特別所得税2.1%が上乗せされる）。</div>
+      </div>
+      <div class="notice"><strong>試験のツボ</strong> 10種類の所得区分と課税方法（総合／分離）、損益通算できる4所得、超過累進税率（速算表）を押さえる。基礎控除・給与所得控除は所得金額により逓減する（本設例は標準的なケース）。税額控除の代表は配当控除と住宅ローン控除。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">14. 消費税 — 課税区分とインボイス制度</h2>
+      <p class="lead">課税・非課税・不課税・免税の4区分。仕入税額控除と適格請求書等保存方式が核心。</p>
+      <p class="body-p">消費税は、国内における事業者の資産の譲渡等（課税資産の譲渡等）に課される間接税です。取引はまず<strong>課税・不課税</strong>に分かれ、課税取引のうち一定のものが<strong>非課税</strong>（土地の譲渡・貸付、有価証券、利子、社会保険医療、住宅の貸付等）や<strong>免税</strong>（輸出取引＝0%課税）とされます。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>区分</th><th>意味</th><th>仕入税額控除</th></tr></thead><tbody>
+        <tr><td>課税取引</td><td>国内・事業・対価・資産譲渡等の要件を満たす</td><td>対応する課税仕入は控除可</td></tr>
+        <tr><td class="highlight">免税(輸出)</td><td>輸出取引等。税率0%で課税</td><td>対応する課税仕入も控除可</td></tr>
+        <tr><td>非課税</td><td>土地・有価証券・利子・社会保険医療等</td><td>対応する課税仕入は控除不可</td></tr>
+        <tr><td>不課税</td><td>給与、配当、寄附金等（課税対象外）</td><td>対象外</td></tr>
+      </tbody></table></div>
+      <p class="body-p">納付税額は「課税標準額に対する消費税額 − <strong>仕入税額控除</strong>」で計算します。現行税率は10%（標準：国税7.8%＋地方2.2%、軽減税率8%＝国税6.24%＋地方1.76%）。仕入税額控除の要件として、令和5年10月から<strong>適格請求書等保存方式（インボイス制度）</strong>が導入され、原則として登録を受けた<strong>適格請求書発行事業者</strong>が交付するインボイスの保存がなければ仕入税額控除ができません。課税売上割合が95%未満または課税売上高5億円超の場合は、個別対応方式または一括比例配分方式により控除額を按分します。</p>
+      <p class="body-p"><strong>納税義務の免除</strong>：<strong>基準期間</strong>（原則、前々年・前々事業年度）の課税売上高が<strong>1,000万円以下</strong>の事業者は免税事業者となります（特定期間の課税売上高等による判定もあり）。免税事業者でも<strong>課税事業者選択届出</strong>により課税事業者となれます（インボイス登録との関係で選択する場合がある）。中小事業者は<strong>簡易課税制度</strong>（基準期間の課税売上高5,000万円以下）を選択でき、業種ごとの<strong>みなし仕入率</strong>で仕入税額控除を計算します。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">一般課税（全額控除できるケース）。課税売上高（税込・標準税率10%）33,000,000円、課税仕入高（税込・標準税率10%）22,000,000円。国税(7.8%)・地方消費税(国税の22/78)に分けて納付税額を求める（課税標準額は千円未満切捨、税額は百円未満切捨）。</p>
+        <ol class="we-steps">
+          <li>課税標準額 ＝ 33,000,000 × 100/110 ＝ 30,000,000円（千円未満切捨後も同額）</li>
+          <li>売上に係る消費税（国税） ＝ 30,000,000 × 7.8% ＝ 2,340,000円</li>
+          <li>仕入税額控除（国税） ＝ 22,000,000 × 7.8/110 ＝ 1,560,000円</li>
+          <li>差引国税 ＝ 2,340,000 − 1,560,000 ＝ 780,000円</li>
+          <li>地方消費税 ＝ 780,000 × 22/78 ＝ 220,000円</li>
+          <li>納付税額合計 ＝ 780,000 ＋ 220,000 ＝ 1,000,000円</li>
+        </ol>
+        <div class="we-answer">答え： 納付税額 1,000,000円（国税780,000＋地方220,000）。検算：(33,000,000−22,000,000)×10/110＝1,000,000円で一致。</div>
+      </div>
+      <div class="notice"><strong>試験のツボ</strong> 4区分（課税・免税・非課税・不課税）と、免税(輸出)は仕入控除可・非課税は控除不可という違いが最重要。インボイス保存が仕入税額控除の要件。免税判定は「基準期間の課税売上高1,000万円以下」、簡易課税は「5,000万円以下」を混同しない。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">15. 租税法と会計の関係 — 確定決算主義と税効果</h2>
+      <p class="lead">会計利益と課税所得は目的が異なる。両者の橋渡しが申告調整と税効果会計。</p>
+      <p class="body-p">財務会計は投資家等への適正な業績報告を目的とし、法人税法は公平・確実な税収確保を目的とします。目的が異なるため会計利益と課税所得は一致せず、<strong>確定決算主義</strong>のもとで会計上の当期純利益を出発点に<strong>申告調整</strong>を加えて課税所得を導きます。減価償却・引当金・圧縮記帳（直接減額）など、会計処理を前提に損金算入を認める<strong>損金経理要件</strong>は、この確定決算主義の現れです。</p>
+      <p class="body-p">申告調整のうち、加算・減算・<strong>留保</strong>項目（例：減価償却超過額、引当金繰入超過額、積立金方式の圧縮積立金）は、会計簿価と税務簿価の差＝<strong>一時差異</strong>を生じさせ、<strong>税効果会計</strong>により繰延税金資産・繰延税金負債として計上されます。将来減算一時差異（例：将来認容される償却超過）は繰延税金資産、将来加算一時差異（例：積立金方式の圧縮積立金）は繰延税金負債に対応します。一方、社外流出項目（交際費損金不算入、受取配当等の益金不算入等＝<strong>永久差異</strong>）は将来解消せず、税効果の対象になりません。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>調整の性質</th><th>差異の種類</th><th>税効果</th></tr></thead><tbody>
+        <tr><td>加算・減算（留保）</td><td>一時差異</td><td>繰延税金資産／負債を計上</td></tr>
+        <tr><td>加算・減算（社外流出）</td><td>永久差異</td><td>税効果の対象外</td></tr>
+      </tbody></table></div>
+      <div class="notice"><strong>試験のツボ</strong> 「留保＝一時差異＝税効果あり」「社外流出＝永久差異＝税効果なし」の対応は、租税法と財務会計論（税効果会計）を橋渡しする最重要論点。別表四の調整区分が税効果の判断に直結する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">この科目を演習する</h2>
+      <div class="content-grid">
+        <a class="content-card" href="practice.html?subject=sozei"><div class="content-card-title">過去問演習</div><div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録。</div><div class="content-card-arrow">演習する →</div></a>
+        <a class="content-card" href="flashcard.html?subject=sozei"><div class="content-card-title">単語帳</div><div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。</div><div class="content-card-arrow">暗記する →</div></a>
+        <a class="content-card" href="roadmap.html"><div class="content-card-title">学習ロードマップ</div><div class="content-card-desc">試験日までの計画でこの科目の学習時期を確認。</div><div class="content-card-arrow">開く →</div></a>
+      </div>
+    </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 公認会計士 租税法</div><div class="disclaimer">掲載内容は個人学習目的です。最新の会計基準・監査基準・法令は公式資料（金融庁 公認会計士・監査審査会 等）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-family: "Hiragino Sans", sans-serif;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey:            "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU",
+      authDomain:        "dev-smoke-308500.firebaseapp.com",
+      projectId:         "dev-smoke-308500",
+      storageBucket:     "dev-smoke-308500.firebasestorage.app",
+      messagingSenderId: "787519016500",
+      appId:             "1:787519016500:web:decc4d4a20145659f44461",
+    };
+
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => {
+      document.getElementById("auth-loading").style.display = "none";
+      if (!user) location.href = "/shikaku/login.html";
+      else document.getElementById("page-content").style.display = "block";
+    });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-name">資格まとめ</div>
+        <div class="site-role">公認会計士</div>
+      </div>
+    </header>
+
+    <nav class="site-nav">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+          <li><a class="nav-link current" href="index.html">公認会計士</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/shikaku/index.html">ホーム</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>公認会計士</span>
+          </div>
+
+          <h1 class="section-title">公認会計士</h1>
+          <p class="lead">
+            公認会計士は、財務諸表監査を<strong>独占業務</strong>とする会計・監査の最高峰の国家資格です。試験は金融庁の
+            <strong>公認会計士・監査審査会（CPAAOB）</strong>が実施し、マークシート式の<strong>短答式（年2回・12月／5月）</strong>と、
+            記述式の<strong>論文式（年1回・8月に3日間）</strong>の2段階選抜。<strong>受験資格に制限はなく誰でも受験できます</strong>。
+            論文式の最終合格率は近年おおむね7〜11%で、合格後は業務補助（実務経験）・実務補習・修了考査を経て登録します。以下のコンテンツで体系的に学習できます。
+          </p>
+
+          <div class="content-grid">
+
+            <a class="content-card" href="docs/overview.html">
+              <div class="content-card-title">試験概要</div>
+              <div class="content-card-desc">受験資格・短答式／論文式の科目と配点・試験日程・合格基準（足切り）・免除制度・合格率・合格後の登録要件をまとめたリファレンスページ。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="roadmap.html">
+              <div class="content-card-title">学習ロードマップ</div>
+              <div class="content-card-desc">短答式（次回2026/12/13）→論文式（次回2027/8）への段階戦略。財務会計論を主軸に、計算科目の反復と理論科目の並行学習を組んだ長期プラン。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="practice.html">
+              <div class="content-card-title">過去問演習</div>
+              <div class="content-card-desc">財務会計論・管理会計論・監査論・企業法・租税法・経営学の5肢択一問題。科目別フィルター・ランダム出題・解説付き。理論と計算の両方を確認。</div>
+              <div class="content-card-arrow">演習する →</div>
+            </a>
+
+            <a class="content-card" href="flashcard.html">
+              <div class="content-card-title">単語帳</div>
+              <div class="content-card-desc">会計基準・監査基準・会社法・税法の重要用語をフラッシュカード形式で暗記。科目別フィルター・シャッフル・習得済みマーク付き。</div>
+              <div class="content-card-arrow">暗記する →</div>
+            </a>
+
+            <a class="content-card" href="career.html">
+              <div class="content-card-title">キャリアプラン</div>
+              <div class="content-card-desc">監査法人（Big4等）への就職、実務補習・修了考査、独立開業、税理士・行政書士への登録まで。合格後に開ける進路をまとめた参考ページ。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">科目別まとめ（網羅的解説）</h2>
+          <p class="lead">
+            各科目の重要論点を単元ごとに網羅的に解説したリファレンスページです。
+            <strong>短答式は財務会計論（200点）・管理会計論・監査論・企業法（各100点）の4科目＝500点満点</strong>、
+            <strong>論文式は会計学（300点）・監査論・企業法・租税法・選択科目（各100点）＝700点満点</strong>。
+            財務会計論と管理会計論は論文式では「会計学」として統合されます。
+          </p>
+
+          <div class="content-grid">
+
+            <a class="content-card" href="zaimu.html">
+              <div class="content-card-title">財務会計論 <span class="badge badge-accent">短答200点</span></div>
+              <div class="content-card-desc">簿記（計算）＋財務諸表論（理論）。金融商品・固定資産・退職給付・税効果・企業結合・連結・キャッシュ・フロー・概念フレームワークまで、会計基準を横断する最重量科目。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="kanri.html">
+              <div class="content-card-title">管理会計論 <span class="badge badge-primary">短答100点</span></div>
+              <div class="content-card-desc">原価計算（標準・総合・部門別）と管理会計（CVP・直接原価・意思決定・予算・業績評価）。計算の型を作れば安定得点源になる科目。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="kansa.html">
+              <div class="content-card-title">監査論 <span class="badge badge-primary">100点</span></div>
+              <div class="content-card-desc">監査の目的・リスク・アプローチ、監査基準・品質管理・監査報告（無限定適正意見と除外事項）、職業倫理・独立性。公認会計士に固有の中核科目。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="kigyo.html">
+              <div class="content-card-title">企業法 <span class="badge badge-primary">100点</span></div>
+              <div class="content-card-desc">会社法を中心に、設立・株式・機関・計算・組織再編、金融商品取引法（開示・インサイダー）、商法総則・商行為。条文と趣旨の理解が問われる。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="sozei.html">
+              <div class="content-card-title">租税法 <span class="badge badge-primary">論文100点</span></div>
+              <div class="content-card-desc">法人税法を主軸に、所得税法・消費税法・租税法総論。益金・損金・別表四の申告調整、税額計算まで。論文式のみで出題される計算中心科目。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+            <a class="content-card" href="keiei.html">
+              <div class="content-card-title">選択科目（経営学） <span class="badge badge-primary">論文100点</span></div>
+              <div class="content-card-desc">経営学・経済学・民法・統計学から1科目選択。受験者の多数が選ぶ経営学（経営管理＋財務管理／コーポレート・ファイナンス）を中心に解説。</div>
+              <div class="content-card-arrow">開く →</div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div>資格まとめ — 公認会計士</div>
+        <div class="disclaimer">掲載内容は個人学習目的です。最新情報は必ず公式機関（金融庁 公認会計士・監査審査会 CPAAOB）でご確認ください。</div>
+      </div>
+    </footer>
+  </div><!-- /#page-content -->
+</body>
+</html>

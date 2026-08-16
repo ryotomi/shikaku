@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="公認会計士合格後のキャリア。監査法人への就職、実務補習・修了考査、独立開業、税理士・行政書士への登録、コンサル・CFO等の進路を現行制度に基づき整理した参考ページ。" />
+  <title>キャリアプラン — 公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">公認会計士 キャリアプラン</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">公認会計士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link current" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+
+    <main>
+      <section class="section"><div class="container">
+        <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">公認会計士</a><span class="breadcrumb-sep">›</span><span>キャリアプラン</span></div>
+        <h1 class="section-title">合格後のキャリア</h1>
+        <p class="lead">
+          公認会計士は<strong>財務諸表監査を独占業務</strong>とする資格で、会計・監査・税務・コンサルまで進路が広いのが特長です。
+          多くはまず<strong>監査法人</strong>に就職して実務経験を積み、実務補習・修了考査を経て正式登録します。
+          その後は独立・税理士登録・事業会社（CFO・経営企画）・コンサル（FAS等）など、選択肢が大きく開けます。ここでは現行制度に基づいて進路を整理します。
+        </p>
+      </div></section>
+
+      <!-- 登録までの流れ -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">試験合格から「公認会計士」登録まで</h2>
+        <p class="lead">試験合格は出発点で、公認会計士を名乗るには<strong>①業務補助等（実務経験）②実務補習の修了 ③日本公認会計士協会への登録</strong>の3要件が必要です。</p>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>論文式合格（公認会計士試験合格）</strong>
+              <p>多くの合格者はこの段階で監査法人に就職し、実務経験と実務補習を並行して進める。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>業務補助等（実務経験）原則3年以上</strong>
+              <p>監査法人等で監査・会計の実務に従事。令和5年改正で「2年以上」から「3年以上」へ延長（経過措置あり）。合格の前後を問わず算入できる。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>実務補習（原則3年）＋修了考査合格</strong>
+              <p>会計教育研修機構で監査・会計・税務・経営／IT・法規／職業倫理を受講し所定単位を取得。日本公認会計士協会の修了考査に合格して実務補習修了。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">✓</div>
+            <div class="flow-body">
+              <strong>日本公認会計士協会へ登録 → 公認会計士</strong>
+              <p>3要件を満たして登録。財務諸表監査等の独占業務を行えるようになる。</p>
+            </div>
+          </div>
+        </div>
+      </div></section>
+
+      <!-- 主な進路 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">合格後の主な進路</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>進路</th><th>内容</th><th>メモ</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">監査法人</td><td>大手（Big4系）・準大手・中小監査法人で法定監査に従事</td><td>合格者の主要進路。実務経験・実務補習の要件を満たす代表的な場</td></tr>
+            <tr><td class="highlight">独立・会計事務所</td><td>監査・会計・税務・レビュー・IPO支援等で開業</td><td>登録後に独立。税理士登録を併せて税務も扱うことが多い</td></tr>
+            <tr><td class="highlight">コンサル・FAS</td><td>M&amp;A（財務DD・バリュエーション）、IPO支援、内部統制、再生</td><td>会計知識を武器に高付加価値領域へ。事業会社の経営企画にも展開</td></tr>
+            <tr><td class="highlight">事業会社（インハウス）</td><td>経理・財務・経営企画・IR、CFO・監査役等</td><td>連結決算・開示・内部統制の実務を担う。上場準備企業で重宝される</td></tr>
+            <tr><td class="highlight">組織内会計士・公的機関</td><td>金融機関・官公庁・アカデミア等</td><td>専門性を活かして多様なフィールドへ</td></tr>
+          </tbody>
+        </table></div>
+      </div></section>
+
+      <!-- 他資格への展開 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">他資格への展開（税理士・行政書士）</h2>
+        <p class="lead">公認会計士となる資格を有する者は、試験を受けずに<strong>税理士・行政書士</strong>にも登録できます。会計・税務・許認可までワンストップで扱える体制を作れるのが強みです。</p>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th>資格</th><th>取得方法</th><th>要件・注意</th></tr></thead>
+          <tbody>
+            <tr><td class="highlight">税理士</td><td>税理士試験を受けずに登録可能（公認会計士は税理士となる資格を有する）</td><td><strong>平成29年4月1日以後の合格者は、財務省令で定める税法に関する研修の修了が必要</strong>（無条件ではない）。登録は日本税理士会連合会へ</td></tr>
+            <tr><td class="highlight">行政書士</td><td>行政書士試験を受けずに登録申請のみで可能</td><td>根拠は<strong>行政書士法第2条</strong>（公認会計士は行政書士となる資格を有する）。官公署提出書類・許認可業務に展開できる</td></tr>
+          </tbody>
+        </table></div>
+        <div class="notice" style="margin-top:1rem;">
+          税理士登録により法人税・所得税・消費税等の<strong>税務代理・税務書類作成・税務相談（独占業務）</strong>が行えます。行政書士登録により、許認可申請・各種契約書等の<strong>官公署提出書類の作成・提出代理</strong>が行えます。監査（会計士）＋税務（税理士）＋許認可（行政書士）を組み合わせると、中小企業のバックオフィスを一体で支援できます。
+        </div>
+      </div></section>
+
+      <!-- 資格の価値 -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">資格の価値（正直な整理）</h2>
+        <ul class="exclusive-list">
+          <li><strong>① 財務諸表監査の独占業務</strong><br>会計監査は公認会計士（監査法人）だけが担える。上場企業・大規模会社の監査という社会的インフラを支える希少な専門性。</li>
+          <li><strong>② 会計系の最難関ゆえの市場価値</strong><br>合格率は論文式最終で7〜8%台。取得の難度が高いぶん、監査・会計・M&amp;A・IPO等の領域で評価されやすい。</li>
+          <li><strong>③ キャリアの可搬性</strong><br>監査法人 → 事業会社 → コンサル → 独立と、会計を軸に横展開しやすい。税理士・行政書士の併有でサービス範囲を広げられる。</li>
+          <li><strong>④ 長期戦・登録要件という現実</strong><br>合格までに数千時間、合格後も実務経験3年＋実務補習3年＋修了考査が必要。「合格＝即開業」ではなく、登録までの道のりを見込んだ計画が要る。</li>
+        </ul>
+      </div></section>
+
+      <!-- 参考リンク -->
+      <section class="section"><div class="container">
+        <h2 class="section-title">参考リンク</h2>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+          <li><a href="https://www.fsa.go.jp/ordinary/kouninkaikeisi/" target="_blank" rel="noopener">金融庁 — 公認会計士の資格取得に関するQ&amp;A（登録要件・実務補習）</a></li>
+          <li><a href="https://jicpa.or.jp/" target="_blank" rel="noopener">日本公認会計士協会（JICPA）</a></li>
+          <li><a href="https://jicpa.or.jp/syuryokousa/" target="_blank" rel="noopener">日本公認会計士協会 — 修了考査について</a></li>
+          <li><a href="https://www.nta.go.jp/taxes/zeirishi/zeirishiseido/toroku/touroku.htm" target="_blank" rel="noopener">国税庁 — 税理士の登録（税理士法第3条）</a></li>
+          <li><a href="https://www.gyosei.or.jp/info/registration/become" target="_blank" rel="noopener">日本行政書士会連合会 — 行政書士になるには（行政書士法第2条）</a></li>
+        </ul>
+      </div></section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 公認会計士 キャリアプラン</div><div class="disclaimer">制度は改正されることがあります。登録要件・免除・他資格への展開は必ず公式（金融庁・日本公認会計士協会・国税庁・日本行政書士会連合会）で最新情報をご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

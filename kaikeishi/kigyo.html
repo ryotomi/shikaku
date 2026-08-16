@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>企業法 — 公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .worked-example { background: var(--color-white); border: 1px solid var(--color-border); border-left: 4px solid var(--color-primary-light); border-radius: 0 6px 6px 0; padding: 0.9rem 1.2rem; margin: 1rem 0; }
+    .we-label { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--color-primary); font-weight: 700; margin-bottom: 0.4rem; }
+    .we-setup { font-size: 0.9rem; color: var(--color-text); margin-bottom: 0.5rem; }
+    .we-steps { margin: 0.2rem 0 0.6rem 1.2rem; padding: 0; }
+    .we-steps li { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.9; }
+    .we-answer { font-size: 0.9rem; font-weight: 500; color: var(--color-primary); border-top: 1px dashed var(--color-border); padding-top: 0.4rem; }
+    .section p.body-p { color: var(--color-text-light); line-height: 2; margin-bottom: 0.7rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+const auth = getAuth(initializeApp(firebaseConfig));
+onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+</script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">公認会計士 企業法</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">公認会計士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+
+    <section class="section"><div class="container">
+      <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">公認会計士</a><span class="breadcrumb-sep">›</span><span>企業法</span></div>
+      <h1 class="section-title">企業法</h1>
+      <p class="lead">企業法は会社法を中心に、金融商品取引法と商法総則・商行為を加えた法律科目です。短答式・論文式のいずれでも出題され、条文の「要件」と「効果」、そして制度の「趣旨（なぜそうなっているか）」を体系的に理解しているかが問われます。丸暗記ではなく、株主・債権者・取締役といった利害関係者の利益をどう調整しているかという視点で全体を貫くのが攻略の鍵です。</p>
+      <div class="notice"><strong>配点等</strong> 短答式100点（財務会計論200点・管理会計論100点・監査論100点と合わせて計500点）、論文式100点（会計学・監査論・租税法・選択科目と並ぶ必須科目）。会社法が中心で出題の大半を占め、金商法・商法がこれに続く。短答は条文知識の正確さ、論文は要件・効果・趣旨を筋道立てて論述する答案構成力が問われる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">1. 会社法総論 — 会社の概念と種類</h2>
+      <p class="lead">会社とは何か、どんな種類があるかという土台。ここでの「営利性・社団性・法人格」という3つの性質理解が全範囲の前提になる。</p>
+      <p class="body-p">会社法上の「会社」は、株式会社・合名会社・合資会社・合同会社の4種類（後3者をまとめて持分会社という。会社法2条1号）。会社はいずれも法人であり（3条）、権利義務の主体となる。会社の性質としては、①事業により得た利益を構成員（社員・株主）に分配することを目的とする<strong>営利性</strong>、②複数人の結合体としての<strong>社団性</strong>（ただし一人会社も認められる）、③会社自身が独立した権利義務の帰属主体となる<strong>法人格</strong>が挙げられる。</p>
+      <p class="body-p">法人格が認められる結果、会社の財産と構成員の財産は分離され、株式会社では株主は原則として出資額を限度とする有限責任にとどまる。しかし法人格が濫用されたり、法人格が形骸化して個人企業と実質的に変わらない場合にまで有限責任の隠れ蓑を認めるのは正義に反する。そこで判例は、法人格の独立性を否定して背後の個人や親会社に責任を及ぼす<strong>法人格否認の法理</strong>を認める。適用場面は「法人格の濫用」（支配の要件＋違法・不当な目的の要件）と「法人格の形骸化」の2類型である。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>種類</th><th>社員の責任</th><th>持分譲渡</th><th>業務執行</th><th>特徴</th></tr></thead><tbody>
+        <tr><td class="highlight">株式会社</td><td>有限責任（間接）</td><td>原則自由（譲渡制限可）</td><td>取締役等の機関</td><td>所有と経営の分離、資金調達に優れる</td></tr>
+        <tr><td>合同会社（LLC）</td><td>有限責任（間接）</td><td>全社員の同意</td><td>原則各社員</td><td>内部自治が広い・有限責任</td></tr>
+        <tr><td>合資会社</td><td>無限責任社員＋有限責任社員</td><td>無限は全社員同意</td><td>原則各社員</td><td>2種類の社員で構成</td></tr>
+        <tr><td>合名会社</td><td>無限責任（直接連帯）</td><td>全社員の同意</td><td>原則各社員</td><td>人的信頼関係が基礎</td></tr>
+      </tbody></table></div>
+      <div class="notice" style="margin-top:1rem;">「間接有限責任」とは、株主は会社に対して出資義務を負うだけで、会社債権者に直接責任を負わないという意味。合名会社の無限責任社員は会社債権者に直接連帯して責任を負う点と区別する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">2. 株式会社の設立</h2>
+      <p class="lead">会社という法人を「生む」手続。定款作成→出資の履行→機関の具備→設立登記という流れと、瑕疵があった場合の処理を押さえる。</p>
+      <p class="body-p">設立には、発起人だけが設立時発行株式の全部を引き受ける<strong>発起設立</strong>と、発起人が一部を引き受け残りを株主を募集して引き受けさせる<strong>募集設立</strong>の2方式がある（会社法25条）。いずれも出発点は発起人による定款の作成で、公証人の認証を受けて効力を生じる（26条・30条）。定款の記載事項は次の3つに分かれる。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>記載事項</th><th>内容</th><th>欠けた場合の効果</th></tr></thead><tbody>
+        <tr><td class="highlight">絶対的記載事項</td><td>目的、商号、本店所在地、設立に際して出資される財産の価額（最低額）、発起人の氏名・住所（27条）</td><td>1つでも欠けると定款全体が無効</td></tr>
+        <tr><td>相対的記載事項</td><td>変態設立事項（現物出資・財産引受・発起人の報酬等・設立費用）など。記載しないと効力を生じない（28条）</td><td>記載を欠くと当該事項のみ効力を生じない</td></tr>
+        <tr><td>任意的記載事項</td><td>定時株主総会の招集時期、基準日など、法令に反しない事項</td><td>記載しなくても定款は有効</td></tr>
+      </tbody></table></div>
+      <p class="body-p"><strong>変態設立事項</strong>（28条）は、会社財産の充実を害し、既存の他の出資者や会社債権者を害するおそれが大きいため、定款に記載したうえで原則として裁判所選任の検査役の調査を要する（33条）。典型が①金銭以外の財産で出資する<strong>現物出資</strong>、②会社成立を条件に特定財産を譲り受ける旨あらかじめ約する<strong>財産引受</strong>。財産引受は定款に記載がなければ無効であり、判例上、事後設立と異なり原則として追認も認められない（会社の財産的基礎を守る趣旨）。</p>
+      <p class="body-p">出資の履行として、発起人は引受け後遅滞なく全額の払込み・現物出資財産の全部給付を行う（34条）。募集設立では払込取扱機関が払込金保管証明責任を負う点が発起設立と異なる。設立中の会社（権利能力なき社団に類似する存在）が成立とともに株式会社へと発展的に移行し、発起人が設立中の会社の機関として行った権限内の行為の効果は成立後の会社に帰属する（同一性説）。設立に瑕疵がある場合、株主・取締役等は<strong>設立無効の訴え</strong>（会社成立の日から2年以内、828条1項1号）によってのみ主張でき、法的安定のため無効判決には遡及効がない（839条）。出資がおよそ行われない等で会社が成立に至らなかった<strong>会社不成立</strong>の場合は、発起人が連帯して責任を負う（56条）。</p>
+      <div class="notice" style="margin-top:1rem;">検査役調査は例外がある。少額（現物出資・財産引受の総額500万円以下）、市場価格のある有価証券、弁護士・公認会計士・税理士等の証明（不動産は加えて不動産鑑定士の鑑定評価）がある場合は調査不要（33条10項）。公認会計士が担う実務に直結する重要例外。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">3. 株式と株主の権利</h2>
+      <p class="lead">株式＝細分化された割合的単位としての社員たる地位。株主の権利の分類と、株式譲渡自由の原則がテーマ。</p>
+      <p class="body-p">会社は株主を、その有する株式の内容および数に応じて平等に取り扱わなければならない（<strong>株主平等原則</strong>、109条1項）。これは多数派株主による少数派株主の抑圧を防ぐ趣旨だが、種類株式の発行など法が認める例外がある。株主の権利は、会社から経済的利益を受ける<strong>自益権</strong>（剰余金配当請求権・残余財産分配請求権）と、会社経営に参与する<strong>共益権</strong>（議決権・各種訴権）に大別され、また1株でも行使できる<strong>単独株主権</strong>と、総株主の議決権や発行済株式の一定割合を要する<strong>少数株主権</strong>に分類される。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>権利（例）</th><th>持株要件</th><th>保有期間要件（公開会社）</th></tr></thead><tbody>
+        <tr><td>議決権・剰余金配当請求権</td><td>1株（単独株主権）</td><td>なし</td></tr>
+        <tr><td class="highlight">株主代表訴訟提起権</td><td>1株（単独株主権）</td><td>6か月前から引き続き保有</td></tr>
+        <tr><td>株主総会招集請求権</td><td>総株主の議決権の3%以上</td><td>6か月前から引き続き保有</td></tr>
+        <tr><td>会計帳簿閲覧請求権</td><td>議決権または発行済株式の3%以上</td><td>なし</td></tr>
+        <tr><td>取締役等の解任の訴え</td><td>議決権または発行済株式の3%以上</td><td>6か月前から引き続き保有</td></tr>
+      </tbody></table></div>
+      <p class="body-p">株式は投下資本を回収する主要手段であるため、株式譲渡は自由が原則（127条）。もっとも同族的な閉鎖会社では好ましくない者の参入を防ぐ需要があり、定款で全部または一部の株式に<strong>譲渡制限</strong>を付し、譲渡に会社（取締役会等）の承認を要する旨を定められる（107条・108条）。すべての株式に譲渡制限がある会社を<strong>非公開会社</strong>、一部でも譲渡制限のない株式を発行する会社を<strong>公開会社</strong>という（2条5号）。この区別は機関設計や募集株式発行の規律に大きく影響する。</p>
+      <p class="body-p">株式に関する組織的操作として、複数株式を合わせて少数にする<strong>株式併合</strong>（180条、株主総会特別決議。端数株主の締め出しに使われるため反対株主の買取請求で保護）、1株を複数に分ける<strong>株式分割</strong>（183条、取締役会決議で可）、無償で株式を交付する<strong>株式無償割当</strong>（185条）がある。一定数の株式を1単元とし1単元1議決権とする<strong>単元株</strong>制度は、管理コスト削減のため小口株主の議決権を制限する仕組み。<strong>自己株式</strong>の取得は、事実上の出資払戻しとなり資本充実・株主平等を害するおそれがあるため、原則として株主総会決議による分配可能額の範囲内での取得に限られる（財源規制、156条・461条）。取得した自己株式には議決権がない（308条2項）。</p>
+      <div class="notice" style="margin-top:1rem;">「公開会社＝上場会社」ではない点に注意。会社法上の公開会社は「譲渡制限のない株式を1種類でも発行している会社」を指し、上場の有無とは別概念。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">4. 募集株式の発行等</h2>
+      <p class="lead">会社成立後の新たな資金調達（増資）の手続。既存株主の持株比率の希釈と経済的損失をどう防ぐかが論点。</p>
+      <p class="body-p">募集株式の発行等では、募集事項（募集株式数、払込金額またはその算定方法、払込期日等）を決定する（199条）。決定機関は会社形態で異なる。<strong>公開会社</strong>では機動的な資金調達の要請から原則<strong>取締役会決議</strong>で足りる。一方<strong>非公開会社</strong>では持株比率の維持への株主の期待が強いため、原則<strong>株主総会の特別決議</strong>を要する。</p>
+      <p class="body-p">払込金額が引受人に特に有利な金額である<strong>有利発行</strong>の場合、既存株主に経済的損失を与えるため、公開会社であっても株主総会の特別決議が必要で、取締役は総会で有利発行を必要とする理由を説明しなければならない（199条3項・201条・309条2項5号）。将来一定の条件で株式の交付を受けられる権利である<strong>新株予約権</strong>（2条21号）も、募集株式と同様の規律に服し、ストックオプションや買収防衛策として活用される。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>会社形態</th><th>原則の決定機関</th><th>有利発行の場合</th></tr></thead><tbody>
+        <tr><td class="highlight">公開会社</td><td>取締役会</td><td>株主総会の特別決議＋理由説明</td></tr>
+        <tr><td>非公開会社</td><td>株主総会の特別決議</td><td>株主総会の特別決議＋理由説明</td></tr>
+      </tbody></table></div>
+      <p class="body-p">発行に瑕疵がある場合の救済は段階的である。発行前の段階では、法令・定款違反または著しく不公正な方法による発行で株主が不利益を受けるおそれがあるとき、株主は<strong>発行の差止め</strong>を請求できる（210条）。発行後は、法的安定を重視し<strong>新株発行無効の訴え</strong>（公開会社は効力発生日から6か月以内、828条1項2号）によってのみ争え、無効原因は重大な瑕疵に限定される（判例上、差止仮処分に違反した発行や、非公開会社での総会決議を欠く発行などが無効原因）。実体がおよそ存在しない場合は<strong>不存在確認の訴え</strong>による。</p>
+      <div class="notice" style="margin-top:1rem;">「公開会社は取締役会決議で機動的に、非公開会社は総会特別決議で慎重に」という対比が骨格。理由は前者が資金調達の機動性、後者が持株比率維持への株主の期待という利益衡量にある。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">5. 機関総論と機関設計</h2>
+      <p class="lead">株式会社の意思決定・執行・監督を担う「機関」の全体像と、どの機関を置けるかのルール（機関設計）。</p>
+      <p class="body-p">株式会社の機関には、株主総会・取締役・取締役会・代表取締役・監査役・監査役会・会計監査人・会計参与・各種委員会がある。機関設計は自由ではなく、会社の規模（大会社か否か）と公開性（公開会社か否か）に応じて一定のルールに服する。基本原則として、①<strong>株主総会と取締役は必ず置く</strong>（295条・326条1項）、②<strong>公開会社は取締役会を置かなければならない</strong>（327条1項）、③<strong>取締役会設置会社は原則として監査役を置く</strong>（監査等委員会設置会社・指名委員会等設置会社を除く。327条2項）、④<strong>会計監査人設置会社は監査役を置く</strong>（同3項）、⑤<strong>大会社（資本金5億円以上または負債200億円以上）は会計監査人を置く</strong>（328条）、というルールが軸となる。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>機関設計の型</th><th>特徴</th><th>監督の担い手</th></tr></thead><tbody>
+        <tr><td class="highlight">監査役（会）設置会社</td><td>伝統的な日本型。取締役会が業務執行を決定、監査役が適法性監査</td><td>監査役・監査役会</td></tr>
+        <tr><td>監査等委員会設置会社</td><td>取締役3人以上（過半数が社外）から成る監査等委員会が監査・監督。監査役は置かない</td><td>監査等委員会</td></tr>
+        <tr><td>指名委員会等設置会社</td><td>指名・監査・報酬の3委員会（各過半数が社外取締役）＋執行役。監督と執行を分離</td><td>監査委員会</td></tr>
+      </tbody></table></div>
+      <div class="notice" style="margin-top:1rem;">大会社かつ公開会社は、監査役会設置会社・監査等委員会設置会社・指名委員会等設置会社のいずれか＋会計監査人が必要。会計監査人（＝公認会計士または監査法人）の関与が法定される場面を正確に。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">6. 株主総会</h2>
+      <p class="lead">株主が経営の基本事項を決める最高の意思決定機関。権限・招集・決議要件・決議の瑕疵を整理する。</p>
+      <p class="body-p">株主総会の権限は機関設計で異なる。<strong>取締役会設置会社</strong>では、会社法および定款で定めた事項に限り決議できる（295条2項）。日常的な業務執行は取締役会に委ね、総会は組織の基礎的変更（定款変更・合併・取締役の選解任・剰余金配当等）に権限を絞ることで効率と株主保護を両立させる趣旨。取締役会を置かない会社では、総会は会社に関する一切の事項を決議できる（295条1項）。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>決議の種類</th><th>定足数</th><th>可決要件</th><th>主な決議事項</th></tr></thead><tbody>
+        <tr><td class="highlight">普通決議</td><td>議決権の過半数（定款で軽減・排除可、役員選任は3分の1未満に下げ不可）</td><td>出席株主の議決権の過半数</td><td>役員の選任・解任、計算書類承認、剰余金配当</td></tr>
+        <tr><td>特別決議</td><td>議決権の過半数（定款で3分の1まで軽減可）</td><td>出席株主の議決権の3分の2以上</td><td>定款変更、合併等の組織再編、募集株式の有利発行、株式併合、監査役の解任</td></tr>
+        <tr><td>特殊決議</td><td>—</td><td>議決権を行使できる株主の半数以上かつ議決権の3分の2以上 等（309条3項・4項）</td><td>全株式への譲渡制限を設ける定款変更 等</td></tr>
+      </tbody></table></div>
+      <p class="body-p">決議に瑕疵がある場合、瑕疵の軽重に応じて争う手段が分かれる。手続の瑕疵など比較的軽い違法には<strong>決議取消しの訴え</strong>（招集手続・決議方法の法令定款違反、決議内容の定款違反、特別利害関係人の議決権行使による著しく不当な決議。決議の日から3か月以内に限り提訴でき、法的安定を図る。831条）。決議内容が法令に違反する重大な瑕疵には期間制限のない<strong>決議無効確認の訴え</strong>（830条2項）、決議が物理的に存在しないか存在しないと評価される場合には<strong>決議不存在確認の訴え</strong>（830条1項）による。</p>
+      <div class="notice" style="margin-top:1rem;">「手続の瑕疵→取消し（3か月の出訴期間で安定重視）」「内容の法令違反→無効（期間制限なし）」という対応関係が頻出。取消しは形成の訴え、無効・不存在は確認の訴えである点も区別。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">7. 取締役・取締役会</h2>
+      <p class="lead">業務執行の意思決定と監督を担う機関。選任・終任、取締役会決議、特別利害関係の処理がポイント。</p>
+      <p class="body-p">取締役は株主総会の普通決議で選任される（329条・341条。役員選任決議は定足数を3分の1未満に下げられない）。任期は原則2年（監査等委員である取締役以外。公開会社では短縮のみ可、非公開会社は定款で最長10年まで伸長可、332条）。終任事由には任期満了・辞任・解任（総会普通決議でいつでも可、339条）・欠格事由の発生等がある。正当な理由なく任期途中で解任された取締役は会社に損害賠償を請求できる（339条2項）。</p>
+      <p class="body-p"><strong>取締役会</strong>は取締役全員で組織し（362条）、業務執行の決定と取締役の職務執行の監督、代表取締役の選定・解職を行う。重要な財産の処分・多額の借財・支配人の選解任等の重要な業務執行の決定は取締役会自身が行い、個々の取締役に委任できない（362条4項）。取締役会の決議は、議決に加わることのできる取締役の過半数が出席し、その過半数をもって行う（369条1項。定款で加重可）。取締役は1人1議決権で、代理行使は認められない（各取締役の個人的信頼に基づく地位のため）。決議について<strong>特別利害関係</strong>を有する取締役は議決に加わることができない（369条2項。例：競業・利益相反取引の承認を受ける当該取締役、解職の対象となる代表取締役）。判断の公正を確保する趣旨である。</p>
+      <div class="notice" style="margin-top:1rem;">株主総会と取締役会で「特別利害関係」の扱いが違う。取締役会では議決に加われない（事前排除）が、株主総会では議決権行使自体は可能で、著しく不当な決議となった場合に取消原因となる（事後救済）。会社支配の主体たる株主の権利を尊重するためである。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">8. 役員等の義務と責任</h2>
+      <p class="lead">取締役らに課される義務と、違反時の会社・第三者への責任。企業法の理論的な山場で論文頻出。</p>
+      <p class="body-p">取締役は会社に対し、委任契約に基づく<strong>善管注意義務</strong>（民法644条）と、会社法上の<strong>忠実義務</strong>（会社法355条）を負う。判例は両者を同質のものと解する（同質説）。会社経営には失敗のリスクが伴うため、取締役が十分な情報に基づき、意思決定過程・内容に著しく不合理な点がなければ、結果的に会社に損害が生じても義務違反とはしない<strong>経営判断原則</strong>が判例上確立している。萎縮なき経営判断を保障する趣旨である。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>規制</th><th>内容</th><th>手続</th></tr></thead><tbody>
+        <tr><td class="highlight">競業避止義務</td><td>自己・第三者のため会社の事業の部類に属する取引をするには承認が必要（356条1項1号）</td><td>取締役会（非設置は株主総会）の承認・事後報告</td></tr>
+        <tr><td>利益相反取引</td><td>取締役が会社と取引（直接取引）／会社が取締役の債務を保証する等（間接取引）には承認が必要（356条1項2・3号）</td><td>取締役会（非設置は株主総会）の承認・事後報告</td></tr>
+        <tr><td>報酬規制</td><td>お手盛り防止のため、報酬等は定款または株主総会決議で定める（361条）</td><td>株主総会決議（総額の上限等）</td></tr>
+      </tbody></table></div>
+      <p class="body-p">取締役が任務を怠って会社に損害を与えた場合、会社に対して<strong>任務懈怠責任</strong>（損害賠償責任）を負う（423条）。原則は過失責任だが、利益相反の直接取引を行った取締役等については任務懈怠が推定される（423条3項）など立証責任の転換がある。さらに取締役の職務執行につき悪意または重大な過失があった場合、これによって損害を被った<strong>第三者に対する責任</strong>も負う（429条。会社債権者保護のための特別の法定責任と解するのが判例）。取締役の会社に対する責任を株主が会社に代わって追及する制度が<strong>株主代表訴訟</strong>（847条）である。まず会社に提訴を請求し、60日以内に会社が訴えを提起しないとき、株主が自ら訴えを提起できる（公開会社では6か月の株式継続保有要件あり）。</p>
+      <div class="notice" style="margin-top:1rem;">「善管注意義務・忠実義務→経営判断原則→任務懈怠責任（423条）→株主代表訴訟」という一連の流れと、それを補う「第三者責任（429条）」の位置づけを1つのストーリーとして理解すると論述しやすい。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">9. 監査役・会計監査人等</h2>
+      <p class="lead">会計士試験に直結する重要単元。監査役の権限と独立性、会計監査人（公認会計士・監査法人）の選解任と権限を正確に。</p>
+      <p class="body-p"><strong>監査役</strong>は取締役の職務執行を監査する（381条）。監査の範囲は原則として業務監査（適法性監査）および会計監査に及ぶ（非公開会社では定款で会計監査に限定可）。独立性確保のため、監査役は取締役・使用人を兼任できず（兼任禁止）、任期は原則4年（取締役より長い）で、正当理由のない解任は総会の特別決議を要するなど、地位が強く保障されている。監査役の選任議案には監査役（会）の同意が必要で、監査役はいつでも取締役等に事業報告を求め業務財産状況を調査できる（381条）。</p>
+      <p class="body-p"><strong>会計監査人</strong>は計算書類等を監査する機関で、公認会計士または監査法人でなければならない（337条1項）。大会社では設置が義務づけられる（328条）。会計監査人の職務の独立性を確保するため、その選任・解任・不再任に関する議案の内容は、取締役ではなく<strong>監査役（会）等が決定する</strong>（344条。取締役から監査人への圧力を排除する趣旨）。任期は1年だが、定時株主総会で別段の決議がなければ再任されたものとみなされる（338条）。会計監査人が職務上の義務に違反した等の場合、監査役全員の同意により監査役（会）が解任することもできる（340条）。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>比較項目</th><th>監査役</th><th>会計監査人</th></tr></thead><tbody>
+        <tr><td>資格</td><td>特に資格要件なし（兼任禁止あり）</td><td class="highlight">公認会計士または監査法人</td></tr>
+        <tr><td>監査の範囲</td><td>業務監査＋会計監査</td><td>会計監査（計算書類等）</td></tr>
+        <tr><td>任期</td><td>原則4年</td><td>1年（みなし再任あり）</td></tr>
+        <tr><td>選解任議案の決定</td><td>—</td><td class="highlight">監査役（会）等が決定</td></tr>
+      </tbody></table></div>
+      <div class="notice" style="margin-top:1rem;">会計監査人の選解任・報酬同意権を「監査役（会）」に持たせるのは、被監査側である経営者からの独立性を担保するため。監査を職業とする受験生には、この独立性の制度設計が実務にも直結する最重要ポイント。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">10. 計算等 — 資本・準備金と剰余金配当</h2>
+      <p class="lead">会社の計算（会計）に関する会社法の規律。資本充実・債権者保護の観点から配当を制限する「分配可能額」が核心。</p>
+      <p class="body-p">会社は適時に正確な<strong>会計帳簿</strong>を作成し（432条）、各事業年度に<strong>計算書類</strong>（貸借対照表・損益計算書・株主資本等変動計算書・個別注記表）および事業報告を作成する（435条）。株式会社は原則としてこれらを定時株主総会で承認・報告し、貸借対照表（大会社は損益計算書も）を公告しなければならない（440条）。株主・債権者は計算書類の閲覧等を請求できる。</p>
+      <p class="body-p">株主有限責任のもとで会社債権者の担保となるのは会社財産だけであるため、会社財産が不当に株主へ流出しないよう規律が置かれる。株主の出資は<strong>資本金</strong>に計上され、原則として払込み・給付額の全額を資本金とする（ただし2分の1を超えない額は資本金とせず<strong>資本準備金</strong>とできる、445条）。剰余金の配当時等には配当額の10分の1を、資本準備金・利益準備金の合計が資本金の4分の1に達するまで積み立てる（445条4項）。<strong>剰余金の配当</strong>は原則として株主総会決議により、いつでも回数制限なく行える（453条・454条）。</p>
+      <p class="body-p">もっとも配当は<strong>分配可能額</strong>を超えてはならない（461条）という財源規制に服する。分配可能額はおおむね「その他資本剰余金＋その他利益剰余金（＝剰余金）」から自己株式の帳簿価額等を控除して算定する。分配可能額を超える配当（<strong>違法配当</strong>）がなされた場合、株主・業務執行者らは会社に対して交付額に相当する金銭の支払義務を負う（462条）。分配可能額を超える配当は債権者を害するため、厳格に規制される趣旨である。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">その他資本剰余金 300万円、その他利益剰余金 900万円、自己株式の帳簿価額 200万円、のれん等調整額による控除は考慮しないものとする。この会社が配当できる上限（分配可能額）を求める。</p><ol class="we-steps"><li>剰余金の額を集計：その他資本剰余金 300万円 ＋ その他利益剰余金 900万円 ＝ 1,200万円</li><li>分配可能額から控除する自己株式の帳簿価額：200万円</li><li>分配可能額 ＝ 1,200万円 － 200万円 ＝ 1,000万円</li><li>検算：もし1,000万円を配当すると剰余金は 1,200万円 － 1,000万円 ＝ 200万円 となり、これは控除対象の自己株式帳簿価額200万円とちょうど等しく、財源が尽きる限界に一致する</li></ol><div class="we-answer">答え： 分配可能額は 1,000万円（この額を超える配当は違法配当となり、株主・業務執行者に会社への支払義務が生じる）。</div></div>
+      <div class="notice" style="margin-top:1rem;">分配可能額は簿記・財務会計論の「純資産の部」の理解と直結する。準備金の積立ては「配当額の10分の1、準備金合計が資本金の4分の1に達するまで」という数値を正確に。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">11. 社債</h2>
+      <p class="lead">会社が広く一般から資金を借り入れる手段。多数の社債権者の利益をどう保護・集約するかがテーマ。</p>
+      <p class="body-p"><strong>社債</strong>は会社が割当てにより発生する金銭債権で、償還・利払いの約定に従い返済される会社の債務である（2条23号）。株式が返済不要の自己資本であるのに対し、社債は返済を要する他人資本（負債）である点が本質的な違い。募集社債の発行は、株式会社では取締役会設置会社なら取締役会が募集事項を決定するのが原則で、機動的な資金調達が可能。</p>
+      <p class="body-p">社債権者は多数かつ分散し、個々では権利保護が困難なため、会社は原則として<strong>社債管理者</strong>（銀行・信託会社等）を定め、社債権者のために弁済の受領・債権保全等を行わせなければならない（702条。各社債の金額が1億円以上である場合等は例外的に不要）。社債管理者は社債権者に対し公平・誠実義務および善管注意義務を負う。社債権者の利害に重大な関係のある事項は、社債権者の利益を集団的に決するための<strong>社債権者集会</strong>で決議する（715条以下）。決議は原則として裁判所の認可を受けて効力を生じ、同一種類の社債権者全員を拘束する。</p>
+      <div class="notice" style="margin-top:1rem;">「株式＝自己資本・返済不要・議決権あり」「社債＝他人資本・返済要・議決権なし」の対比を軸に。社債管理者の設置義務とその例外（各社債1億円以上等）は短答で狙われやすい。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">12. 組織再編</h2>
+      <p class="lead">合併・分割・株式交換等による企業結合・再編。手続の共通構造（総会特別決議＋反対株主保護＋債権者保護）を掴む。</p>
+      <p class="body-p">組織再編には、2社以上が1つになる<strong>合併</strong>（存続会社が他方を吸収する吸収合併と、新会社を設立する新設合併）、事業に関する権利義務を分割する<strong>会社分割</strong>（吸収分割・新設分割）、ある会社を他社の完全子会社とする<strong>株式交換・株式移転</strong>、対価として自社株式を交付して他社を子会社化する<strong>株式交付</strong>、事業の全部・重要な一部を取引行為として譲渡する<strong>事業譲渡</strong>がある。事業譲渡は「組織法上の行為」ではなく個々の権利義務を個別に移転する「取引法上の行為」である点で、合併等（包括承継）と法的性質を異にする。</p>
+      <p class="body-p">組織再編は株主・債権者に重大な影響を及ぼすため、共通の保護手続が設けられる。①原則として<strong>株主総会の特別決議</strong>による承認（783条・795条等。ただし対価が総資産の一定割合以下の簡易組織再編や、支配関係にある略式組織再編では総会決議を省略できる場合がある）、②再編に反対する株主が公正な価格での買取りを請求できる<strong>反対株主の株式買取請求</strong>（785条等）、③再編により弁済の見込みが害されうる債権者のための<strong>債権者異議手続</strong>（789条等。合併では常に必要、会社分割は一定範囲、株式交換・移転は原則不要だが例外あり）である。手続や内容に瑕疵があるときは、事前には<strong>差止請求</strong>、事後には<strong>組織再編無効の訴え</strong>（効力発生日から6か月以内、828条）で争う。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>手法</th><th>法的性質</th><th>債権者異議手続</th><th>移転の態様</th></tr></thead><tbody>
+        <tr><td class="highlight">合併</td><td>組織法上の行為（包括承継）</td><td>常に必要</td><td>権利義務を包括的に承継</td></tr>
+        <tr><td>会社分割</td><td>組織法上の行為（部分的包括承継）</td><td>一定範囲で必要</td><td>分割契約等で定めた権利義務を承継</td></tr>
+        <tr><td>株式交換・株式移転</td><td>組織法上の行為（完全親子会社化）</td><td>原則不要（例外あり）</td><td>株式のみ移動（財産は移らない）</td></tr>
+        <tr><td>事業譲渡</td><td>取引法上の行為</td><td>会社法上の異議手続なし（個別に承継）</td><td>個々の権利義務を特定承継（債務は個別同意要）</td></tr>
+      </tbody></table></div>
+      <div class="notice" style="margin-top:1rem;">合併等が「包括承継」（債権者の同意なく債務も移る）であるのに対し、事業譲渡は「特定承継」で債務移転に相手方の同意を要する。だからこそ包括承継では常に債権者異議手続が用意される、という趣旨から手続の有無を導けるようにする。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">13. 持分会社</h2>
+      <p class="lead">株式会社と対をなす、人的信頼を基礎とする会社。合名・合資・合同の3種を責任と内部自治の観点で比較。</p>
+      <p class="body-p">持分会社は、社員相互の人的信頼関係を基礎とし、原則として各社員が業務を執行する（590条）点で、所有と経営が制度上分離される株式会社と対照的である。定款自治の範囲が広く、損益分配・業務執行のあり方を柔軟に設計できる。社員の責任のあり方によって3類型に分かれる。合名会社は社員全員が無限責任社員、合資会社は無限責任社員と有限責任社員の双方から成り、合同会社は社員全員が有限責任社員である。</p>
+      <p class="body-p"><strong>合同会社</strong>（LLC）は、有限責任という株式会社と同じメリットを持ちつつ、内部関係を組合的に自由設計できる点が特徴で、ジョイントベンチャーや専門家集団の受け皿として利用が増えている。ただし有限責任である分、出資の全額払込みが会社成立前に要求され、また持分会社共通の規律として持分の譲渡には原則として他の社員全員の同意を要する（585条。人的信頼が基礎のため）。</p>
+      <div class="notice" style="margin-top:1rem;">合同会社は「有限責任＋広い内部自治」がキーワード。株式会社と同じく間接有限責任だが、機関設計の強行規定に縛られず、剰余金分配に財源規制はあるものの、より柔軟に運営できる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">14. 金融商品取引法</h2>
+      <p class="lead">投資者保護と市場の公正確保を目的とする法律。開示規制と不公正取引規制の二本柱を押さえる。会計士業務に直結。</p>
+      <p class="body-p">金融商品取引法（金商法）は、企業内容等の開示制度の整備と不公正取引の規制により、有価証券の発行・流通を公正にし、投資者を保護することを目的とする。開示規制は2系統に分かれる。有価証券の募集・売出しの際に投資判断情報を提供させる<strong>発行開示</strong>（有価証券届出書・目論見書）と、上場会社等に継続的に情報を開示させる<strong>継続開示</strong>（<strong>有価証券報告書</strong>〈年度〉・半期報告書・臨時報告書）である。なお、金商法上の四半期報告書制度は2024年（令和6年）4月施行の改正で廃止され、上場会社の四半期開示は取引所規則の四半期決算短信に一本化された。金商法上の法定継続開示としては半期報告書（半期財務諸表を掲載）が残る形となっている。これら開示書類のうち財務諸表は、公認会計士または監査法人の監査証明を受けなければならない（193条の2）。会計士の独占業務の法的根拠がここにある。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>規制</th><th>内容</th><th>趣旨</th></tr></thead><tbody>
+        <tr><td class="highlight">公開買付け（TOB）</td><td>上場株式等を市場外で一定割合超取得する際、買付条件を公告し全株主に平等な売却機会を与える制度</td><td>株主平等・情報開示による投資者保護</td></tr>
+        <tr><td>大量保有報告制度（5%ルール）</td><td>上場株券等の保有割合が5%を超えた者は大量保有報告書を提出（原則5営業日以内）</td><td>市場の透明性確保・支配権移動の可視化</td></tr>
+        <tr><td>インサイダー取引規制</td><td>会社関係者等が未公表の重要事実を知って当該会社の株式等を売買することを禁止</td><td>情報の不平等による不公正取引の防止</td></tr>
+        <tr><td>相場操縦等の不公正取引</td><td>仮装売買・馴合売買・変動操作等による相場のゆがめを禁止</td><td>市場価格形成の公正の確保</td></tr>
+      </tbody></table></div>
+      <p class="body-p">これらの規制に違反した場合、刑事罰に加え、行政上の措置として金融庁が金銭的負担を課す<strong>課徴金</strong>制度が用意されている。課徴金は制裁というより違反行為による経済的利得を剥奪し規制の実効性を確保する行政上の措置と位置づけられ、開示書類の虚偽記載やインサイダー取引・相場操縦などに適用される。</p>
+      <div class="notice" style="margin-top:1rem;">「開示規制（発行開示・継続開示）」と「不公正取引規制（インサイダー・相場操縦・TOB・大量保有）」の二本柱で整理。有価証券報告書等の財務諸表に対する監査証明義務（193条の2）は、公認会計士の業務そのものの法的基盤として最重要。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">15. 商法総則・商行為</h2>
+      <p class="lead">会社法の一般法にあたる商法の総則規定と商行為法。商人・商号・商業登記・商業使用人の基本を押さえる。</p>
+      <p class="body-p">商法は、商人の営業・商行為その他商事に関する一般法である。<strong>商人</strong>とは、自己の名をもって商行為をすることを業とする者（固有の商人、商法4条1項）等をいい、絶対的商行為・営業的商行為・附属的商行為の区別がある<strong>商行為</strong>の概念と結びつく。商人が営業上自己を表示するために用いる名称が<strong>商号</strong>で、商号は原則自由に選定できる（商号選定自由の原則）が、不正の目的で他の商人と誤認させる商号の使用は禁止される（商法12条・会社法8条、名板貸人の責任にも注意）。</p>
+      <p class="body-p"><strong>商業登記</strong>は、商号・支配人・会社の役員等一定の事項を登記簿に公示する制度で、取引の安全を図る。登記事項は登記・公告の前は原則として善意の第三者に対抗できず、登記後は正当な事由なく知らなかった第三者にも対抗できる（商業登記の一般的効力、商法9条・会社法908条）。商人の営業を補助する<strong>商業使用人</strong>のうち、営業に関する一切の裁判上・裁判外の行為をする包括的代理権を有する者が<strong>支配人</strong>である（商法21条・会社法11条）。支配人の代理権に加えた制限は善意の第三者に対抗できず、相手方の信頼が保護される。独立の商人でありながら特定の商人のために継続的に取引の代理・媒介をする者が<strong>代理商</strong>である（商法27条以下）。</p>
+      <p class="body-p">商行為には民法の特則が数多く置かれる。例えば、商人間の金銭消費貸借は当然に利息を請求でき（商事法定利率は現在は民法と一体化）、商行為によって生じた債務は連帯債務となるのが原則、多数当事者の債務は連帯となる、商人間の売買では買主に目的物の検査・通知義務が課される、といった具合に、迅速・確実な取引を支える規律が特徴である。</p>
+      <div class="notice" style="margin-top:1rem;">商法総則・商行為は出題比重は会社法・金商法に劣るが、「商人・商号・支配人・商業登記の効力」といった基本概念は取りこぼしのないように。会社法8条・11条・908条など、会社法にも同旨の規定が置かれている対応関係を意識する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">この科目を演習する</h2>
+      <div class="content-grid">
+        <a class="content-card" href="practice.html?subject=kigyo"><div class="content-card-title">過去問演習</div><div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録。</div><div class="content-card-arrow">演習する →</div></a>
+        <a class="content-card" href="flashcard.html?subject=kigyo"><div class="content-card-title">単語帳</div><div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。</div><div class="content-card-arrow">暗記する →</div></a>
+        <a class="content-card" href="roadmap.html"><div class="content-card-title">学習ロードマップ</div><div class="content-card-desc">試験日までの計画でこの科目の学習時期を確認。</div><div class="content-card-arrow">開く →</div></a>
+      </div>
+    </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 公認会計士 企業法</div><div class="disclaimer">掲載内容は個人学習目的です。最新の会計基準・監査基準・法令は公式資料（金融庁 公認会計士・監査審査会 等）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

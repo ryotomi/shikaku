@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>財務会計論 — 公認会計士 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+    .worked-example { background: var(--color-white); border: 1px solid var(--color-border); border-left: 4px solid var(--color-primary-light); border-radius: 0 6px 6px 0; padding: 0.9rem 1.2rem; margin: 1rem 0; }
+    .we-label { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--color-primary); font-weight: 700; margin-bottom: 0.4rem; }
+    .we-setup { font-size: 0.9rem; color: var(--color-text); margin-bottom: 0.5rem; }
+    .we-steps { margin: 0.2rem 0 0.6rem 1.2rem; padding: 0; }
+    .we-steps li { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.9; }
+    .we-answer { font-size: 0.9rem; font-weight: 500; color: var(--color-primary); border-top: 1px dashed var(--color-border); padding-top: 0.4rem; }
+    .section p.body-p { color: var(--color-text-light); line-height: 2; margin-bottom: 0.7rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+const auth = getAuth(initializeApp(firebaseConfig));
+onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+</script>
+  <div id="page-content">
+    <header class="site-header"><div class="container"><div class="site-name">資格まとめ</div><div class="site-role">公認会計士 財務会計論</div></div></header>
+    <nav class="site-nav"><div class="container"><ul class="nav-list">
+      <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+      <li><a class="nav-link" href="index.html">公認会計士</a></li>
+      <li><a class="nav-link" href="docs/overview.html">試験概要</a></li>
+      <li><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="nav-link" href="practice.html">過去問演習</a></li>
+      <li><a class="nav-link" href="flashcard.html">単語帳</a></li>
+      <li><a class="nav-link" href="career.html">キャリアプラン</a></li>
+    </ul></div></nav>
+    <main>
+
+    <section class="section"><div class="container">
+      <div class="breadcrumb"><a href="/shikaku/index.html">ホーム</a><span class="breadcrumb-sep">›</span><a href="index.html">公認会計士</a><span class="breadcrumb-sep">›</span><span>財務会計論</span></div>
+      <h1 class="section-title">財務会計論</h1>
+      <p class="lead">公認会計士試験の最重要科目。企業外部の利害関係者に対する財務諸表の作成ルール（＝日本基準 J-GAAP）を体系的に学ぶ。「簿記（計算）」と「財務諸表論（理論・制度）」の2本柱からなり、短答式・論文式ともに合否を分ける中核科目である。</p>
+      <div class="notice"><strong>配点等</strong> 短答式では独立科目「財務会計論」として<strong>200点</strong>（4科目500点満点の40％）を占め、最大の配点。論文式では「管理会計論」と統合して<strong>会計学</strong>という括りで出題される（会計学は午前＝管理会計論、午後＝財務会計論の2科目分の試験時間で実施）。計算と理論の双方を問われるため、仕訳・計算のスピードと概念フレームワークに基づく論述力の両立が必要。※配点・試験構成は金融庁 公認会計士・監査審査会の公表資料で最新を確認すること。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">1. 財務会計の機能・制度と概念フレームワーク</h2>
+      <p class="lead">財務会計は「情報提供機能」と「利害調整機能」を担う。制度会計は金商法・会社法・法人税法の3つの規制体系から成り、その理論的支柱が概念フレームワークである。</p>
+      <p class="body-p">財務会計の目的は、投資家・債権者など企業外部の利害関係者が意思決定を行うために有用な情報を提供すること（情報提供機能）と、株主・債権者・経営者間の利害を調整すること（利害調整機能）にある。日本の制度会計は、投資家保護を目的とする<strong>金融商品取引法</strong>会計、債権者保護と分配可能額規制を目的とする<strong>会社法</strong>会計、課税所得計算を目的とする<strong>法人税法</strong>会計（確定決算主義）の三層構造をなす。</p>
+      <p class="body-p">会計の前提として<strong>会計公準</strong>（企業実体の公準・継続企業の公準・貨幣的評価の公準）が置かれる。企業会計審議会の「討議資料 財務会計の概念フレームワーク」は、財務報告の目的を<strong>投資家の意思決定に有用な情報の提供（意思決定有用性）</strong>と位置づけ、その下位に「意思決定との関連性」と「信頼性」を置く。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>構成要素</th><th>定義（概念フレームワーク）</th></tr></thead><tbody>
+        <tr><td>資産</td><td>過去の取引・事象の結果として、報告主体が支配している経済的資源</td></tr>
+        <tr><td>負債</td><td>過去の取引・事象の結果として、報告主体が支配している経済的資源を放棄・引き渡す義務</td></tr>
+        <tr><td>純資産</td><td>資産と負債の差額</td></tr>
+        <tr><td>株主資本</td><td>純資産のうち報告主体の所有者（株主）に帰属する部分</td></tr>
+        <tr><td>収益</td><td>純利益を増加させる項目で、投資のリスクから解放された部分</td></tr>
+        <tr><td>費用</td><td>純利益を減少させる項目で、投資にあてられた資源が費消された部分</td></tr>
+        <tr><td>純利益</td><td>特定期間の期末までに<strong>投資のリスクから解放</strong>された投資の成果</td></tr>
+      </tbody></table></div>
+      <p class="body-p">利益計算の考え方には、収益と費用の対応から利益を導く<strong>収益費用アプローチ</strong>と、期首・期末の純資産（正味財産）の変動から利益を捉える<strong>資産負債アプローチ</strong>がある。概念フレームワークは資産・負債を先に定義するため資産負債アプローチと親和的だが、日本基準は純利益（リスクからの解放）を重視する点で純粋な資産負債アプローチとは一線を画す。認識は「一定の要件を満たしたときに財務諸表に計上する」こと、測定は「その金額を決めること」であり、取得原価・時価・割引現在価値など複数の測定属性が併存する。</p>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「純利益＝投資のリスクからの解放」と「包括利益」の関係を押さえる。日本基準は<strong>純利益を重視（当期純利益は表示上不可欠）</strong>し、その他の包括利益（OCI）はリサイクリング（組替調整）を経て将来純利益に振り替わる項目が中心。IFRSはOCIの一部にリサイクリングを認めない点で日本基準と異なる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">2. 損益計算と収益認識</h2>
+      <p class="lead">「収益認識に関する会計基準」（企業会計基準第29号）は、履行義務の充足により収益を認識する<strong>5ステップ</strong>を定める。2021年4月1日以後開始する事業年度から原則適用。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>ステップ</th><th>内容</th></tr></thead><tbody>
+        <tr><td>① 契約の識別</td><td>顧客との契約を識別する</td></tr>
+        <tr><td>② 履行義務の識別</td><td>契約における別個の財・サービス（履行義務）を識別する</td></tr>
+        <tr><td>③ 取引価格の算定</td><td>変動対価・重要な金融要素・現金以外の対価等を考慮</td></tr>
+        <tr><td>④ 取引価格の配分</td><td>独立販売価格の比率で各履行義務に配分</td></tr>
+        <tr><td>⑤ 収益の認識</td><td>履行義務の充足時（一時点 or 一定期間）に収益計上</td></tr>
+      </tbody></table></div>
+      <p class="body-p"><strong>変動対価</strong>（値引・リベート・返品等）は、最頻値法または期待値法で見積り、著しい減額が生じない可能性が高い部分のみ取引価格に含める（見積りの制限）。返品見込分は「返金負債」として計上する。対価の受領と財の移転の間に<strong>重要な金融要素</strong>があれば、金利相当分を区分し、収益は現金販売価格で認識する。</p>
+      <p class="body-p">履行義務充足前に対価を受け取れば<strong>契約負債</strong>（前受金的性質）、対価の請求権が無条件になる前に収益を認識すれば<strong>契約資産</strong>を計上する。無条件の請求権になれば<strong>債権（売掛金）</strong>に振り替える。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">当社は商品Aと2年間の保守サービスをセットで販売。取引価格は10,000。独立販売価格は商品A＝8,000、保守サービス＝4,000（合計12,000）。</p><ol class="we-steps"><li>取引価格10,000を独立販売価格の比率で配分する。</li><li>商品Aへの配分：10,000 × 8,000／12,000 ＝ 6,666.67 → 6,667</li><li>保守サービスへの配分：10,000 × 4,000／12,000 ＝ 3,333.33 → 3,333</li><li>商品A（一時点）は引渡時に6,667を収益計上。保守（一定期間）は2年で按分し年3,333÷2＝1,666.5→初年度1,667。</li></ol><div class="we-answer">答え： 商品A 6,667＋保守 3,333 ＝ 10,000（配分合計が取引価格に一致）。保守の未経過分は契約負債として繰り延べる。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「一定期間にわたり充足」の3要件（顧客が便益を同時に受け取る／資産の生成・増価を顧客が支配／他に転用できず支払を受ける権利がある）を暗記。本人（グロス表示）か代理人（ネット表示）かの判定も頻出。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">3. 金融商品（有価証券・貸倒引当金・ヘッジ会計）</h2>
+      <p class="lead">「金融商品に関する会計基準」に基づき、有価証券は保有目的で4区分し、評価差額の処理を区別する。計算・理論とも頻出の最重要単元。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>保有区分</th><th>評価</th><th>評価差額の処理</th></tr></thead><tbody>
+        <tr><td>売買目的有価証券</td><td>時価</td><td>当期の損益（P/L）</td></tr>
+        <tr><td>満期保有目的の債券</td><td>取得原価または償却原価</td><td>評価替えしない（金利調整差額は償却原価法で配分）</td></tr>
+        <tr><td>子会社・関連会社株式</td><td>取得原価</td><td>評価替えしない</td></tr>
+        <tr><td>その他有価証券</td><td>時価</td><td class="highlight">全部純資産直入法（税効果控除後を純資産に直入）が原則</td></tr>
+      </tbody></table></div>
+      <p class="body-p">その他有価証券の評価差額は原則<strong>全部純資産直入法</strong>で処理し、税効果を控除した純額を純資産の部（その他有価証券評価差額金）に計上する（翌期首に洗替え）。評価損のみ損益計上する部分純資産直入法も認められる。時価が著しく下落し回復見込みが不明なら<strong>減損処理</strong>（実価法）を行い、切下げ後の額を取得原価とする。</p>
+      <p class="body-p">額面と取得価額の差が金利調整と認められるときは<strong>償却原価法（原則：利息法）</strong>で差額を満期まで期間配分する。金銭債権には貸倒見積高を算定して<strong>貸倒引当金</strong>を設定する（一般債権＝貸倒実績率法、貸倒懸念債権＝財務内容評価法/キャッシュ・フロー見積法、破産更生債権等＝担保等控除後全額）。</p>
+      <div class="worked-example"><div class="we-label">設例（その他有価証券・全部純資産直入法）</div><p class="we-setup">その他有価証券を取得原価100,000で保有。決算日の時価は130,000。実効税率30％。</p><ol class="we-steps"><li>評価差額（含み益）：130,000 − 100,000 ＝ 30,000</li><li>繰延税金負債：30,000 × 30％ ＝ 9,000</li><li>純資産に直入する評価差額金：30,000 − 9,000 ＝ 21,000</li><li>仕訳：（借）投資有価証券 30,000／（貸）繰延税金負債 9,000・その他有価証券評価差額金 21,000</li></ol><div class="we-answer">答え： その他有価証券評価差額金 21,000（税効果控除後）。損益には計上しない。翌期首に反対仕訳で洗替える。</div></div>
+      <div class="worked-example"><div class="we-label">設例（償却原価法＝利息法）</div><p class="we-setup">満期保有目的の社債を額面100,000に対し96,000で取得。残存2年、クーポン年3,000（額面×3％、期末後払）、実効利子率＝約5.16％（与件）。</p><ol class="we-steps"><li>1年目の利息配分：帳簿価額96,000 × 5.16％ ≒ 4,950（受取利息）</li><li>クーポン受領3,000との差＝償却額：4,950 − 3,000 ＝ 1,950 → 帳簿価額 96,000＋1,950 ＝ 97,950</li><li>2年目：97,950 × 5.16％ ≒ 5,050。差額 5,050 − 3,000 ＝ 2,050 → 97,950＋2,050 ＝ 100,000（満期に額面へ一致）</li></ol><div class="we-answer">答え： 償却原価は満期に額面100,000へ収束。各期の受取利息＝クーポン＋当期償却額で計上する（利息法は帳簿価額×実効利子率で毎期の利息を計算する点が定額法と異なる）。</div></div>
+      <p class="body-p"><strong>デリバティブ</strong>は原則時価評価し評価差額を当期損益に計上する。ただし<strong>ヘッジ会計</strong>の要件を満たせば、ヘッジ手段の損益とヘッジ対象の損益を同一期間に対応させる（原則：繰延ヘッジ＝ヘッジ手段の評価差額を純資産に繰り延べ、ヘッジ対象の損益認識時に振り替える）。金利スワップの特例処理や為替予約の振当処理も認められる。</p>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「その他有価証券＝純資産直入（税効果あり）」「売買目的＝P/L」の区別が最頻出。減損（著しい下落＝おおむね50％以上下落）と洗替えの違い、繰延ヘッジと時価ヘッジの相違を整理する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">4. 棚卸資産</h2>
+      <p class="lead">取得原価で計上し、期末に<strong>収益性の低下</strong>があれば正味売却価額まで簿価を切り下げる（低価法の強制適用）。</p>
+      <p class="body-p">取得原価は購入代価に付随費用（引取運賃・関税等）を加えて算定する。払出単価の計算方法には個別法・先入先出法・平均原価法（総平均・移動平均）・売価還元法がある（後入先出法は日本基準で廃止済み）。期末には「収益性の低下による簿価切下げ」を行い、正味売却価額（売価−見積販売直接経費）が取得原価を下回る場合、その差額を評価損（原則、売上原価）として計上する。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">期末棚卸資産：帳簿数量100個、取得原価@500。実地棚卸で95個（減耗5個）。正味売却価額＝売価@600−販売直接経費@130＝@470。</p><ol class="we-steps"><li>棚卸減耗損：(100 − 95)個 × @500 ＝ 2,500</li><li>実地95個の帳簿価額：95 × @500 ＝ 47,500</li><li>収益性低下：正味売却価額@470 &lt; 取得原価@500 → 切下げ @30／個</li><li>簿価切下額（評価損）：95個 × (@500 − @470) ＝ 95 × 30 ＝ 2,850</li></ol><div class="we-answer">答え： 棚卸減耗損 2,500＋商品評価損 2,850。B/S計上額＝95個 × @470 ＝ 44,650（＝47,500 − 2,850）。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「棚卸減耗損」（数量差）と「商品評価損」（単価の収益性低下）の順序と区別。トレーディング目的の棚卸資産は時価評価し評価差額を当期損益に計上する例外がある。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">5. 有形固定資産と減価償却</h2>
+      <p class="lead">取得原価を耐用年数にわたり費用配分するのが減価償却。定額法・定率法（200%定率法）・生産高比例法が基本。</p>
+      <p class="body-p">取得原価は購入代価＋付随費用。減価償却の方法として、毎期一定額を計上する<strong>定額法</strong>、期首帳簿価額に一定率を乗じる<strong>定率法</strong>、利用度に応じる<strong>生産高比例法</strong>がある。現行の税法では200%定率法（定額法償却率の2倍を償却率とし、償却額が償却保証額を下回った年度以降は改定償却率で均等償却）が用いられる。既存資産の価値を高める支出は<strong>資本的支出</strong>（資産計上）、原状回復は<strong>修繕費</strong>（費用）として区別する。</p>
+      <div class="worked-example"><div class="we-label">設例（200%定率法）</div><p class="we-setup">取得原価1,000,000、耐用年数5年、残存価額0。定額法償却率＝1/5＝0.2 → 200%定率法の償却率＝0.2×2＝0.4。</p><ol class="we-steps"><li>1年目：1,000,000 × 0.4 ＝ 400,000（期末簿価600,000）</li><li>2年目：600,000 × 0.4 ＝ 240,000（期末簿価360,000）</li><li>3年目：360,000 × 0.4 ＝ 144,000（期末簿価216,000）</li><li>比較：同じ取得原価を定額法なら毎年200,000。定率法は初期に費用が大きく（400,000&gt;200,000）、逓減する。</li></ol><div class="we-answer">答え： 1年目償却費 400,000。定率法は早期に多く償却する加速償却で、初年度費用は定額法の2倍となる。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 200%定率法では、通常の償却額が「償却保証額（取得原価×保証率）」を下回った期以降、「改定取得価額×改定償却率」で残存年数を均等償却して簿価1円まで落とす仕組みを理解する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">6. 固定資産の減損</h2>
+      <p class="lead">「固定資産の減損に係る会計基準」による。<strong>兆候 → 認識（割引前将来CF） → 測定（回収可能価額）</strong>の3ステップで判定する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>ステップ</th><th>判定基準</th></tr></thead><tbody>
+        <tr><td>① 兆候の把握</td><td>営業損益・CFの継続マイナス、市場価格の著しい下落、経営環境の悪化等</td></tr>
+        <tr><td>② 減損損失の認識</td><td>資産（グループ）の<strong>割引前</strong>将来キャッシュ・フロー総額 &lt; 帳簿価額 なら認識する</td></tr>
+        <tr><td>③ 減損損失の測定</td><td>帳簿価額を<strong>回収可能価額</strong>まで切り下げる（差額を減損損失）</td></tr>
+      </tbody></table></div>
+      <p class="body-p">回収可能価額は、<strong>正味売却価額</strong>（時価−処分費用見込額）と<strong>使用価値</strong>（将来CFの割引現在価値）の<strong>いずれか高い方</strong>。認識の判定に割引前CFを用い（減損の戻入れは日本基準では禁止）、測定に割引後の使用価値を用いる点が重要。IFRS（IAS36）は認識と測定を一段階で行い減損の戻入れを認める点で日本基準と異なる。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">機械の帳簿価額 800,000。割引前将来CF総額 720,000。正味売却価額 500,000。使用価値（割引後）＝620,000。</p><ol class="we-steps"><li>認識：割引前将来CF 720,000 &lt; 帳簿価額 800,000 → 減損損失を認識する。</li><li>回収可能価額＝max(正味売却価額500,000, 使用価値620,000)＝620,000</li><li>減損損失：帳簿価額800,000 − 回収可能価額620,000 ＝ 180,000</li><li>減損後帳簿価額：620,000（以後この額を基礎に減価償却）</li></ol><div class="we-answer">答え： 減損損失 180,000。回収可能価額は使用価値620,000（正味売却価額より高い方）を採用する。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「認識＝割引前CF」「測定＝回収可能価額（＝正味売却価額と使用価値の高い方）」を混同しない。共用資産・のれんを含むより大きな単位への配分（超過額の配分）も論点。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">7. 無形固定資産・研究開発費・繰延資産</h2>
+      <p class="lead">研究開発費は原則<strong>発生時に費用処理</strong>。ソフトウェアは制作目的で処理が分かれる。のれんは20年以内の定額償却。</p>
+      <p class="body-p"><strong>研究開発費</strong>は将来の収益獲得が不確実なため、発生時に全額費用（一般管理費または当期製造費用）とする。自社利用ソフトウェアは将来の収益獲得・費用削減が確実な場合に無形固定資産計上し利用期間で償却、市場販売目的ソフトウェアは最初に製品化された段階（研究開発終了時点）以後の制作費を資産計上し見込販売数量等で償却する。制作途中の受注制作ソフトウェアは工事契約に準じて処理する。</p>
+      <p class="body-p"><strong>繰延資産</strong>（株式交付費・社債発行費・創立費・開業費・開発費）は、支出時に費用処理が原則だが、換金性がないものの効果が将来に及ぶため一定期間の均等償却を条件に資産計上が容認される（会社法・企業会計基準委員会の実務対応報告に基づく限定列挙）。<strong>のれん</strong>は20年以内のその効果の及ぶ期間で規則的に償却する（IFRSはのれんを非償却＝毎期減損テストとする点で日本基準と決定的に異なる）。</p>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「研究開発費＝即費用」「のれん＝20年以内償却（日本基準）／非償却（IFRS）」が対比の頻出論点。ソフトウェアは「自社利用／市場販売／受注制作」の3類型で処理が異なる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">8. リース取引</h2>
+      <p class="lead">現行基準では<strong>ファイナンス・リース</strong>（売買処理）と<strong>オペレーティング・リース</strong>（賃貸借処理）を判定する。新リース会計基準の動向にも注意。</p>
+      <p class="body-p">ファイナンス・リースは「解約不能」かつ「フルペイアウト（借手が資産の経済的利益を実質的に享受し、コストを実質的に負担）」の両要件を満たすもので、<strong>売買取引に準じた処理</strong>を行い、リース資産・リース債務を計上する。具体的判定は、①解約不能リース料総額の現在価値が見積現金購入価額のおおむね90％以上、または②解約不能リース期間が経済的耐用年数のおおむね75％以上、のいずれかに該当すればファイナンス・リースとする。所有権移転外ファイナンス・リースはリース期間を耐用年数、残存価額ゼロで償却する。リース料はリース債務の元本返済と<strong>利息法</strong>による支払利息に区分する。オペレーティング・リースは賃貸借処理（支払リース料を費用）。</p>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 90％基準・75％基準の数値と、所有権移転／移転外の償却の違いを暗記。<strong>企業会計基準第34号「リースに関する会計基準」（2024年9月公表、2027年4月1日以後開始年度から原則適用予定）</strong>では、借手はIFRS16と同様に原則すべてのリースについて使用権資産とリース負債を計上する（オンバランス化）方向へ移行する点に留意。適用時期・詳細は公式資料で確認。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">9. 資産除去債務</h2>
+      <p class="lead">有形固定資産の除去に関する法的義務等を、発生時に<strong>割引現在価値</strong>で負債計上し、同額を資産の帳簿価額に加える。</p>
+      <p class="body-p">「資産除去債務に関する会計基準」により、除去に要する将来支出の見積額を割引率で割り引いた現在価値を<strong>資産除去債務</strong>（負債）として計上し、同額を関連資産の帳簿価額に加算する。加算した除去費用相当額は減価償却を通じて費用配分し、負債側は<strong>時の経過による調整（利息費用）</strong>を毎期、期首帳簿価額×割引率で計上して除去時に将来支出額へ一致させる。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">3年後に除去費用100,000の支出が見込まれる設備を取得。割引率5％。1.05³＝1.157625。</p><ol class="we-steps"><li>資産除去債務（当初計上額）：100,000 ÷ 1.157625 ＝ 86,384（設備の取得原価に同額を加算）</li><li>1年目の利息費用：86,384 × 5％ ＝ 4,319 → 債務残高 90,703</li><li>2年目：90,703 × 5％ ＝ 4,535 → 債務残高 95,238</li><li>3年目：95,238 × 5％ ＝ 4,762 → 債務残高 100,000（＝将来支出額に一致）</li></ol><div class="we-answer">答え： 当初債務86,384、利息費用累計4,319＋4,535＋4,762＝13,616、期末残高が100,000へ収束する（86,384＋13,616＝100,000）。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「利息費用は期首債務残高×割引率」で毎期増える。加算した除去費用は減価償却、負債は利息費用で増価する二本立ての処理を分けて理解する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">10. 退職給付会計</h2>
+      <p class="lead">将来の退職給付見込額のうち期末までの発生分を割り引いた<strong>退職給付債務</strong>を認識。個別と連結で数理差異の扱いが異なる。</p>
+      <p class="body-p">退職給付費用は、当期の労働の対価である<strong>勤務費用</strong>＋債務の時の経過による<strong>利息費用</strong>−年金資産の<strong>期待運用収益</strong>を基本とし、これに数理計算上の差異・過去勤務費用の費用処理額を加減する。<strong>数理計算上の差異</strong>（実績と見積りの乖離、割引率等の見直しによる差異）は、平均残存勤務期間以内の一定年数で規則的に費用処理する（遅延認識）。年金資産は退職給付債務から控除して純額を<strong>退職給付引当金（個別）／退職給付に係る負債（連結）</strong>とする。</p>
+      <p class="body-p"><strong>個別と連結の違い</strong>：個別財務諸表では未認識の数理差異・過去勤務費用は遅延認識のまま負債に含めない。<strong>連結財務諸表では未認識分を即時にオンバランス</strong>し、税効果調整後の額を<strong>その他の包括利益（退職給付に係る調整額）</strong>を通じて純資産に計上する。費用処理された期に組替調整（リサイクリング）される。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">期首：退職給付債務1,000,000、年金資産600,000。勤務費用50,000、割引率3％、長期期待運用収益率2％。数理差異等はゼロ。</p><ol class="we-steps"><li>利息費用：期首債務1,000,000 × 3％ ＝ 30,000</li><li>期待運用収益：期首年金資産600,000 × 2％ ＝ 12,000</li><li>退職給付費用：勤務費用50,000 ＋ 利息費用30,000 − 期待運用収益12,000 ＝ 68,000</li><li>期末の積立状況（数理差異等ゼロの前提）：債務(1,000,000＋50,000＋30,000)−資産(600,000＋12,000)＝1,080,000−612,000＝468,000</li></ol><div class="we-answer">答え： 退職給付費用 68,000。純額の退職給付引当金（個別）は468,000（拠出・支給がない前提）。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 費用＝勤務費用＋利息費用−期待運用収益（±差異償却）の式を暗記。連結でのみ未認識差異をOCI経由でオンバランスする「個別と連結の差」が論述の頻出テーマ。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">11. 社債</h2>
+      <p class="lead">払込金額と額面の差額（金利調整差額）を<strong>償却原価法（原則：利息法）</strong>で満期まで配分する。買入償還も頻出。</p>
+      <p class="body-p">社債は払込金額で計上し、額面との差額が金利調整と認められる場合、償却原価法により満期に向けて帳簿価額を額面へ調整する。原則は利息法（帳簿価額×実効利子率で利息を計算）、継続適用を条件に定額法も容認。満期前に市場で買い入れて消却する<strong>買入償還</strong>では、その時点の償却原価（帳簿価額）と買入価額の差額を<strong>社債償還損益</strong>として計上する。</p>
+      <div class="worked-example"><div class="we-label">設例（社債・定額法での償却と買入償還）</div><p class="we-setup">額面100,000の社債を@97（97,000）で発行、償還期間5年、クーポン年2,000。定額法で償却。発行から2年経過後、額面の全額を@99（99,000）で買入償還。</p><ol class="we-steps"><li>1年あたり償却額（定額法）：(100,000 − 97,000) ÷ 5年 ＝ 600</li><li>2年経過時の帳簿価額（償却原価）：97,000 ＋ 600×2 ＝ 98,200</li><li>買入価額 99,000 と 帳簿価額 98,200 の差：99,000 − 98,200 ＝ 800</li><li>買入価額 &gt; 帳簿価額 → 800は社債償還損</li></ol><div class="we-answer">答え： 買入償還により社債償還損 800を計上（帳簿価額98,200を消し、現金99,000を支出）。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 買入償還損益＝買入価額 − 償却原価（帳簿価額）。割引発行では帳簿価額が満期に向け増加していくため、償還時点の帳簿価額を先に正しく求めることが要。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">12. 純資産・自己株式・ストック・オプション</h2>
+      <p class="lead">純資産は株主資本・評価換算差額等・新株予約権に区分。自己株式は取得原価で株主資本の<strong>控除項目</strong>、ストック・オプションは<strong>株式報酬費用</strong>として計上する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>純資産の区分</th><th>主な内容</th></tr></thead><tbody>
+        <tr><td>株主資本</td><td>資本金／資本剰余金（資本準備金・その他資本剰余金）／利益剰余金（利益準備金・その他利益剰余金）／自己株式（控除）</td></tr>
+        <tr><td>評価・換算差額等</td><td>その他有価証券評価差額金、繰延ヘッジ損益、為替換算調整勘定（連結）</td></tr>
+        <tr><td>新株予約権</td><td>ストック・オプション等（払込前の予約権）</td></tr>
+        <tr><td>非支配株主持分</td><td>連結でのみ登場（子会社の他社持分）</td></tr>
+      </tbody></table></div>
+      <p class="body-p"><strong>自己株式</strong>は取得原価で純資産の部の末尾に控除形式で表示する（資産計上しない）。処分時に処分対価と帳簿価額の差額を<strong>その他資本剰余金</strong>で調整する（差損でその他資本剰余金が負になれば繰越利益剰余金から減額）。<strong>ストック・オプション</strong>は、付与日の公正な評価単価に基づく公正な評価額を、対象勤務期間にわたり<strong>株式報酬費用</strong>として費用計上し、相手勘定を新株予約権とする。権利行使時に払込資本へ振り替え、失効分は新株予約権戻入益とする。</p>
+      <div class="worked-example"><div class="we-label">設例（ストック・オプション）</div><p class="we-setup">従業員に100個のオプションを付与。付与日の公正な評価単価@500。対象勤務期間3年。各期末の失効見込は考慮せず全数権利確定を見込む。</p><ol class="we-steps"><li>公正な評価額（総額）：100個 × @500 ＝ 50,000</li><li>1期あたり費用：50,000 ÷ 3年 ＝ 16,666.67 → 各期16,667（端数調整）</li><li>1年目仕訳：（借）株式報酬費用 16,667／（貸）新株予約権 16,667</li><li>2年・3年で累計50,000に達するよう配分（16,667＋16,667＋16,666＝50,000）</li></ol><div class="we-answer">答え： 各期の株式報酬費用は約16,667で、3年累計は評価総額50,000に一致。相手勘定は純資産の「新株予約権」。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 自己株式は「資産でなく株主資本の控除」。ストック・オプションは「付与日の公正評価額を勤務期間で費用配分」。失効見込みの変更は見積りの変更として当期以降で調整する。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">13. 税効果会計</h2>
+      <p class="lead">会計上の利益と課税所得のズレのうち<strong>一時差異</strong>に税率を乗じ、繰延税金資産・負債を計上して税金費用を期間対応させる。</p>
+      <p class="body-p">差異には、将来解消する<strong>一時差異</strong>（減価償却超過額、貸倒引当金繰入超過、その他有価証券評価差額金等）と、永久に解消しない<strong>永久差異</strong>（交際費損金不算入、受取配当金益金不算入等）がある。税効果は一時差異のみを対象とし、将来減算一時差異には<strong>繰延税金資産</strong>、将来加算一時差異には<strong>繰延税金負債</strong>を、解消見込年度の法定実効税率で計算する。繰延税金資産は将来の課税所得で回収可能な範囲でのみ計上する（<strong>回収可能性</strong>の検討）。税率変更があれば、変更後の税率で繰延税金資産・負債を再計算し差額を当期の税金費用（または純資産）で調整する。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">当期に貸倒引当金繰入200,000を計上したが、税務上は損金不算入（将来減算一時差異）。法定実効税率30％。回収可能性は問題なし。</p><ol class="we-steps"><li>将来減算一時差異：200,000</li><li>繰延税金資産：200,000 × 30％ ＝ 60,000</li><li>仕訳：（借）繰延税金資産 60,000／（貸）法人税等調整額 60,000（税金費用を減額）</li><li>効果：会計上の税負担率が課税所得ベースの実効税率に近づく（費用収益対応が図られる）。</li></ol><div class="we-answer">答え： 繰延税金資産 60,000。法人税等調整額（貸方）60,000で当期の税金費用を減らし、差異解消年度に取り崩す。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「将来減算＝繰延税金資産」「将来加算＝繰延税金負債」。永久差異には税効果を認識しない。その他有価証券評価差額金に係る税効果は損益でなく純資産に直接計上（純資産直入）する点に注意。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">14. 外貨建取引</h2>
+      <p class="lead">「外貨建取引等会計処理基準」による。取引時はレートで換算し、決算時に<strong>貨幣項目は決算日レート、非貨幣項目は取得時レート</strong>で処理する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>項目</th><th>決算時の換算レート</th><th>換算差額</th></tr></thead><tbody>
+        <tr><td>外貨建金銭債権債務（貨幣項目）</td><td>決算日の為替相場</td><td>為替差損益（当期損益）</td></tr>
+        <tr><td>外貨建有価証券（売買目的・その他）</td><td>決算日の為替相場（時価換算）</td><td>評価差額に準じて処理</td></tr>
+        <tr><td>子会社株式・関連会社株式（非貨幣）</td><td>取得時の為替相場</td><td>換算替えしない</td></tr>
+        <tr><td>前払金・前受金（非貨幣）</td><td>取引発生時の為替相場</td><td>換算替えしない</td></tr>
+      </tbody></table></div>
+      <p class="body-p">取引発生時は取引日の直物相場で換算する。決算時、外貨建金銭債権債務などの<strong>貨幣項目</strong>は決算日レートで換算替えし差額を<strong>為替差損益</strong>とする。非貨幣項目（棚卸資産・有形固定資産・前払金等）は原則換算替えしない。将来の為替リスクを固定する<strong>為替予約</strong>は原則デリバティブとして時価評価するが、<strong>振当処理</strong>（予約レートで換算し直先差額を期間配分）も容認される。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">10月1日に商品を輸入し買掛金 1,000ドルを計上（当日レート＠150円）。12月31日決算日レート＠160円。決済は翌期。</p><ol class="we-steps"><li>取引時の買掛金：1,000ドル × ＠150 ＝ 150,000円</li><li>決算時の換算額：1,000ドル × ＠160 ＝ 160,000円</li><li>換算差額：160,000 − 150,000 ＝ 10,000円（円安で外貨建債務が円換算で増加）</li><li>仕訳：（借）為替差損 10,000／（貸）買掛金 10,000</li></ol><div class="we-answer">答え： 為替差損 10,000円を当期損益に計上（貨幣項目を決算日レートで換算替え）。買掛金の帳簿価額は160,000円となる。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「貨幣項目＝決算日レート／非貨幣項目＝取得時レート」の区別が全て。連結における在外子会社の財務諸表換算（収益費用は期中平均、資産負債は決算日、差額は為替換算調整勘定＝純資産）と混同しない。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">15. 企業結合とのれん</h2>
+      <p class="lead">「企業結合に関する会計基準」は<strong>取得法</strong>を原則とする。取得原価と受入純資産の差額が<strong>のれん（20年以内償却）</strong>または負ののれん。</p>
+      <p class="body-p">支配を獲得する企業結合には取得法を適用し、被取得企業の識別可能資産・負債を時価で受け入れる。取得原価が受入純資産（時価）を上回れば差額を<strong>のれん</strong>として資産計上し、20年以内の効果の及ぶ期間で規則的に償却する。逆に下回れば<strong>負ののれん</strong>となり、見積りの妥当性を再検討したうえで<strong>発生した期の利益（特別利益）</strong>として一括計上する（IFRSも負ののれんは即時利益認識だが、正ののれんは非償却で減損テストのみとする点が日本基準と異なる）。</p>
+      <div class="worked-example"><div class="we-label">設例</div><p class="we-setup">A社がB社を現金800,000で取得（100％）。B社の識別可能資産の時価1,200,000、負債の時価500,000。のれんは20年で定額償却。</p><ol class="we-steps"><li>受入純資産（時価）：資産1,200,000 − 負債500,000 ＝ 700,000</li><li>のれん：取得原価800,000 − 受入純資産700,000 ＝ 100,000</li><li>年間のれん償却額：100,000 ÷ 20年 ＝ 5,000</li><li>取得原価 &gt; 純資産 なので正ののれん（もし取得原価が純資産を下回れば負ののれん＝発生時に特別利益）。</li></ol><div class="we-answer">答え： のれん 100,000を計上し、毎期5,000ずつ償却（20年で全額償却）。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「のれん＝取得原価−受入純資産（時価）」「20年以内償却（日本基準）」「負ののれん＝即時利益」。共通支配下の取引・逆取得・段階取得の会計処理は上級論点。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">16. 連結会計</h2>
+      <p class="lead">支配従属関係にある企業集団を単一組織とみなして作成。<strong>資本連結（投資と資本の相殺）</strong>と<strong>成果連結（内部取引・未実現利益の消去）</strong>が2本柱。</p>
+      <p class="body-p"><strong>資本連結</strong>では、親会社の子会社投資勘定と子会社の資本を相殺消去し、差額をのれん（または負ののれん）とする。子会社の資本のうち親会社に帰属しない部分は<strong>非支配株主持分</strong>として純資産に計上する。<strong>成果連結</strong>では、連結会社間の債権債務・取引高を相殺し、期末在庫等に含まれる<strong>未実現利益</strong>を消去する。親→子への販売分を消す<strong>ダウンストリーム</strong>は全額消去して親に負担させ、子→親への<strong>アップストリーム</strong>は全額消去のうえ非支配株主持分にも按分負担させる。</p>
+      <p class="body-p">重要な影響を及ぼす関連会社等には<strong>持分法</strong>を適用し、投資後の純資産・損益の変動を持分に応じて投資勘定に反映する（一行連結）。連結では純利益に<strong>その他の包括利益（OCI）</strong>を加えた<strong>包括利益</strong>を表示し、連結キャッシュ・フロー計算書も作成する。</p>
+      <div class="worked-example"><div class="we-label">設例（資本連結・非支配株主持分とのれん）</div><p class="we-setup">P社がS社株式の80％を現金240,000で取得。取得日のS社純資産＝資本金150,000＋利益剰余金100,000＝250,000（識別可能資産負債の時価は簿価と一致）。</p><ol class="we-steps"><li>S社純資産のうち親会社持分：250,000 × 80％ ＝ 200,000</li><li>非支配株主持分：250,000 × 20％ ＝ 50,000</li><li>のれん：投資額240,000 − 親会社持分200,000 ＝ 40,000</li><li>相殺仕訳：（借）資本金150,000・利益剰余金100,000・のれん40,000／（貸）S社株式240,000・非支配株主持分50,000</li></ol><div class="we-answer">答え： のれん 40,000、非支配株主持分 50,000。借方合計290,000＝貸方合計290,000（240,000＋50,000）で貸借一致。</div></div>
+      <div class="worked-example"><div class="we-label">設例（未実現利益の消去＝ダウンストリーム）</div><p class="we-setup">親会社Pが子会社Sへ商品を販売（利益率20％）。Sの期末在庫のうちPからの仕入分が60,000残っている。</p><ol class="we-steps"><li>期末在庫に含まれる未実現利益：60,000 × 20％ ＝ 12,000</li><li>ダウンストリームなので全額消去し親会社に負担させる。</li><li>消去仕訳：（借）売上原価 12,000／（貸）商品（棚卸資産）12,000</li><li>アップストリームなら同額を消去のうえ、非支配株主持分にも持分比率で負担させる点が異なる。</li></ol><div class="we-answer">答え： 未実現利益 12,000を消去し連結上の棚卸資産と利益を減額。ダウンストリームは全額を親会社負担（非支配株主に配分しない）。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「のれん＝投資−親持分」「非支配株主持分＝子純資産×非支配割合」。未実現利益はダウンストリーム（親負担のみ）／アップストリーム（非支配にも按分）の違いが最頻出。持分法は投資勘定を一行で増減させる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">17. キャッシュ・フロー計算書</h2>
+      <p class="lead">資金（現金及び現金同等物）の増減を、<strong>営業活動・投資活動・財務活動</strong>の3区分で示す。営業活動には直接法・間接法の2表示がある。</p>
+      <p class="body-p">営業活動によるCFは、主要な取引ごとの収入・支出を総額表示する<strong>直接法</strong>と、税引前当期純利益から非資金損益項目（減価償却費等）や営業資産・負債の増減を加減する<strong>間接法</strong>のいずれかで表示する（実務では間接法が多い）。投資活動には有形固定資産・有価証券の取得売却、財務活動には借入・社債・増資・配当支払等が入る。</p>
+      <div class="worked-example"><div class="we-label">設例（間接法・営業CFの調整）</div><p class="we-setup">税引前当期純利益 100,000。減価償却費 20,000。売上債権が15,000増加、棚卸資産が5,000減少、仕入債務が8,000増加。</p><ol class="we-steps"><li>出発点：税引前当期純利益 100,000</li><li>非資金費用の加算：＋減価償却費 20,000</li><li>売上債権の増加は資金の減少 → −15,000／棚卸資産の減少は資金の増加 → ＋5,000</li><li>仕入債務の増加は資金の増加 → ＋8,000</li></ol><div class="we-answer">答え： 100,000＋20,000−15,000＋5,000＋8,000 ＝ 118,000（営業活動によるCF、法人税等支払等の調整前）。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 間接法の符号：資産の増加＝マイナス／負債の増加＝プラス。減価償却費・引当金増加などの非資金項目は加算する。利息・配当金の受払の表示区分（営業か投資・財務か）は継続適用が求められる。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">18. 1株当たり情報・会計上の変更・表示注記</h2>
+      <p class="lead"><strong>1株当たり当期純利益（EPS）</strong>、会計方針の変更・見積りの変更・誤謬の訂正の区別、財務諸表の表示・注記の基本を押さえる。</p>
+      <p class="body-p"><strong>1株当たり当期純利益</strong>は、普通株主に帰属する当期純利益を普通株式の期中平均株式数で除して算定する。新株予約権等の希薄化効果を反映した<strong>潜在株式調整後1株当たり当期純利益</strong>も開示する。</p>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>類型</th><th>処理</th></tr></thead><tbody>
+        <tr><td>会計方針の変更</td><td>原則<strong>遡及適用</strong>（過年度に新方針を適用していたかのように処理）</td></tr>
+        <tr><td>会計上の見積りの変更</td><td>変更した期以降に<strong>将来にわたり</strong>反映（遡及しない）</td></tr>
+        <tr><td>過去の誤謬の訂正</td><td><strong>修正再表示</strong>（過年度の財務諸表を訂正）</td></tr>
+      </tbody></table></div>
+      <div class="worked-example"><div class="we-label">設例（EPS）</div><p class="we-setup">当期純利益 300,000（うち普通株主に帰属する額とする）。期首発行済株式10,000株、10月1日に2,000株を新規発行（会計期間は4月1日〜翌3月31日）。</p><ol class="we-steps"><li>新規発行株式の期中在籍期間：10月1日〜3月31日＝6か月 → 2,000株 × 6/12 ＝ 1,000株</li><li>期中平均株式数：10,000 ＋ 1,000 ＝ 11,000株</li><li>1株当たり当期純利益：300,000 ÷ 11,000株 ＝ 27.27…円</li></ol><div class="we-answer">答え： EPS ＝ 約27.27円／株（期中平均株式数11,000株で除算）。期中発行分は在籍期間で加重平均する。</div></div>
+      <div class="notice" style="margin-top:1rem;"><strong>試験のツボ</strong> 「方針変更＝遡及適用」「見積り変更＝将来へ」「誤謬＝修正再表示」の3分類が頻出。減価償却方法の変更は"会計上の見積りの変更と区別が困難なもの"として遡及適用せず将来へ反映する扱いに注意。</div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <h2 class="section-title">この科目を演習する</h2>
+      <div class="content-grid">
+        <a class="content-card" href="practice.html?subject=zaimu"><div class="content-card-title">過去問演習</div><div class="content-card-desc">この科目に絞って5択問題を解く。誤答は自動で「要復習」に登録。</div><div class="content-card-arrow">演習する →</div></a>
+        <a class="content-card" href="flashcard.html?subject=zaimu"><div class="content-card-title">単語帳</div><div class="content-card-desc">重要用語をフラッシュカード／用語集で暗記。</div><div class="content-card-arrow">暗記する →</div></a>
+        <a class="content-card" href="roadmap.html"><div class="content-card-title">学習ロードマップ</div><div class="content-card-desc">試験日までの計画でこの科目の学習時期を確認。</div><div class="content-card-arrow">開く →</div></a>
+      </div>
+    </div></section>
+
+    </main>
+    <footer class="site-footer"><div class="container"><div>資格まとめ — 公認会計士 財務会計論</div><div class="disclaimer">掲載内容は個人学習目的です。最新の会計基準・監査基準・法令は公式資料（金融庁 公認会計士・監査審査会 等）でご確認ください。</div></div></footer>
+  </div>
+</body>
+</html>

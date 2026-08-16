@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="公認会計士試験の概要。受験資格・短答式／論文式の科目と配点・試験日程・合格基準（足切り）・免除制度・合格率・合格後の登録要件を一覧でまとめた参考ページ。" />
+  <title>公認会計士試験 概要 — 資格まとめ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    #page-content { display: none; }
+    #auth-loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #8a8a8a; font-family: "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div id="auth-loading">読み込み中...</div>
+  <noscript><style>#auth-loading{display:none}</style><div style="max-width:640px;margin:4rem auto;padding:0 1.5rem;font-family:sans-serif;color:#5a5a5a;line-height:1.8;text-align:center;">このサイトの閲覧にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</div></noscript>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    const firebaseConfig = { apiKey: "AIzaSyA23ZY-H2JPzdlG1Fm8bfLW34y9XEMldrU", authDomain: "dev-smoke-308500.firebaseapp.com", projectId: "dev-smoke-308500", storageBucket: "dev-smoke-308500.firebasestorage.app", messagingSenderId: "787519016500", appId: "1:787519016500:web:decc4d4a20145659f44461" };
+    const auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, user => { document.getElementById("auth-loading").style.display = "none"; if (!user) location.href = "/shikaku/login.html"; else document.getElementById("page-content").style.display = "block"; });
+  </script>
+
+  <div id="page-content">
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name">資格まとめ</div>
+      <div class="site-role">公認会計士 学習ノート</div>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/shikaku/index.html">ホーム</a></li>
+        <li><a class="nav-link" href="../index.html">公認会計士</a></li>
+        <li><a class="nav-link current" href="overview.html">試験概要</a></li>
+        <li><a class="nav-link" href="../roadmap.html">ロードマップ</a></li>
+        <li><a class="nav-link" href="../practice.html">過去問演習</a></li>
+        <li><a class="nav-link" href="../flashcard.html">単語帳</a></li>
+        <li><a class="nav-link" href="../career.html">キャリアプラン</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 基本情報 -->
+    <section class="section">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/shikaku/index.html">ホーム</a>
+          <span class="breadcrumb-sep">›</span>
+          <a href="../index.html">公認会計士</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>試験概要</span>
+        </div>
+
+        <h1 class="section-title">試験の基本情報</h1>
+        <p class="lead">
+          公認会計士試験は、金融庁の<strong>公認会計士・監査審査会（CPAAOB）</strong>が実施する国家試験です。
+          マークシート式の<strong>短答式試験</strong>（年2回）と記述式の<strong>論文式試験</strong>（年1回）からなる2段階選抜で、
+          短答式に合格した者だけが同年の論文式に進めます。財務諸表監査を独占業務とする「会計・監査のプロフェッショナル」を認定します。
+        </p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <tbody>
+              <tr>
+                <td class="highlight" style="width:36%">正式名称</td>
+                <td>公認会計士試験</td>
+              </tr>
+              <tr>
+                <td class="highlight">実施機関</td>
+                <td>金融庁 公認会計士・監査審査会（CPAAOB）</td>
+              </tr>
+              <tr>
+                <td class="highlight">根拠法令</td>
+                <td>公認会計士法</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験資格</td>
+                <td><strong>制限なし</strong>。年齢・学歴・国籍等にかかわらず、誰でも受験できる。</td>
+              </tr>
+              <tr>
+                <td class="highlight">受験手数料</td>
+                <td>19,500円。<strong>ペイジー（Pay-easy）による電子納付</strong>（短答式の出願時に納付）。<span style="font-size:0.82rem;color:var(--color-text-muted)">※現行は収入印紙ではなく電子納付。</span></td>
+              </tr>
+              <tr>
+                <td class="highlight">実施方式</td>
+                <td>短答式＝マークシート式（年2回：12月・5月）／論文式＝記述式（年1回：8月に3日間）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2段階の全体像 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">2段階選抜の全体像</h2>
+        <p class="lead">
+          公認会計士試験は「短答式 → 論文式」の順に進みます。<strong>論文式を受験できるのは、同年の短答式合格者・短答式全部免除者等に限られます。</strong>
+          短答式に合格すると<strong>2年間は短答式が全部免除</strong>され、その間は論文式に集中できます（論文で不合格でも翌年・翌々年は短答免除で再挑戦可能）。
+        </p>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>短答式試験（年2回・マークシート）</strong>
+              <p>財務会計論・管理会計論・監査論・企業法の4科目＝500点満点。総点数の70%を目安に合格。合格者は以後2年間、短答式が全部免除される。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>論文式試験（年1回・8月3日間・記述）</strong>
+              <p>会計学・監査論・企業法・租税法・選択科目の5科目＝700点満点。得点比率52%前後を目安に、偏差点（相対評価）で合否を判定。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">✓</div>
+            <div class="flow-body">
+              <strong>論文式合格 → 公認会計士試験合格</strong>
+              <p>合格後、業務補助（実務経験）・実務補習・修了考査を経て日本公認会計士協会に登録すると、公認会計士として業務ができる。</p>
+            </div>
+          </div>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          論文式で1科目でも一定の成績（合格者の平均得点比率を基準に審査会が相当と認めた比率以上）を得ると、その<strong>科目は2年間免除</strong>されます（論文式の一部科目免除）。短答免除の2年とは別制度です。
+        </div>
+      </div>
+    </section>
+
+    <!-- 短答式 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">短答式試験（第1段階）</h2>
+        <p class="lead">全科目マークシート式。<strong>財務会計論だけが200点</strong>と配点2倍で、実質的に短答突破の鍵を握ります。1日で4科目を実施します。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>科目</th><th class="num">配点</th><th class="num">試験時間</th><th>主な内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="highlight">企業法</td><td class="num">100点</td><td class="num">50分</td><td>会社法・金融商品取引法・商法等</td></tr>
+              <tr><td class="highlight">管理会計論</td><td class="num">100点</td><td class="num">75分</td><td>原価計算・管理会計（計算＋理論）</td></tr>
+              <tr><td class="highlight">監査論</td><td class="num">100点</td><td class="num">50分</td><td>監査の理論・基準・実務指針</td></tr>
+              <tr><td class="highlight">財務会計論</td><td class="num">200点</td><td class="num">150分</td><td>簿記（計算）＋財務諸表論（理論）</td></tr>
+              <tr style="background: var(--color-bg-alt)"><td class="highlight">合計</td><td class="num highlight">500点</td><td class="num">計325分</td><td>総点数の70%を目安に合格（回により変動）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          出題順（当日の実施順）は企業法 → 管理会計論 → 監査論 → 財務会計論で、配点の重い財務会計論が最後（150分）に置かれます。問題数は財務会計論が40問以内、他は各20問以内が目安です。
+        </div>
+      </div>
+    </section>
+
+    <!-- 論文式 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">論文式試験（第2段階）</h2>
+        <p class="lead">
+          記述式で、3日間かけて5科目を実施します。短答式の財務会計論と管理会計論は、論文式では<strong>「会計学」（300点）</strong>として統合されます。
+          さらに短答式にはない<strong>租税法</strong>と<strong>選択科目</strong>が加わります。
+        </p>
+
+        <div class="subject-bar">
+          <div class="bar-segment" style="width:42.9%; background:#2b6cb0"></div>
+          <div class="bar-segment" style="width:14.3%; background:#b7791f"></div>
+          <div class="bar-segment" style="width:14.3%; background:#9c4221"></div>
+          <div class="bar-segment" style="width:14.3%; background:#6b46c1"></div>
+          <div class="bar-segment" style="width:14.3%; background:#0d7a8a"></div>
+        </div>
+        <div class="bar-legend">
+          <span><i style="background:#2b6cb0"></i>会計学 300点</span>
+          <span><i style="background:#b7791f"></i>監査論 100点</span>
+          <span><i style="background:#9c4221"></i>企業法 100点</span>
+          <span><i style="background:#6b46c1"></i>租税法 100点</span>
+          <span><i style="background:#0d7a8a"></i>選択科目 100点</span>
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.2rem">
+          <table class="data-table">
+            <thead>
+              <tr><th>科目</th><th class="num">配点</th><th class="num">試験時間</th><th>内容・短答との関係</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="highlight">会計学</td><td class="num">300点</td><td class="num">午前120分＋午後180分</td><td>財務会計論＋管理会計論を統合。大問5問。論文式の主戦場</td></tr>
+              <tr><td class="highlight">監査論</td><td class="num">100点</td><td class="num">120分</td><td>短答と同科目を記述で。大問2問</td></tr>
+              <tr><td class="highlight">企業法</td><td class="num">100点</td><td class="num">120分</td><td>短答と同科目を論述で。大問2問</td></tr>
+              <tr><td class="highlight">租税法</td><td class="num">100点</td><td class="num">120分</td><td><strong>論文式のみ</strong>。法人税・所得税・消費税等。大問2問</td></tr>
+              <tr><td class="highlight">選択科目</td><td class="num">100点</td><td class="num">120分</td><td><strong>論文式のみ</strong>。経営学／経済学／民法／統計学から1科目。大問2問</td></tr>
+              <tr style="background: var(--color-bg-alt)"><td class="highlight">合計</td><td class="num highlight">700点</td><td class="num">3日間</td><td>得点比率52%前後を目安に相対評価で合格</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          <strong>実施順（3日間）：</strong>1日目＝監査論・租税法、2日目＝会計学（午前・午後）、3日目＝企業法・選択科目。
+          会計学の内訳（財務会計論200点＋管理会計論100点）は一般的な整理で、受験案内では「会計学300点」と一括表記されています。
+        </div>
+      </div>
+    </section>
+
+    <!-- スケジュール -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験スケジュール（直近）</h2>
+        <div class="notice">
+          <strong>次に来る試験：</strong>
+          直近の<strong>論文式は令和8年（2026年）8月21日〜23日</strong>（本ページ基準日 2026/8/16 のおよそ5日後）に実施予定。
+          その次の<strong>短答式は令和9年（2027年）第I回＝2026年12月13日（日）</strong>で、出願期間は<strong>令和8年8月28日〜9月17日</strong>です。
+          これから短答式から学習を始める人の実質的な最初の目標は<strong>2026年12月13日の第I回短答式</strong>になります。
+        </div>
+        <div class="table-wrap" style="margin-top:1rem">
+          <table class="data-table">
+            <thead>
+              <tr><th>回次</th><th>試験日</th><th>区分</th><th>状態（2026/8/16時点）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>令和8年 第I回短答式</td><td>2025年12月14日（日）</td><td>短答式</td><td>実施済み</td></tr>
+              <tr><td>令和8年 第II回短答式</td><td>2026年5月24日（日）</td><td>短答式</td><td>実施済み</td></tr>
+              <tr><td class="highlight">令和8年 論文式</td><td class="highlight">2026年8月21日〜23日</td><td class="highlight">論文式</td><td class="highlight">実施直前 ← 次の試験</td></tr>
+              <tr><td class="highlight">令和9年 第I回短答式</td><td class="highlight">2026年12月13日（日）</td><td class="highlight">短答式</td><td class="highlight">出願受付 8/28〜9/17</td></tr>
+              <tr><td>令和9年 第II回短答式</td><td>2027年5月23日（日）</td><td>短答式</td><td>予定</td></tr>
+              <tr><td>令和9年 論文式</td><td>2027年8月20日〜22日</td><td>論文式</td><td>予定</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          令和8年 論文式の合格発表は<strong>令和8年11月中旬</strong>（具体日は別途公表）、令和9年第I回短答式の合格発表は<strong>令和9年1月22日（金）</strong>の予定です。日程・出願期間は必ず公式（CPAAOB）で最新情報を確認してください。
+        </div>
+      </div>
+    </section>
+
+    <!-- 合格基準 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格基準（足切りに注意）</h2>
+        <p class="lead">短答式・論文式とも「基準となる比率」は目安で、実際の合格ラインは回ごとに審査会が定めます。いずれも<strong>1科目でも極端に低いと足切りで不合格</strong>になり得る点が重要です。</p>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>区分</th><th>合格の目安</th><th>足切り（不合格となることがある基準）</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="highlight">短答式</td>
+                <td>総点数の<strong>70%</strong>を基準として審査会が相当と認めた得点比率（回により変動）</td>
+                <td>1科目でも<strong>満点の40%を満たさず、かつ答案提出者の下位から33%相当の得点比率にも満たない</strong>場合（二重条件）</td>
+              </tr>
+              <tr>
+                <td class="highlight">論文式</td>
+                <td>得点比率<strong>52%</strong>を基準として審査会が相当と認めた得点比率（<strong>偏差点＝相対評価</strong>）</td>
+                <td>1科目でも<strong>得点比率が40%未満</strong>の科目がある場合</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          論文式の「52%」は<strong>令和8年試験までの基準</strong>で、<strong>令和9年試験から段階的に54%へ引き上げ</strong>られる予定です（数年かけて移行）。最新の合格基準は受験案内で確認してください。
+        </div>
+      </div>
+    </section>
+
+    <!-- 合格率 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格率の推移</h2>
+        <p class="lead">
+          公認会計士・監査審査会は「最終合格率＝最終合格者÷願書提出者」で公表しており、近年は<strong>7〜8%台</strong>で推移しています。
+          一方、実際に論文式を受験した人を分母にすると<strong>35%前後</strong>で、短答式で大きく絞られる構造がわかります。
+        </p>
+        <div class="table-wrap" style="margin-top:0.6rem">
+          <table class="data-table">
+            <thead>
+              <tr><th>年（試験）</th><th class="num">願書提出者</th><th class="num">論文式受験者</th><th class="num">最終合格者</th><th class="num">合格率（対願書）</th><th class="num">（対論文受験）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>令和3年(2021)</td><td class="num">14,192</td><td class="num">3,992</td><td class="num">1,360</td><td class="num highlight">9.6%</td><td class="num">34.1%</td></tr>
+              <tr><td>令和4年(2022)</td><td class="num">18,789</td><td class="num">4,067</td><td class="num">1,456</td><td class="num highlight">7.7%</td><td class="num">35.8%</td></tr>
+              <tr><td>令和5年(2023)</td><td class="num">20,317</td><td class="num">4,192</td><td class="num">1,544</td><td class="num highlight">7.6%</td><td class="num">36.8%</td></tr>
+              <tr><td>令和6年(2024)</td><td class="num">21,573</td><td class="num">4,354</td><td class="num">1,603</td><td class="num highlight">7.4%</td><td class="num">36.8%</td></tr>
+              <tr><td>令和7年(2025)</td><td class="num">22,056</td><td class="num">4,665</td><td class="num">1,636</td><td class="num highlight">7.4%</td><td class="num">35.1%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          短答式の合格率は各回おおむね<strong>8〜12%</strong>（答案提出者ベース）。令和7年の最終合格者は<strong>平均年齢24.6歳</strong>、女性比率24.0%、学生が55.3%を占めます（出典：CPAAOB 合格発表資料）。出願者は増加傾向で、合格率は近年やや低下しています。
+        </div>
+      </div>
+    </section>
+
+    <!-- 免除制度 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">試験科目の免除制度</h2>
+        <p class="lead">資格・学位・実務経験により、短答式・論文式の一部（または全部）が免除されます。主なものを整理します。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>対象</th><th>短答式の免除</th><th>論文式の免除</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="highlight">会計専門職大学院（会計大学院）修了者</td>
+                <td>財務会計論・管理会計論・監査論（<strong>企業法は残る</strong>）</td>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <td class="highlight">税理士となる資格を有する者</td>
+                <td>財務会計論</td>
+                <td>租税法</td>
+              </tr>
+              <tr>
+                <td class="highlight">税理士試験の簿記論・財務諸表論の両方に合格</td>
+                <td>財務会計論</td>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <td class="highlight">司法試験合格者（※時点要件あり）</td>
+                <td>全部免除</td>
+                <td>企業法・民法</td>
+              </tr>
+              <tr>
+                <td class="highlight">不動産鑑定士試験合格者</td>
+                <td>なし</td>
+                <td>経済学 または 民法</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          <strong>誤情報に注意：</strong>日商簿記1級は<strong>公認会計士試験の科目免除にはつながりません</strong>（免除対象者の一覧に含まれない）。日商1級は税理士試験の受験資格の一つにはなり得ますが、公認会計士試験の免除とは無関係です。
+          会計大学院修了者も「短答式の3科目免除」であって全科目免除ではありません。司法試験合格者の免除には交付時期の要件があり、適用可否は最新の受験案内で確認が必要です。
+        </div>
+      </div>
+    </section>
+
+    <!-- 合格後 -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">合格後の登録要件（公認会計士になるまで）</h2>
+        <p class="lead">
+          試験合格だけでは公認会計士として業務はできません。<strong>①業務補助等（実務経験）②実務補習の修了 ③日本公認会計士協会への登録</strong>の3要件を満たす必要があります。
+        </p>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-body">
+              <strong>業務補助等（実務経験）：原則3年以上</strong>
+              <p>監査法人等で監査・会計の実務に従事する。令和5年改正で「2年以上」から「3年以上」へ延長された（経過措置あり）。試験合格の前後を問わず算入できる。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-body">
+              <strong>実務補習（原則3年）＋修了考査合格</strong>
+              <p>一般財団法人 会計教育研修機構で、監査・会計・税務・経営／IT・法規／職業倫理の分野を受講し所定単位を取得。最終段階として日本公認会計士協会が実施する<strong>修了考査</strong>に合格し、実務補習修了となる。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-body">
+              <strong>日本公認会計士協会へ登録</strong>
+              <p>3要件を満たしたうえで登録申請。登録が完了すると公認会計士として財務諸表監査等の独占業務を行える。</p>
+            </div>
+          </div>
+        </div>
+        <div class="notice" style="margin-top:1rem;">
+          合格後のキャリア（監査法人・独立・税理士／行政書士への展開）は <a href="../career.html">キャリアプラン</a> に、学習計画は <a href="../roadmap.html">学習ロードマップ</a> にまとめています。
+        </div>
+      </div>
+    </section>
+
+    <!-- 参考リンク -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">参考リンク</h2>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; font-size:0.9rem;">
+          <li><a href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/index.html" target="_blank" rel="noopener">公認会計士・監査審査会（CPAAOB）— 公認会計士試験（公式）</a></li>
+          <li><a href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/qanda/index.html" target="_blank" rel="noopener">CPAAOB — 公認会計士試験に関するQ&amp;A（受験資格・手数料・合格基準）</a></li>
+          <li><a href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/youshiki/menjyokamoku.pdf" target="_blank" rel="noopener">CPAAOB — 免除資格要件と免除科目（PDF）</a></li>
+          <li><a href="https://www.fsa.go.jp/ordinary/kouninkaikeisi/" target="_blank" rel="noopener">金融庁 — 公認会計士の資格取得に関するQ&amp;A（登録要件）</a></li>
+          <li><a href="https://jicpa.or.jp/" target="_blank" rel="noopener">日本公認会計士協会（JICPA）</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>資格まとめ — 公認会計士 学習ノート</div>
+      <div class="disclaimer">個人学習用の参考まとめサイトです。試験日程・受験手数料・出願期間・制度は必ず公式（金融庁 公認会計士・監査審査会 CPAAOB）でご確認ください。</div>
+    </div>
+  </footer>
+  </div><!-- /#page-content -->
+
+</body>
+</html>
